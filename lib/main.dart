@@ -1,4 +1,5 @@
 import 'package:cowin_1/screen/navigation.dart';
+import 'package:cowin_1/screen/splash/splash1.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: NavigationScreen(),
+      home: SplashScreen(),
     );
   }
 }
