@@ -43,8 +43,6 @@ class _navigationScreenState extends State<NavigationScreen> {
                 Tools().getIcon("home.svg"),
                 color: cwColor4,
               ),
-        //icon: SvgPicture.asset(Tools().getIcon("home.svg"),width: 26,height: 26,fit: BoxFit.fill,),
-        //icon: Container(height: 10,width: 26,color: Colors.black,),
         activeColorPrimary: cwColor5,
         title: ('Home'),
       ),
@@ -104,6 +102,16 @@ class _navigationScreenState extends State<NavigationScreen> {
 
   PersistentTabController _controller =
       PersistentTabController(initialIndex: 0);
+@override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _controller.addListener(() {
+      setState(() {
+
+      });
+    });
+  }
 
   @override
   void dispose() {
