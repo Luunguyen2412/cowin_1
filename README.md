@@ -1,4 +1,4 @@
-# cowin_1
+# Cowin
 
 A new Flutter project.
 
