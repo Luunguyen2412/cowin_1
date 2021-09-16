@@ -1,4 +1,5 @@
 import 'package:cowin_1/common/config/colors_config.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -17,6 +18,16 @@ var kText40Bold_3 = kTextConfig.copyWith(
   fontSize: ScreenUtil().setSp(40),
   color: cwColor3,
 );
+var kText35Bold_7 = kTextConfig.copyWith(
+  fontWeight: FontWeight.bold,
+  fontSize: ScreenUtil().setSp(35),
+  color: cwColor7,
+);
+var kText35Normal_7 = kText35Bold_7.copyWith(
+  fontWeight: FontWeight.normal
+);
+
+
 
 var kText30Normal_1 = kTextConfig.copyWith(
   fontWeight: FontWeight.normal,
