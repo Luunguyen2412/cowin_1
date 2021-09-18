@@ -3,9 +3,9 @@ import 'package:cowin_1/widget/covid_cases_tile.dart';
 import 'package:cowin_1/widget/news_tile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomePage extends StatelessWidget {
-  static String routeName = "lib/screen/home";
   @override
   Widget build(BuildContext context) {
     return MediaQuery(
@@ -201,8 +201,6 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                 ),
-
-                Text('data'),
                 // Padding(
                 //   padding: EdgeInsets.symmetric(horizontal: 20.0),
                 //   child: ListView(
@@ -210,9 +208,10 @@ class HomePage extends StatelessWidget {
                 //     shrinkWrap: true,
                 //     children: [
                 //       NewTile(
-                //           image: '',
-                //           title:
-                //               'Hanoi added 51 new COVID-19 cases, only HH 4C Linh Dam apartment building has 13 cases'),
+                //         image: 'assets/images/Rectangle 225.png',
+                //         title:
+                //             'Hanoi added 51 new COVID-19 cases, only HH 4C Linh Dam apartment building has 13 cases',
+                //       ),
                 //     ],
                 //   ),
                 // ),

@@ -18,6 +18,12 @@ var kText40Bold_3 = kTextConfig.copyWith(
   color: cwColor3,
 );
 
+var kText40Bold_4 = kTextConfig.copyWith(
+  fontWeight: FontWeight.bold,
+  fontSize: ScreenUtil().setSp(40),
+  color: cwColor2,
+);
+
 var kText30Normal_1 = kTextConfig.copyWith(
   fontWeight: FontWeight.normal,
   fontSize: ScreenUtil().setSp(30),
