@@ -8,9 +8,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../size_config.dart';
-import 'Register_Screen.dart';
 
-class LoginScreen extends StatelessWidget {
+class RegisterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,12 +19,11 @@ class LoginScreen extends StatelessWidget {
           children: <Widget>[
             Column(
               children: <Widget>[
-                Image.asset('assets/images/login.png'),
                 SizedBox(
-                  height: 26.h,
+                  height: 111.h,
                 ),
                 Text(
-                  'Welcome back',
+                  'Register',
                   textAlign: TextAlign.center,
                   style: kTextConfig.copyWith(
                     fontWeight: FontWeight.bold,
@@ -34,7 +32,7 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'Login to your account',
+                  'Create your new account',
                   textAlign: TextAlign.center,
                   style: kTextConfig.copyWith(
                     fontWeight: FontWeight.w600,
@@ -63,7 +61,7 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: 17.h,
+                  height: 14.h,
                 ),
                 TextFieldContainer(
                   child: TextField(
@@ -83,32 +81,39 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: 20.h,
+                  height: 14.h,
                 ),
-                Row(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.all(12),
-                    ),
-                    //Image.asset('assets/images/tick.png'),
-                    Text(
-                      'Remember me',
-                    ),
-                    SizedBox(
-                      width: 140.w,
-                    ),
-                    Text(
-                      'Forgot password?',
-                      style: kTextConfig.copyWith(
-                        fontWeight: FontWeight.w600,
-                        fontSize: ScreenUtil().setSp(14),
+                TextFieldContainer(
+                  child: TextField(
+                    decoration: InputDecoration(
+                      icon: Icon(
+                        Icons.lock,
                         color: cwColor5,
                       ),
+                      hintText: "Confirm Password",
+                      hintStyle: kTextConfig.copyWith(
+                        fontWeight: FontWeight.w600,
+                        fontSize: ScreenUtil().setSp(17),
+                        color: cwColor5,
+                      ),
+                      border: InputBorder.none,
                     ),
-                  ],
+                  ),
                 ),
                 SizedBox(
-                  height: 45.h,
+                  height: 24.h,
+                ),
+                Text(
+                  "By signing you agree to our Team of use and\nprivacy notice",
+                  textAlign: TextAlign.center,
+                  style: kTextConfig.copyWith(
+                    fontWeight: FontWeight.w400,
+                    fontSize: ScreenUtil().setSp(14),
+                    color: cwColor4,
+                  ),
+                ),
+                SizedBox(
+                  height: 72.h,
                 ),
                 GestureDetector(
                   child: Container(
@@ -120,7 +125,7 @@ class LoginScreen extends StatelessWidget {
                     ),
                     alignment: Alignment.center,
                     child: Text(
-                      'LOGIN',
+                      'REGISTER',
                       style: kTextConfig.copyWith(
                         fontWeight: FontWeight.bold,
                         fontSize: ScreenUtil().setSp(20),
@@ -135,7 +140,7 @@ class LoginScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Don't have an account?",
+                      "Already have account?",
                       textAlign: TextAlign.center,
                       style: kTextConfig.copyWith(
                         fontWeight: FontWeight.w400,
@@ -144,14 +149,9 @@ class LoginScreen extends StatelessWidget {
                       ),
                     ),
                     TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => RegisterScreen()));
-                      },
+                      onPressed: () {},
                       child: Text(
-                        'Sign up!',
+                        'Login',
                         style: kTextConfig.copyWith(
                           fontWeight: FontWeight.bold,
                           fontSize: ScreenUtil().setSp(18),
