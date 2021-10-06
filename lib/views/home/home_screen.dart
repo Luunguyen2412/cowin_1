@@ -20,84 +20,122 @@ class HomePage extends StatelessWidget {
           children: [
             Stack(
               children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      height: 340.h,
-                    ),
-                    Text(
-                      "Covid Cases",
-                      style:
-                          heading.copyWith(color: Colors.black, fontSize: 28),
-                    ),
-                    Text(
-                      "Update lasted 3 minute ago",
-                      style:
-                          normalText.copyWith(color: kTextColor, fontSize: 16),
-                    ),
-                    SizedBox(
-                      height: 20.h,
-                    ),
-                    Container(
-                      height: 53,
-                      width: 360,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        color: kWhiteColor,
-                        border: Border.all(
-                          color: cwColor3,
+                Padding(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 16.w, vertical: 15.h),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        height: 340.h,
+                      ),
+                      Text(
+                        "Covid Cases",
+                        style:
+                            heading.copyWith(color: Colors.black, fontSize: 28),
+                      ),
+                      Text(
+                        "Update lasted 3 minute ago",
+                        style: normalText.copyWith(
+                            color: kTextColor, fontSize: 14),
+                      ),
+                      SizedBox(
+                        height: 20.h,
+                      ),
+                      Container(
+                        height: 53,
+                        width: 360,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          color: kWhiteColor,
+                          border: Border.all(
+                            color: cwColor3,
+                          ),
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      height: 45.h,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: GridView(
-                        shrinkWrap: true,
-                        physics: NeverScrollableScrollPhysics(),
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2, childAspectRatio: 28 / 16),
-                        children: [
-                          CasesItem(
-                            'Infected',
-                            CustomColors.yellow,
-                          ),
-                          CasesItem(
-                            'Death',
-                            CustomColors.red,
-                          ),
-                          CasesItem(
-                            'Recovered',
-                            CustomColors.green,
-                          ),
-                          CasesItem(
-                            'Treated',
-                            CustomColors.blue,
-                          ),
-                        ],
+                      SizedBox(
+                        height: 45.h,
                       ),
-                    ),
-                    SizedBox(
-                      height: 43.h,
-                    ),
-                    CardInfomation(),
-                    SizedBox(
-                      height: 32.h,
-                    ),
-                    Text(
-                      "Hot news",
-                      style:
-                          heading.copyWith(color: Colors.black, fontSize: 28),
-                    ),
-                    Text(
-                      "Update news about covid in the country",
-                      style:
-                          normalText.copyWith(color: kTextColor, fontSize: 16),
-                    ),
-                  ],
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: GridView(
+                          shrinkWrap: true,
+                          physics: NeverScrollableScrollPhysics(),
+                          gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 2, childAspectRatio: 28 / 16),
+                          children: [
+                            CasesItem(
+                              'Infected',
+                              CustomColors.yellow,
+                            ),
+                            CasesItem(
+                              'Death',
+                              CustomColors.red,
+                            ),
+                            CasesItem(
+                              'Recovered',
+                              CustomColors.green,
+                            ),
+                            CasesItem(
+                              'Treated',
+                              CustomColors.blue,
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 43.h,
+                      ),
+                      CardInfomation(),
+                      SizedBox(
+                        height: 32.h,
+                      ),
+                      Text(
+                        "Hot news",
+                        style:
+                            heading.copyWith(color: Colors.black, fontSize: 28),
+                      ),
+                      Text(
+                        "Update news about covid in the country",
+                        style: normalText.copyWith(
+                            color: kTextColor, fontSize: 14),
+                      ),
+                      SizedBox(
+                        height: 15.h,
+                      ),
+                      NewsCard(
+                        'assets/images/Rectangle 225.png',
+                        'Hanoi added 51 new COVID-19\ncases, only HH 4C Linh Dam\napartment building has 13 cases',
+                        '5 mins',
+                        'Lifes upadate',
+                      ),
+                      NewsCard(
+                        'assets/images/covid.jpg',
+                        'The army presides over food for Ho Chi Minh City',
+                        '5 mins',
+                        'Lifes upadate',
+                      ),
+                      NewsCard(
+                        'assets/images/Rectangle 225.png',
+                        'Hanoi added 51 new COVID-19\ncases, only HH 4C Linh Dam\napartment building has 13 cases',
+                        '5 mins',
+                        'Lifes upadate',
+                      ),
+                      NewsCard(
+                        'assets/images/Rectangle 225.png',
+                        'The army presides over food for Ho Chi Minh City',
+                        '5 mins',
+                        'Lifes upadate',
+                      ),
+                      NewsCard(
+                        'assets/images/Rectangle 225.png',
+                        'Hanoi added 51 new COVID-19\ncases, only HH 4C Linh Dam\napartment building has 13 cases',
+                        '5 mins',
+                        'Lifes upadate',
+                      ),
+                    ],
+                  ),
                 ),
                 Container(
                   height: 324.h,

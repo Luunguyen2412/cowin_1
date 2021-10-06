@@ -1,13 +1,14 @@
 import 'package:cowin_1/common/config/colors_config.dart';
 import 'package:cowin_1/common/config/texts_config.dart';
+import 'package:cowin_1/views/home/AboutCovid_screen.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CardInfomation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(8),
       padding: EdgeInsets.symmetric(horizontal: 19.h, vertical: 38.h),
       height: 421.h,
       width: 400.w,
@@ -45,7 +46,23 @@ class CardInfomation extends StatelessWidget {
           SizedBox(
             height: 28.h,
           ),
-          Card1(),
+          SingleChildScrollView(
+            physics: BouncingScrollPhysics(),
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                Card1('assets/images/Frame1.png'),
+                SizedBox(
+                  width: 25.w,
+                ),
+                Card1('assets/images/card2.png'),
+                SizedBox(
+                  width: 25.w,
+                ),
+                Card1('assets/images/card3.png'),
+              ],
+            ),
+          ),
         ],
       ),
     );
@@ -53,16 +70,28 @@ class CardInfomation extends StatelessWidget {
 }
 
 class Card1 extends StatelessWidget {
+  final String image;
+  Card1(
+    this.image,
+  );
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 142.h,
-      width: 282.w,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-        image: DecorationImage(
-          image: AssetImage('assets/images/Frame1.png'),
-          fit: BoxFit.cover,
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => AboutCovidScreen()));
+      },
+      child: Container(
+        height: 142.h,
+        width: 282.w,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          image: DecorationImage(
+            image: AssetImage(
+              image,
+            ),
+            fit: BoxFit.cover,
+          ),
         ),
       ),
     );

@@ -48,3 +48,9 @@ var kText20Bold_1 = kTextConfig.copyWith(
 var kText20Bold_4 = kText20Bold_1.copyWith(color: cwColor4);
 var kText20Normal_4 = kText20Bold_4.copyWith(fontWeight: FontWeight.normal);
 var kText20Normal_1 = kText20Bold_1.copyWith(fontWeight: FontWeight.normal);
+
+var kText14Medium_1 = kTextConfig.copyWith(
+  fontWeight: FontWeight.w600,
+  fontSize: ScreenUtil().setSp(14),
+  color: cwColor1,
+);

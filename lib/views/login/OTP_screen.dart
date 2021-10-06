@@ -4,14 +4,15 @@ import 'package:cowin_1/common/config/colors_config.dart';
 import 'package:cowin_1/common/config/texts_config.dart';
 import 'package:cowin_1/themes.dart';
 import 'package:cowin_1/views/login/widgets/textfield.dart';
+import 'package:cowin_1/widget/return_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../size_config.dart';
-import 'Register_Screen.dart';
-import 'forgot_password_screen.dart';
+import 'Successful_Screen.dart';
+import 'login_screen.dart';
 
-class LoginScreen extends StatelessWidget {
+class OtpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,12 +22,15 @@ class LoginScreen extends StatelessWidget {
           children: <Widget>[
             Column(
               children: <Widget>[
-                Image.asset('assets/images/login.png'),
                 SizedBox(
-                  height: 26.h,
+                  height: 35.h,
+                ),
+                ReturnButton(),
+                SizedBox(
+                  height: 36.h,
                 ),
                 Text(
-                  'Welcome back',
+                  'Verification code',
                   textAlign: TextAlign.center,
                   style: kTextConfig.copyWith(
                     fontWeight: FontWeight.bold,
@@ -34,13 +38,25 @@ class LoginScreen extends StatelessWidget {
                     color: cwColor1,
                   ),
                 ),
+                SizedBox(
+                  height: 16.h,
+                ),
                 Text(
-                  'Login to your account',
+                  'Enter the OTP has been sent to',
                   textAlign: TextAlign.center,
                   style: kTextConfig.copyWith(
                     fontWeight: FontWeight.w400,
                     fontSize: ScreenUtil().setSp(20),
                     color: cwColor4,
+                  ),
+                ),
+                Text(
+                  "******5945",
+                  textAlign: TextAlign.center,
+                  style: kTextConfig.copyWith(
+                    fontWeight: FontWeight.bold,
+                    fontSize: ScreenUtil().setSp(28),
+                    color: cwColor3,
                   ),
                 ),
                 SizedBox(
@@ -55,7 +71,7 @@ class LoginScreen extends StatelessWidget {
                       ),
                       hintText: "Email/your number",
                       hintStyle: kTextConfig.copyWith(
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w400,
                         fontSize: ScreenUtil().setSp(17),
                         color: cwColor5,
                       ),
@@ -64,86 +80,14 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: 17.h,
-                ),
-                TextFieldContainer(
-                  child: TextField(
-                    decoration: InputDecoration(
-                      prefixIcon: Icon(
-                        Icons.lock,
-                        color: cwColor5,
-                      ),
-                      hintText: "Password",
-                      hintStyle: kTextConfig.copyWith(
-                        fontWeight: FontWeight.w600,
-                        fontSize: ScreenUtil().setSp(17),
-                        color: cwColor5,
-                      ),
-                      border: InputBorder.none,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 10.h,
-                ),
-                Row(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.all(4),
-                    ),
-                    Checkbox(
-                      value: false,
-                      onChanged: (value) {},
-                    ),
-                    Text(
-                      'Remember me',
-                    ),
-                    SizedBox(
-                      width: 110.w,
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => ForgotPassScreen()));
-                      },
-                      child: Text(
-                        'Forgot password?',
-                        style: kText14Medium_1,
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 45.h,
-                ),
-                GestureDetector(
-                  child: Container(
-                    height: 60,
-                    width: 350,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(38),
-                      color: cwColor1,
-                    ),
-                    alignment: Alignment.center,
-                    child: Text(
-                      'LOGIN',
-                      style: kTextConfig.copyWith(
-                        fontWeight: FontWeight.bold,
-                        fontSize: ScreenUtil().setSp(20),
-                        color: cwColor2,
-                      ),
-                    ),
-                  ),
-                  onTap: () {},
+                  height: 35.h,
                 ),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Don't have an account?",
+                      "Don’t receive OTP?",
                       textAlign: TextAlign.center,
                       style: kTextConfig.copyWith(
                         fontWeight: FontWeight.w400,
@@ -156,18 +100,46 @@ class LoginScreen extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => RegisterScreen()));
+                                builder: (context) => LoginScreen()));
                       },
                       child: Text(
-                        'Sign up!',
+                        'RESENT OTP (112)',
                         style: kTextConfig.copyWith(
                           fontWeight: FontWeight.bold,
                           fontSize: ScreenUtil().setSp(18),
-                          color: cwColor6,
+                          color: cwColor1,
                         ),
                       ),
                     ),
                   ],
+                ),
+                SizedBox(
+                  height: 61.h,
+                ),
+                GestureDetector(
+                  child: Container(
+                    height: 60,
+                    width: 350,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(38),
+                      color: cwColor1,
+                    ),
+                    alignment: Alignment.center,
+                    child: Text(
+                      'VERIFY',
+                      style: kTextConfig.copyWith(
+                        fontWeight: FontWeight.bold,
+                        fontSize: ScreenUtil().setSp(20),
+                        color: cwColor2,
+                      ),
+                    ),
+                  ),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => SuccessfulScreen()));
+                  },
                 ),
               ],
             ),

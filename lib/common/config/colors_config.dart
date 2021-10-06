@@ -18,3 +18,5 @@ final cwColor6 = Color(0xFFFF0000);
 final cwColor7 = Color(0xFF58BAD3);
 
 final cwColor8 = Color(0xFFD8EDFF);
+
+final cwColor9 = Color(0xFFDDDDDD);

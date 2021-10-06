@@ -3,11 +3,14 @@ import 'dart:ffi';
 import 'package:cowin_1/common/config/colors_config.dart';
 import 'package:cowin_1/common/config/texts_config.dart';
 import 'package:cowin_1/themes.dart';
+import 'package:cowin_1/views/login/OTP_screen.dart';
 import 'package:cowin_1/views/login/widgets/textfield.dart';
+import 'package:cowin_1/widget/return_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../size_config.dart';
+import 'login_screen.dart';
 
 class RegisterScreen extends StatelessWidget {
   @override
@@ -20,7 +23,11 @@ class RegisterScreen extends StatelessWidget {
             Column(
               children: <Widget>[
                 SizedBox(
-                  height: 111.h,
+                  height: 35.h,
+                ),
+                ReturnButton(),
+                SizedBox(
+                  height: 35.h,
                 ),
                 Text(
                   'Register',
@@ -35,7 +42,7 @@ class RegisterScreen extends StatelessWidget {
                   'Create your new account',
                   textAlign: TextAlign.center,
                   style: kTextConfig.copyWith(
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w400,
                     fontSize: ScreenUtil().setSp(20),
                     color: cwColor4,
                   ),
@@ -46,7 +53,7 @@ class RegisterScreen extends StatelessWidget {
                 TextFieldContainer(
                   child: TextField(
                     decoration: InputDecoration(
-                      icon: Icon(
+                      prefixIcon: Icon(
                         Icons.person,
                         color: cwColor5,
                       ),
@@ -66,7 +73,7 @@ class RegisterScreen extends StatelessWidget {
                 TextFieldContainer(
                   child: TextField(
                     decoration: InputDecoration(
-                      icon: Icon(
+                      prefixIcon: Icon(
                         Icons.lock,
                         color: cwColor5,
                       ),
@@ -86,7 +93,7 @@ class RegisterScreen extends StatelessWidget {
                 TextFieldContainer(
                   child: TextField(
                     decoration: InputDecoration(
-                      icon: Icon(
+                      prefixIcon: Icon(
                         Icons.lock,
                         color: cwColor5,
                       ),
@@ -103,13 +110,33 @@ class RegisterScreen extends StatelessWidget {
                 SizedBox(
                   height: 24.h,
                 ),
-                Text(
-                  "By signing you agree to our Team of use and\nprivacy notice",
+                RichText(
                   textAlign: TextAlign.center,
-                  style: kTextConfig.copyWith(
-                    fontWeight: FontWeight.w400,
-                    fontSize: ScreenUtil().setSp(14),
-                    color: cwColor4,
+                  text: TextSpan(
+                    text: "By signing you agree to our ",
+                    style: kTextConfig.copyWith(
+                      fontWeight: FontWeight.w400,
+                      fontSize: ScreenUtil().setSp(14),
+                      color: cwColor4,
+                    ),
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: 'Team of use ',
+                        style: kText14Medium_1,
+                      ),
+                      TextSpan(
+                        text: 'and\n',
+                        style: kTextConfig.copyWith(
+                          fontWeight: FontWeight.w400,
+                          fontSize: ScreenUtil().setSp(14),
+                          color: cwColor4,
+                        ),
+                      ),
+                      TextSpan(
+                        text: 'privacy notice',
+                        style: kText14Medium_1,
+                      ),
+                    ],
                   ),
                 ),
                 SizedBox(
@@ -121,7 +148,7 @@ class RegisterScreen extends StatelessWidget {
                     width: 350,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(38),
-                      color: cwColor5,
+                      color: cwColor1,
                     ),
                     alignment: Alignment.center,
                     child: Text(
@@ -133,7 +160,10 @@ class RegisterScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => OtpScreen()));
+                  },
                 ),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -149,7 +179,12 @@ class RegisterScreen extends StatelessWidget {
                       ),
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => LoginScreen()));
+                      },
                       child: Text(
                         'Login',
                         style: kTextConfig.copyWith(
