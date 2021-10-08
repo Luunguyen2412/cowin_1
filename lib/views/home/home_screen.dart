@@ -34,7 +34,7 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      width: 120,
+                      width: 80,
                     ),
                     IconButton(
                       onPressed: () {},
@@ -80,7 +80,7 @@ class HomePage extends StatelessWidget {
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(
-                    horizontal: 40.0,
+                    horizontal: 10.0,
                   ),
                   child: Row(
                     children: [
@@ -102,12 +102,12 @@ class HomePage extends StatelessWidget {
                         onTap: () {},
                       ),
                       SizedBox(
-                        width: 20,
+                        width: 10,
                       ),
                       GestureDetector(
                         child: Container(
                           height: 50,
-                          width: 150,
+                          width: 160,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(30),
                             color: Colors.green,

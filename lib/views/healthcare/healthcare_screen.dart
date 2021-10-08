@@ -25,6 +25,8 @@ class _HealthCareScreenState extends State<HealthCareScreen>
     // TODO: implement initState
     super.initState();
     _tabController = TabController(length: 3, vsync: this);
+    _tabController.animateTo(0,
+        duration: Duration(milliseconds: 500), curve: Curves.bounceIn);
     _tabController.addListener(() {
       setState(() {});
     });
@@ -59,12 +61,12 @@ class _HealthCareScreenState extends State<HealthCareScreen>
                         width: 46.h,
                         height: 46.h,
                         decoration: BoxDecoration(
-                          color: cwColor2,
+                            color: cwColor2,
                             borderRadius: BorderRadius.circular(10.h),
                             boxShadow: [
                               BoxShadow(
                                 color: Color(0xFF4F9FF1).withOpacity(0.2),
-                                offset: Offset(0,2),
+                                offset: Offset(0, 2),
                                 blurRadius: 20.0,
                               )
                             ]),
@@ -72,7 +74,8 @@ class _HealthCareScreenState extends State<HealthCareScreen>
                           child: Container(
                               height: 27.h,
                               width: 25.w,
-                              child: SvgPicture.asset(Tools().getIcon("notification.svg"))),
+                              child: SvgPicture.asset(
+                                  Tools().getIcon("notification.svg"))),
                         ),
                       ),
                       Container(
@@ -83,9 +86,7 @@ class _HealthCareScreenState extends State<HealthCareScreen>
                           width: 13.h,
                           height: 13.h,
                           decoration: BoxDecoration(
-                              color: cwColor6,
-                              shape: BoxShape.circle
-                          ),
+                              color: cwColor6, shape: BoxShape.circle),
                         ),
                       ),
                     ],
@@ -101,7 +102,7 @@ class _HealthCareScreenState extends State<HealthCareScreen>
                         boxShadow: [
                           BoxShadow(
                             color: Color(0xFF4F9FF1).withOpacity(0.2),
-                            offset: Offset(0,2),
+                            offset: Offset(0, 2),
                             blurRadius: 20.0,
                           )
                         ]),

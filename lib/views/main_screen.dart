@@ -7,27 +7,28 @@ import 'package:cowin_1/views/chat/chat_screen.dart';
 import 'package:cowin_1/views/healthcare/healthcare_screen.dart';
 import 'package:cowin_1/views/map/map_screen.dart';
 import 'package:cowin_1/views/news/news_screen.dart';
+import 'package:cowin_1/views/profile/profile_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_template/flutter_template.dart';
 
-import '../views/home/home_screen.dart';
+import 'home/home_screen.dart';
 
-class NavigationScreen extends StatefulWidget {
+class MainScreen extends StatefulWidget {
   @override
-  _navigationScreenState createState() => _navigationScreenState();
+  _mainScreenState createState() => _mainScreenState();
 }
 
-class _navigationScreenState extends State<NavigationScreen> {
+class _mainScreenState extends State<MainScreen> {
   int currentTab = 0;
   List<Widget> _options = <Widget>[
     HomePage(),
     NewsScreen(),
     HealthCareScreen(),
     MapScreen(),
-    ChatScreen()
+    ProfileScreen()
   ];
 
   List<PersistentBottomNavBarItem> _navBarsItems() {
@@ -87,29 +88,28 @@ class _navigationScreenState extends State<NavigationScreen> {
         textStyle: kText14Normal_4,
         icon: _controller.index == 4
             ? SvgPicture.asset(
-                Tools().getIcon("chat.svg"),
+                Tools().getIcon("profile.svg"),
                 color: cwColor5,
               )
             : SvgPicture.asset(
-                Tools().getIcon("chat.svg"),
+                Tools().getIcon("profile.svg"),
                 color: cwColor4,
               ),
         activeColorPrimary: cwColor5,
-        title: ('Chat'),
+        title: ('Profile'),
       ),
     ];
   }
 
   PersistentTabController _controller =
-      PersistentTabController(initialIndex: 0);
-@override
+      PersistentTabController(initialIndex: 2);
+
+  @override
   void initState() {
     // TODO: implement initState
     super.initState();
     _controller.addListener(() {
-      setState(() {
-
-      });
+      setState(() {});
     });
   }
 
@@ -121,8 +121,8 @@ class _navigationScreenState extends State<NavigationScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: PersistentTabView(
+    return Scaffold(
+      body: PersistentTabView(
         this.context,
         controller: _controller,
         screens: _options,
@@ -135,6 +135,18 @@ class _navigationScreenState extends State<NavigationScreen> {
         hideNavigationBarWhenKeyboardShows: true,
         popAllScreensOnTapOfSelectedTab: true,
         navBarStyle: NavBarStyle.style19,
+      ),
+      floatingActionButton: Container(
+        margin: EdgeInsets.only(bottom: 60),
+        child: FloatingActionButton(
+          child: Center(
+            child: Icon(Icons.chat,color: cwColor2,),
+          ),
+          onPressed: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => ChatScreen()));
+          },
+        ),
       ),
     );
   }
