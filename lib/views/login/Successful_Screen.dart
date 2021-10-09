@@ -19,10 +19,13 @@ class SuccessfulScreen extends StatelessWidget {
         child: Column(
           children: <Widget>[
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 50.h),
+              padding: EdgeInsets.symmetric(horizontal: 32.h, vertical: 25.w),
               child: Column(
                 children: [
                   ReturnButton(),
+                  SizedBox(
+                    height: 45.h,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
