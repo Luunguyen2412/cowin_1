@@ -1,223 +1,304 @@
+import 'package:cowin_1/common/config/colors_config.dart';
+import 'package:cowin_1/common/config/texts_config.dart';
+import 'package:cowin_1/common/constants/tools.dart';
 import 'package:cowin_1/themes.dart';
+import 'package:cowin_1/views/home/widget/card.dart';
 import 'package:cowin_1/widget/covid_cases_tile.dart';
 import 'package:cowin_1/widget/news_tile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MediaQuery(
-      data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
-      child: Scaffold(
-        backgroundColor: kWhiteColor,
-        body: SafeArea(
-          child: Container(
-            color: kWhiteColor,
-            child: ListView(
-              shrinkWrap: true,
-              physics: BouncingScrollPhysics(),
+    return Scaffold(
+      body: SafeArea(
+        child: ListView(
+          physics: BouncingScrollPhysics(),
+          children: [
+            Stack(
               children: [
-                SizedBox(
-                  height: 20,
-                ),
-                Row(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 20.0),
-                      child: Container(
-                        child: Text(
-                          "Cowin",
-                          style:
-                              heading.copyWith(color: kBlueColor, fontSize: 28),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 80,
-                    ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.notification_add_outlined,
-                      ),
-                    ),
-                    FlatButton(
-                      onPressed: () {},
-                      child: Icon(
-                        Icons.settings,
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 10,
-                ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20.0),
-                  child: Container(
-                    child: Text(
-                      "Are you feeling sick?",
-                      style: heading.copyWith(color: kBlueColor, fontSize: 20),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20.0),
-                  child: Container(
-                    child: Text(
-                      "If you felling sick with any COVID-19 symptoms, please call or sms for us imediately for help.",
-                      style:
-                          normalText.copyWith(color: kBlueColor, fontSize: 18),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 10.0,
-                  ),
-                  child: Row(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 16.w, vertical: 15.h),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      GestureDetector(
-                        child: Container(
-                          height: 50,
-                          width: 150,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
-                            color: Colors.red,
-                          ),
-                          alignment: Alignment.center,
-                          child: Text(
-                            'Call now',
-                            style: heading.copyWith(
-                                color: kWhiteColor, fontSize: 18),
-                          ),
-                        ),
-                        onTap: () {},
+                      SizedBox(
+                        height: 340.h,
+                      ),
+                      Text(
+                        "Covid Cases",
+                        style:
+                            heading.copyWith(color: Colors.black, fontSize: 28),
+                      ),
+                      Text(
+                        "Update lasted 3 minute ago",
+                        style: normalText.copyWith(
+                            color: kTextColor, fontSize: 14),
                       ),
                       SizedBox(
-                        width: 10,
+                        height: 20.h,
                       ),
-                      GestureDetector(
-                        child: Container(
-                          height: 50,
-                          width: 160,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
-                            color: Colors.green,
-                          ),
-                          alignment: Alignment.center,
-                          child: Text(
-                            'Send SMS',
-                            style: heading.copyWith(
-                                color: kWhiteColor, fontSize: 18),
+                      Container(
+                        height: 53,
+                        width: 360,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          color: kWhiteColor,
+                          border: Border.all(
+                            color: cwColor3,
                           ),
                         ),
-                        onTap: () {},
+                      ),
+                      SizedBox(
+                        height: 45.h,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: GridView(
+                          shrinkWrap: true,
+                          physics: NeverScrollableScrollPhysics(),
+                          gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 2, childAspectRatio: 28 / 16),
+                          children: [
+                            CasesItem(
+                              'Infected',
+                              CustomColors.yellow,
+                            ),
+                            CasesItem(
+                              'Death',
+                              CustomColors.red,
+                            ),
+                            CasesItem(
+                              'Recovered',
+                              CustomColors.green,
+                            ),
+                            CasesItem(
+                              'Treated',
+                              CustomColors.blue,
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 43.h,
+                      ),
+                      CardInfomation(),
+                      SizedBox(
+                        height: 32.h,
+                      ),
+                      Text(
+                        "Hot news",
+                        style:
+                            heading.copyWith(color: Colors.black, fontSize: 28),
+                      ),
+                      Text(
+                        "Update news about covid in the country",
+                        style: normalText.copyWith(
+                            color: kTextColor, fontSize: 14),
+                      ),
+                      SizedBox(
+                        height: 15.h,
+                      ),
+                      NewsCard(
+                        'assets/images/Rectangle 225.png',
+                        'Hanoi added 51 new COVID-19\ncases, only HH 4C Linh Dam\napartment building has 13 cases',
+                        '5 mins',
+                        'Lifes upadate',
+                      ),
+                      NewsCard(
+                        'assets/images/covid.jpg',
+                        'The army presides over food for Ho Chi Minh City',
+                        '5 mins',
+                        'Lifes upadate',
+                      ),
+                      NewsCard(
+                        'assets/images/Rectangle 225.png',
+                        'Hanoi added 51 new COVID-19\ncases, only HH 4C Linh Dam\napartment building has 13 cases',
+                        '5 mins',
+                        'Lifes upadate',
+                      ),
+                      NewsCard(
+                        'assets/images/Rectangle 225.png',
+                        'The army presides over food for Ho Chi Minh City',
+                        '5 mins',
+                        'Lifes upadate',
+                      ),
+                      NewsCard(
+                        'assets/images/Rectangle 225.png',
+                        'Hanoi added 51 new COVID-19\ncases, only HH 4C Linh Dam\napartment building has 13 cases',
+                        '5 mins',
+                        'Lifes upadate',
                       ),
                     ],
                   ),
                 ),
-                SizedBox(
-                  height: 20,
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20.0),
-                  child: Container(
-                    child: Text(
-                      "Covid Cases",
-                      style:
-                          heading.copyWith(color: Colors.black, fontSize: 28),
-                    ),
+                Container(
+                  height: 324.h,
+                  width: 448.h,
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 29.h, vertical: 27.h),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    color: cwColor1,
                   ),
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20.0),
-                  child: Container(
-                    child: Text(
-                      "Update lasted 3 minute ago",
-                      style:
-                          normalText.copyWith(color: kTextColor, fontSize: 16),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: GridView(
-                    shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2, childAspectRatio: 28 / 16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      CasesItem(
-                        'Infected',
-                        CustomColors.yellow,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Cowin",
+                            style: kText40Bold_4,
+                          ),
+                          SizedBox(
+                            width: 114.w,
+                          ),
+                          Stack(
+                            alignment: AlignmentDirectional.center,
+                            children: [
+                              Container(
+                                width: 46.h,
+                                height: 46.h,
+                                decoration: BoxDecoration(
+                                    color: cwColor2,
+                                    borderRadius: BorderRadius.circular(10.h),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color:
+                                            Color(0xFF4F9FF1).withOpacity(0.2),
+                                        offset: Offset(0, 2),
+                                        blurRadius: 20.0,
+                                      )
+                                    ]),
+                                child: Center(
+                                  child: Container(
+                                      height: 27.h,
+                                      width: 25.w,
+                                      child: SvgPicture.asset(
+                                          Tools().getIcon("notification.svg"))),
+                                ),
+                              ),
+                              Container(
+                                height: 53.h,
+                                width: 53.h,
+                                alignment: AlignmentDirectional.topEnd,
+                                child: Container(
+                                  width: 13.h,
+                                  height: 13.h,
+                                  decoration: BoxDecoration(
+                                      color: cwColor6, shape: BoxShape.circle),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Container(
+                            height: 68.h,
+                            width: 68.h,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10.h),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Color(0xFF4F9FF1).withOpacity(0.2),
+                                    offset: Offset(0, 2),
+                                    blurRadius: 20.0,
+                                  )
+                                ]),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(10.h),
+                              child: Container(
+                                  width: 46.h,
+                                  height: 46.h,
+                                  child:
+                                      Image.asset(Tools().getIcon("info.png"))),
+                            ),
+                          ),
+                        ],
                       ),
-                      CasesItem(
-                        'Death',
-                        CustomColors.red,
+                      SizedBox(
+                        height: 19.h,
                       ),
-                      CasesItem(
-                        'Recovered',
-                        CustomColors.green,
+                      Text(
+                        "Are you feeling sick?",
+                        style: kTextConfig.copyWith(
+                          fontWeight: FontWeight.bold,
+                          fontSize: ScreenUtil().setSp(30),
+                          color: cwColor2,
+                        ),
                       ),
-                      CasesItem(
-                        'Treated',
-                        CustomColors.blue,
+                      SizedBox(
+                        height: 2.h,
+                      ),
+                      Text(
+                        "If you felling sick with any COVID-19 symptoms, please call or sms for us imediately for help.",
+                        style: kTextConfig.copyWith(
+                          fontWeight: FontWeight.w300,
+                          fontSize: ScreenUtil().setSp(20),
+                          color: cwColor2,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10.h,
+                      ),
+                      Row(
+                        children: [
+                          GestureDetector(
+                            child: Container(
+                              height: 56.h,
+                              width: 160.h,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(30),
+                                color: Colors.red,
+                              ),
+                              alignment: Alignment.center,
+                              child: Text(
+                                'Call now',
+                                style: kTextConfig.copyWith(
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: ScreenUtil().setSp(20),
+                                  color: cwColor2,
+                                ),
+                              ),
+                            ),
+                            onTap: () {},
+                          ),
+                          SizedBox(
+                            width: 23.w,
+                          ),
+                          GestureDetector(
+                            child: Container(
+                              height: 56.h,
+                              width: 160.h,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(30),
+                                color: Colors.green,
+                              ),
+                              alignment: Alignment.center,
+                              child: Text(
+                                'Send SMS',
+                                style: kTextConfig.copyWith(
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: ScreenUtil().setSp(20),
+                                  color: cwColor2,
+                                ),
+                              ),
+                            ),
+                            onTap: () {},
+                          ),
+                        ],
                       ),
                     ],
                   ),
                 ),
-                SizedBox(
-                  height: 20,
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20.0),
-                  child: Container(
-                    child: Text(
-                      "Hot news",
-                      style:
-                          heading.copyWith(color: Colors.black, fontSize: 28),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20.0),
-                  child: Container(
-                    child: Text(
-                      "Update news about covid in the country",
-                      style:
-                          normalText.copyWith(color: kTextColor, fontSize: 16),
-                    ),
-                  ),
-                ),
-
-                Text('data'),
-                // Padding(
-                //   padding: EdgeInsets.symmetric(horizontal: 20.0),
-                //   child: ListView(
-                //     physics: BouncingScrollPhysics(),
-                //     shrinkWrap: true,
-                //     children: [
-                //       NewTile(
-                //           image: '',
-                //           title:
-                //               'Hanoi added 51 new COVID-19 cases, only HH 4C Linh Dam apartment building has 13 cases'),
-                //     ],
-                //   ),
-                // ),
               ],
             ),
-          ),
+          ],
         ),
       ),
     );

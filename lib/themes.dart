@@ -31,4 +31,7 @@ class CustomColors {
   static const Color darkgrey = Color(0xFF828282);
   static const Color green = Color(0xFF65DC59);
   static const Color red = Color(0xFFFE6B6B);
+  static const Color orange = Color(0xFFFFCBA06);
 }
+
+const kAnimationDuration = Duration(milliseconds: 200);
