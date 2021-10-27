@@ -315,7 +315,7 @@ class _ChatScreenState extends State<ChatScreen>
         Container(
             decoration: BoxDecoration(color: Theme.of(context).cardColor),
             child: IconTheme(
-              data: IconThemeData(color: Theme.of(context).accentColor),
+              data: IconThemeData(color: Theme.of(context).backgroundColor),
               child: Container(
                 height: 50.h,
                 margin: EdgeInsets.symmetric(horizontal: 5.0.w),

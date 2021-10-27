@@ -1,12 +1,11 @@
 import 'package:cowin_1/common/config/colors_config.dart';
 import 'package:cowin_1/common/config/texts_config.dart';
-import 'package:cowin_1/common/constants/tools.dart';
+
 import 'package:cowin_1/views/healthcare/mentally/widgets/meditation.dart';
 import 'package:cowin_1/views/healthcare/mentally/widgets/pychology.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:spannable_grid/spannable_grid.dart';
 
 class MentallyPage extends StatefulWidget {
   const MentallyPage({Key? key}) : super(key: key);

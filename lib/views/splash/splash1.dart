@@ -1,7 +1,7 @@
 import 'package:cowin_1/themes.dart';
-import 'package:cowin_1/view_models/navigation.dart';
-import 'package:cowin_1/views/home/home_screen.dart';
+
 import 'package:cowin_1/views/login/login_screen.dart';
+import 'package:cowin_1/views/main_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -281,7 +281,7 @@ class SplashScreen4 extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => NavigationScreen()));
+                              builder: (context) => MainScreen()));
                     },
                   ),
                   SizedBox(
