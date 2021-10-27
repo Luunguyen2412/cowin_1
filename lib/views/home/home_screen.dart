@@ -11,6 +11,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 class HomePage extends StatelessWidget {
+  //TabController? tabController;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,7 +55,25 @@ class HomePage extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        height: 45.h,
+                        height: 15.h,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          TabBar(
+                            isScrollable: true,
+                            //controller: tabController,
+                            indicator:
+                                BoxDecoration(borderRadius: BorderRadius.zero),
+                            labelColor: Colors.black,
+                            unselectedLabelColor: Colors.black26,
+                            tabs: [
+                              Tab(text: 'Total'),
+                              Tab(text: 'Today'),
+                              Tab(text: 'Yesterday'),
+                            ],
+                          ),
+                        ],
                       ),
                       Padding(
                         padding: EdgeInsets.all(8.0),

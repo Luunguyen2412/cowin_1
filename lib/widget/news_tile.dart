@@ -89,77 +89,76 @@ class NewsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-        onTap: () {},
-        child: Card(
-          child: Padding(
-            padding: const EdgeInsets.all(7),
-            child: Row(
-              children: [
-                Flexible(
-                  flex: 1,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage(
-                          'assets/images/Rectangle 225.png',
-                        ),
-                        fit: BoxFit.cover,
-                      ),
+      onTap: () {},
+      child: Padding(
+        padding: const EdgeInsets.all(7),
+        child: Row(
+          children: [
+            Flexible(
+              flex: 1,
+              child: Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(
+                      image,
                     ),
-                    height: 100.h,
-                    width: 100.w,
+                    fit: BoxFit.cover,
                   ),
                 ),
-                SizedBox(
-                  width: 18.w,
-                ),
-                Flexible(
-                  flex: 3,
-                  child: Padding(
-                    padding: const EdgeInsets.only(right: 8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
+                height: 100.h,
+                width: 100.w,
+              ),
+            ),
+            SizedBox(
+              width: 18.w,
+            ),
+            Flexible(
+              flex: 3,
+              child: Padding(
+                padding: const EdgeInsets.only(right: 8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: kTextConfig.copyWith(
+                        fontWeight: FontWeight.w600,
+                        fontSize: ScreenUtil().setSp(14),
+                        color: cwColor3,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    Row(
                       children: [
                         Text(
-                          title,
+                          time,
                           style: kTextConfig.copyWith(
                             fontWeight: FontWeight.w600,
-                            fontSize: ScreenUtil().setSp(14),
-                            color: cwColor3,
+                            fontSize: ScreenUtil().setSp(12),
+                            color: cwColor4,
                           ),
                         ),
-                        SizedBox(
-                          height: 20.h,
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              time,
-                              style: kTextConfig.copyWith(
-                                fontWeight: FontWeight.w600,
-                                fontSize: ScreenUtil().setSp(12),
-                                color: cwColor4,
-                              ),
-                            ),
-                            Spacer(),
-                            Text(
-                              update,
-                              style: kTextConfig.copyWith(
-                                fontWeight: FontWeight.w600,
-                                fontSize: ScreenUtil().setSp(12),
-                                color: cwColor4,
-                              ),
-                            ),
-                          ],
+                        Spacer(),
+                        Text(
+                          update,
+                          style: kTextConfig.copyWith(
+                            fontWeight: FontWeight.w600,
+                            fontSize: ScreenUtil().setSp(12),
+                            color: cwColor4,
+                          ),
                         ),
                       ],
                     ),
-                  ),
+                  ],
                 ),
-              ],
+              ),
             ),
-          ),
-        ));
+          ],
+        ),
+      ),
+    );
   }
 }

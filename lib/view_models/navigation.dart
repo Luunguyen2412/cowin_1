@@ -5,8 +5,10 @@ import 'package:cowin_1/common/config/texts_config.dart';
 import 'package:cowin_1/common/constants/tools.dart';
 import 'package:cowin_1/views/chat/chat_screen.dart';
 import 'package:cowin_1/views/healthcare/healthcare_screen.dart';
+import 'package:cowin_1/views/login/profile_screen.dart';
 import 'package:cowin_1/views/map/map_screen.dart';
 import 'package:cowin_1/views/news/news_screen.dart';
+import 'package:cowin_1/views/profile/profile_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -27,7 +29,7 @@ class _navigationScreenState extends State<NavigationScreen> {
     NewsScreen(),
     HealthCareScreen(),
     MapScreen(),
-    ChatScreen()
+    PersonalScreen(),
   ];
 
   List<PersistentBottomNavBarItem> _navBarsItems() {
@@ -102,14 +104,12 @@ class _navigationScreenState extends State<NavigationScreen> {
 
   PersistentTabController _controller =
       PersistentTabController(initialIndex: 0);
-@override
+  @override
   void initState() {
     // TODO: implement initState
     super.initState();
     _controller.addListener(() {
-      setState(() {
-
-      });
+      setState(() {});
     });
   }
 
