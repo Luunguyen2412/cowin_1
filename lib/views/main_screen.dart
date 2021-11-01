@@ -5,6 +5,7 @@ import 'package:cowin_1/common/config/texts_config.dart';
 import 'package:cowin_1/common/constants/tools.dart';
 import 'package:cowin_1/views/chat/chat_screen.dart';
 import 'package:cowin_1/views/healthcare/healthcare_screen.dart';
+import 'package:cowin_1/views/login/profile_screen.dart';
 import 'package:cowin_1/views/map/map_screen.dart';
 import 'package:cowin_1/views/news/news_screen.dart';
 import 'package:cowin_1/views/profile/profile_screen.dart';
@@ -28,7 +29,7 @@ class _mainScreenState extends State<MainScreen> {
     NewsScreen(),
     HealthCareScreen(),
     MapScreen(),
-    ProfileScreen()
+    PersonalScreen(),
   ];
 
   List<PersistentBottomNavBarItem> _navBarsItems() {
@@ -102,8 +103,7 @@ class _mainScreenState extends State<MainScreen> {
   }
 
   PersistentTabController _controller =
-      PersistentTabController(initialIndex: 2);
-
+      PersistentTabController(initialIndex: 0);
   @override
   void initState() {
     // TODO: implement initState
