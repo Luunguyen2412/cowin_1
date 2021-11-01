@@ -1,9 +1,8 @@
-import 'dart:ffi';
+
 import 'dart:ui';
 
 import 'package:cowin_1/common/config/colors_config.dart';
 import 'package:cowin_1/common/config/texts_config.dart';
-import 'package:cowin_1/views/home/home_screen.dart';
 import 'package:cowin_1/views/home/widget/card.dart';
 import 'package:cowin_1/views/profile/widget/ProfileMenuItem.dart';
 import 'package:flutter/material.dart';

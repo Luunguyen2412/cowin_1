@@ -84,7 +84,7 @@ class SplashScreen2 extends StatelessWidget {
         child: Column(
           children: <Widget>[
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 94.h),
+              padding: EdgeInsets.only(left: 30.w,right: 30.w, top: 94.h),
               child: Column(
                 children: [
                   Text(
@@ -105,7 +105,7 @@ class SplashScreen2 extends StatelessWidget {
                   ),
                   GestureDetector(
                     child: Container(
-                      height: 60,
+                      height: 60.h,
                       width: 350,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
@@ -231,94 +231,96 @@ class SplashScreen4 extends StatelessWidget {
     return Scaffold(
       backgroundColor: kBlueColor,
       body: SafeArea(
-        child: Column(
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 90.h),
-              child: Column(
-                children: [
-                  Text(
-                    "Welcome to COWIN",
-                    textAlign: TextAlign.center,
-                    style: heading.copyWith(color: kWhiteColor, fontSize: 30),
-                  ),
-                  SizedBox(
-                    height: 6.h,
-                  ),
-                  Text(
-                    "Stay safe and get up to dates announcement city authorities.",
-                    textAlign: TextAlign.center,
-                    style:
-                        normalText.copyWith(color: kWhiteColor, fontSize: 16),
-                  ),
-                  SizedBox(
-                    height: 32.h,
-                  ),
-                  Image.asset(
-                    'assets/images/splash4.png',
-                    height: 334.h,
-                    width: 364.h,
-                  ),
-                  SizedBox(
-                    height: 65.h,
-                  ),
-                  GestureDetector(
-                    child: Container(
-                      height: 60,
-                      width: 350,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        color: Colors.orange,
-                      ),
-                      alignment: Alignment.center,
-                      child: Text(
-                        'GET START',
-                        style:
-                            heading.copyWith(color: kWhiteColor, fontSize: 16),
-                      ),
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.only(left: 30.w,right: 30.w, top: 90.h),
+                child: Column(
+                  children: [
+                    Text(
+                      "Welcome to COWIN",
+                      textAlign: TextAlign.center,
+                      style: heading.copyWith(color: kWhiteColor, fontSize: 30),
                     ),
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => MainScreen()));
-                    },
-                  ),
-                  SizedBox(
-                    height: 10.h,
-                  ),
-                  GestureDetector(
-                    child: Container(
-                      height: 60,
-                      width: 350,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        color: kBlueColor,
-                        border: Border.all(
-                          color: kWhiteColor,
+                    SizedBox(
+                      height: 6.h,
+                    ),
+                    Text(
+                      "Stay safe and get up to dates announcement city authorities.",
+                      textAlign: TextAlign.center,
+                      style:
+                          normalText.copyWith(color: kWhiteColor, fontSize: 16),
+                    ),
+                    SizedBox(
+                      height: 32.h,
+                    ),
+                    Image.asset(
+                      'assets/images/splash4.png',
+                      height: 334.h,
+                      width: 364.h,
+                    ),
+                    SizedBox(
+                      height: 65.h,
+                    ),
+                    GestureDetector(
+                      child: Container(
+                        height: 60,
+                        width: 350,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          color: Colors.orange,
+                        ),
+                        alignment: Alignment.center,
+                        child: Text(
+                          'GET START',
+                          style:
+                              heading.copyWith(color: kWhiteColor, fontSize: 16),
                         ),
                       ),
-                      alignment: Alignment.center,
-                      child: Text(
-                        'Login',
-                        style: TextStyle(
-                          color: kWhiteColor,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => MainScreen()));
+                      },
+                    ),
+                    SizedBox(
+                      height: 10.h,
+                    ),
+                    GestureDetector(
+                      child: Container(
+                        height: 60,
+                        width: 350,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          color: kBlueColor,
+                          border: Border.all(
+                            color: kWhiteColor,
+                          ),
+                        ),
+                        alignment: Alignment.center,
+                        child: Text(
+                          'Login',
+                          style: TextStyle(
+                            color: kWhiteColor,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => LoginScreen()));
+                      },
                     ),
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => LoginScreen()));
-                    },
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
