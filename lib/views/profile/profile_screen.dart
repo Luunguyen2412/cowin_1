@@ -3,11 +3,14 @@ import 'dart:ui';
 
 import 'package:cowin_1/common/config/colors_config.dart';
 import 'package:cowin_1/common/config/texts_config.dart';
+import 'package:cowin_1/common/constants/tools.dart';
 import 'package:cowin_1/views/home/home_screen.dart';
 import 'package:cowin_1/views/home/widget/card.dart';
 import 'package:cowin_1/views/profile/widget/ProfileMenuItem.dart';
+import 'package:cowin_1/views/profile/widget/RecentlyCard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 
 class PersonalScreen extends StatelessWidget {
   @override
@@ -94,6 +97,8 @@ class PersonalScreen extends StatelessWidget {
                                   ),
                                 ),
                                 Image.asset('assets/images/tick.png'),
+                                // SvgPicture.asset(
+                                //     Tools().getIcon("notification.svg")),
                               ],
                             ),
                           ),
@@ -118,6 +123,18 @@ class PersonalScreen extends StatelessWidget {
                           width: 25.w,
                         ),
                         Card1('assets/images/card3.png'),
+                        // RecentlyCard(
+                        //   'assets/images/Frame1.png',
+                        //   'Prevention of COVID-19  ',
+                        // ),
+                        // RecentlyCard(
+                        //   'assets/images/Frame1.png',
+                        //   'Prevention of COVID-19  ',
+                        // ),
+                        // RecentlyCard(
+                        //   'assets/images/Frame1.png',
+                        //   'Prevention of COVID-19  ',
+                        // ),
                       ],
                     ),
                   ),

@@ -10,8 +10,28 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-class HomePage extends StatelessWidget {
-  //TabController? tabController;
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+  @override
+  HomePageState createState() => HomePageState();
+}
+
+class HomePageState extends State<HomePage> with TickerProviderStateMixin {
+  late TabController tabController;
+  int selectedIndex = 0;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    tabController = TabController(
+      length: 3,
+      vsync: this,
+    );
+    tabController.addListener(() {
+      setState(() {});
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,8 +64,8 @@ class HomePage extends StatelessWidget {
                         height: 20.h,
                       ),
                       Container(
-                        height: 53,
-                        width: 360,
+                        height: 53.h,
+                        width: 360.w,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(30),
                           color: kWhiteColor,
@@ -57,48 +77,57 @@ class HomePage extends StatelessWidget {
                       SizedBox(
                         height: 15.h,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          TabBar(
-                            isScrollable: true,
-                            //controller: tabController,
-                            indicator:
-                                BoxDecoration(borderRadius: BorderRadius.zero),
-                            labelColor: Colors.black,
-                            unselectedLabelColor: Colors.black26,
-                            tabs: [
-                              Tab(text: 'Total'),
-                              Tab(text: 'Today'),
-                              Tab(text: 'Yesterday'),
-                            ],
-                          ),
-                        ],
-                      ),
-                      Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: GridView(
-                          shrinkWrap: true,
-                          physics: NeverScrollableScrollPhysics(),
-                          gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 2, childAspectRatio: 28 / 16),
+                      Container(
+                        height: 260.h,
+                        child: Column(
                           children: [
-                            CasesItem(
-                              'Infected',
-                              CustomColors.yellow,
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                TabBar(
+                                  isScrollable: true,
+                                  controller: tabController,
+                                  indicator: BoxDecoration(
+                                      borderRadius: BorderRadius.zero),
+                                  labelColor: Colors.black,
+                                  unselectedLabelColor: Colors.black26,
+                                  // onTap: (tapIndex) {
+                                  //   setState(() {
+                                  //     selectedIndex = tapIndex;
+                                  //   });
+                                  // },
+                                  tabs: [
+                                    Text(
+                                      "Total",
+                                      style: tabController.index == 0
+                                          ? kText20Bold_5
+                                          : kText20Bold_4,
+                                    ),
+                                    Text(
+                                      "Today",
+                                      style: tabController.index == 1
+                                          ? kText20Bold_5
+                                          : kText20Bold_4,
+                                    ),
+                                    Text(
+                                      "Yesterday",
+                                      style: tabController.index == 2
+                                          ? kText20Bold_5
+                                          : kText20Bold_4,
+                                    )
+                                  ],
+                                ),
+                              ],
                             ),
-                            CasesItem(
-                              'Death',
-                              CustomColors.red,
-                            ),
-                            CasesItem(
-                              'Recovered',
-                              CustomColors.green,
-                            ),
-                            CasesItem(
-                              'Treated',
-                              CustomColors.blue,
+                            Expanded(
+                              child: TabBarView(
+                                controller: tabController,
+                                children: [
+                                  TotalPage(),
+                                  TodayPage(),
+                                  YesterdayPage(),
+                                ],
+                              ),
                             ),
                           ],
                         ),
@@ -276,19 +305,28 @@ class HomePage extends StatelessWidget {
                                 color: Colors.red,
                               ),
                               alignment: Alignment.center,
-                              child: Text(
-                                'Call now',
-                                style: kTextConfig.copyWith(
-                                  fontWeight: FontWeight.normal,
-                                  fontSize: ScreenUtil().setSp(20),
-                                  color: cwColor2,
-                                ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.phone,
+                                    color: kWhiteColor,
+                                  ),
+                                  Text(
+                                    'Call now',
+                                    style: kTextConfig.copyWith(
+                                      fontWeight: FontWeight.normal,
+                                      fontSize: ScreenUtil().setSp(20),
+                                      color: cwColor2,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                             onTap: () {},
                           ),
                           SizedBox(
-                            width: 23.w,
+                            width: 40.w,
                           ),
                           GestureDetector(
                             child: Container(
@@ -299,13 +337,22 @@ class HomePage extends StatelessWidget {
                                 color: Colors.green,
                               ),
                               alignment: Alignment.center,
-                              child: Text(
-                                'Send SMS',
-                                style: kTextConfig.copyWith(
-                                  fontWeight: FontWeight.normal,
-                                  fontSize: ScreenUtil().setSp(20),
-                                  color: cwColor2,
-                                ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.message_outlined,
+                                    color: kWhiteColor,
+                                  ),
+                                  Text(
+                                    'Send SMS',
+                                    style: kTextConfig.copyWith(
+                                      fontWeight: FontWeight.normal,
+                                      fontSize: ScreenUtil().setSp(20),
+                                      color: cwColor2,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                             onTap: () {},
@@ -331,3 +378,120 @@ List<Color> colorBoxs = [
   Colors.blue,
 ];
 List<String> names = ['Infected', 'Recovered', 'Death', 'Treated'];
+
+class TotalPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Padding(
+        padding: EdgeInsets.all(8.0),
+        child: GridView(
+          shrinkWrap: true,
+          physics: NeverScrollableScrollPhysics(),
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2, childAspectRatio: 28 / 16),
+          children: [
+            CasesItem(
+              'Infected',
+              '312,563',
+              CustomColors.yellow,
+            ),
+            CasesItem(
+              'Death',
+              '1,564',
+              CustomColors.red,
+            ),
+            CasesItem(
+              'Recovered',
+              '534,756',
+              CustomColors.green,
+            ),
+            CasesItem(
+              'Treated',
+              '56,675',
+              CustomColors.blue,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class TodayPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Padding(
+        padding: EdgeInsets.all(8.0),
+        child: GridView(
+          shrinkWrap: true,
+          physics: NeverScrollableScrollPhysics(),
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2, childAspectRatio: 28 / 16),
+          children: [
+            CasesItem(
+              'Infected',
+              '2,563',
+              CustomColors.yellow,
+            ),
+            CasesItem(
+              'Death',
+              '64',
+              CustomColors.red,
+            ),
+            CasesItem(
+              'Recovered',
+              '4,756',
+              CustomColors.green,
+            ),
+            CasesItem(
+              'Treated',
+              '675',
+              CustomColors.blue,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class YesterdayPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Padding(
+        padding: EdgeInsets.all(8.0),
+        child: GridView(
+          shrinkWrap: true,
+          physics: NeverScrollableScrollPhysics(),
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2, childAspectRatio: 28 / 16),
+          children: [
+            CasesItem(
+              'Infected',
+              '6,563',
+              CustomColors.yellow,
+            ),
+            CasesItem(
+              'Death',
+              '564',
+              CustomColors.red,
+            ),
+            CasesItem(
+              'Recovered',
+              '5456',
+              CustomColors.green,
+            ),
+            CasesItem(
+              'Treated',
+              '5,675',
+              CustomColors.blue,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
