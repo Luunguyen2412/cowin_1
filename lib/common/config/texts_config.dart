@@ -44,13 +44,13 @@ var kText30Bold_1 = kText30Normal_1.copyWith(
   fontWeight: FontWeight.bold,
 );
 
-var kText14Normal_4 = kTextConfig.copyWith(
-  fontWeight: FontWeight.normal,
-  fontSize: ScreenUtil().setSp(14),
-  color: cwColor4,
+var kText28Bold_2 = kTextConfig.copyWith(
+  fontWeight: FontWeight.bold,
+  fontSize: ScreenUtil().setSp(28),
+  color: cwColor2,
 );
-var kText14Normal_5 = kText14Normal_4.copyWith(color: cwColor5);
-var kText14Normal_2 = kText14Normal_4.copyWith(color: cwColor2);
+
+
 
 var kText21Bold_2 = kTextConfig.copyWith(
   fontWeight: FontWeight.bold,
@@ -97,6 +97,21 @@ var kText16Normal_2 = kText16Normal_3.copyWith(
 var kText16Normal_18 = kText16Normal_3.copyWith(
   color: cwColor18,
 );
+
+var kText15Normal_7 = kTextConfig.copyWith(
+  fontWeight: FontWeight.normal,
+  fontSize: ScreenUtil().setSp(15),
+  color: cwColor7,
+);
+
+var kText14Normal_4 = kTextConfig.copyWith(
+  fontWeight: FontWeight.normal,
+  fontSize: ScreenUtil().setSp(14),
+  color: cwColor4,
+);
+var kText14Normal_5 = kText14Normal_4.copyWith(color: cwColor5);
+var kText14Normal_2 = kText14Normal_4.copyWith(color: cwColor2);
+
 
 var kText12Normal_18 = kText16Normal_18.copyWith(
   fontSize: ScreenUtil().setSp(12),

@@ -103,7 +103,7 @@ class _mainScreenState extends State<MainScreen> {
   }
 
   PersistentTabController _controller =
-      PersistentTabController(initialIndex: 0);
+      PersistentTabController(initialIndex: 2);
   @override
   void initState() {
     // TODO: implement initState
@@ -138,7 +138,7 @@ class _mainScreenState extends State<MainScreen> {
       ),
       floatingActionButton: Container(
         margin: EdgeInsets.only(bottom: 60),
-        child: FloatingActionButton(
+        child: _controller.index!=3?FloatingActionButton(
           child: Center(
             child: Icon(Icons.chat,color: cwColor2,),
           ),
@@ -146,7 +146,7 @@ class _mainScreenState extends State<MainScreen> {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => ChatScreen()));
           },
-        ),
+        ):Container(),
       ),
     );
   }

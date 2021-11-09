@@ -1,5 +1,6 @@
 
 import 'package:cowin_1/view_models/app/app_provider.dart';
+import 'package:cowin_1/views/main_screen.dart';
 import 'package:cowin_1/views/splash/splash1.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -41,7 +42,7 @@ class _AppState extends State<App> {
                       GlobalCupertinoLocalizations.delegate,
                       DefaultCupertinoLocalizations.delegate,
                     ],
-                    home: SplashScreen(),
+                    home: MainScreen(),
                   );
                 }),
           );

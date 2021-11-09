@@ -48,6 +48,8 @@ dependencies:
   sound_stream:
   dialogflow_grpc:
   dio:
+  google_maps_flutter:
+  location:
 
 
 dev_dependencies:

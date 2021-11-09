@@ -5,6 +5,7 @@ import 'package:dio/dio.dart';
 const serverConfig = {
   "type": "app",
   "url": "http://171.244.39.37:8000/",
+
 };
 
 class APIServices {
@@ -13,6 +14,8 @@ class APIServices {
   APIServices._internal();
 
   late String url;
+
+  var kGoogleMap = "AIzaSyDo2Nk9WSlqGydwmjj47QW64tlB1xiEagU";
 
   factory APIServices() => _instance;
 

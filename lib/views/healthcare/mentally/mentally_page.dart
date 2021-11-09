@@ -38,7 +38,7 @@ class _MentallyPageState extends State<MentallyPage> {
                       height: 168.h,
                       width: 180.w,
                       child: Image.asset(
-                        "assets/images/image1.png",
+                        "assets/images/pyc_image.png",
                         fit: BoxFit.fill,
                       ),
                     ),

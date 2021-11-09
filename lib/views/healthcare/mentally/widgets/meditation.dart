@@ -57,7 +57,7 @@ class Meditation extends StatelessWidget {
           children: [
             Container(
               alignment: Alignment.center,
-              child: Image.asset("assets/images/img_meditation1.png"),
+              child: Image.asset("assets/images/pyc_image8.png"),
             ),
             Padding(
               padding: EdgeInsets.only(bottom: 20.h, left: 16.w),
@@ -85,7 +85,7 @@ class Meditation extends StatelessWidget {
           children: [
             Container(
               alignment: Alignment.center,
-              child: Image.asset("assets/images/img_meditation2.png"),
+              child: Image.asset("assets/images/pyc_image9.png"),
             ),
             Padding(
               padding: EdgeInsets.only(bottom: 20.h, left: 16.w),
@@ -113,7 +113,7 @@ class Meditation extends StatelessWidget {
           children: [
             Container(
               alignment: Alignment.center,
-              child: Image.asset("assets/images/img_meditation3.png"),
+              child: Image.asset("assets/images/pyc_image10.png"),
             ),
             Padding(
               padding: EdgeInsets.only(bottom: 20.h, left: 16.w),
@@ -141,7 +141,7 @@ class Meditation extends StatelessWidget {
           children: [
             Container(
               alignment: AlignmentDirectional.center,
-              child: Image.asset("assets/images/img_meditation4.png"),
+              child: Image.asset("assets/images/pyc_image11.png"),
             ),
             Padding(
               padding: EdgeInsets.only(bottom: 20.h, left: 16.w),

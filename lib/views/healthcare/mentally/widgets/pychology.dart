@@ -86,10 +86,12 @@ class Pychology extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              alignment: Alignment.center,
-              padding: EdgeInsets.only(top: 20.h),
-              child: Image.asset("assets/images/img_card1.png"),
+            Flexible(
+              child: Container(
+                alignment: Alignment.center,
+                padding: EdgeInsets.only(top: 20.h),
+                child: Image.asset("assets/images/pyc_image0.png"),
+              ),
             ),
             Padding(
               padding: EdgeInsets.only(top: 20.h, left: 16.w),
@@ -115,10 +117,12 @@ class Pychology extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              alignment: Alignment.center,
-              padding: EdgeInsets.only(top: 10.h),
-              child: Image.asset("assets/images/img_card2.png"),
+            Flexible(
+              child: Container(
+                alignment: Alignment.center,
+                padding: EdgeInsets.only(top: 10.h),
+                child: Image.asset("assets/images/pyc_image1.png"),
+              ),
             ),
             Padding(
               padding: EdgeInsets.only(top: 10.h, left: 16.w),
@@ -144,10 +148,12 @@ class Pychology extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              alignment: Alignment.center,
-              padding: EdgeInsets.only(top: 20.h),
-              child: Image.asset("assets/images/img_card4.png"),
+            Flexible(
+              child: Container(
+                alignment: Alignment.center,
+                padding: EdgeInsets.only(top: 20.h),
+                child: Image.asset("assets/images/pyc_image3.png"),
+              ),
             ),
             Padding(
               padding: EdgeInsets.only(top: 30.h, left: 16.w),
@@ -173,10 +179,12 @@ class Pychology extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              alignment: Alignment.center,
-              padding: EdgeInsets.only(top: 10.h),
-              child: Image.asset("assets/images/img_card3.png"),
+            Flexible(
+              child: Container(
+                alignment: Alignment.center,
+                padding: EdgeInsets.only(top: 10.h),
+                child: Image.asset("assets/images/pyc_image2.png"),
+              ),
             ),
             Padding(
               padding: EdgeInsets.only(top: 10.h, left: 16.w),
@@ -202,10 +210,12 @@ class Pychology extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              alignment: Alignment.center,
-              padding: EdgeInsets.only(top: 20.h),
-              child: Image.asset("assets/images/img_card5.png"),
+            Flexible(
+              child: Container(
+                alignment: Alignment.center,
+                padding: EdgeInsets.only(top: 20.h),
+                child: Image.asset("assets/images/pyc_image4.png"),
+              ),
             ),
             Padding(
               padding: EdgeInsets.only(top: 30.h, left: 16.w),
@@ -231,10 +241,12 @@ class Pychology extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              alignment: Alignment.center,
-              padding: EdgeInsets.only(top: 20.h),
-              child: Image.asset("assets/images/img_card6.png"),
+            Flexible(
+              child: Container(
+                alignment: Alignment.center,
+                padding: EdgeInsets.only(top: 20.h),
+                child: Image.asset("assets/images/pyc_image5.png"),
+              ),
             ),
             Padding(
               padding: EdgeInsets.only(top: 20.h, left: 16.w),
@@ -260,10 +272,12 @@ class Pychology extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              alignment: Alignment.center,
-              padding: EdgeInsets.only(top: 30.h),
-              child: Image.asset("assets/images/img_card8.png"),
+            Flexible(
+              child: Container(
+                alignment: Alignment.center,
+                padding: EdgeInsets.only(top: 30.h),
+                child: Image.asset("assets/images/pyc_image7.png"),
+              ),
             ),
             Padding(
               padding: EdgeInsets.only(top: 40.h, left: 16.w),
@@ -290,7 +304,7 @@ class Pychology extends StatelessWidget {
           Container(
             alignment: Alignment.center,
             padding: EdgeInsets.only(top: 5.h),
-            child: Image.asset("assets/images/img_card7.png"),
+            child: Image.asset("assets/images/pyc_image6.png"),
           ),
           Padding(
             padding: EdgeInsets.only(top: 10.h, left: 16.w),
