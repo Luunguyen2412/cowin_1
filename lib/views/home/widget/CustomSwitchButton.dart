@@ -44,7 +44,7 @@ class _CustomSwitchState extends State<CustomSwitch>
               child: Container(
                 width: 220.w,
                 height: 49.h,
-                margin: EdgeInsets.only(top: 1.h),
+                margin: EdgeInsets.only(top: 2.h, left: 2.w),
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                     color: tabController.index == 0
@@ -54,7 +54,7 @@ class _CustomSwitchState extends State<CustomSwitch>
               ),
               duration: Duration(milliseconds: 500)),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 40.w),
+            padding: EdgeInsets.symmetric(horizontal: 40.w, vertical: 1.h),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
