@@ -1,7 +1,4 @@
 import 'package:cowin_1/themes.dart';
-
-import 'package:cowin_1/views/login/login_screen.dart';
-import 'package:cowin_1/views/main_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -270,28 +267,26 @@ class SplashScreen4 extends StatelessWidget {
                       height: 65.h,
                     ),
                     GestureDetector(
-                      child: Container(
-                        height: 60,
-                        width: 350,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: Colors.orange,
-                        ),
-                        alignment: Alignment.center,
-                        child: Text(
-                          'GET START',
-                          style: heading.copyWith(
-                              color: kWhiteColor, fontSize: 16),
-                        ),
-                      ),
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => NavigationScreen()));
-                      }
+                        child: Container(
+                          height: 60,
+                          width: 350,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            color: Colors.orange,
                           ),
-                
+                          alignment: Alignment.center,
+                          child: Text(
+                            'GET START',
+                            style: heading.copyWith(
+                                color: kWhiteColor, fontSize: 16),
+                          ),
+                        ),
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => NavigationScreen()));
+                        }),
                   ],
                 ),
               ),
