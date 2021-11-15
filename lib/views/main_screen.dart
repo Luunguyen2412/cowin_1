@@ -19,10 +19,10 @@ import 'home/home_screen.dart';
 
 class MainScreen extends StatefulWidget {
   @override
-  _mainScreenState createState() => _mainScreenState();
+  _MainScreenState createState() => _MainScreenState();
 }
 
-class _mainScreenState extends State<MainScreen> {
+class _MainScreenState extends State<MainScreen> {
   int currentTab = 0;
   List<Widget> _options = <Widget>[
     HomePage(),
