@@ -52,7 +52,7 @@ class CasesItem extends StatelessWidget {
                       cases,
                       style: kTextConfig.copyWith(
                         fontWeight: FontWeight.bold,
-                        fontSize: ScreenUtil().setSp(25),
+                        fontSize: ScreenUtil().setSp(22),
                         color: cwColor2,
                       ),
                     ),
