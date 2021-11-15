@@ -2,7 +2,7 @@ import 'package:cowin_1/common/config/colors_config.dart';
 import 'package:cowin_1/common/config/texts_config.dart';
 import 'package:cowin_1/common/constants/tools.dart';
 import 'package:cowin_1/themes.dart';
-import 'package:cowin_1/views/home/widget/CustomSwitchButton.dart';
+import 'package:cowin_1/views/home/widget/NumberageCaseCovid.dart';
 import 'package:cowin_1/views/home/widget/card.dart';
 import 'package:cowin_1/widget/covid_cases_tile.dart';
 import 'package:cowin_1/widget/news_tile.dart';
@@ -74,67 +74,9 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         SizedBox(
                           height: 20.h,
                         ),
-                        CustomSwitch(),
+                        CustomSwitchTabbar(),
                         SizedBox(
-                          height: 15.h,
-                        ),
-                        Container(
-                          height: 260.h,
-                          child: Column(
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  TabBar(
-                                    isScrollable: true,
-                                    controller: tabController,
-                                    indicator: BoxDecoration(
-                                        borderRadius: BorderRadius.zero),
-                                    labelColor: Colors.black,
-                                    unselectedLabelColor: Colors.black26,
-                                    // onTap: (tapIndex) {
-                                    //   setState(() {
-                                    //     selectedIndex = tapIndex;
-                                    //   });
-                                    // },
-                                    tabs: [
-                                      Text(
-                                        "Total",
-                                        style: tabController.index == 0
-                                            ? kText20Bold_5
-                                            : kText20Bold_4,
-                                      ),
-                                      Text(
-                                        "Today",
-                                        style: tabController.index == 1
-                                            ? kText20Bold_5
-                                            : kText20Bold_4,
-                                      ),
-                                      Text(
-                                        "Yesterday",
-                                        style: tabController.index == 2
-                                            ? kText20Bold_5
-                                            : kText20Bold_4,
-                                      )
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              Expanded(
-                                child: TabBarView(
-                                  controller: tabController,
-                                  children: [
-                                    TotalPage(),
-                                    TodayPage(),
-                                    YesterdayPage(),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        SizedBox(
-                          height: 43.h,
+                          height: 5.h,
                         ),
                         CardInfomation(),
                         SizedBox(
@@ -490,6 +432,123 @@ class YesterdayPage extends StatelessWidget {
             CasesItem(
               'Treated',
               '5,675',
+              CustomColors.blue,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class TotalPageGlobal extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Padding(
+        padding: EdgeInsets.all(8.0),
+        child: GridView(
+          shrinkWrap: true,
+          physics: NeverScrollableScrollPhysics(),
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2, childAspectRatio: 28 / 16),
+          children: [
+            CasesItem(
+              'Infected',
+              '234,312,563',
+              CustomColors.yellow,
+            ),
+            CasesItem(
+              'Death',
+              '5,841,564',
+              CustomColors.red,
+            ),
+            CasesItem(
+              'Recovered',
+              '645,534,756',
+              CustomColors.green,
+            ),
+            CasesItem(
+              'Treated',
+              '6,556,675',
+              CustomColors.blue,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class TodayPageGlobal extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Padding(
+        padding: EdgeInsets.all(8.0),
+        child: GridView(
+          shrinkWrap: true,
+          physics: NeverScrollableScrollPhysics(),
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2, childAspectRatio: 28 / 16),
+          children: [
+            CasesItem(
+              'Infected',
+              '452,563',
+              CustomColors.yellow,
+            ),
+            CasesItem(
+              'Death',
+              '6,644',
+              CustomColors.red,
+            ),
+            CasesItem(
+              'Recovered',
+              '654,756',
+              CustomColors.green,
+            ),
+            CasesItem(
+              'Treated',
+              '8,675',
+              CustomColors.blue,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class YesterdayPageGlobal extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Padding(
+        padding: EdgeInsets.all(8.0),
+        child: GridView(
+          shrinkWrap: true,
+          physics: NeverScrollableScrollPhysics(),
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2, childAspectRatio: 28 / 16),
+          children: [
+            CasesItem(
+              'Infected',
+              '466,563',
+              CustomColors.yellow,
+            ),
+            CasesItem(
+              'Death',
+              '1,564',
+              CustomColors.red,
+            ),
+            CasesItem(
+              'Recovered',
+              '55,456',
+              CustomColors.green,
+            ),
+            CasesItem(
+              'Treated',
+              '15,675',
               CustomColors.blue,
             ),
           ],
