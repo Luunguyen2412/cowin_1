@@ -17,124 +17,125 @@ class OtpScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: ListView(
-          physics: BouncingScrollPhysics(),
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 32.h, vertical: 25.w),
-              child: Column(
-                children: [
-                  ReturnButton(),
-                  SizedBox(
-                    height: 40.h,
-                  ),
-                  Text(
-                    'Verification code',
-                    textAlign: TextAlign.center,
-                    style: kTextConfig.copyWith(
-                      fontWeight: FontWeight.bold,
-                      fontSize: ScreenUtil().setSp(40),
-                      color: cwColor1,
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 32.h, vertical: 25.w),
+                child: Column(
+                  children: [
+                    ReturnButton(),
+                    SizedBox(
+                      height: 40.h,
                     ),
-                  ),
-                  SizedBox(
-                    height: 16.h,
-                  ),
-                  Text(
-                    'Enter the OTP has been sent to',
-                    textAlign: TextAlign.center,
-                    style: kTextConfig.copyWith(
-                      fontWeight: FontWeight.w400,
-                      fontSize: ScreenUtil().setSp(20),
-                      color: cwColor4,
+                    Text(
+                      'Verification code',
+                      textAlign: TextAlign.center,
+                      style: kTextConfig.copyWith(
+                        fontWeight: FontWeight.bold,
+                        fontSize: ScreenUtil().setSp(40),
+                        color: cwColor1,
+                      ),
                     ),
-                  ),
-                  Text(
-                    "******5945",
-                    textAlign: TextAlign.center,
-                    style: kTextConfig.copyWith(
-                      fontWeight: FontWeight.bold,
-                      fontSize: ScreenUtil().setSp(28),
-                      color: cwColor3,
+                    SizedBox(
+                      height: 16.h,
                     ),
-                  ),
-                  SizedBox(
-                    height: 40.h,
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 35.w, vertical: 10.h),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    Text(
+                      'Enter the OTP has been sent to',
+                      textAlign: TextAlign.center,
+                      style: kTextConfig.copyWith(
+                        fontWeight: FontWeight.w400,
+                        fontSize: ScreenUtil().setSp(20),
+                        color: cwColor4,
+                      ),
+                    ),
+                    Text(
+                      "******5945",
+                      textAlign: TextAlign.center,
+                      style: kTextConfig.copyWith(
+                        fontWeight: FontWeight.bold,
+                        fontSize: ScreenUtil().setSp(28),
+                        color: cwColor3,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 40.h,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 35.w, vertical: 10.h),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          TextFieldOTP(),
+                          TextFieldOTP(),
+                          TextFieldOTP(),
+                          TextFieldOTP(),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 15.h,
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        TextFieldOTP(),
-                        TextFieldOTP(),
-                        TextFieldOTP(),
-                        TextFieldOTP(),
+                        Text(
+                          "Don’t receive OTP?",
+                          textAlign: TextAlign.center,
+                          style: kTextConfig.copyWith(
+                            fontWeight: FontWeight.w400,
+                            fontSize: ScreenUtil().setSp(18),
+                            color: cwColor4,
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            'RESENT OTP (112)',
+                            style: kTextConfig.copyWith(
+                              fontWeight: FontWeight.bold,
+                              fontSize: ScreenUtil().setSp(18),
+                              color: cwColor1,
+                            ),
+                          ),
+                        ),
                       ],
                     ),
-                  ),
-                  SizedBox(
-                    height: 15.h,
-                  ),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Don’t receive OTP?",
-                        textAlign: TextAlign.center,
-                        style: kTextConfig.copyWith(
-                          fontWeight: FontWeight.w400,
-                          fontSize: ScreenUtil().setSp(18),
-                          color: cwColor4,
+                    SizedBox(
+                      height: 61.h,
+                    ),
+                    GestureDetector(
+                      child: Container(
+                        height: 60,
+                        width: 350,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(38),
+                          color: cwColor1,
                         ),
-                      ),
-                      TextButton(
-                        onPressed: () {},
+                        alignment: Alignment.center,
                         child: Text(
-                          'RESENT OTP (112)',
+                          'VERIFY',
                           style: kTextConfig.copyWith(
                             fontWeight: FontWeight.bold,
-                            fontSize: ScreenUtil().setSp(18),
-                            color: cwColor1,
+                            fontSize: ScreenUtil().setSp(20),
+                            color: cwColor2,
                           ),
                         ),
                       ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 61.h,
-                  ),
-                  GestureDetector(
-                    child: Container(
-                      height: 60,
-                      width: 350,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(38),
-                        color: cwColor1,
-                      ),
-                      alignment: Alignment.center,
-                      child: Text(
-                        'VERIFY',
-                        style: kTextConfig.copyWith(
-                          fontWeight: FontWeight.bold,
-                          fontSize: ScreenUtil().setSp(20),
-                          color: cwColor2,
-                        ),
-                      ),
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SuccessfulScreen()));
+                      },
                     ),
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => SuccessfulScreen()));
-                    },
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

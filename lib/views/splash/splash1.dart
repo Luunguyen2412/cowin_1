@@ -16,57 +16,59 @@ class SplashScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: kBlueColor,
       body: SafeArea(
-        child: Column(
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 94.h),
-              child: Column(
-                children: [
-                  Text(
-                    "Update news about\nCovid-19 in the country...",
-                    textAlign: TextAlign.left,
-                    style: heading.copyWith(
-                      color: kWhiteColor,
-                      fontSize: 24,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 69.h,
-                  ),
-                  Image.asset(
-                    'assets/images/splash1.png',
-                    height: 334.h,
-                    width: 364.h,
-                  ),
-                  SizedBox(
-                    height: 100.h,
-                  ),
-                  GestureDetector(
-                    child: Container(
-                      height: 60,
-                      width: 350,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        color: Colors.orange,
-                      ),
-                      alignment: Alignment.center,
-                      child: Text(
-                        'CONTINUE',
-                        style:
-                            heading.copyWith(color: kWhiteColor, fontSize: 16),
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 94.h),
+                child: Column(
+                  children: [
+                    Text(
+                      "Update news about\nCovid-19 in the country...",
+                      textAlign: TextAlign.left,
+                      style: heading.copyWith(
+                        color: kWhiteColor,
+                        fontSize: 24,
                       ),
                     ),
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => SplashScreen2()));
-                    },
-                  ),
-                ],
+                    SizedBox(
+                      height: 69.h,
+                    ),
+                    Image.asset(
+                      'assets/images/splash1.png',
+                      height: 334.h,
+                      width: 364.h,
+                    ),
+                    SizedBox(
+                      height: 100.h,
+                    ),
+                    GestureDetector(
+                      child: Container(
+                        height: 60,
+                        width: 350,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          color: Colors.orange,
+                        ),
+                        alignment: Alignment.center,
+                        child: Text(
+                          'CONTINUE',
+                          style: heading.copyWith(
+                              color: kWhiteColor, fontSize: 16),
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SplashScreen2()));
+                      },
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -81,67 +83,69 @@ class SplashScreen2 extends StatelessWidget {
     return Scaffold(
       backgroundColor: kBlueColor,
       body: SafeArea(
-        child: Column(
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.only(left: 30.w,right: 30.w, top: 94.h),
-              child: Column(
-                children: [
-                  Text(
-                    "Take care of health...",
-                    textAlign: TextAlign.left,
-                    style: heading.copyWith(color: kWhiteColor, fontSize: 24),
-                  ),
-                  SizedBox(
-                    height: 69.h,
-                  ),
-                  Image.asset(
-                    'assets/images/splash2.png',
-                    height: 334.h,
-                    width: 364.h,
-                  ),
-                  SizedBox(
-                    height: 100.h,
-                  ),
-                  GestureDetector(
-                    child: Container(
-                      height: 60.h,
-                      width: 350,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        color: Colors.orange,
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 94.h),
+                child: Column(
+                  children: [
+                    Text(
+                      "Take care of health...",
+                      textAlign: TextAlign.left,
+                      style: heading.copyWith(color: kWhiteColor, fontSize: 24),
+                    ),
+                    SizedBox(
+                      height: 69.h,
+                    ),
+                    Image.asset(
+                      'assets/images/splash2.png',
+                      height: 334.h,
+                      width: 364.h,
+                    ),
+                    SizedBox(
+                      height: 100.h,
+                    ),
+                    GestureDetector(
+                      child: Container(
+                        height: 60,
+                        width: 350,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          color: Colors.orange,
+                        ),
+                        alignment: Alignment.center,
+                        child: Text(
+                          'CONTINUE',
+                          style: heading.copyWith(
+                              color: kWhiteColor, fontSize: 16),
+                        ),
                       ),
-                      alignment: Alignment.center,
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SplashScreen3()));
+                      },
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SplashScreen()));
+                      },
                       child: Text(
-                        'CONTINUE',
-                        style:
-                            heading.copyWith(color: kWhiteColor, fontSize: 16),
+                        'Skip',
+                        style: normalText.copyWith(
+                            color: kWhiteColor, fontSize: 14),
                       ),
                     ),
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => SplashScreen3()));
-                    },
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => SplashScreen()));
-                    },
-                    child: Text(
-                      'Skip',
-                      style:
-                          normalText.copyWith(color: kWhiteColor, fontSize: 14),
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -156,67 +160,69 @@ class SplashScreen3 extends StatelessWidget {
     return Scaffold(
       backgroundColor: kBlueColor,
       body: SafeArea(
-        child: Column(
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 94.h),
-              child: Column(
-                children: [
-                  Text(
-                    "Free consultation\nservice for doctors ...",
-                    textAlign: TextAlign.left,
-                    style: heading.copyWith(color: kWhiteColor, fontSize: 24),
-                  ),
-                  SizedBox(
-                    height: 49.h,
-                  ),
-                  Image.asset(
-                    'assets/images/splash3.png',
-                    height: 334.h,
-                    width: 364.h,
-                  ),
-                  SizedBox(
-                    height: 91.h,
-                  ),
-                  GestureDetector(
-                    child: Container(
-                      height: 60,
-                      width: 350,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        color: Colors.orange,
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 94.h),
+                child: Column(
+                  children: [
+                    Text(
+                      "Free consultation\nservice for doctors ...",
+                      textAlign: TextAlign.left,
+                      style: heading.copyWith(color: kWhiteColor, fontSize: 24),
+                    ),
+                    SizedBox(
+                      height: 49.h,
+                    ),
+                    Image.asset(
+                      'assets/images/splash3.png',
+                      height: 334.h,
+                      width: 364.h,
+                    ),
+                    SizedBox(
+                      height: 91.h,
+                    ),
+                    GestureDetector(
+                      child: Container(
+                        height: 60,
+                        width: 350,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          color: Colors.orange,
+                        ),
+                        alignment: Alignment.center,
+                        child: Text(
+                          'CONTINUE',
+                          style: heading.copyWith(
+                              color: kWhiteColor, fontSize: 16),
+                        ),
                       ),
-                      alignment: Alignment.center,
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SplashScreen4()));
+                      },
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SplashScreen2()));
+                      },
                       child: Text(
-                        'CONTINUE',
-                        style:
-                            heading.copyWith(color: kWhiteColor, fontSize: 16),
+                        'Skip',
+                        style: normalText.copyWith(
+                            color: kWhiteColor, fontSize: 14),
                       ),
                     ),
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => SplashScreen4()));
-                    },
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => SplashScreen2()));
-                    },
-                    child: Text(
-                      'Skip',
-                      style:
-                          normalText.copyWith(color: kWhiteColor, fontSize: 14),
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -235,7 +241,7 @@ class SplashScreen4 extends StatelessWidget {
           child: Column(
             children: <Widget>[
               Padding(
-                padding: EdgeInsets.only(left: 30.w,right: 30.w, top: 90.h),
+                padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 90.h),
                 child: Column(
                   children: [
                     Text(
@@ -274,48 +280,18 @@ class SplashScreen4 extends StatelessWidget {
                         alignment: Alignment.center,
                         child: Text(
                           'GET START',
-                          style:
-                              heading.copyWith(color: kWhiteColor, fontSize: 16),
+                          style: heading.copyWith(
+                              color: kWhiteColor, fontSize: 16),
                         ),
                       ),
                       onTap: () {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => MainScreen()));
-                      },
-                    ),
-                    SizedBox(
-                      height: 10.h,
-                    ),
-                    GestureDetector(
-                      child: Container(
-                        height: 60,
-                        width: 350,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: kBlueColor,
-                          border: Border.all(
-                            color: kWhiteColor,
+                                builder: (context) => NavigationScreen()));
+                      }
                           ),
-                        ),
-                        alignment: Alignment.center,
-                        child: Text(
-                          'Login',
-                          style: TextStyle(
-                            color: kWhiteColor,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => LoginScreen()));
-                      },
-                    ),
+                
                   ],
                 ),
               ),
