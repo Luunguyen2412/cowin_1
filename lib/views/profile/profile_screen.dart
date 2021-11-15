@@ -96,9 +96,15 @@ class PersonalScreen extends StatelessWidget {
                                     color: cwColor4,
                                   ),
                                 ),
-                                Image.asset('assets/images/tick.png'),
-                                // SvgPicture.asset(
-                                //     Tools().getIcon("notification.svg")),
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(300),
+                                  child: Container(
+                                    color: cwColor5,
+                                    child: SvgPicture.asset(
+                                      Tools().getIcon("next_icon.svg"),
+                                    ),
+                                  ),
+                                ),
                               ],
                             ),
                           ),
@@ -154,7 +160,7 @@ class PersonalScreen extends StatelessWidget {
                   ),
                   ProfileMenuItem(
                     iconSrc: 'assets/icons/info.png',
-                    title: 'Change Passwors',
+                    title: 'Change Password',
                     press: () {},
                   ),
                   ProfileMenuItem(

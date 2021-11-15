@@ -2,6 +2,7 @@ import 'package:cowin_1/common/config/colors_config.dart';
 import 'package:cowin_1/common/config/texts_config.dart';
 import 'package:cowin_1/common/constants/tools.dart';
 import 'package:cowin_1/themes.dart';
+import 'package:cowin_1/views/home/widget/CustomSwitchButton.dart';
 import 'package:cowin_1/views/home/widget/card.dart';
 import 'package:cowin_1/widget/covid_cases_tile.dart';
 import 'package:cowin_1/widget/news_tile.dart';
@@ -63,17 +64,8 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       SizedBox(
                         height: 20.h,
                       ),
-                      Container(
-                        height: 53.h,
-                        width: 360.w,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: kWhiteColor,
-                          border: Border.all(
-                            color: cwColor3,
-                          ),
-                        ),
-                      ),
+                  
+                      CustomSwitch(),
                       SizedBox(
                         height: 15.h,
                       ),
