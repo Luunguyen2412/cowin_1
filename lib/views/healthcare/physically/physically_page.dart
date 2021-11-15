@@ -1,6 +1,4 @@
-import 'dart:math';
 
-import 'package:cowin_1/common/config/colors_config.dart';
 import 'package:cowin_1/common/config/texts_config.dart';
 import 'package:cowin_1/models/data.dart';
 import 'package:cowin_1/views/healthcare/physically/widgets/exercise_item.dart';

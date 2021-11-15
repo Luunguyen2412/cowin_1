@@ -50,6 +50,8 @@ dependencies:
   dio:
   google_maps_flutter:
   location:
+  charts_flutter: ^0.12.0
+  syncfusion_flutter_charts: ^19.3.53
 
 
 dev_dependencies:

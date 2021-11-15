@@ -1,22 +1,372 @@
 import 'package:cowin_1/common/config/colors_config.dart';
 import 'package:cowin_1/common/config/texts_config.dart';
 import 'package:cowin_1/common/constants/tools.dart';
-import 'package:cowin_1/themes.dart';
-import 'package:cowin_1/views/home/widget/card.dart';
-import 'package:cowin_1/widget/covid_cases_tile.dart';
+import 'package:cowin_1/views/news/data_page.dart';
+import 'package:cowin_1/views/news/evolutions_page.dart';
+import 'package:cowin_1/views/news/news_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class NewsScreen extends StatefulWidget {
   const NewsScreen({Key? key}) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
-    throw UnimplementedError();
-  }
-
+  _NewsScreenState createState() => _NewsScreenState();
 }
 
+class _NewsScreenState extends State<NewsScreen> with TickerProviderStateMixin {
+  late TabController tabController;
+  late TabController tabController1;
+  late final ScrollController scrollController;
 
+  bool isTapTabBar = false;
+
+  bool isScroll = false;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    tabController = TabController(
+      length: 3,
+      vsync: this,
+    );
+    tabController.animateTo(0,
+        duration: Duration(milliseconds: 500), curve: Curves.easeIn);
+    tabController.addListener(() {
+      setState(() {});
+    });
+    tabController1 = TabController(length: 4, vsync: this);
+    tabController1.animateTo(0,
+        duration: Duration(milliseconds: 1000), curve: Curves.easeIn);
+    tabController1.addListener(() {
+      // _setPositionByTabIndex();
+
+      setState(() {});
+    });
+    scrollController = ScrollController(initialScrollOffset: 0);
+    scrollController.addListener(() {
+      _setTabIndexByPosition();
+    });
+  }
+
+  _setPositionByTabIndex() {
+    switch (tabController1.index) {
+      case 0:
+        scrollController
+            .animateTo(0,
+                duration: Duration(milliseconds: 600),
+                curve: Curves.easeInOutCirc)
+            .then((value) {
+          setState(() {
+            isTapTabBar = false;
+          });
+        });
+        break;
+      case 1:
+        scrollController
+            .animateTo(480,
+                duration: Duration(milliseconds: 800),
+                curve: Curves.easeInOutCirc)
+            .then((value) {
+          setState(() {
+            isTapTabBar = false;
+          });
+        });
+        break;
+      case 2:
+        scrollController
+            .animateTo(1420,
+                duration: Duration(milliseconds: 1000),
+                curve: Curves.easeInOutCirc)
+            .then((value) {
+          setState(() {
+            isTapTabBar = false;
+          });
+        });
+        break;
+      case 3:
+        scrollController
+            .animateTo(1670,
+                duration: Duration(milliseconds: 1200),
+                curve: Curves.easeInOutCirc)
+            .then((value) {
+          setState(() {
+            isTapTabBar = false;
+          });
+        });
+        break;
+    }
+  }
+
+  _setTabIndexByPosition() {
+    if (!isTapTabBar) {
+      if (scrollController.offset < 350) {
+        setState(() {
+          tabController1.index = 0;
+        });
+      }
+      else if (scrollController.offset >= 500 &&scrollController.offset < 650) {
+        setState(() {
+          tabController1.index = 1;
+        });
+      }
+      else if (scrollController.offset >= 1420 &&scrollController.offset < 1500 ) {
+        setState(() {
+          tabController1.index = 2;
+        });
+      }
+      else if (scrollController.offset >= 1670 ) {
+        setState(() {
+          tabController1.index = 3;
+        });
+      }else{
+
+      }
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: SafeArea(
+        child: NestedScrollView(
+          headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+            return [
+              SliverAppBar(
+                backgroundColor: cwColor2,
+                expandedHeight: 80.h,
+                pinned: false,
+                title: Container(
+                  child: Text(
+                    tabController.index == 2 ? "Data" : "News",
+                    style: kText40Bold_3,
+                  ),
+                ),
+                actions: [
+                  Container(
+                    height: 68.h,
+                    margin: EdgeInsets.only(right: 7.w),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Stack(
+                          alignment: AlignmentDirectional.center,
+                          children: [
+                            Container(
+                              width: 46.h,
+                              height: 46.h,
+                              decoration: BoxDecoration(
+                                  color: cwColor2,
+                                  borderRadius: BorderRadius.circular(10.h),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Color(0xFF4F9FF1).withOpacity(0.2),
+                                      offset: Offset(0, 2),
+                                      blurRadius: 20.0,
+                                    )
+                                  ]),
+                              child: Center(
+                                child: Container(
+                                    height: 27.h,
+                                    width: 25.w,
+                                    child: SvgPicture.asset(
+                                        Tools().getIcon("notification.svg"))),
+                              ),
+                            ),
+                            Container(
+                              height: 53.h,
+                              width: 53.h,
+                              alignment: AlignmentDirectional.topEnd,
+                              child: Container(
+                                width: 13.h,
+                                height: 13.h,
+                                decoration: BoxDecoration(
+                                    color: cwColor6, shape: BoxShape.circle),
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          width: 20.w,
+                        ),
+                        Container(
+                          height: 68.h,
+                          width: 68.h,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10.h),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Color(0xFF4F9FF1).withOpacity(0.2),
+                                  offset: Offset(0, 2),
+                                  blurRadius: 20.0,
+                                )
+                              ]),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10.h),
+                            child: Container(
+                                width: 46.h,
+                                height: 46.h,
+                                child:
+                                    Image.asset(Tools().getIcon("info.png"))),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+
+                SliverAppBar(
+                  backgroundColor: cwColor2,
+                  expandedHeight: 50.h,
+                  pinned: true,
+                  toolbarHeight: 10.h,
+                  bottom: TabBar(
+                    controller: tabController,
+                    labelStyle: kText20Bold_1,
+                    physics: NeverScrollableScrollPhysics(),
+                    unselectedLabelStyle: kText20Bold_4,
+                    tabs: [
+                      Text(
+                        "News",
+                        style: tabController.index == 0
+                            ? kText20Bold_1
+                            : kText20Bold_4,
+                      ),
+                      Text(
+                        "Evolutions",
+                        style: tabController.index == 1
+                            ? kText20Bold_1
+                            : kText20Bold_4,
+                      ),
+                      Text(
+                        "Data",
+                        style: tabController.index == 2
+                            ? kText20Bold_1
+                            : kText20Bold_4,
+                      )
+                    ],
+                  ),
+                ),
+              // SliverAppBar(
+              //   expandedHeight: 200.h,
+              //   pinned: false,
+              //   floating: false,
+              //   snap: false,
+              //   flexibleSpace: FlexibleSpaceBar(
+              //     centerTitle: true,
+              //     title: Text("Collapsing Toolbar",
+              //         style: TextStyle(
+              //           color: Colors.white,
+              //           fontSize: 16.0,
+              //         )),
+              //   ),
+              // ),
+
+              if (tabController.index == 0)
+              SliverAppBar(
+                pinned: true,
+                floating: false,
+                snap: false,
+                expandedHeight: 110.h,
+                toolbarHeight: 10.h,
+                backgroundColor: cwColor2,
+                bottom: PreferredSize(
+                  preferredSize: Size.fromHeight(110.h),
+                  child: Container(
+                    height: 110.h,
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            setState(() {
+                              isTapTabBar = true;
+                              tabController1.index = 0;
+                            });
+                            _setPositionByTabIndex();
+                          },
+                          child: CustomTabBar(
+                            title: "Official Update",
+                            isActive: tabController1.index == 0,
+                            icon: "assets/icons/ic_official_update.svg",
+                          ),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            setState(() {
+                              isTapTabBar = true;
+                              tabController1.index = 1;
+                            });
+                            _setPositionByTabIndex();
+                          },
+                          child: CustomTabBar(
+                            title: "Recommend",
+                            isActive: tabController1.index == 1,
+                            icon: "assets/icons/ic_recommend.svg",
+                          ),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            setState(() {
+                              isTapTabBar = true;
+                              tabController1.index = 2;
+                            });
+                            _setPositionByTabIndex();
+                          },
+                          child: CustomTabBar(
+                            title: "World",
+                            isActive: tabController1.index == 2,
+                            icon: "assets/icons/ic_world.svg",
+                          ),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            setState(() {
+                              isTapTabBar = true;
+                              tabController1.index = 3;
+                            });
+                            _setPositionByTabIndex();
+                          },
+                          child: CustomTabBar(
+                            title: "Vaccine",
+                            isActive: tabController1.index == 3,
+                            icon: "assets/icons/ic_vaccine.svg",
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ];
+          },
+          body: TabBarView(
+            controller: tabController,
+            physics: NeverScrollableScrollPhysics(),
+            children: [
+              NewsPage(
+                tabIndex: tabController1.index,
+                scrollController: scrollController,
+                changeTab: (value) {
+                  setState(() {
+                    tabController1.index = value;
+                  });
+                },
+              ),
+              EvolutionsPage(),
+              DataPage()
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

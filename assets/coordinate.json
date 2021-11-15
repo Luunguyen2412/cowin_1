@@ -1,0 +1,380 @@
+{
+    "hospital": [
+        {
+            "id": 1,
+            "name": "Bệnh viện Bệnh Nhiệt Đới",
+            "address": "764 Võ Văn Kiệt, Phường 1, Quận 5, Thành phố Hồ Chí Minh",
+            "lat": 10.75243555122658, 
+            "lng": 106.67878566246691
+        },
+        {
+            "id": 2,
+            "name": "Bệnh viện Tâm Thần TPHCM",
+            "address": "766 Võ Văn Kiệt, Phường 1, Quận 5, Thành phố Hồ Chí Minh",
+            "lat": 10.752598928379573,  
+            "lng": 106.67830822927876
+        },
+        {
+            "id": 3,
+            "name": "Khoa Nhiễm D - Bệnh viện Bệnh Nhiệt đới",
+            "address": "929-941 Trần Hưng Đạo, Phường 1, Quận 5, Thành phố Hồ Chí Minh",
+            "lat": 10.753649019728426,  
+            "lng": 106.67804805499395
+        },
+        {
+            "id": 4,
+            "name": "Bệnh viện Thân Dân",
+            "address": "686 Trần Hưng Đạo, Phường 2, Quận 5, Thành phố Hồ Chí Minh",
+            "lat": 10.754813734064276,
+            "lng": 106.67829481819616
+        },
+        {
+            "id": 5,
+            "name": "Bệnh Viện Quốc Tế DNA",
+            "address": "1015 Trần Hưng Đạo, Phường 5, Quận 5, Thành phố Hồ Chí Minh",
+            "lat": 10.753649019729052, 
+            "lng": 106.6755160498344
+        }
+        ,
+        {
+            "id": 6,
+            "name": "Bệnh viện Nguyễn Trãi",
+            "address": "314 Nguyễn Trãi, Phường 8, Quận 5, Thành phố Hồ Chí Minh",
+            "lat": 10.756199791000272, 
+            "lng": 106.67488304837052
+        },
+        {
+            "id": 7,
+            "name": "Trung tâm Kiểm soát Bệnh tật TPHCM - cơ sở 2",
+            "address": "699 Trần Hưng Đạo, Phường 1, Quận 5, Thành phố Hồ Chí Minh",
+            "lat": 10.755867770342606, 
+            "lng": 106.68335882855663
+        },
+        {
+            "id": 8,
+            "name": "Bệnh Viện Mắt Cao Thắng",
+            "address": "135B Trần Bình Trọng, Phường 2, Quận 5, Thành phố Hồ Chí Minh",
+            "lat": 10.757338144781508,  
+            "lng": 106.68077854345245
+        },
+        {
+            "id": 9,
+            "name": "Bệnh Viện An Bình",
+            "address": "146 An Bình, Phường 4, Quận 5, Thành phố Hồ Chí Minh",
+            "lat": 10.760305222603934,  
+            "lng": 106.67665867074157
+        },
+        {
+            "id": 10,
+            "name": "Bệnh viện Nguyễn Tri Phương",
+            "address": "468 Nguyễn Trãi, Phường 8, Quận 5, Thành phố Hồ Chí Minh",
+            "lat": 10.755778177406444, 
+            "lng": 106.6701945471094
+        },
+        {
+            "id": 11,
+            "name": "Bệnh viện Quân Y 7A",
+            "address": "466 Nguyễn Trãi, Phường 8, Quận 5, Thành phố Hồ Chí Minh",
+            "lat": 10.755346022867196, 
+            "lng": 106.6709670231304
+        },
+        {
+            "id": 12,
+            "name": "Phòng Khám Ký Sinh Trùng Ánh Nga",
+            "address": "74 Trần Tuấn Khải, Phường 5, Quận 5, Thành phố Hồ Chí Minh",
+            "lat": 10.751217103437384, 
+            "lng": 106.67472700392007
+        },
+        {
+            "id": 13,
+            "name": "Bệnh viện Chợ Rẫy",
+            "address": "201B Nguyễn Chí Thanh, Phường 12, Quận 5, Thành phố Hồ Chí Minh",
+            "lat": 10.757923649368378, 
+            "lng": 106.65951629468363
+        },
+        {
+            "id": 14,
+            "name": "Bệnh viện Phạm Ngọc Thạch",
+            "address": "120 Hồng Bàng, Phường 12, Quận 5, Thành phố Hồ Chí Minh",
+            "lat": 10.756509977860574, 
+            "lng": 106.66548244007329
+        },
+        {
+            "id": 15,
+            "name": "Bệnh viện Đại học Y dược TP.HCM",
+            "address": "215 Hồng Bàng, Phường 11, Quận 5, Thành phố Hồ Chí Minh",
+            "lat": 10.755471780303392, 
+            "lng": 106.66445996890819
+        },
+        {
+            "id": 16,
+            "name": "Bệnh viện Hùng Vương",
+            "address": "128 Hồng Bàng, Phường 12, Quận 5, Thành phố Hồ Chí Minh",
+            "lat": 10.756001657127731, 
+            "lng": 106.66179222657804
+        }
+    ],
+    "casesDensity": [
+        {
+            "id": 1,
+            "address": "237 Bến Ba Đình, Phường 8, Quận 8, Thành phố Hồ Chí Minh",
+            "lat": 10.751320807795494, 
+            "lng": 106.67804678336125
+        },
+        {
+            "id": 2,
+            "address": "22 Hưng Phú, Phường 8, Quận 8, Thành phố Hồ Chí Minh",
+            "lat": 10.75071477961042, 
+            "lng": 106.68195737419637
+        },
+        {
+            "id": 3,
+            "address": "304/10 Phạm Thế Hiển, Phường 3, Quận 8, Thành phố Hồ Chí Minh",
+            "lat": 10.748928302731997, 
+            "lng": 106.68246949158117
+        },
+        {
+            "id": 4,
+            "address": "B4 Phạm Thế Hiển, Phường 3, Quận 8, Thành phố Hồ Chí Minh",
+            "lat": 10.749285598953009, 
+            "lng": 106.6842285034557
+        },
+        {
+            "id": 5,
+            "address": "106 Dạ Nam, Phường 2, Quận 8, Thành phố Hồ Chí Minh",
+            "lat": 10.749387683510633,  
+            "lng": 106.68459218101725
+        },
+        {
+            "id": 6,
+            "address": "22 Dạ Nam, Phường 2, Quận 8, Thành phố Hồ Chí Minh",
+            "lat": 10.749555393779573,   
+            "lng": 106.6854086000302
+        },
+        {
+            "id": 7,
+            "address": "10/14B Âu Dương Lân, Phường 3, Quận 8, Thành phố Hồ Chí Minh",
+            "lat": 10.747907454054669, 
+            "lng": 106.68145267880999
+        },
+        {
+            "id": 8,
+            "address": "38 Âu Dương Lân, Phường 3, Quận 8, Thành phố Hồ Chí Minh",
+            "lat": 10.747469946420793, 
+            "lng": 106.68209097004234
+        },
+        {
+            "id": 9,
+            "address": "451/33/20 Phạm Thế Hiển, Phường 3, Quận 8, Thành phố Hồ Chí Minh",
+            "lat": 10.746791808335729, 
+            "lng": 106.68102220333355
+        },
+        {
+            "id": 10,
+            "address": "154/136/20B Âu Dương Lân, Phường 3, Quận 8, Thành phố Hồ Chí Minh",
+            "lat": 10.746339715433905, 
+            "lng": 106.67990890467922
+        },
+        {
+            "id": 11,
+            "address": "555 Phạm Thế Hiển, Phường 4, Quận 8, Thành phố Hồ Chí Minh",
+            "lat": 10.746452597162389,  
+            "lng": 106.67840687503207
+        },
+        {
+            "id": 12,
+            "address": "599 Phạm Thế Hiển, Phường 4, Quận 8, Thành phố Hồ Chí Minh",
+            "lat": 10.746043837562837, 
+            "lng": 106.6776923438373
+        },
+        {
+            "id": 13,
+            "address": "14B/10 Nguyễn Duy, Phường 9, Quận 8, Thành phố Hồ Chí Minh",
+            "lat": 10.747376747260176, 
+            "lng": 106.67567537603492
+        },
+        {
+            "id": 14,
+            "address": "33/1A Trần Bình Trọng, Phường 1, Quận 5, Thành phố Hồ Chí Minh",
+            "lat": 10.753348110462298, 
+            "lng": 106.68183481583384
+        },
+        {
+            "id": 15,
+            "address": "666/67 Võ Văn Kiệt, Phường 1, Quận 5, Thành phố Hồ Chí Minh",
+            "lat": 10.753048918132691,
+            "lng": 106.68337137810732
+        },
+        {
+            "id": 16,
+            "address": "48/82 Hàm Tử, Phường 1, Quận 5, Thành phố Hồ Chí Minh",
+            "lat": 10.753286632206326,
+            "lng": 106.68337871031684
+        },
+        {
+            "id": 17,
+            "address": "666/74 Võ Văn Kiệt, Phường 1, Quận 5, Thành phố Hồ Chí Minh",
+            "lat": 10.753243411480128,
+            "lng": 106.68351802230285
+        },
+        {
+            "id": 18,
+            "address": "Số 2 Huỳnh Mẫn Đạt, Phường 1, Quận 5, Thành phố Hồ Chí Minh",
+            "lat": 10.752804000401085,
+            "lng": 106.67722698631542
+        },
+        {
+            "id": 19,
+            "address": "977/26 Trần Hưng Đạo, Phường 5, Quận 5, Thành phố Hồ Chí Minh",
+            "lat": 10.753265021834238, 
+            "lng": 106.67631046008967
+        },
+        {
+            "id": 20,
+            "address": "72 Nghĩa Thục, Phường 5, Quận 5, Thành phố Hồ Chí Minh",
+            "lat": 10.752832814256877,
+            "lng": 106.67532061176962
+        },
+        {
+            "id": 22,
+            "address": "730/2 Trần Hưng Đạo, Phường 2, Quận 5, Thành phố Hồ Chí Minh",
+            "lat": 10.754612064811795,
+            "lng": 106.67739562713643
+        },
+        {
+            "id": 23,
+            "address": "844/6 Trần Hưng Đạo, Phường 7, Quận 5, Thành phố Hồ Chí Minh",
+            "lat": 10.753985366419386,
+            "lng": 106.67504932000327
+        },
+        {
+            "id": 24,
+            "address": "126 Trần Tuấn Khải, Phường 5, Quận 5, Thành phố Hồ Chí Minh",
+            "lat": 10.752184001318923,
+            "lng": 106.674017006582
+        },
+        {
+            "id": 25,
+            "address": "535/5F Phan Văn Trị, Phường 7, Quận 5, Thành phố Hồ Chí Minh",
+            "lat": 10.754281548147006,
+            "lng": 106.67398482007343
+        },
+        {
+            "id": 26,
+            "address": "Số 3 Phan Văn Trị, Phường 2, Quận 5, Thành phố Hồ Chí Minh",
+            "lat": 10.755767740841364,
+            "lng": 106.67815833730009
+        },
+        {
+            "id": 27,
+            "address": "58/2/20 Lê Hồng Phong, Phường 2, Quận 5, Thành phố Hồ Chí Minh",
+            "lat": 10.7559363863582,
+            "lng": 106.67942433995597
+        },
+        {
+            "id": 28,
+            "address": "82/11 An Bình, Phường 5, Quận 5, Thành phố Hồ Chí Minh",
+            "lat": 10.751467248306156,
+            "lng": 106.67315869969508
+        },
+        {
+            "id": 29,
+            "address": "121 An Bình, Phường 6, Quận 5, Thành phố Hồ Chí Minh",
+            "lat": 10.752089137047918,
+            "lng": 106.6723969523344
+        }
+        ,
+        {
+            "id": 30,
+            "address": "86/5 Trần Hưng Đạo, Phường 7, Quận 5, Thành phố Hồ Chí Minh",
+            "lat": 10.753153723273087,
+            "lng": 106.6701975409448
+        }
+    ],
+    "testingLocation": [
+        {
+            "id": 1,
+            "name": "Bệnh viện Quận 8",
+            "address": "82 Cao Lỗ, Phường 4, Quận 8, TPHCM",
+            "lat": 10.741909131572674,
+            "lng": 106.67629233822912
+        },
+        {
+            "id": 2,
+            "name": "Trung tâm Kiểm soát Bệnh tật TPHCM (HCDC)",
+            "address": "61 Âu Dương Lân, Phường 3, Quận 8, TPHCM",
+            "lat": 10.741041523585215,
+            "lng": 106.68562349774301
+        },
+        {
+            "id": 3,
+            "name": "Viện Y tế công cộng TPHCM",
+            "address": "159 Hưng Phú, Phường 8, Quận 8, TPHCM",
+            "lat": 10.74933717923776,
+            "lng": 106.67849655541289
+        },
+        {
+            "id": 4,
+            "name": "Bệnh viện Bệnh Nhiệt đới",
+            "address": "764 Võ Văn Kiệt, Phường 1, Quận 5, TPHCM",
+            "lat": 10.75284778003852,
+            "lng": 106.67892972657798
+        },
+        {
+            "id": 5,
+            "name": "Trung Tâm Y tế Dự phòng Thành phố",
+            "address": "699 Trần Hưng Đạo, Phường 1, Quận 5, TPHCM",
+            "lat": 10.755809074767269,
+            "lng": 106.68352379711591
+        },
+        {
+            "id": 6,
+            "name": "Viện Sốt rét - Kí sinh trùng - Côn trùng TPHCM",
+            "address": "685 Trần Hưng Đạo, Phường 1, Quận 5, TPHCM",
+            "lat": 10.75586945719244,
+            "lng": 106.68348624007332
+        },
+        {
+            "id": 7,
+            "name": "Bệnh viện Quân Y 7A",
+            "address": "466 Nguyễn Trãi, Phường 8, Quận 5, TPHCM",
+            "lat": 10.755357257443363,
+            "lng": 106.67094024007334
+        },
+        {
+            "id": 8,
+            "name": "Bệnh viện Nguyễn Tri Phương",
+            "address": "468 Nguyễn Trãi, Phường 8, Quận 5, TPHCM",
+            "lat": 10.75578317653115,
+            "lng": 106.67019482657804
+        },
+        {
+            "id": 9,
+            "name": "Trung Tâm Y tế Quận 5",
+            "address": "591A Nguyễn Trãi, Phường 7, Quận 5, TPHCM",
+            "lat": 10.754024198510251,
+            "lng": 106.6669232977431
+        },
+        {
+            "id": 10,
+            "name": "Bệnh viện Phạm Ngọc Thạch",
+            "address": "120 Hồng Bàng, Phường 12, Quận 5, TPHCM",
+            "lat": 10.75728931470619,
+            "lng": 106.66510039774302
+        },
+        {
+            "id": 11,
+            "name": "Bệnh viện Đại học Y dược TPHCM",
+            "address": "215 Hồng Bàng, Phường 11, Quận 5, TPHCM",
+            "lat": 10.755397997789172,
+            "lng": 106.66443851123843
+        },
+        {
+            "id": 12,
+            "name": "Trung tâm Kiểm chuẩn chất lượng xét nghiệm Y học",
+            "address": "131 Nguyễn Chí Thanh, Phường 9, Quận 5, TPHCM",
+            "lat": 10.759684074892371,
+            "lng": 106.6678991400734
+        }
+    ]
+}

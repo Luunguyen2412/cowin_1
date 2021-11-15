@@ -12,13 +12,16 @@ import 'package:flutter_svg/svg.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
+
   @override
   HomePageState createState() => HomePageState();
 }
 
 class HomePageState extends State<HomePage> with TickerProviderStateMixin {
   late TabController tabController;
-  int selectedIndex = 0;
+  late TabController tabController1;
+
+
   @override
   void initState() {
     // TODO: implement initState
@@ -28,6 +31,13 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
       vsync: this,
     );
     tabController.addListener(() {
+      setState(() {});
+    });
+    tabController1 = TabController(
+      length: 2,
+      vsync: this,
+    );
+    tabController1.addListener(() {
       setState(() {});
     });
   }
@@ -65,13 +75,89 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       ),
                       Container(
                         height: 53.h,
-                        width: 360.w,
+                        width: MediaQuery.of(context).size.width,
+                        margin: EdgeInsets.symmetric(horizontal: 30.w),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(30),
                           color: kWhiteColor,
                           border: Border.all(
                             color: cwColor3,
                           ),
+                        ),
+                        child: Stack(
+                          children: [
+                            AnimatedPositioned(
+                                left: tabController1.index == 0 ? 1.w : 138.w,
+                                child: Container(
+                                  width: 180.w,
+                                  height: 48.h,
+                                  margin: EdgeInsets.only(top: 1.h),
+                                  alignment: Alignment.center,
+                                  decoration: BoxDecoration(
+                                      color: tabController1.index == 0
+                                          ? Color(0xFFFCA6A6)
+                                          : Color(0xFF2198E7),
+                                      borderRadius:
+                                          BorderRadius.circular(30.h)),
+                                ),
+                                duration: Duration(milliseconds: 500)),
+                            Container(
+                              padding: EdgeInsets.symmetric(horizontal: 40.w),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        tabController1.index = 0;
+                                      });
+                                    },
+                                    child: Container(
+                                      height: 53.h,
+                                      alignment: Alignment.center,
+                                      child: Text(
+                                        "Vietnam",
+                                        style: kText16Normal_3,
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    alignment: Alignment.centerRight,
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        setState(() {
+                                          tabController1.index = 1;
+                                        });
+                                      },
+                                      child: Container(
+                                        height: 53.h,
+                                        alignment: Alignment.center,
+                                        child: Text(
+                                          "Global",
+                                          style: kText16Normal_3,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        height: 200,
+                        child: TabBarView(
+                          controller: tabController1,
+                          children: [
+                            Container(
+                              color: Colors.red,
+                            ),
+                            Container(
+                              color: Colors.blue,
+                            )
+                          ],
                         ),
                       ),
                       SizedBox(
