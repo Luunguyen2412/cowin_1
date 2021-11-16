@@ -1,4 +1,5 @@
 import 'package:cowin_1/themes.dart';
+import 'package:cowin_1/views/login/login_screen.dart';
 import 'package:cowin_1/views/main_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -131,7 +132,7 @@ class SplashScreen2 extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => SplashScreen()));
+                                builder: (context) => SplashScreen4()));
                       },
                       child: Text(
                         'Skip',
@@ -208,7 +209,7 @@ class SplashScreen3 extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => SplashScreen2()));
+                                builder: (context) => SplashScreen4()));
                       },
                       child: Text(
                         'Skip',
@@ -286,7 +287,7 @@ class SplashScreen4 extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => MainScreen()));
+                                  builder: (context) => LoginScreen()));
                         }),
                   ],
                 ),

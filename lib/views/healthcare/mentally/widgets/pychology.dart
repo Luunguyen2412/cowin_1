@@ -4,8 +4,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:spannable_grid/spannable_grid.dart';
-class Pychology extends StatelessWidget {
+
+import '../mentally_detail.dart';
+class Pychology extends StatefulWidget {
   const Pychology({Key? key}) : super(key: key);
+
+  @override
+  State<Pychology> createState() => _PychologyState();
+}
+
+class _PychologyState extends State<Pychology> {
   List<SpannableGridCellData> _getCells() {
     var result = <SpannableGridCellData>[];
     result.add(SpannableGridCellData(
@@ -77,30 +85,36 @@ class Pychology extends StatelessWidget {
 
   _cardReduceStress() {
     return InkWell(
-      onTap: () {},
-      child: Container(
-        height: 205.h,
-        width: 163.w,
-        decoration: BoxDecoration(
-            color: cwColor9, borderRadius: BorderRadius.circular(10.h)),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Flexible(
-              child: Container(
-                alignment: Alignment.center,
-                padding: EdgeInsets.only(top: 20.h),
-                child: Image.asset("assets/images/pyc_image0.png"),
+      onTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => MentallyDetail(1)));
+      },
+      child: Hero(
+        tag: "mentally_detail1",
+        child: Container(
+          height: 205.h,
+          width: 163.w,
+          decoration: BoxDecoration(
+              color: cwColor9, borderRadius: BorderRadius.circular(10.h)),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Flexible(
+                child: Container(
+                  alignment: Alignment.center,
+                  padding: EdgeInsets.only(top: 20.h),
+                  child: Image.asset("assets/images/pyc_image0.png"),
+                ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(top: 20.h, left: 16.w),
-              child: Text(
-                "Reduce Stress",
-                style: kText18Bold_11,
-              ),
-            )
-          ],
+              Padding(
+                padding: EdgeInsets.only(top: 20.h, left: 16.w),
+                child: Text(
+                  "Reduce Stress",
+                  style: kText18Bold_11,
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -108,30 +122,36 @@ class Pychology extends StatelessWidget {
 
   _cardImprovePerformanee() {
     return InkWell(
-      onTap: () {},
-      child: Container(
-        height: 163.h,
-        width: 163.w,
-        decoration: BoxDecoration(
-            color: cwColor10, borderRadius: BorderRadius.circular(10.h)),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Flexible(
-              child: Container(
-                alignment: Alignment.center,
-                padding: EdgeInsets.only(top: 10.h),
-                child: Image.asset("assets/images/pyc_image1.png"),
+      onTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => MentallyDetail(2)));
+      },
+      child: Hero(
+        tag: "mentally_detail2",
+        child: Container(
+          height: 163.h,
+          width: 163.w,
+          decoration: BoxDecoration(
+              color: cwColor10, borderRadius: BorderRadius.circular(10.h)),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Flexible(
+                child: Container(
+                  alignment: Alignment.center,
+                  padding: EdgeInsets.only(top: 10.h),
+                  child: Image.asset("assets/images/pyc_image1.png"),
+                ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(top: 10.h, left: 16.w),
-              child: Text(
-                "Improve Performanee",
-                style: kText18Bold_2,
-              ),
-            )
-          ],
+              Padding(
+                padding: EdgeInsets.only(top: 10.h, left: 16.w),
+                child: Text(
+                  "Improve Performanee",
+                  style: kText18Bold_2,
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -139,30 +159,36 @@ class Pychology extends StatelessWidget {
 
   _cardReduceAnxiety() {
     return InkWell(
-      onTap: () {},
-      child: Container(
-        height: 205.h,
-        width: 163.w,
-        decoration: BoxDecoration(
-            color: cwColor11, borderRadius: BorderRadius.circular(10.h)),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Flexible(
-              child: Container(
-                alignment: Alignment.center,
-                padding: EdgeInsets.only(top: 20.h),
-                child: Image.asset("assets/images/pyc_image3.png"),
+      onTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => MentallyDetail(3)));
+      },
+      child: Hero(
+        tag: "mentally_detail3",
+        child: Container(
+          height: 205.h,
+          width: 163.w,
+          decoration: BoxDecoration(
+              color: cwColor11, borderRadius: BorderRadius.circular(10.h)),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Flexible(
+                child: Container(
+                  alignment: Alignment.center,
+                  padding: EdgeInsets.only(top: 20.h),
+                  child: Image.asset("assets/images/pyc_image3.png"),
+                ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(top: 30.h, left: 16.w),
-              child: Text(
-                "Reduce Anxiety",
-                style: kText18Bold_14,
-              ),
-            )
-          ],
+              Padding(
+                padding: EdgeInsets.only(top: 30.h, left: 16.w),
+                child: Text(
+                  "Reduce Anxiety",
+                  style: kText18Bold_14,
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -170,30 +196,36 @@ class Pychology extends StatelessWidget {
 
   _cardIncreaseHappiness() {
     return InkWell(
-      onTap: () {},
-      child: Container(
-        height: 163.h,
-        width: 163.w,
-        decoration: BoxDecoration(
-            color: cwColor12, borderRadius: BorderRadius.circular(10.h)),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Flexible(
-              child: Container(
-                alignment: Alignment.center,
-                padding: EdgeInsets.only(top: 10.h),
-                child: Image.asset("assets/images/pyc_image2.png"),
+      onTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => MentallyDetail(4)));
+      },
+      child: Hero(
+        tag: "mentally_detail4",
+        child: Container(
+          height: 163.h,
+          width: 163.w,
+          decoration: BoxDecoration(
+              color: cwColor12, borderRadius: BorderRadius.circular(10.h)),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Flexible(
+                child: Container(
+                  alignment: Alignment.center,
+                  padding: EdgeInsets.only(top: 10.h),
+                  child: Image.asset("assets/images/pyc_image2.png"),
+                ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(top: 10.h, left: 16.w),
-              child: Text(
-                "Increase \nHappiness",
-                style: kText18Bold_14,
-              ),
-            )
-          ],
+              Padding(
+                padding: EdgeInsets.only(top: 10.h, left: 16.w),
+                child: Text(
+                  "Increase \nHappiness",
+                  style: kText18Bold_14,
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -201,30 +233,36 @@ class Pychology extends StatelessWidget {
 
   _cardPersonalGrowth1() {
     return InkWell(
-      onTap: () {},
-      child: Container(
-        height: 205.h,
-        width: 163.w,
-        decoration: BoxDecoration(
-            color: cwColor13, borderRadius: BorderRadius.circular(10.h)),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Flexible(
-              child: Container(
-                alignment: Alignment.center,
-                padding: EdgeInsets.only(top: 20.h),
-                child: Image.asset("assets/images/pyc_image4.png"),
+      onTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => MentallyDetail(5)));
+      },
+      child: Hero(
+        tag: "mentally_detail5",
+        child: Container(
+          height: 205.h,
+          width: 163.w,
+          decoration: BoxDecoration(
+              color: cwColor13, borderRadius: BorderRadius.circular(10.h)),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Flexible(
+                child: Container(
+                  alignment: Alignment.center,
+                  padding: EdgeInsets.only(top: 20.h),
+                  child: Image.asset("assets/images/pyc_image4.png"),
+                ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(top: 30.h, left: 16.w),
-              child: Text(
-                "Personal \nGrowth",
-                style: kText18Bold_2,
-              ),
-            )
-          ],
+              Padding(
+                padding: EdgeInsets.only(top: 30.h, left: 16.w),
+                child: Text(
+                  "Personal \nGrowth",
+                  style: kText18Bold_2,
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -232,30 +270,36 @@ class Pychology extends StatelessWidget {
 
   _cardBetterSleep() {
     return InkWell(
-      onTap: () {},
-      child: Container(
-        height: 163.h,
-        width: 163.w,
-        decoration: BoxDecoration(
-            color: cwColor14, borderRadius: BorderRadius.circular(10.h)),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Flexible(
-              child: Container(
-                alignment: Alignment.center,
-                padding: EdgeInsets.only(top: 20.h),
-                child: Image.asset("assets/images/pyc_image5.png"),
+      onTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => MentallyDetail(6)));
+      },
+      child: Hero(
+        tag: "mentally_detail6",
+        child: Container(
+          height: 163.h,
+          width: 163.w,
+          decoration: BoxDecoration(
+              color: cwColor14, borderRadius: BorderRadius.circular(10.h)),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Flexible(
+                child: Container(
+                  alignment: Alignment.center,
+                  padding: EdgeInsets.only(top: 20.h),
+                  child: Image.asset("assets/images/pyc_image5.png"),
+                ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(top: 20.h, left: 16.w),
-              child: Text(
-                "Better Sleep",
-                style: kText18Bold_2,
-              ),
-            )
-          ],
+              Padding(
+                padding: EdgeInsets.only(top: 20.h, left: 16.w),
+                child: Text(
+                  "Better Sleep",
+                  style: kText18Bold_2,
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -263,60 +307,76 @@ class Pychology extends StatelessWidget {
 
   _cardPersonalGrowth2() {
     return InkWell(
-      onTap: () {},
-      child: Container(
-        height: 205.h,
-        width: 163.w,
-        decoration: BoxDecoration(
-            color: cwColor16, borderRadius: BorderRadius.circular(10.h)),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Flexible(
-              child: Container(
-                alignment: Alignment.center,
-                padding: EdgeInsets.only(top: 30.h),
-                child: Image.asset("assets/images/pyc_image7.png"),
+      onTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => MentallyDetail(7)));
+      },
+      child: Hero(
+        tag: "mentally_detail7",
+        child: Container(
+          height: 205.h,
+          width: 163.w,
+          decoration: BoxDecoration(
+              color: cwColor16, borderRadius: BorderRadius.circular(10.h)),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Flexible(
+                child: Container(
+                  alignment: Alignment.center,
+                  padding: EdgeInsets.only(top: 30.h),
+                  child: Image.asset("assets/images/pyc_image7.png"),
+                ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(top: 40.h, left: 16.w),
-              child: Text(
-                "Personal Growth",
-                style: kText18Bold_2,
-              ),
-            )
-          ],
+              Padding(
+                padding: EdgeInsets.only(top: 40.h, left: 16.w),
+                child: Text(
+                  "Personal Growth",
+                  style: kText18Bold_2,
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
   }
 
   _cardReduceAnrexia() {
-    return Container(
-      height: 163.h,
-      width: 163.w,
-      decoration: BoxDecoration(
-          color: cwColor15, borderRadius: BorderRadius.circular(10.h)),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            alignment: Alignment.center,
-            padding: EdgeInsets.only(top: 5.h),
-            child: Image.asset("assets/images/pyc_image6.png"),
+    return InkWell(
+      onTap: (){
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => MentallyDetail(8)));
+      },
+      child: Hero(
+        tag: "mentally_detail8",
+        child: Container(
+          height: 163.h,
+          width: 163.w,
+          decoration: BoxDecoration(
+              color: cwColor15, borderRadius: BorderRadius.circular(10.h)),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                alignment: Alignment.center,
+                padding: EdgeInsets.only(top: 5.h),
+                child: Image.asset("assets/images/pyc_image6.png"),
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: 10.h, left: 16.w),
+                child: Text(
+                  "Reduce Anorexia",
+                  style: kText18Bold_2,
+                ),
+              )
+            ],
           ),
-          Padding(
-            padding: EdgeInsets.only(top: 10.h, left: 16.w),
-            child: Text(
-              "Reduce Anorexia",
-              style: kText18Bold_2,
-            ),
-          )
-        ],
+        ),
       ),
     );
   }
+
   @override
   Widget build(BuildContext context) {
     return Container(

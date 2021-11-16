@@ -8,6 +8,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'physically_detail.dart';
+
 class PhysicallyPage extends StatefulWidget {
   const PhysicallyPage({Key? key}) : super(key: key);
 
@@ -105,11 +107,17 @@ class _PhysicallyPageState extends State<PhysicallyPage> {
                           itemCount: listRehabilitation.length,
                           itemBuilder: (context, index) {
                             var item = listRehabilitation[index];
-                            return Rehabilitation(
-                                name: item["name"],
-                                image: item["image"],
-                                backgroundColor: item["backgroundColor"],
-                                titleColor: item["titleColor"]);
+                            return GestureDetector(
+                              onTap: (){
+                                Navigator.push(
+                                    context, MaterialPageRoute(builder: (context) => PhysicallyDetail(index)));
+                              },
+                              child: Rehabilitation(
+                                  name: item["name"],
+                                  image: item["image"],
+                                  backgroundColor: item["backgroundColor"],
+                                  titleColor: item["titleColor"]),
+                            );
                           }))
                 ],
               ),

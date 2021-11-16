@@ -4,6 +4,7 @@ import 'package:cowin_1/common/config/colors_config.dart';
 import 'package:cowin_1/common/config/texts_config.dart';
 import 'package:cowin_1/themes.dart';
 import 'package:cowin_1/views/login/widgets/textfield.dart';
+import 'package:cowin_1/views/main_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -134,7 +135,10 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => MainScreen()));
+                },
               ),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,

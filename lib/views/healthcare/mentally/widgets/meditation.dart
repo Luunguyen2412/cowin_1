@@ -1,12 +1,18 @@
-
 import 'package:cowin_1/common/config/texts_config.dart';
+import 'package:cowin_1/views/healthcare/mentally/mentally_detail.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:spannable_grid/spannable_grid.dart';
-class Meditation extends StatelessWidget {
+
+class Meditation extends StatefulWidget {
   const Meditation({Key? key}) : super(key: key);
 
+  @override
+  State<Meditation> createState() => _MeditationState();
+}
+
+class _MeditationState extends State<Meditation> {
   List<SpannableGridCellData> _getCells() {
     var result = <SpannableGridCellData>[];
     result.add(SpannableGridCellData(
@@ -46,27 +52,34 @@ class Meditation extends StatelessWidget {
 
   _card7DaysOfCalm() {
     return InkWell(
-      onTap: () {},
-      child: Container(
-        height: 205.h,
-        width: 163.w,
-        decoration: BoxDecoration(
-            color: Colors.transparent, borderRadius: BorderRadius.circular(10.h)),
-        child: Stack(
-          alignment: AlignmentDirectional.bottomStart,
-          children: [
-            Container(
-              alignment: Alignment.center,
-              child: Image.asset("assets/images/pyc_image8.png"),
-            ),
-            Padding(
-              padding: EdgeInsets.only(bottom: 20.h, left: 16.w),
-              child: Text(
-                "7 Days of Calm",
-                style: kText18Bold_2,
+      onTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => MentallyDetail(9)));
+      },
+      child: Hero(
+        tag: "mentally_detail9",
+        child: Container(
+          height: 205.h,
+          width: 163.w,
+          decoration: BoxDecoration(
+              color: Colors.transparent,
+              borderRadius: BorderRadius.circular(10.h)),
+          child: Stack(
+            alignment: AlignmentDirectional.bottomStart,
+            children: [
+              Container(
+                alignment: Alignment.center,
+                child: Image.asset("assets/images/pyc_image8.png"),
               ),
-            )
-          ],
+              Padding(
+                padding: EdgeInsets.only(bottom: 20.h, left: 16.w),
+                child: Text(
+                  "7 Days of Calm",
+                  style: kText18Bold_2,
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -74,27 +87,34 @@ class Meditation extends StatelessWidget {
 
   _cardAnxietRelease() {
     return InkWell(
-      onTap: () {},
-      child: Container(
-        height: 163.h,
-        width: 163.w,
-        decoration: BoxDecoration(
-            color: Colors.transparent, borderRadius: BorderRadius.circular(10.h)),
-        child: Stack(
-          alignment: AlignmentDirectional.bottomStart,
-          children: [
-            Container(
-              alignment: Alignment.center,
-              child: Image.asset("assets/images/pyc_image9.png"),
-            ),
-            Padding(
-              padding: EdgeInsets.only(bottom: 20.h, left: 16.w),
-              child: Text(
-                "Anxiet Release",
-                style: kText18Bold_2,
+      onTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => MentallyDetail(10)));
+      },
+      child: Hero(
+        tag: "mentally_detail10",
+        child: Container(
+          height: 163.h,
+          width: 163.w,
+          decoration: BoxDecoration(
+              color: Colors.transparent,
+              borderRadius: BorderRadius.circular(10.h)),
+          child: Stack(
+            alignment: AlignmentDirectional.bottomStart,
+            children: [
+              Container(
+                alignment: Alignment.center,
+                child: Image.asset("assets/images/pyc_image9.png"),
               ),
-            )
-          ],
+              Padding(
+                padding: EdgeInsets.only(bottom: 20.h, left: 16.w),
+                child: Text(
+                  "Anxiet Release",
+                  style: kText18Bold_2,
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -102,27 +122,34 @@ class Meditation extends StatelessWidget {
 
   _cardHowToMeditate() {
     return InkWell(
-      onTap: () {},
-      child: Container(
-        height: 205.h,
-        width: 163.w,
-        decoration: BoxDecoration(
-            color: Colors.transparent, borderRadius: BorderRadius.circular(10.h)),
-        child: Stack(
-          alignment: AlignmentDirectional.bottomStart,
-          children: [
-            Container(
-              alignment: Alignment.center,
-              child: Image.asset("assets/images/pyc_image10.png"),
-            ),
-            Padding(
-              padding: EdgeInsets.only(bottom: 20.h, left: 16.w),
-              child: Text(
-                "How to Meditate",
-                style: kText18Bold_2,
+      onTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => MentallyDetail(11)));
+      },
+      child: Hero(
+        tag: "mentally_detail11",
+        child: Container(
+          height: 205.h,
+          width: 163.w,
+          decoration: BoxDecoration(
+              color: Colors.transparent,
+              borderRadius: BorderRadius.circular(10.h)),
+          child: Stack(
+            alignment: AlignmentDirectional.bottomStart,
+            children: [
+              Container(
+                alignment: Alignment.center,
+                child: Image.asset("assets/images/pyc_image10.png"),
               ),
-            )
-          ],
+              Padding(
+                padding: EdgeInsets.only(bottom: 20.h, left: 16.w),
+                child: Text(
+                  "How to Meditate",
+                  style: kText18Bold_2,
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -130,27 +157,34 @@ class Meditation extends StatelessWidget {
 
   _cardHowToBuildResilience() {
     return InkWell(
-      onTap: () {},
-      child: Container(
-        height: 163.h,
-        width: 163.w,
-        decoration: BoxDecoration(
-            color: Colors.transparent, borderRadius: BorderRadius.circular(10.h)),
-        child: Stack(
-          alignment: AlignmentDirectional.bottomStart,
-          children: [
-            Container(
-              alignment: AlignmentDirectional.center,
-              child: Image.asset("assets/images/pyc_image11.png"),
-            ),
-            Padding(
-              padding: EdgeInsets.only(bottom: 20.h, left: 16.w),
-              child: Text(
-                "How to build Resilience ",
-                style: kText18Bold_2,
+      onTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => MentallyDetail(12)));
+      },
+      child: Hero(
+        tag: "mentally_detail12",
+        child: Container(
+          height: 163.h,
+          width: 163.w,
+          decoration: BoxDecoration(
+              color: Colors.transparent,
+              borderRadius: BorderRadius.circular(10.h)),
+          child: Stack(
+            alignment: AlignmentDirectional.bottomStart,
+            children: [
+              Container(
+                alignment: AlignmentDirectional.center,
+                child: Image.asset("assets/images/pyc_image11.png"),
               ),
-            )
-          ],
+              Padding(
+                padding: EdgeInsets.only(bottom: 20.h, left: 16.w),
+                child: Text(
+                  "How to build Resilience ",
+                  style: kText18Bold_2,
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

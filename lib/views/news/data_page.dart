@@ -1,9 +1,8 @@
-import 'dart:math';
-
 import 'package:cowin_1/common/config/colors_config.dart';
 import 'package:cowin_1/common/config/texts_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class DataPage extends StatefulWidget {
@@ -32,9 +31,23 @@ class _DataPageState extends State<DataPage> {
                   Container(
                     height: 40.h,
                     width: 160.w,
+                    padding: EdgeInsets.symmetric(horizontal: 10.w),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20.r),
                         border: Border.all(color: cwColor1)),
+                    child: Row(
+                      children: [
+                        Container(
+                          height: 30.h,width: 30.w,
+                          child: Image.asset("assets/images/flag-vietnam.png"),
+                        ),
+                        SizedBox(
+                          width: 10.w,
+                        ),
+                        Text("Việt Nam",style: kText18Bold_3,),
+
+                      ],
+                    ),
                   ),
                   SizedBox(
                     width: 40.w,
@@ -42,9 +55,12 @@ class _DataPageState extends State<DataPage> {
                   Container(
                     height: 40.h,
                     width: 125.w,
+                    alignment: Alignment.center,
+                    padding: EdgeInsets.symmetric(horizontal: 10.w),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20.r),
                         border: Border.all(color: cwColor1)),
+                    child: Text("All time",style: kText18Bold_3,),
                   )
                 ],
               ),
@@ -58,7 +74,7 @@ class _DataPageState extends State<DataPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                  height: 200.h,
+                  height: 250.h,
                   width: 190.w,
                   decoration: BoxDecoration(
                       color: Colors.white,
@@ -83,7 +99,9 @@ class _DataPageState extends State<DataPage> {
                         ),
                       ),
                       Container(
-                          padding: EdgeInsets.only(top: 35.h, left: 10.w),
+                          height: 200.h,
+                          margin: EdgeInsets.only(top: 40.h),
+                          padding: EdgeInsets.only(top: 35.h),
                           child: ChartColumn(
                             color: Color(0xFFF29191),
                           ))
@@ -94,7 +112,7 @@ class _DataPageState extends State<DataPage> {
                   width: 10.w,
                 ),
                 Container(
-                  height: 200.h,
+                  height: 250.h,
                   width: 190.w,
                   decoration: BoxDecoration(
                       color: Colors.white,
@@ -119,7 +137,9 @@ class _DataPageState extends State<DataPage> {
                         ),
                       ),
                       Container(
-                          padding: EdgeInsets.only(top: 35.h, left: 10.w),
+                          height: 200.h,
+                          margin: EdgeInsets.only(top: 40.h),
+                          padding: EdgeInsets.only(top: 35.h),
                           child: ChartColumn(
                             color: Color(0xFF94D0CC),
                           ))
@@ -137,7 +157,7 @@ class _DataPageState extends State<DataPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                  height: 200.h,
+                  height: 250.h,
                   width: 190.w,
                   decoration: BoxDecoration(
                       color: Colors.white,
@@ -162,7 +182,9 @@ class _DataPageState extends State<DataPage> {
                         ),
                       ),
                       Container(
-                          padding: EdgeInsets.only(top: 35.h, left: 10.w),
+                          height: 200.h,
+                          margin: EdgeInsets.only(top: 40.h),
+                          padding: EdgeInsets.only(top: 35.h),
                           child: ChartColumn(
                             color: Color(0xFFF7D59C),
                           ))
@@ -173,7 +195,7 @@ class _DataPageState extends State<DataPage> {
                   width: 10.w,
                 ),
                 Container(
-                  height: 200.h,
+                  height: 250.h,
                   width: 190.w,
                   decoration: BoxDecoration(
                       color: Colors.white,
@@ -198,7 +220,9 @@ class _DataPageState extends State<DataPage> {
                         ),
                       ),
                       Container(
-                          padding: EdgeInsets.only(top: 35.h, left: 10.w),
+                          height: 200.h,
+                          margin: EdgeInsets.only(top: 40.h),
+                          padding: EdgeInsets.only(top: 35.h),
                           child: ChartColumn(
                             color: Color(0xFFD1D9D9),
                           ))
@@ -208,23 +232,266 @@ class _DataPageState extends State<DataPage> {
               ],
             ),
             SizedBox(
+              height: 30.h,
+            ),
+
+            Column(
+              children: [
+                Container(
+                  height: 60.h,
+                  child: Row(
+                    children: [
+                      Container(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Case by Province",
+                              style: kText24Bold_7,
+                            ),
+                            Row(
+                              children: [
+                                Row(
+                                  children: [
+                                    Container(
+                                      height: 15.h,
+                                      width: 15.h,
+                                      decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: Color(0xFF2494E0)),
+                                    ),
+                                    SizedBox(
+                                      width: 5.w,
+                                    ),
+                                    Text(
+                                      "Cases",
+                                      style: kText16Normal_4,
+                                    )
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    Container(
+                                      height: 15.h,
+                                      width: 15.h,
+                                      decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: Color(0xFF2494E0)
+                                              .withOpacity(0.5)),
+                                    ),
+                                    SizedBox(
+                                      width: 5.w,
+                                    ),
+                                    Text(
+                                      "New cases last 7 day ",
+                                      style: kText16Normal_4,
+                                    )
+                                  ],
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 20.h,
+                ),
+                Container(
+                  height: 400.h,
+                  child: ChartStackedColumn(),
+                ),
+              ],
+            ),
+            SizedBox(
               height: 20.h,
             ),
-
-            Container(
-              height: 400.h,
-              child: ChartColumn(),
+            Column(
+              children: [
+                Container(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "Insolation ratio",
+                      style: kText24Bold_7,
+                    )),
+                Container(
+                  height: 234.h,
+                  width: 234.h,
+                  child: ChartPie(),
+                ),
+                Container(
+                  height: 65.h,
+                  width: 285.w,
+                  padding: EdgeInsets.symmetric(horizontal: 5.w),
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(20.r),
+                        bottomRight: Radius.circular(20.r),
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                            color: cwColor4,
+                            blurRadius: 10.h,
+                            offset: Offset(2, 5))
+                      ]),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        width: 85.w,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              height: 15,
+                              width: 15,
+                              decoration: BoxDecoration(
+                                  color: Color(0xFF2494E0),
+                                  shape: BoxShape.circle),
+                            ),
+                            Expanded(
+                              child: RichText(
+                                  textAlign: TextAlign.center,
+                                  text: TextSpan(children: [
+                                    TextSpan(
+                                        text: "At home",
+                                        style: kText14Normal_4),
+                                    TextSpan(
+                                        text: "\n1,4M", style: kText30Bold_4),
+                                  ])),
+                            )
+                          ],
+                        ),
+                      ),
+                      Container(
+                        width: 85.w,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              height: 15,
+                              width: 15,
+                              decoration: BoxDecoration(
+                                  color: Color(0xFFF7D59C),
+                                  shape: BoxShape.circle),
+                            ),
+                            Expanded(
+                              child: RichText(
+                                  textAlign: TextAlign.center,
+                                  text: TextSpan(children: [
+                                    TextSpan(
+                                        text: "At the center",
+                                        style: kText14Normal_4),
+                                    TextSpan(
+                                        text: "\n600K", style: kText30Bold_4),
+                                  ])),
+                            )
+                          ],
+                        ),
+                      ),
+                      Container(
+                        width: 85.w,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              height: 15,
+                              width: 15,
+                              decoration: BoxDecoration(
+                                  color: Color(0xFFA1CAE2),
+                                  shape: BoxShape.circle),
+                            ),
+                            Expanded(
+                              child: RichText(
+                                  textAlign: TextAlign.center,
+                                  text: TextSpan(children: [
+                                    TextSpan(
+                                        text: "No", style: kText14Normal_4),
+                                    TextSpan(
+                                        text: "\n80M", style: kText30Bold_4),
+                                  ])),
+                            )
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                )
+              ],
             ),
 
-            Container(
-              height: 234.h,
-              width: 234.h,
-              child: ChartPie(),
+            SizedBox(
+              height: 50.h,
             ),
-            Container(
-              height: 250.h,
-              child: ChartArea(),
-            )
+            Column(
+              children: [
+                Container(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "Vaccinations",
+                      style: kText24Bold_7,
+                    )),
+                SizedBox(
+                  height: 20.h,
+                ),
+                Container(
+                  height: 40.h,
+                  padding: EdgeInsets.symmetric(horizontal: 10.w),
+                  child: Row(
+                    children: [
+                      Container(
+                        height: 40.h,
+                        width: 160.w,
+                        padding: EdgeInsets.symmetric(horizontal: 10.w),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20.r),
+                            border: Border.all(color: cwColor1)),
+                        child: Row(
+                          children: [
+                            Container(
+                              height: 30.h,width: 30.w,
+                              child: Image.asset("assets/images/flag-vietnam.png"),
+                            ),
+                            SizedBox(
+                              width: 10.w,
+                            ),
+                            Text("Việt Nam",style: kText18Bold_3,),
+
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        width: 40.w,
+                      ),
+                      Container(
+                        height: 40.h,
+                        width: 125.w,
+                        alignment: Alignment.center,
+                        padding: EdgeInsets.symmetric(horizontal: 10.w),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20.r),
+                            border: Border.all(color: cwColor1)),
+                        child: Text("All time",style: kText18Bold_3,),
+                      )
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 20.h,
+                ),
+                Container(
+                  height: 250.h,
+                  child: ChartArea(),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 50.h,
+            ),
           ],
         ),
       ),
@@ -244,10 +511,8 @@ class ChartColumn extends StatelessWidget {
   Widget build(BuildContext context) {
     return SfCartesianChart(
         // Initialize category axis
-        primaryXAxis: CategoryAxis(
-            axisLine: AxisLine(
-          color: Colors.transparent,
-        )),
+        primaryXAxis: CategoryAxis(isVisible: false),
+        primaryYAxis: CategoryAxis(isVisible: false),
         plotAreaBorderWidth: 0,
         margin: EdgeInsets.zero,
         series: <ColumnSeries<CovidData, String>>[
@@ -256,18 +521,18 @@ class ChartColumn extends StatelessWidget {
               color: color ?? Color(0xFFF29191),
               dataSource: listData ??
                   <CovidData>[
-                    CovidData('1', 35),
-                    CovidData('2', 28),
-                    CovidData('3', 34),
-                    CovidData('4', 32),
-                    CovidData('5', 40),
-                    CovidData('6', 50),
-                    CovidData('7', 35),
-                    CovidData('8', 28),
-                    CovidData('9', 34),
-                    CovidData('10', 32),
-                    CovidData('11', 40),
-                    CovidData('12', 50)
+                    CovidData(month: '1', number: 35),
+                    CovidData(month: '2', number: 28),
+                    CovidData(month: '3', number: 34),
+                    CovidData(month: '4', number: 32),
+                    CovidData(month: '5', number: 40),
+                    CovidData(month: '6', number: 50),
+                    CovidData(month: '7', number: 35),
+                    CovidData(month: '8', number: 28),
+                    CovidData(month: '9', number: 34),
+                    CovidData(month: '10', number: 32),
+                    CovidData(month: '11', number: 40),
+                    CovidData(month: '12', number: 50)
                   ],
               spacing: 0.01,
               xValueMapper: (CovidData data, _) => data.month,
@@ -288,28 +553,18 @@ class ChartPie extends StatelessWidget {
         // Initialize category axis
         series: <PieSeries<CovidData, String>>[
           PieSeries<CovidData, String>(
-              // Bind data source
-              //   trackColor: color??Color(0xFFF29191),
-              explode: true,
-              explodeIndex: 0,
-              explodeOffset: '10%',
-              dataSource: listData ??
-                  <CovidData>[
-                    CovidData(
-                      '1',
-                      20,
-                    ),
-                    CovidData('2', 20),
-                    CovidData('3', 20),
-                    CovidData('4', 20),
-                    CovidData('5', 20)
-                  ],
-              xValueMapper: (CovidData data, _) => data.month,
-              yValueMapper: (CovidData data, _) => data.number,
-              dataLabelMapper: (CovidData data, _) => data.number.toString(),
-              startAngle: 90,
-              endAngle: 90,
-              dataLabelSettings: const DataLabelSettings(isVisible: true))
+            dataSource: listData ??
+                <CovidData>[
+                  CovidData(month: '2', number: 50, color: Color(0xFFA1CAE2)),
+                  CovidData(month: '1', number: 40, color: Color(0xFF2494E0)),
+                  CovidData(month: '3', number: 10, color: Color(0xFFF7D59C)),
+                ],
+            startAngle: 90,
+            endAngle: 90,
+            xValueMapper: (CovidData data, _) => data.month,
+            yValueMapper: (CovidData data, _) => data.number,
+            pointColorMapper: (CovidData data, _) => data.color,
+          )
         ]);
   }
 }
@@ -323,30 +578,95 @@ class ChartArea extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SfCartesianChart(
-        // Initialize category axis
-        primaryXAxis: CategoryAxis(),
+        primaryXAxis: DateTimeAxis(
+          dateFormat: DateFormat("dd 'thg' MM")
+        ),
         title: ChartTitle(),
-        series: <AreaSeries<CovidData, String>>[
-          AreaSeries<CovidData, String>(
+        series: <StackedAreaSeries<CovidData, DateTime>>[
+          StackedAreaSeries<CovidData, DateTime>(
+            dataSource: listData ??
+                <CovidData>[
+                  CovidData(month: '2021-03-27', number: 35),
+                  CovidData(month: '2021-04-27', number: 28),
+                  CovidData(month: '2021-05-27', number: 34),
+                  CovidData(month: '2021-06-27', number: 32),
+                  CovidData(month: '2021-07-27', number: 40)
+                ],
+            color: Color(0xFF2494E0),
+            xValueMapper: (CovidData data, _) => DateTime.parse(data.month),
+            yValueMapper: (CovidData data, _) => data.number,
+          ),
+          StackedAreaSeries<CovidData, DateTime>(
               // Bind data source
               //   trackColor: color??Color(0xFFF29191),
               dataSource: listData ??
                   <CovidData>[
-                    CovidData('1', 35),
-                    CovidData('2', 28),
-                    CovidData('3', 34),
-                    CovidData('4', 32),
-                    CovidData('5', 40)
+                    CovidData(month: '2021-03-27', number: 35),
+                    CovidData(month: '2021-04-27', number: 28),
+                    CovidData(month: '2021-05-27', number: 34),
+                    CovidData(month: '2021-06-27', number: 32),
+                    CovidData(month: '2021-07-27', number: 40)
                   ],
-              xValueMapper: (CovidData data, _) => data.month,
+              color: Color(0xFF2494E0).withOpacity(0.5),
+              xValueMapper: (CovidData data, _) => DateTime.parse(data.month),
               yValueMapper: (CovidData data, _) => data.number)
         ]);
   }
 }
 
+class ChartStackedColumn extends StatelessWidget {
+  ChartStackedColumn({Key? key}) : super(key: key);
+
+  List<CovidData> _data = [
+    CovidData(month: 'Hồ Chí Minh', number: 35, number2: 40),
+    CovidData(month: 'An Giang', number: 28, number2: 40),
+    CovidData(month: 'Vũng Tàu', number: 34, number2: 40),
+    CovidData(month: 'Bắc Giang', number: 32, number2: 40),
+    CovidData(month: 'Bắc Kạn', number: 40, number2: 40),
+    CovidData(month: 'Bạc Liêu', number: 50, number2: 40),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return SfCartesianChart(
+        // Initialize category axis
+        primaryXAxis: CategoryAxis(
+            labelIntersectAction: AxisLabelIntersectAction.wrap,
+            labelStyle: kText14Medium_1),
+        primaryYAxis: NumericAxis(),
+        plotAreaBorderWidth: 0,
+        margin: EdgeInsets.zero,
+        series: <StackedColumnSeries<CovidData, String>>[
+          StackedColumnSeries<CovidData, String>(
+            borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(25.r),
+                bottomRight: Radius.circular(25.r)),
+            color: Color(0xFF2494E0),
+            dataSource: _data,
+            spacing: 0.01,
+            xValueMapper: (CovidData data, _) => data.month,
+            yValueMapper: (CovidData data, _) => data.number,
+          ),
+          StackedColumnSeries<CovidData, String>(
+            borderRadius: BorderRadius.only(
+                topRight: Radius.circular(25.r),
+                topLeft: Radius.circular(25.r)),
+            color: Color(0xFF2494E0).withOpacity(0.5),
+            dataSource: _data,
+            spacing: 0.01,
+            xValueMapper: (CovidData data, _) => data.month,
+            yValueMapper: (CovidData data, _) => data.number2,
+          ),
+        ]);
+  }
+}
+
 class CovidData {
-  CovidData(this.month, this.number);
+  CovidData(
+      {required this.month, required this.number, this.number2, this.color});
 
   final String month;
   final double number;
+  final double? number2;
+  final Color? color;
 }

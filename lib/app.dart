@@ -42,7 +42,7 @@ class _AppState extends State<App> {
                       GlobalCupertinoLocalizations.delegate,
                       DefaultCupertinoLocalizations.delegate,
                     ],
-                    home: MainScreen(),
+                    home: SplashScreen(),
                   );
                 }),
           );
