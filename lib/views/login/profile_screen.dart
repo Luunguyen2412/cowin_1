@@ -197,7 +197,12 @@ class ProfileScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                      onTap: () {},
+                      onTap: () {
+                         Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => LoginScreen()));
+                      },
                     ),
                   ],
                 ),

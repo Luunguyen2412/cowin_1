@@ -22,7 +22,6 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
   late TabController tabController;
   late TabController tabController1;
 
-
   @override
   void initState() {
     // TODO: implement initState
@@ -146,7 +145,11 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           children: [
                             Text(
                               "Cowin",
-                              style: kText40Bold_4,
+                              style: kTextConfig.copyWith(
+                                fontWeight: FontWeight.bold,
+                                fontSize: ScreenUtil().setSp(40),
+                                color: cwColor2,
+                              ),
                             ),
                             SizedBox(
                               width: 114.w,
