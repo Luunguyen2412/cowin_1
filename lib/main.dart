@@ -7,15 +7,17 @@ import 'package:provider/provider.dart';
 import 'app.dart';
 import 'view_models/app/app_bloc_observer.dart';
 
-
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Provider.debugCheckInvalidValueType = null;
   print('[main] ============== main.dart START ==============');
-  Bloc.observer = AppBlocObserver();
+
   /// enable network traffic logging
   HttpClient.enableTimelineLogging = false;
-  runZoned(() {
-    runApp(App());
-  });
+  BlocOverrides.runZoned(
+    () {
+      runApp(App());
+    },
+    blocObserver: AppBlocObserver(),
+  );
 }
