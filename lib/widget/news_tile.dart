@@ -134,7 +134,7 @@ class NewsCard extends StatelessWidget {
                     Row(
                       children: [
                         Text(
-                          time,
+                          "• ${time}",
                           style: kTextConfig.copyWith(
                             fontWeight: FontWeight.w600,
                             fontSize: ScreenUtil().setSp(12),
@@ -143,7 +143,7 @@ class NewsCard extends StatelessWidget {
                         ),
                         Spacer(),
                         Text(
-                          update,
+                          "• ${update}",
                           style: kTextConfig.copyWith(
                             fontWeight: FontWeight.w600,
                             fontSize: ScreenUtil().setSp(12),
