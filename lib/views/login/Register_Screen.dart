@@ -120,7 +120,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             color: cwColor5,
                             icon: Icon(_isObscure
                                 ? Icons.visibility
-                                : Icons.visibility_off),
+                                : Icons.visibility_off),  
                             onPressed: () {
                               setState(() {
                                 _isObscure = !_isObscure;
