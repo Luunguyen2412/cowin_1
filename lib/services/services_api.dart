@@ -32,5 +32,5 @@ class APIServices {
       return response.data["overview"].last;
       }
     } catch (e) {}
-  }
+}
 }
