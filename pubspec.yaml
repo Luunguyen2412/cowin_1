@@ -52,12 +52,7 @@ dependencies:
   location:
   charts_flutter: ^0.12.0
   syncfusion_flutter_charts: ^19.3.53
-<<<<<<< HEAD
-
-=======
-  webview_flutter: ^2.3.1
   animated_splash_screen: ^1.1.0
->>>>>>> ebdf8fc1f50818d24cd629f31e748a78978e343f
 
   flutter_native_splash: ^1.3.1
 
