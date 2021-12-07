@@ -141,10 +141,14 @@ class ListHospital extends StatelessWidget {
                         height: 120.h,
                         child: Row(
                           children: [
-                            Container(
-                              height: 85.h,
-                              width: 85.h,
-                              color: Colors.blue,
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(50.r),
+                              child: Container(
+                                height: 85.h,
+                                width: 85.h,
+                                color: Colors.blue,
+                                child: Image.asset("assets/images/img_hospital.png",fit: BoxFit.cover),
+                              ),
                             ),
                             SizedBox(
                               width: 12.w,

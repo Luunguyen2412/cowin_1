@@ -27,7 +27,7 @@ dependencies:
     sdk: flutter
   flutter_modules:
     git:
-      url: https://github.com/Honghm/flutter_template.git
+      url: https://github.com/Covisoft/flutter_modules.git
   bottom_nav_bar:
     git:
       url: https://github.com/Ansh-Rathod/bottom_nav_bar

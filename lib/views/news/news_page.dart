@@ -717,6 +717,7 @@ class ItemNews extends StatelessWidget {
               height: 70.h,
               width: 70.w,
               color: cwColor4,
+              child: Image.asset("assets/images/img_news2.png",fit: BoxFit.fill)
             ),
           )
         ],

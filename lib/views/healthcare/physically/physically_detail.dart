@@ -4,7 +4,6 @@ import 'dart:io';
 import 'package:cowin_1/common/config/texts_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:webview_flutter/webview_flutter.dart';
 
 class PhysicallyDetail extends StatefulWidget {
   final int id;
@@ -20,7 +19,7 @@ class _PhysicallyDetailState extends State<PhysicallyDetail> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    if (Platform.isAndroid) WebView.platform = SurfaceAndroidWebView();
+
   }
   @override
   Widget build(BuildContext context) {
