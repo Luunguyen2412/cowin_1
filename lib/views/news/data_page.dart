@@ -38,14 +38,17 @@ class _DataPageState extends State<DataPage> {
                     child: Row(
                       children: [
                         Container(
-                          height: 30.h,width: 30.w,
+                          height: 30.h,
+                          width: 30.w,
                           child: Image.asset("assets/images/flag-vietnam.png"),
                         ),
                         SizedBox(
                           width: 10.w,
                         ),
-                        Text("Việt Nam",style: kText18Bold_3,),
-
+                        Text(
+                          "Việt Nam",
+                          style: kText18Bold_3,
+                        ),
                       ],
                     ),
                   ),
@@ -60,7 +63,10 @@ class _DataPageState extends State<DataPage> {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20.r),
                         border: Border.all(color: cwColor1)),
-                    child: Text("All time",style: kText18Bold_3,),
+                    child: Text(
+                      "All time",
+                      style: kText18Bold_3,
+                    ),
                   )
                 ],
               ),
@@ -324,7 +330,7 @@ class _DataPageState extends State<DataPage> {
                 ),
                 Container(
                   height: 65.h,
-                  width: 285.w,
+                  width: 300.w,
                   padding: EdgeInsets.symmetric(horizontal: 5.w),
                   decoration: BoxDecoration(
                       color: Colors.white,
@@ -367,30 +373,31 @@ class _DataPageState extends State<DataPage> {
                           ],
                         ),
                       ),
-                      Container(
-                        width: 85.w,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              height: 15,
-                              width: 15,
-                              decoration: BoxDecoration(
-                                  color: Color(0xFFF7D59C),
-                                  shape: BoxShape.circle),
-                            ),
-                            Expanded(
-                              child: RichText(
-                                  textAlign: TextAlign.center,
-                                  text: TextSpan(children: [
-                                    TextSpan(
-                                        text: "At the center",
-                                        style: kText14Normal_4),
-                                    TextSpan(
-                                        text: "\n600K", style: kText30Bold_4),
-                                  ])),
-                            )
-                          ],
+                      Expanded(
+                        child: Container(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                height: 15,
+                                width: 15,
+                                decoration: BoxDecoration(
+                                    color: Color(0xFFF7D59C),
+                                    shape: BoxShape.circle),
+                              ),
+                              Expanded(
+                                child: RichText(
+                                    textAlign: TextAlign.center,
+                                    text: TextSpan(children: [
+                                      TextSpan(
+                                          text: "At the center",
+                                          style: kText14Normal_4),
+                                      TextSpan(
+                                          text: "\n600K", style: kText30Bold_4),
+                                    ])),
+                              )
+                            ],
+                          ),
                         ),
                       ),
                       Container(
@@ -453,14 +460,18 @@ class _DataPageState extends State<DataPage> {
                         child: Row(
                           children: [
                             Container(
-                              height: 30.h,width: 30.w,
-                              child: Image.asset("assets/images/flag-vietnam.png"),
+                              height: 30.h,
+                              width: 30.w,
+                              child:
+                                  Image.asset("assets/images/flag-vietnam.png"),
                             ),
                             SizedBox(
                               width: 10.w,
                             ),
-                            Text("Việt Nam",style: kText18Bold_3,),
-
+                            Text(
+                              "Việt Nam",
+                              style: kText18Bold_3,
+                            ),
                           ],
                         ),
                       ),
@@ -475,7 +486,10 @@ class _DataPageState extends State<DataPage> {
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20.r),
                             border: Border.all(color: cwColor1)),
-                        child: Text("All time",style: kText18Bold_3,),
+                        child: Text(
+                          "All time",
+                          style: kText18Bold_3,
+                        ),
                       )
                     ],
                   ),
@@ -578,9 +592,7 @@ class ChartArea extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SfCartesianChart(
-        primaryXAxis: DateTimeAxis(
-          dateFormat: DateFormat("dd 'thg' MM")
-        ),
+        primaryXAxis: DateTimeAxis(dateFormat: DateFormat("dd 'thg' MM")),
         title: ChartTitle(),
         series: <StackedAreaSeries<CovidData, DateTime>>[
           StackedAreaSeries<CovidData, DateTime>(

@@ -12,7 +12,13 @@ import '../../size_config.dart';
 import 'Register_Screen.dart';
 import 'forgot_password_screen.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
+  @override
+  _LoginScreenState createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  bool _isObscure = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,7 +72,8 @@ class LoginScreen extends StatelessWidget {
                 height: 17.h,
               ),
               TextFieldContainer(
-                child: TextField(
+                child: TextFormField(
+                  obscureText: _isObscure,
                   decoration: InputDecoration(
                     prefixIcon: Icon(
                       Icons.lock,
@@ -77,6 +84,16 @@ class LoginScreen extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                       fontSize: ScreenUtil().setSp(17),
                       color: cwColor5,
+                    ),
+                    suffixIcon: IconButton(
+                      color: cwColor5,
+                      icon: Icon(
+                          _isObscure ? Icons.visibility : Icons.visibility_off),
+                      onPressed: () {
+                        setState(() {
+                          _isObscure = !_isObscure;
+                        });
+                      },
                     ),
                     border: InputBorder.none,
                   ),

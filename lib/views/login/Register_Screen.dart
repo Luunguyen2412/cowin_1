@@ -1,4 +1,3 @@
-
 import 'package:cowin_1/common/config/colors_config.dart';
 import 'package:cowin_1/common/config/texts_config.dart';
 import 'package:cowin_1/views/login/OTP_screen.dart';
@@ -9,7 +8,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'login_screen.dart';
 
-class RegisterScreen extends StatelessWidget {
+class RegisterScreen extends StatefulWidget {
+  @override
+  _RegisterScreenState createState() => _RegisterScreenState();
+}
+
+class _RegisterScreenState extends State<RegisterScreen> {
+  bool _isObscure = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,7 +72,8 @@ class RegisterScreen extends StatelessWidget {
                       height: 14.h,
                     ),
                     TextFieldContainer(
-                      child: TextField(
+                      child: TextFormField(
+                        obscureText: _isObscure,
                         decoration: InputDecoration(
                           prefixIcon: Icon(
                             Icons.lock,
@@ -78,6 +84,17 @@ class RegisterScreen extends StatelessWidget {
                             fontWeight: FontWeight.w600,
                             fontSize: ScreenUtil().setSp(17),
                             color: cwColor5,
+                          ),
+                          suffixIcon: IconButton(
+                            color: cwColor5,
+                            icon: Icon(_isObscure
+                                ? Icons.visibility
+                                : Icons.visibility_off),
+                            onPressed: () {
+                              setState(() {
+                                _isObscure = !_isObscure;
+                              });
+                            },
                           ),
                           border: InputBorder.none,
                         ),
@@ -98,6 +115,17 @@ class RegisterScreen extends StatelessWidget {
                             fontWeight: FontWeight.w600,
                             fontSize: ScreenUtil().setSp(17),
                             color: cwColor5,
+                          ),
+                          suffixIcon: IconButton(
+                            color: cwColor5,
+                            icon: Icon(_isObscure
+                                ? Icons.visibility
+                                : Icons.visibility_off),  
+                            onPressed: () {
+                              setState(() {
+                                _isObscure = !_isObscure;
+                              });
+                            },
                           ),
                           border: InputBorder.none,
                         ),

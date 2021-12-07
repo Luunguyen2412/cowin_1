@@ -148,6 +148,7 @@ class _NutritionPageState extends State<NutritionPage> {
                   children: [
                     Container(
                       width: 200.w,
+                     padding:EdgeInsets.only(left:15.w),
                       child: Text(
                         "Covid prevention",
                         style: kText35Bold_7,

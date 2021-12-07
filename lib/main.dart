@@ -14,10 +14,8 @@ Future<void> main() async {
 
   /// enable network traffic logging
   HttpClient.enableTimelineLogging = false;
-  BlocOverrides.runZoned(
-    () {
-      runApp(App());
-    },
-    blocObserver: AppBlocObserver(),
-  );
+  Bloc.observer = AppBlocObserver();
+  runZoned(() {
+    runApp(App());
+  });
 }
