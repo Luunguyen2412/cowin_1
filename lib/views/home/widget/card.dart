@@ -1,5 +1,6 @@
 import 'package:cowin_1/common/config/colors_config.dart';
 import 'package:cowin_1/common/config/texts_config.dart';
+import 'package:cowin_1/views/healthcare/physically/physically_detail.dart';
 import 'package:cowin_1/views/home/AboutCovid_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -79,7 +80,7 @@ class Card1 extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.push(context,
-            MaterialPageRoute(builder: (context) => AboutCovidScreen()));
+            MaterialPageRoute(builder: (context) => AboutCovidScreen1()));
       },
       child: Container(
         height: 142.h,

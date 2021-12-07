@@ -1,4 +1,3 @@
-
 import 'dart:io';
 
 import 'package:cowin_1/common/config/texts_config.dart';
@@ -8,20 +7,20 @@ import 'package:webview_flutter/webview_flutter.dart';
 
 class PhysicallyDetail extends StatefulWidget {
   final int id;
-  const PhysicallyDetail(this.id,{Key? key}) : super(key: key);
+  const PhysicallyDetail(this.id, {Key? key}) : super(key: key);
 
   @override
   State<PhysicallyDetail> createState() => _PhysicallyDetailState();
 }
 
 class _PhysicallyDetailState extends State<PhysicallyDetail> {
-
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     if (Platform.isAndroid) WebView.platform = SurfaceAndroidWebView();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +35,7 @@ class _PhysicallyDetailState extends State<PhysicallyDetail> {
                   children: [
                     ClipPath(
                       clipper: MyCustomClipper(),
-                      child:    Container(
+                      child: Container(
                         height: 280.h,
                         width: MediaQuery.of(context).size.width,
                         color: Colors.black12,
@@ -47,13 +46,19 @@ class _PhysicallyDetailState extends State<PhysicallyDetail> {
                       padding: EdgeInsets.symmetric(horizontal: 10.w),
                       child: Column(
                         children: [
-                          SizedBox(height: 10.h,),
-                          Text("6 bài tập vận động tại giường cho bệnh nhân Covid-19",style: kText30Bold_3,),
-                          SizedBox(height: 10.h,),
-
+                          SizedBox(
+                            height: 10.h,
+                          ),
+                          Text(
+                            "6 bài tập vận động tại giường cho bệnh nhân Covid-19",
+                            style: kText30Bold_3,
+                          ),
+                          SizedBox(
+                            height: 10.h,
+                          ),
                           Container(
-
-                            child: Text("""Nên tập thể dục, nghe nhạc, đọc sách, xem phim, hoặc học một nhạc cụ mới để giảm căng thẳng khi cách ly tại nhà, chuyên gia gợi ý.
+                            child: Text(
+                              """Nên tập thể dục, nghe nhạc, đọc sách, xem phim, hoặc học một nhạc cụ mới để giảm căng thẳng khi cách ly tại nhà, chuyên gia gợi ý.
 
 Bác sĩ Nguyễn Viết Chung, Khoa Sức khỏe Tâm thần, Bệnh viện E, cho biết dịch Covid-19 kéo dài và phức tạp, ảnh hưởng rất lớn đến cuộc sống, làm thay đổi nhiều thói quen của mọi người. Trong đó, nhóm F0, F1 cách ly tại nhà dễ gặp phải biểu hiện căng thẳng hơn như cảm giác sợ hãi, lo mình mắc bệnh hoặc buồn bã, thất vọng khi mình là nguồn lây cho gia đình. Nhóm này có thể thay đổi về cảm giác thèm ăn, mong muốn và sở thích; khó ngủ, stress.
 
@@ -76,19 +81,19 @@ Dự trữ đầy đủ một số loại thuốc cần thiết như hạ sốt,
 Ở trẻ em, việc nghỉ học kéo dài, hạn chế vui chơi bên ngoài, phụ huynh nên hạn chế cho trẻ chơi điện thoại, máy tính dẫn đến cận thị, nghiện game, xao nhãng việc học. Gia đình cần sắp xếp thời gian để chơi với con, dạy con chơi nhạc cụ hoặc các trò chơi khác để cách ly đỡ nhàm chán.
 
 Người già, người có bệnh nền cần uống thuốc đều đặn, rèn luyện dưỡng sinh và thông báo tình hình sức khỏe của mình mỗi ngày đến nhân viên y tế, tránh lo lắng khi cách ly một mình.
-                                """,style: kText16Normal_3,),
+                                """,
+                              style: kText16Normal_3,
+                            ),
                           ),
-
                         ],
                       ),
                     )
                   ],
                 ),
-
                 Align(
                   alignment: Alignment.topRight,
                   child: InkWell(
-                    onTap: (){
+                    onTap: () {
                       Navigator.pop(context);
                     },
                     child: Container(
@@ -112,14 +117,13 @@ Người già, người có bệnh nền cần uống thuốc đều đặn, rè
   }
 }
 
-
 class MyCustomClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     final path = Path();
     path.lineTo(0, size.height);
     path.quadraticBezierTo(
-        size.width / 2, size.height-80, size.width, size.height);
+        size.width / 2, size.height - 80, size.width, size.height);
     path.lineTo(size.width, 0);
 
     path.close();
