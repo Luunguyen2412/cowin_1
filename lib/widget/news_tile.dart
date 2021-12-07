@@ -1,6 +1,7 @@
 import 'package:cowin_1/common/config/colors_config.dart';
 import 'package:cowin_1/common/config/texts_config.dart';
 import 'package:cowin_1/themes.dart';
+import 'package:cowin_1/views/home/AboutCovid_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -89,7 +90,10 @@ class NewsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => AboutCovidScreen1()));
+      },
       child: Padding(
         padding: const EdgeInsets.all(7),
         child: Row(
@@ -134,7 +138,7 @@ class NewsCard extends StatelessWidget {
                     Row(
                       children: [
                         Text(
-                          time,
+                          "• ${time}",
                           style: kTextConfig.copyWith(
                             fontWeight: FontWeight.w600,
                             fontSize: ScreenUtil().setSp(12),
@@ -143,7 +147,7 @@ class NewsCard extends StatelessWidget {
                         ),
                         Spacer(),
                         Text(
-                          update,
+                          "• ${update}",
                           style: kTextConfig.copyWith(
                             fontWeight: FontWeight.w600,
                             fontSize: ScreenUtil().setSp(12),

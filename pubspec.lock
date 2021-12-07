@@ -8,6 +8,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.0"
+<<<<<<< HEAD
   another_flushbar:
     dependency: transitive
     description:
@@ -15,6 +16,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.10.26"
+=======
+  animated_splash_screen:
+    dependency: "direct main"
+    description:
+      name: animated_splash_screen
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.1.0"
+>>>>>>> ebdf8fc1f50818d24cd629f31e748a78978e343f
   archive:
     dependency: transitive
     description:
@@ -447,6 +457,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
+  page_transition:
+    dependency: transitive
+    description:
+      name: page_transition
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.1-nullsafety.0"
   path:
     dependency: transitive
     description:
