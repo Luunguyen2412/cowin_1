@@ -30,7 +30,7 @@ class _NewsScreenState extends State<NewsScreen> with TickerProviderStateMixin {
     super.initState();
 
     tabController = TabController(
-      length: 3,
+      length: 2,
       vsync: this,
     );
     tabController.animateTo(0,
@@ -142,7 +142,7 @@ class _NewsScreenState extends State<NewsScreen> with TickerProviderStateMixin {
                 pinned: false,
                 title: Container(
                   child: Text(
-                    tabController.index == 2 ? "Data" : "News",
+                    tabController.index == 1 ? "Data" : "News",
                     style: kText40Bold_3,
                   ),
                 ),
@@ -238,15 +238,10 @@ class _NewsScreenState extends State<NewsScreen> with TickerProviderStateMixin {
                             ? kText20Bold_1
                             : kText20Bold_4,
                       ),
-                      Text(
-                        "Evolutions",
-                        style: tabController.index == 1
-                            ? kText20Bold_1
-                            : kText20Bold_4,
-                      ),
+                     
                       Text(
                         "Data",
-                        style: tabController.index == 2
+                        style: tabController.index == 1
                             ? kText20Bold_1
                             : kText20Bold_4,
                       )
@@ -361,7 +356,7 @@ class _NewsScreenState extends State<NewsScreen> with TickerProviderStateMixin {
                   });
                 },
               ),
-              EvolutionsPage(),
+            
               DataPage()
             ],
           ),

@@ -16,6 +16,7 @@ class DataPage extends StatefulWidget {
 
 class _DataPageState extends State<DataPage> {
   String _valueLocation = "Vietnam";
+    String _valueLocation1 = "Vietnam";
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -32,7 +33,7 @@ class _DataPageState extends State<DataPage> {
               child: Row(
                 children: [
                   Container(
-                      height: 60.h,
+                      height: 40.h,
                       width: 200.w,
                       padding: EdgeInsets.symmetric(horizontal: 10.w),
                       alignment: Alignment.center,
@@ -40,22 +41,6 @@ class _DataPageState extends State<DataPage> {
                           borderRadius: BorderRadius.circular(20.r),
                           border: Border.all(color: cwColor1)),
                       child: renderProvinceInput()),
-                  SizedBox(
-                    width: 40.w,
-                  ),
-                  Container(
-                    height: 60.h,
-                    width: 125.w,
-                    alignment: Alignment.center,
-                    padding: EdgeInsets.symmetric(horizontal: 10.w),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20.r),
-                        border: Border.all(color: cwColor1)),
-                    child: Text(
-                      "All time",
-                      style: kText18Bold_3,
-                    ),
-                  )
                 ],
               ),
             ),
@@ -434,51 +419,19 @@ class _DataPageState extends State<DataPage> {
                   height: 20.h,
                 ),
                 Container(
-                  height: 40.h,
+                  height: 60.h,
                   padding: EdgeInsets.symmetric(horizontal: 10.w),
                   child: Row(
                     children: [
                       Container(
-                        height: 40.h,
-                        width: 160.w,
-                        padding: EdgeInsets.symmetric(horizontal: 10.w),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20.r),
-                            border: Border.all(color: cwColor1)),
-                        child: Row(
-                          children: [
-                            Container(
-                              height: 30.h,
-                              width: 30.w,
-                              child:
-                                  Image.asset("assets/images/flag-vietnam.png"),
-                            ),
-                            SizedBox(
-                              width: 10.w,
-                            ),
-                            Text(
-                              "Việt Nam",
-                              style: kText18Bold_3,
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        width: 40.w,
-                      ),
-                      Container(
-                        height: 40.h,
-                        width: 125.w,
-                        alignment: Alignment.center,
-                        padding: EdgeInsets.symmetric(horizontal: 10.w),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20.r),
-                            border: Border.all(color: cwColor1)),
-                        child: Text(
-                          "All time",
-                          style: kText18Bold_3,
-                        ),
-                      )
+                          height: 40.h,
+                          width: 200.w,
+                          padding: EdgeInsets.symmetric(horizontal: 10.w),
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20.r),
+                              border: Border.all(color: cwColor1)),
+                          child: renderProvinceInput1()),
                     ],
                   ),
                 ),
@@ -510,7 +463,7 @@ class _DataPageState extends State<DataPage> {
         DropdownMenuItem(
           child: Container(
             width: 200.w,
-            height: 60.h,
+            height: 40.h,
             child: Row(
               children: [
                 Container(
@@ -524,10 +477,14 @@ class _DataPageState extends State<DataPage> {
                   width: 10.w,
                 ),
                 Flexible(
-                  child: Text(
-                    item["name"],
-                    softWrap: true,
-                    style: kText16Bold_3,
+                  child: Container(
+                    width: 150.w,
+                    child: Text(
+                      item["name"],
+                      softWrap: true,
+                      overflow: TextOverflow.clip,
+                      style: kText16Bold_3,
+                    ),
                   ),
                 ),
               ],
@@ -571,6 +528,83 @@ class _DataPageState extends State<DataPage> {
       underline: Container(),
     );
   }
+
+Widget renderProvinceInput1() {
+    Map<String, String> listName = {};
+    List<DropdownMenuItem<String>> items = [];
+
+    countries.forEach((item) {
+      listName.putIfAbsent("${countries.indexOf(item)}", () => item["name"]);
+      items.add(
+        DropdownMenuItem(
+          child: Container(
+            width: 200.w,
+            height: 40.h,
+            child: Row(
+              children: [
+                Container(
+                  height: 30.h,
+                  width: 30.w,
+                  child: SvgPicture.network(
+                    item["flag"],
+                  ),
+                ),
+                SizedBox(
+                  width: 10.w,
+                ),
+                Flexible(
+                  child: Container(
+                    width: 150.w,
+                    child: Text(
+                      item["name"],
+                      softWrap: true,
+                      overflow: TextOverflow.clip,
+                      style: kText16Bold_3,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          value: "${countries.indexOf(item)}",
+        ),
+      );
+    });
+    String? value;
+
+    listName.forEach((key, v) async {
+      if (v == _valueLocation1) {
+        value = key;
+      }
+    });
+    return DropdownButton(
+      items: items,
+      value: value,
+      isDense: false,
+      isExpanded: true,
+      icon: Padding(
+        padding: EdgeInsets.only(left: 0.w),
+        child: Icon(
+          Icons.arrow_drop_down_sharp,
+          color: cwColor3,
+        ),
+      ),
+      iconSize: 24.h,
+      onChanged: (val) async {
+        listName.forEach((key, value) {
+          if (key == val) {
+            setState(() {
+              _valueLocation1 = value;
+            });
+          }
+        });
+      },
+      style: kText16Bold_3,
+      dropdownColor: cwColor2,
+      underline: Container(),
+    );
+  }
+
 }
 
 class ChartColumn extends StatelessWidget {
