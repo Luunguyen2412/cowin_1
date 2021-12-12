@@ -74,10 +74,11 @@ class _CustomSwitchState extends State<CustomSwitchTabbar>
                           child: Text(
                             "Vietnam",
                             style: kTextConfig.copyWith(
-                              fontWeight: FontWeight.bold,
-                              fontSize: ScreenUtil().setSp(23),
-                              color: cwColor3,
-                            ),
+                                fontWeight: FontWeight.bold,
+                                fontSize: ScreenUtil().setSp(23),
+                                color: tabController.index == 0
+                                    ? cwColor3
+                                    : cwColor2),
                           ),
                         ),
                       ),
@@ -95,10 +96,11 @@ class _CustomSwitchState extends State<CustomSwitchTabbar>
                             child: Text(
                               "Global",
                               style: kTextConfig.copyWith(
-                                fontWeight: FontWeight.bold,
-                                fontSize: ScreenUtil().setSp(23),
-                                color: cwColor3,
-                              ),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: ScreenUtil().setSp(23),
+                                  color: tabController.index == 1
+                                      ? cwColor3
+                                      : cwColor2),
                             ),
                           ),
                         ),

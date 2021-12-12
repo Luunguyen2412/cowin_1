@@ -133,7 +133,9 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     padding:
                         EdgeInsets.symmetric(horizontal: 29.h, vertical: 27.h),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
+                      borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(15),
+                          bottomRight: Radius.circular(15)),
                       color: cwColor1,
                     ),
                     child: Column(
