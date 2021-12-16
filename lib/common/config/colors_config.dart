@@ -33,6 +33,6 @@ final cwcolor20 = Color(0xFF4E5567);
 final cwcolor21 = Color(0xFF5AAEE7);
 final cwcolor22 = Color(0xFFD8F4ED);
 final cwcolor23 = Color(0xFFFFDFDD);
-final cwcolor24 = Color(0xFFD8F4ED);
+final cwcolor24 = Color(0xFFD8F2F4);
 final cwcolor25 = Color(0xFFFDF2D6);
 final cwcolor26 = Color(0xFFFCBA06);
