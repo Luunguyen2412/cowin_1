@@ -16,12 +16,12 @@ class DataPage extends StatefulWidget {
 
 class _DataPageState extends State<DataPage> {
   String _valueLocation = "Vietnam";
-    String _valueLocation1 = "Vietnam";
+  String _valueLocation1 = "Vietnam";
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 10.w),
+        padding: EdgeInsets.symmetric(horizontal: 20.w),
         child: Column(
           children: [
             SizedBox(
@@ -29,12 +29,11 @@ class _DataPageState extends State<DataPage> {
             ),
             Container(
               height: 60.h,
-              padding: EdgeInsets.symmetric(horizontal: 10.w),
               child: Row(
                 children: [
                   Container(
-                      height: 40.h,
-                      width: 200.w,
+                      height: 50.h,
+                      width: 180.w,
                       padding: EdgeInsets.symmetric(horizontal: 10.w),
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
@@ -53,8 +52,8 @@ class _DataPageState extends State<DataPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                  height: 250.h,
-                  width: 190.w,
+                  height: 230.h,
+                  width: 180.w,
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(10.r),
@@ -67,14 +66,16 @@ class _DataPageState extends State<DataPage> {
                         padding: EdgeInsets.only(top: 10.h, left: 10.w),
                         child: Text(
                           "Total case",
-                          style: kText14Normal_4,
+                          style: kText14Normal_4.copyWith(
+                            fontSize: ScreenUtil().setSp(16),
+                          ),
                         ),
                       ),
                       Container(
                         padding: EdgeInsets.only(top: 30.h, left: 10.w),
                         child: Text(
                           "312,611",
-                          style: kText16Bold_3,
+                          style: kText22Bold_5,
                         ),
                       ),
                       Container(
@@ -91,8 +92,8 @@ class _DataPageState extends State<DataPage> {
                   width: 10.w,
                 ),
                 Container(
-                  height: 250.h,
-                  width: 190.w,
+                  height: 230.h,
+                  width: 180.w,
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(10.r),
@@ -105,14 +106,16 @@ class _DataPageState extends State<DataPage> {
                         padding: EdgeInsets.only(top: 10.h, left: 10.w),
                         child: Text(
                           "Recovered",
-                          style: kText14Normal_4,
+                          style: kText14Normal_4.copyWith(
+                            fontSize: ScreenUtil().setSp(16),
+                          ),
                         ),
                       ),
                       Container(
                         padding: EdgeInsets.only(top: 30.h, left: 10.w),
                         child: Text(
                           "150,145",
-                          style: kText16Bold_3,
+                          style: kText22Bold_5,
                         ),
                       ),
                       Container(
@@ -136,8 +139,8 @@ class _DataPageState extends State<DataPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                  height: 250.h,
-                  width: 190.w,
+                  height: 230.h,
+                  width: 180.w,
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(10.r),
@@ -150,14 +153,16 @@ class _DataPageState extends State<DataPage> {
                         padding: EdgeInsets.only(top: 10.h, left: 10.w),
                         child: Text(
                           "Active case",
-                          style: kText14Normal_4,
+                          style: kText14Normal_4.copyWith(
+                            fontSize: ScreenUtil().setSp(18),
+                          ),
                         ),
                       ),
                       Container(
                         padding: EdgeInsets.only(top: 30.h, left: 10.w),
                         child: Text(
                           "160,123",
-                          style: kText16Bold_3,
+                          style: kText22Bold_5,
                         ),
                       ),
                       Container(
@@ -174,8 +179,8 @@ class _DataPageState extends State<DataPage> {
                   width: 10.w,
                 ),
                 Container(
-                  height: 250.h,
-                  width: 190.w,
+                  height: 230.h,
+                  width: 180.w,
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(10.r),
@@ -188,14 +193,16 @@ class _DataPageState extends State<DataPage> {
                         padding: EdgeInsets.only(top: 10.h, left: 10.w),
                         child: Text(
                           "Total death",
-                          style: kText14Normal_4,
+                          style: kText14Normal_4.copyWith(
+                            fontSize: ScreenUtil().setSp(18),
+                          ),
                         ),
                       ),
                       Container(
                         padding: EdgeInsets.only(top: 30.h, left: 10.w),
                         child: Text(
                           "514",
-                          style: kText16Bold_3,
+                          style: kText22Bold_5,
                         ),
                       ),
                       Container(
@@ -217,7 +224,7 @@ class _DataPageState extends State<DataPage> {
             Column(
               children: [
                 Container(
-                  height: 60.h,
+                  height: 65.h,
                   child: Row(
                     children: [
                       Container(
@@ -227,10 +234,16 @@ class _DataPageState extends State<DataPage> {
                           children: [
                             Text(
                               "Case by Province",
-                              style: kText24Bold_7,
+                              style: kText35Bold_7,
+                            ),
+                            SizedBox(
+                              height: 2.h,
                             ),
                             Row(
                               children: [
+                                SizedBox(
+                                  width: 5.w,
+                                ),
                                 Row(
                                   children: [
                                     Container(
@@ -249,24 +262,27 @@ class _DataPageState extends State<DataPage> {
                                     )
                                   ],
                                 ),
-                                Row(
-                                  children: [
-                                    Container(
-                                      height: 15.h,
-                                      width: 15.h,
-                                      decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          color: Color(0xFF2494E0)
-                                              .withOpacity(0.5)),
-                                    ),
-                                    SizedBox(
-                                      width: 5.w,
-                                    ),
-                                    Text(
-                                      "New cases last 7 day ",
-                                      style: kText16Normal_4,
-                                    )
-                                  ],
+                                Padding(
+                                  padding: EdgeInsets.only(left: 15.w),
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                        height: 15.h,
+                                        width: 15.h,
+                                        decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            color: Color(0xFF2494E0)
+                                                .withOpacity(0.5)),
+                                      ),
+                                      SizedBox(
+                                        width: 5.w,
+                                      ),
+                                      Text(
+                                        "New cases last 7 day ",
+                                        style: kText16Normal_4,
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ],
                             )
@@ -277,7 +293,7 @@ class _DataPageState extends State<DataPage> {
                   ),
                 ),
                 SizedBox(
-                  height: 20.h,
+                  height: 30.h,
                 ),
                 Container(
                   height: 400.h,
@@ -286,7 +302,7 @@ class _DataPageState extends State<DataPage> {
               ],
             ),
             SizedBox(
-              height: 20.h,
+              height: 30.h,
             ),
             Column(
               children: [
@@ -294,16 +310,16 @@ class _DataPageState extends State<DataPage> {
                     alignment: Alignment.centerLeft,
                     child: Text(
                       "Insolation ratio",
-                      style: kText24Bold_7,
+                      style: kText35Bold_7,
                     )),
                 Container(
-                  height: 234.h,
-                  width: 234.h,
+                  height: 400.h,
+                  width: 400.h,
                   child: ChartPie(),
                 ),
                 Container(
                   height: 65.h,
-                  width: 300.w,
+                  width: 310.w,
                   padding: EdgeInsets.symmetric(horizontal: 5.w),
                   decoration: BoxDecoration(
                       color: Colors.white,
@@ -320,6 +336,9 @@ class _DataPageState extends State<DataPage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+                      SizedBox(
+                        width: 10.w,
+                      ),
                       Container(
                         width: 85.w,
                         child: Row(
@@ -338,13 +357,16 @@ class _DataPageState extends State<DataPage> {
                                   text: TextSpan(children: [
                                     TextSpan(
                                         text: "At home",
-                                        style: kText14Normal_4),
+                                        style: kText16Normal_4),
                                     TextSpan(
-                                        text: "\n1,4M", style: kText30Bold_4),
+                                        text: "\n1,4M", style: kText26Bold_4),
                                   ])),
                             )
                           ],
                         ),
+                      ),
+                      SizedBox(
+                        width: 10.w,
                       ),
                       Expanded(
                         child: Container(
@@ -364,14 +386,17 @@ class _DataPageState extends State<DataPage> {
                                     text: TextSpan(children: [
                                       TextSpan(
                                           text: "At the center",
-                                          style: kText14Normal_4),
+                                          style: kText16Normal_4),
                                       TextSpan(
-                                          text: "\n600K", style: kText30Bold_4),
+                                          text: "\n600K", style: kText26Bold_4),
                                     ])),
                               )
                             ],
                           ),
                         ),
+                      ),
+                      SizedBox(
+                        width: 10.w,
                       ),
                       Container(
                         width: 85.w,
@@ -390,9 +415,9 @@ class _DataPageState extends State<DataPage> {
                                   textAlign: TextAlign.center,
                                   text: TextSpan(children: [
                                     TextSpan(
-                                        text: "No", style: kText14Normal_4),
+                                        text: "No", style: kText16Normal_4),
                                     TextSpan(
-                                        text: "\n80M", style: kText30Bold_4),
+                                        text: "\n80M", style: kText26Bold_4),
                                   ])),
                             )
                           ],
@@ -413,19 +438,18 @@ class _DataPageState extends State<DataPage> {
                     alignment: Alignment.centerLeft,
                     child: Text(
                       "Vaccinations",
-                      style: kText24Bold_7,
+                      style: kText35Bold_7,
                     )),
                 SizedBox(
-                  height: 20.h,
+                  height: 10.h,
                 ),
                 Container(
                   height: 60.h,
-                  padding: EdgeInsets.symmetric(horizontal: 10.w),
                   child: Row(
                     children: [
                       Container(
-                          height: 40.h,
-                          width: 200.w,
+                          height: 50.h,
+                          width: 180.w,
                           padding: EdgeInsets.symmetric(horizontal: 10.w),
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
@@ -481,8 +505,7 @@ class _DataPageState extends State<DataPage> {
                     width: 150.w,
                     child: Text(
                       item["name"],
-                      softWrap: true,
-                      overflow: TextOverflow.clip,
+                      overflow: TextOverflow.ellipsis,
                       style: kText16Bold_3,
                     ),
                   ),
@@ -529,7 +552,7 @@ class _DataPageState extends State<DataPage> {
     );
   }
 
-Widget renderProvinceInput1() {
+  Widget renderProvinceInput1() {
     Map<String, String> listName = {};
     List<DropdownMenuItem<String>> items = [];
 
@@ -604,7 +627,6 @@ Widget renderProvinceInput1() {
       underline: Container(),
     );
   }
-
 }
 
 class ChartColumn extends StatelessWidget {

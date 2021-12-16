@@ -1,3 +1,4 @@
+import 'package:cowin_1/common/config/colors_config.dart';
 import 'package:cowin_1/themes.dart';
 import 'package:cowin_1/views/login/login_screen.dart';
 import 'package:cowin_1/views/main_screen.dart';
@@ -13,7 +14,7 @@ class SplashScreen extends StatelessWidget {
     // You have to call it on your starting screen
     SizeConfig().init(context);
     return Scaffold(
-      backgroundColor: kBlueColor,
+      backgroundColor: cwColor1,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -80,7 +81,7 @@ class SplashScreen2 extends StatelessWidget {
     // You have to call it on your starting screen
     SizeConfig().init(context);
     return Scaffold(
-      backgroundColor: kBlueColor,
+      backgroundColor: cwColor1,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -95,15 +96,11 @@ class SplashScreen2 extends StatelessWidget {
                       style: heading.copyWith(color: kWhiteColor, fontSize: 24),
                     ),
                     SizedBox(
-                      height: 69.h,
+                      height: 50.h,
                     ),
                     Image.asset(
                       'assets/images/splash2.png',
-                      height: 334.h,
-                      width: 364.h,
-                    ),
-                    SizedBox(
-                      height: 100.h,
+                      width: double.infinity,
                     ),
                     GestureDetector(
                       child: Container(
@@ -137,7 +134,7 @@ class SplashScreen2 extends StatelessWidget {
                       child: Text(
                         'Skip',
                         style: normalText.copyWith(
-                            color: kWhiteColor, fontSize: 14),
+                            color: kWhiteColor, fontSize: 16),
                       ),
                     ),
                   ],
@@ -157,7 +154,7 @@ class SplashScreen3 extends StatelessWidget {
     // You have to call it on your starting screen
     SizeConfig().init(context);
     return Scaffold(
-      backgroundColor: kBlueColor,
+      backgroundColor: cwColor1,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -167,20 +164,19 @@ class SplashScreen3 extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(
-                      "Free consultation\nservice for doctors ...",
+                      "Free consultation service \nfor doctors ...",
                       textAlign: TextAlign.left,
                       style: heading.copyWith(color: kWhiteColor, fontSize: 24),
                     ),
                     SizedBox(
-                      height: 49.h,
+                      height: 30.h,
                     ),
                     Image.asset(
                       'assets/images/splash3.png',
-                      height: 334.h,
-                      width: 364.h,
+                      width: double.infinity,
                     ),
                     SizedBox(
-                      height: 91.h,
+                      height: 30.h,
                     ),
                     GestureDetector(
                       child: Container(
@@ -214,7 +210,7 @@ class SplashScreen3 extends StatelessWidget {
                       child: Text(
                         'Skip',
                         style: normalText.copyWith(
-                            color: kWhiteColor, fontSize: 14),
+                            color: kWhiteColor, fontSize: 16),
                       ),
                     ),
                   ],
@@ -234,7 +230,7 @@ class SplashScreen4 extends StatelessWidget {
     // You have to call it on your starting screen
     SizeConfig().init(context);
     return Scaffold(
-      backgroundColor: kBlueColor,
+      backgroundColor: cwColor1,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -257,16 +253,12 @@ class SplashScreen4 extends StatelessWidget {
                       style:
                           normalText.copyWith(color: kWhiteColor, fontSize: 16),
                     ),
-                    SizedBox(
-                      height: 32.h,
-                    ),
                     Image.asset(
                       'assets/images/splash4.png',
-                      height: 334.h,
-                      width: 364.h,
+                      width: double.infinity,
                     ),
                     SizedBox(
-                      height: 65.h,
+                      height: 20.h,
                     ),
                     GestureDetector(
                         child: Container(

@@ -45,8 +45,9 @@ class _AppState extends State<App> {
                     home: AnimatedSplashScreen(
                       splash: Image.asset(
                         'assets/images/Splash.png',
-                        fit: BoxFit.cover,
                       ),
+                      splashIconSize: double.maxFinite,
+                      backgroundColor: cwColor1,
                       nextScreen: SplashScreen(),
                       splashTransition: SplashTransition.fadeTransition,
                     ),

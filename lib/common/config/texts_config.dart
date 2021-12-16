@@ -23,11 +23,7 @@ var kText35Bold_7 = kTextConfig.copyWith(
   fontSize: ScreenUtil().setSp(35),
   color: cwColor7,
 );
-var kText35Normal_7 = kText35Bold_7.copyWith(
-  fontWeight: FontWeight.normal
-);
-
-
+var kText35Normal_7 = kText35Bold_7.copyWith(fontWeight: FontWeight.normal);
 
 var kText40Bold_4 = kTextConfig.copyWith(
   fontWeight: FontWeight.bold,
@@ -77,36 +73,42 @@ var kText20Bold_1 = kTextConfig.copyWith(
   color: cwColor1,
 );
 var kText20Bold_4 = kText20Bold_1.copyWith(color: cwColor4);
+var kText20Bold_2 = kText20Bold_1.copyWith(color: cwColor2);
+var kText20Bold_14 = kText20Bold_1.copyWith(color: cwColor14);
 var kText20Bold_5 = kText20Bold_1.copyWith(color: cwColor3);
 var kText20Normal_4 = kText20Bold_4.copyWith(fontWeight: FontWeight.normal);
 var kText20Normal_1 = kText20Bold_1.copyWith(fontWeight: FontWeight.normal);
 
+var kText22Bold_1 = kTextConfig.copyWith(
+  fontWeight: FontWeight.bold,
+  fontSize: ScreenUtil().setSp(22),
+  color: cwColor1,
+);
+var kText22Bold_4 = kText22Bold_1.copyWith(color: cwColor4);
+var kText22Bold_5 = kText22Bold_1.copyWith(color: cwColor3);
 
+var kText26Bold_4 = kText22Bold_1.copyWith(
+  color: cwColor4,
+  fontSize: ScreenUtil().setSp(26),
+);
 
 var kText18Bold_11 = kTextConfig.copyWith(
   fontWeight: FontWeight.bold,
   fontSize: ScreenUtil().setSp(18),
   color: cwColor11,
 );
-var kText18Bold_2 = kText18Bold_11.copyWith(
-  color: cwColor2
-);
-var kText18Bold_3 = kText18Bold_11.copyWith(
-    color: cwColor3
-);
+var kText18Bold_2 = kText18Bold_11.copyWith(color: cwColor2);
+var kText18Bold_3 = kText18Bold_11.copyWith(color: cwColor3);
 var kText18Normal_4 = kText18Bold_11.copyWith(
-    color: cwColor4,
+  color: cwColor4,
   fontWeight: FontWeight.normal,
 );
-var kText18Bold_14 = kText18Bold_11.copyWith(
-    color: cwColor14
-);
+var kText18Bold_14 = kText18Bold_11.copyWith(color: cwColor14);
 var kText17Normal_4 = kTextConfig.copyWith(
   fontWeight: FontWeight.normal,
   fontSize: ScreenUtil().setSp(17),
   color: cwColor4,
 );
-
 
 var kText16Normal_3 = kTextConfig.copyWith(
   fontSize: ScreenUtil().setSp(16),

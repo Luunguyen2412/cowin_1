@@ -43,6 +43,7 @@ class _HealthCareScreenState extends State<HealthCareScreen>
                 backgroundColor: cwColor2,
                 expandedHeight: 145.h,
                 title: Container(
+                  padding: EdgeInsets.only(top: 20.h, left: 10.w),
                   child: Text(
                     "Healthcare",
                     style: kText40Bold_3,
@@ -51,7 +52,7 @@ class _HealthCareScreenState extends State<HealthCareScreen>
                 actions: [
                   Container(
                     height: 68.h,
-                    margin: EdgeInsets.only(right: 7.w),
+                    margin: EdgeInsets.only(right: 27.w, top: 20.h),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -92,30 +93,6 @@ class _HealthCareScreenState extends State<HealthCareScreen>
                               ),
                             ),
                           ],
-                        ),
-                        SizedBox(
-                          width: 20.w,
-                        ),
-                        Container(
-                          height: 68.h,
-                          width: 68.h,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10.h),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Color(0xFF4F9FF1).withOpacity(0.2),
-                                  offset: Offset(0, 2),
-                                  blurRadius: 20.0,
-                                )
-                              ]),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(10.h),
-                            child: Container(
-                                width: 46.h,
-                                height: 46.h,
-                                child:
-                                    Image.asset(Tools().getIcon("info.png"))),
-                          ),
                         ),
                       ],
                     ),
