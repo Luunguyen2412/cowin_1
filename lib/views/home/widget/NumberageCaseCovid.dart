@@ -76,7 +76,9 @@ class _CustomSwitchState extends State<CustomSwitchTabbar>
                             style: kTextConfig.copyWith(
                               fontWeight: FontWeight.bold,
                               fontSize: ScreenUtil().setSp(24),
-                              color: cwColor3,
+                              color: tabController.index == 0
+                                  ? cwColor3
+                                  : cwColor2,
                             ),
                           ),
                         ),
@@ -97,7 +99,9 @@ class _CustomSwitchState extends State<CustomSwitchTabbar>
                               style: kTextConfig.copyWith(
                                 fontWeight: FontWeight.bold,
                                 fontSize: ScreenUtil().setSp(24),
-                                color: cwColor3,
+                                color: tabController.index == 1
+                                    ? cwColor3
+                                    : cwColor2,
                               ),
                             ),
                           ),
