@@ -16,30 +16,30 @@ class _LocationPickerState extends State<LocationPicker> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 160.h,
+      height: 170.h,
       decoration: BoxDecoration(
           color: cwColor2,
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(20.r),
             bottomRight: Radius.circular(20.r),
-          )),
-      padding: EdgeInsets.only(top: 20.h),
+          ),
+          boxShadow: [
+            BoxShadow(
+                color: Color(0xFFDAD3D3), blurRadius: 10, offset: Offset(0, 1))
+          ]),
+      padding: EdgeInsets.only(top: 15.h, right: 20.w, bottom: 15.h),
       child: Column(
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                  width: 30.w,
-                  padding: EdgeInsets.only(left: 15.w, top: 10.h),
-                  child: Icon(
-                    Icons.arrow_back_ios,
-                    color: cwColor4,
-                  )),
               Padding(
                 padding: EdgeInsets.only(top: 10.h),
-                child: SvgPicture.asset("assets/icons/ic_picker.svg"),
+                child: Container(
+                  height: 110.h,
+                  child: SvgPicture.asset("assets/icons/ic_picker.svg"),
+                ),
               ),
               Expanded(
                 child: Container(
@@ -53,22 +53,22 @@ class _LocationPickerState extends State<LocationPicker> {
                         children: [
                           Expanded(
                             child: Container(
-                              height: 40.h,
+                              height: 50.h,
                               decoration: BoxDecoration(
                                   border: Border.all(color: cwColor1),
                                   borderRadius: BorderRadius.circular(10.h)),
-                              padding: EdgeInsets.only(left: 10.h,bottom:2.h),
+                              padding: EdgeInsets.only(left: 10.h, bottom: 7.h),
                               child: TextFormField(
                                 textAlignVertical: TextAlignVertical.center,
                                 decoration: InputDecoration(
                                     hintText: "Your location",
-                                    hintStyle: kText16Normal_4,
+                                    hintStyle: kText16Normal_3,
                                     border: InputBorder.none),
                               ),
                             ),
                           ),
                           Container(
-                              margin: EdgeInsets.only(left: 5.w, right: 5.w),
+                              margin: EdgeInsets.only(left: 10.w),
                               child: SvgPicture.asset(
                                   "assets/icons/more-horizontal.svg"))
                         ],
@@ -78,22 +78,23 @@ class _LocationPickerState extends State<LocationPicker> {
                           children: [
                             Expanded(
                               child: Container(
-                                height: 40.h,
+                                height: 50.h,
                                 decoration: BoxDecoration(
                                     border: Border.all(color: cwColor1),
                                     borderRadius: BorderRadius.circular(10.h)),
-                                padding: EdgeInsets.only(left: 10.h,bottom: 2.h),
+                                padding:
+                                    EdgeInsets.only(left: 10.h, bottom: 7.h),
                                 child: TextFormField(
                                   textAlignVertical: TextAlignVertical.center,
                                   decoration: InputDecoration(
                                       hintText: "Bệnh viện Thống Nhất",
-                                      hintStyle: kText16Normal_4,
+                                      hintStyle: kText16Normal_3,
                                       border: InputBorder.none),
                                 ),
                               ),
                             ),
                             Container(
-                                margin: EdgeInsets.only(right: 5.w),
+                                margin: EdgeInsets.only(left: 5.w),
                                 child: SvgPicture.asset(
                                     "assets/icons/import_export.svg"))
                           ],

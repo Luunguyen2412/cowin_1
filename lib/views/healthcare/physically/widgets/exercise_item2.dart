@@ -49,7 +49,9 @@ class ExerciseItem2 extends StatelessWidget {
           if (image != null)
             Container(
               alignment: Alignment.bottomCenter,
-              child: Image.asset(image),
+              child: Image.asset(
+                image,
+              ),
             ),
           Container(
             padding: EdgeInsets.symmetric(horizontal: 24.w),

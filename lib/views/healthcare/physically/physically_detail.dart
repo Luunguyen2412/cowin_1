@@ -17,7 +17,6 @@ class _PhysicallyDetailState extends State<PhysicallyDetail> {
   void initState() {
     // TODO: implement initState
     super.initState();
-
   }
 
   @override
@@ -36,17 +35,19 @@ class _PhysicallyDetailState extends State<PhysicallyDetail> {
                       clipper: MyCustomClipper(),
                       child: Container(
                         height: 280.h,
-                        width: MediaQuery.of(context).size.width,
-                        color: Colors.black12,
-                        child: Image.asset("assets/images/py.png"),
+                        width: double.infinity,
+                        child: FittedBox(
+                          fit: BoxFit.cover,
+                          child: Image.asset("assets/images/py.jpg"),
+                        ),
                       ),
                     ),
                     Container(
-                      padding: EdgeInsets.symmetric(horizontal: 10.w),
+                      padding: EdgeInsets.symmetric(horizontal: 20.w),
                       child: Column(
                         children: [
                           SizedBox(
-                            height: 10.h,
+                            height: 15.h,
                           ),
                           Text(
                             "6 bài tập vận động tại giường cho bệnh nhân Covid-19",

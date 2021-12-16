@@ -1,4 +1,3 @@
-
 import 'dart:ui';
 
 import 'package:cowin_1/common/config/colors_config.dart';
@@ -8,6 +7,7 @@ import 'package:cowin_1/views/home/home_screen.dart';
 import 'package:cowin_1/views/home/widget/card.dart';
 import 'package:cowin_1/views/profile/widget/ProfileMenuItem.dart';
 import 'package:cowin_1/views/profile/widget/RecentlyCard.dart';
+import 'package:cowin_1/widget/news_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -23,20 +23,27 @@ class PersonalScreen extends StatelessWidget {
               ClipPath(
                 clipper: MyClipper(),
                 child: Container(
-                  height: 360.h,
-                  width: 448.w,
+                  height: 300.h,
+                  width: double.infinity,
                   decoration: BoxDecoration(
-                    color: cwColor5,
+                    color: cwcolor21,
+                    image: DecorationImage(
+                      alignment: Alignment.topCenter,
+                      image: AssetImage(
+                        'assets/images/profilebg.png',
+                      ),
+                      fit: BoxFit.fitWidth,
+                    ),
                   ),
                   child: Column(
                     children: [
                       SizedBox(
-                        height: 120.h,
+                        height: 100.h,
                       ),
                       CircleAvatar(
-                        radius: 60.h,
+                        radius: 50.h,
                         backgroundImage: AssetImage(
-                          "assets/images/Rectangle 225.png",
+                          "assets/images/avtProfile.png",
                         ),
                       ),
                       SizedBox(
@@ -66,82 +73,15 @@ class PersonalScreen extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 22.w, vertical: 5.h),
+                padding: EdgeInsets.symmetric(horizontal: 20.w),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
-                      children: [
-                        Text(
-                          'Recently',
-                          style: kTextConfig.copyWith(
-                            fontWeight: FontWeight.bold,
-                            fontSize: ScreenUtil().setSp(25),
-                            color: cwColor3,
-                          ),
-                        ),
-                        Spacer(),
-                        TextButton(
-                          onPressed: () {},
-                          child: GestureDetector(
-                            child: TextButton(
-                              onPressed: () {},
-                              child: Row(
-                                children: [
-                                  Text(
-                                    'See all ',
-                                    style: kTextConfig.copyWith(
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: ScreenUtil().setSp(18),
-                                      color: cwColor4,
-                                    ),
-                                  ),
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(300),
-                                    child: Container(
-                                      color: cwColor5,
-                                      child: SvgPicture.asset(
-                                        Tools().getIcon("next_icon.svg"),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 18.h,
-                    ),
                     SingleChildScrollView(
                       physics: BouncingScrollPhysics(),
                       scrollDirection: Axis.horizontal,
                       child: Row(
-                        children: [
-                          Card1('assets/images/Frame1.png'),
-                          SizedBox(
-                            width: 25.w,
-                          ),
-                          Card1('assets/images/card2.png'),
-                          SizedBox(
-                            width: 25.w,
-                          ),
-                          Card1('assets/images/card3.png'),
-                          // RecentlyCard(
-                          //   'assets/images/Frame1.png',
-                          //   'Prevention of COVID-19  ',
-                          // ),
-                          // RecentlyCard(
-                          //   'assets/images/Frame1.png',
-                          //   'Prevention of COVID-19  ',
-                          // ),
-                          // RecentlyCard(
-                          //   'assets/images/Frame1.png',
-                          //   'Prevention of COVID-19  ',
-                          // ),
-                        ],
+                        children: [],
                       ),
                     ),
                     SizedBox(
@@ -159,19 +99,25 @@ class PersonalScreen extends StatelessWidget {
                       height: 14.h,
                     ),
                     ProfileMenuItem(
-                      iconSrc: 'assets/icons/info.png',
+                      iconSrc: "assets/icons/password.svg",
                       title: 'Change Password',
                       press: () {},
+                      check: true,
+                      color: cwcolor22,
                     ),
                     ProfileMenuItem(
-                      iconSrc: 'assets/icons/info.png',
+                      iconSrc: 'assets/icons/language.svg',
                       title: 'Language',
                       press: () {},
+                      check: true,
+                      color: cwcolor23,
                     ),
                     ProfileMenuItem(
-                      iconSrc: 'assets/icons/info.png',
+                      iconSrc: 'assets/icons/security.svg',
                       title: 'Security',
                       press: () {},
+                      check: true,
+                      color: cwcolor24,
                     ),
                     SizedBox(
                       height: 25.h,
@@ -185,22 +131,52 @@ class PersonalScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      height: 14.h,
+                      height: 15.h,
                     ),
                     ProfileMenuItem(
-                      iconSrc: 'assets/icons/info.png',
+                      iconSrc: 'assets/icons/termOfUse.svg',
                       title: 'Terms of use',
                       press: () {},
+                      check: true,
+                      color: cwcolor24,
                     ),
                     ProfileMenuItem(
-                      iconSrc: 'assets/icons/info.png',
+                      iconSrc: 'assets/icons/policy.svg',
                       title: 'Policy on handling complaints ',
                       press: () {},
+                      check: true,
+                      color: cwcolor22,
                     ),
                     ProfileMenuItem(
-                      iconSrc: 'assets/icons/info.png',
+                      iconSrc: 'assets/icons/private.svg',
                       title: 'Private permissions',
                       press: () {},
+                      check: true,
+                      color: cwcolor23,
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    ProfileMenuItem(
+                      iconSrc: 'assets/icons/QA.svg',
+                      title: 'Q&A',
+                      press: () {},
+                      check: false,
+                      color: cwColor17,
+                    ),
+                    ProfileMenuItem(
+                      iconSrc: 'assets/icons/share.svg',
+                      title: 'Share app',
+                      press: () {},
+                      check: false,
+                      color: cwcolor25,
+                    ),
+                    ProfileMenuItem(
+                      iconSrc: 'assets/icons/signout.svg',
+                      title: 'Sign out',
+                      press: () {},
+                      check: false,
+                      color: cwcolor23,
                     ),
                   ],
                 ),
@@ -217,10 +193,20 @@ class MyClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     var path = Path();
-    path.lineTo(0, size.height - 80);
+    path.lineTo(0.0, size.height - 60);
     path.quadraticBezierTo(
-        size.width / 2, size.height, size.width, size.height - 80);
-    path.lineTo(size.width, 0);
+      size.width / 4,
+      size.height,
+      size.width / 2,
+      size.height,
+    );
+    path.quadraticBezierTo(
+      size.width - (size.width / 4),
+      size.height,
+      size.width,
+      size.height - 60,
+    );
+    path.lineTo(size.width, 0.0);
     path.close();
     return path;
   }

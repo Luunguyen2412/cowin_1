@@ -57,7 +57,7 @@ class _NewsPageState extends State<NewsPage>
             ClipRRect(
               borderRadius: BorderRadius.circular(15.h),
               child: Container(
-                height: 140.h,
+                height: 150.h,
                 child: Image.asset(item.image!),
               ),
             ),
@@ -91,13 +91,17 @@ class _NewsPageState extends State<NewsPage>
     return SingleChildScrollView(
         controller: widget.scrollController,
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 20.w),
+          padding: EdgeInsets.only(left: 25.w),
           child: Column(
             children: [
               ///#region Official Update
               Column(
                 children: [
+                  SizedBox(
+                    height: 10.h,
+                  ),
                   Container(
+                    padding: EdgeInsets.only(right: 20.w),
                     height: 64.h,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -112,7 +116,7 @@ class _NewsPageState extends State<NewsPage>
                             Icon(
                               Icons.arrow_forward,
                               color: cwColor4,
-                              size: 40.h,
+                              size: 35.h,
                             )
                           ],
                         ),
@@ -124,8 +128,8 @@ class _NewsPageState extends State<NewsPage>
                     ),
                   ),
                   Container(
-                    height: 300.h,
-                    padding: EdgeInsets.only(top: 20.h),
+                    height: 295.h,
+                    padding: EdgeInsets.only(top: 20.h, right: 20.w),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -168,7 +172,7 @@ class _NewsPageState extends State<NewsPage>
                 height: 20.h,
               ),
               Container(
-                height: 270.h,
+                height: 360.h,
                 width: 650.w,
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
@@ -228,7 +232,7 @@ class _NewsPageState extends State<NewsPage>
                 ),
               ),
               SizedBox(
-                height: 20.h,
+                height: 10.h,
               ),
 
               ///#endregion
@@ -236,7 +240,11 @@ class _NewsPageState extends State<NewsPage>
               ///#region Recommend
               Column(
                 children: [
+                  SizedBox(
+                    height: 20.h,
+                  ),
                   Container(
+                    padding: EdgeInsets.only(right: 20.w),
                     height: 90.h,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -251,9 +259,12 @@ class _NewsPageState extends State<NewsPage>
                             Icon(
                               Icons.arrow_forward,
                               color: cwColor4,
-                              size: 40.h,
+                              size: 35.h,
                             )
                           ],
+                        ),
+                        SizedBox(
+                          height: 5.h,
                         ),
                         Text(
                           "Recommendations from the Ministry of Health about Covid-19",
@@ -307,7 +318,7 @@ class _NewsPageState extends State<NewsPage>
                 height: 20.h,
               ),
               Container(
-                height: 270.h,
+                height: 360.h,
                 width: 650.w,
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
@@ -367,7 +378,7 @@ class _NewsPageState extends State<NewsPage>
                 ),
               ),
               SizedBox(
-                height: 20.h,
+                height: 30.h,
               ),
 
               ///#endregion
@@ -377,48 +388,51 @@ class _NewsPageState extends State<NewsPage>
               Column(
                 children: [
                   Container(
+                    padding: EdgeInsets.only(right: 20.w),
                     alignment: Alignment.centerLeft,
                     child: Text(
                       "Top reading",
                       style: kText35Bold_7,
                     ),
                   ),
-                  SizedBox(height: 20.h),
-                  ListView(
-                    shrinkWrap: true,
-                    children: [
-                      ItemTopReading(
-                          title: listNews[6]["title"],
-                          createdTime: listNews[6]["createdTime"],
-                          type: listNews[6]["type"],
-                          num: "01",
-                          numColor: Color(0xFFDF6D7A)),
-                      ItemTopReading(
-                          title: listNews[6]["title"],
-                          createdTime: listNews[6]["createdTime"],
-                          type: listNews[6]["type"],
-                          num: "02",
-                          numColor: Color(0xFF72D970)),
-                      ItemTopReading(
-                          title: listNews[6]["title"],
-                          createdTime: listNews[6]["createdTime"],
-                          type: listNews[6]["type"],
-                          num: "03",
-                          numColor: Color(0xFFF5D769)),
-                      ItemTopReading(
-                          title: listNews[6]["title"],
-                          createdTime: listNews[6]["createdTime"],
-                          type: listNews[6]["type"],
-                          num: "04",
-                          numColor: Color(0xFF3CB8DF)),
-                      ItemTopReading(
-                          title: listNews[6]["title"],
-                          createdTime: listNews[6]["createdTime"],
-                          type: listNews[6]["type"],
-                          num: "05",
-                          numColor: Color(0xFFC953BD)),
-
-                    ],
+                  SizedBox(height: 10.h),
+                  Padding(
+                    padding: EdgeInsets.only(right: 20.w),
+                    child: ListView(
+                      shrinkWrap: true,
+                      children: [
+                        ItemTopReading(
+                            title: listNews[6]["title"],
+                            createdTime: listNews[6]["createdTime"],
+                            type: listNews[6]["type"],
+                            num: "01",
+                            numColor: Color(0xFFDF6D7A)),
+                        ItemTopReading(
+                            title: listNews[6]["title"],
+                            createdTime: listNews[6]["createdTime"],
+                            type: listNews[6]["type"],
+                            num: "02",
+                            numColor: Color(0xFF72D970)),
+                        ItemTopReading(
+                            title: listNews[6]["title"],
+                            createdTime: listNews[6]["createdTime"],
+                            type: listNews[6]["type"],
+                            num: "03",
+                            numColor: Color(0xFFF5D769)),
+                        ItemTopReading(
+                            title: listNews[6]["title"],
+                            createdTime: listNews[6]["createdTime"],
+                            type: listNews[6]["type"],
+                            num: "04",
+                            numColor: Color(0xFF3CB8DF)),
+                        ItemTopReading(
+                            title: listNews[6]["title"],
+                            createdTime: listNews[6]["createdTime"],
+                            type: listNews[6]["type"],
+                            num: "05",
+                            numColor: Color(0xFFC953BD)),
+                      ],
+                    ),
                   ),
                 ],
               ),
@@ -429,7 +443,8 @@ class _NewsPageState extends State<NewsPage>
               Column(
                 children: [
                   Container(
-                    height: 64.h,
+                    margin: EdgeInsets.only(top: 30.h, right: 20.w),
+                    height: 70.h,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -447,6 +462,9 @@ class _NewsPageState extends State<NewsPage>
                             )
                           ],
                         ),
+                        SizedBox(
+                          height: 3.h,
+                        ),
                         Text(
                           "Pandemic situation around the world",
                           style: kText18Normal_4,
@@ -455,8 +473,8 @@ class _NewsPageState extends State<NewsPage>
                     ),
                   ),
                   Container(
-                    height: 300.h,
-                    padding: EdgeInsets.only(top: 20.h),
+                    height: 285.h,
+                    margin: EdgeInsets.only(top: 20.h, right: 20.w),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -499,7 +517,7 @@ class _NewsPageState extends State<NewsPage>
                 height: 20.h,
               ),
               Container(
-                height: 90.h,
+                height: 130.h,
                 width: 650.w,
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
@@ -536,7 +554,8 @@ class _NewsPageState extends State<NewsPage>
               Column(
                 children: [
                   Container(
-                    height: 64.h,
+                    padding: EdgeInsets.only(right: 20.w),
+                    height: 70.h,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -554,6 +573,9 @@ class _NewsPageState extends State<NewsPage>
                             )
                           ],
                         ),
+                        SizedBox(
+                          height: 3.h,
+                        ),
                         Text(
                           "Vaccine process and related",
                           style: kText18Normal_4,
@@ -564,15 +586,14 @@ class _NewsPageState extends State<NewsPage>
                 ],
               ),
               SizedBox(
-                height: 20.h,
+                height: 10.h,
               ),
               Container(
-                height: 180.h,
+                height: 240.h,
                 width: 650.w,
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -582,7 +603,7 @@ class _NewsPageState extends State<NewsPage>
                               createdTime: listNews[6]["createdTime"],
                               type: listNews[6]["type"]),
                           SizedBox(
-                            width: 10.w,
+                            width: 20.w,
                           ),
                           ItemNews(
                               title: listNews[7]["title"],
@@ -598,7 +619,7 @@ class _NewsPageState extends State<NewsPage>
                               createdTime: listNews[8]["createdTime"],
                               type: listNews[8]["type"]),
                           SizedBox(
-                            width: 10.w,
+                            width: 20.w,
                           ),
                           ItemNews(
                               title: listNews[9]["title"],
@@ -610,7 +631,10 @@ class _NewsPageState extends State<NewsPage>
                   ),
                 ),
               ),
-              SizedBox(height: 50.h,)
+              SizedBox(
+                height: 50.h,
+              )
+
               ///#endregion
             ],
           ),
@@ -679,34 +703,38 @@ class ItemNews extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 85.h,
-      width: 305.w,
+      height: 90.h,
+      width: 320.w,
+      margin: EdgeInsets.only(top: 15.h, bottom: 15.h, right: 20.w),
       child: Row(
         children: [
           Expanded(
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 10.w),
+              padding: EdgeInsets.only(right: 10.w),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     title,
-                    style: kText14Normal_3,
+                    softWrap: true,
+                    style: kText16Bold_3,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "• $createdTime",
-                        style: kText14Normal_4,
-                      ),
-                      Text(
-                        "• $type",
-                        style: kText14Normal_4,
-                      ),
-                    ],
-                  )
+                  Padding(
+                      padding: EdgeInsets.only(right: 20.w),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "• $createdTime",
+                            style: kText14Normal_4,
+                          ),
+                          Text(
+                            "• $type",
+                            style: kText14Normal_4,
+                          ),
+                        ],
+                      )),
                 ],
               ),
             ),
@@ -714,11 +742,11 @@ class ItemNews extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(15.r),
             child: Container(
-              height: 70.h,
-              width: 70.w,
-              color: cwColor4,
-              child: Image.asset("assets/images/img_news2.png",fit: BoxFit.fill)
-            ),
+                height: 90.h,
+                width: 85.w,
+                color: cwColor4,
+                child: Image.asset("assets/images/img_news2.png",
+                    fit: BoxFit.fill)),
           )
         ],
       ),
@@ -745,15 +773,16 @@ class ItemTopReading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 85.h,
+      margin: EdgeInsets.symmetric(vertical: 15.h),
+      height: 90.h,
       width: MediaQuery.of(context).size.width,
       child: Row(
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(15.r),
             child: Container(
-              height: 70.h,
-              width: 70.w,
+              height: 90.h,
+              width: 75.w,
               color: numColor.withOpacity(0.5),
               alignment: Alignment.center,
               child: Text(
@@ -764,14 +793,14 @@ class ItemTopReading extends StatelessWidget {
           ),
           Expanded(
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 10.w),
+              margin: EdgeInsets.only(left: 15.w, top: 5.h, right: 15.w),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     title,
-                    style: kText14Normal_3,
+                    style: kText18Bold_3,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,

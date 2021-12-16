@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../themes.dart';
 
-
 class CasesItem extends StatelessWidget {
   late final String title;
   late final String cases;
@@ -19,34 +18,30 @@ class CasesItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(5),
-      height: 138.h,
-      width: 177.w,
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
           color: colorBox,
         ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 4.0),
+          padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 15.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 title,
                 style: normalText.copyWith(
                   fontWeight: FontWeight.w700,
+                  fontSize: ScreenUtil().setSp(20),
                   color: Colors.white,
                 ),
-              ),
-              SizedBox(
-                height: 25.h,
               ),
               Text(
                 cases,
                 style: kTextConfig.copyWith(
                   fontWeight: FontWeight.bold,
-                  fontSize: ScreenUtil().setSp(22),
+                  fontSize: ScreenUtil().setSp(30),
                   color: cwColor2,
                 ),
               ),

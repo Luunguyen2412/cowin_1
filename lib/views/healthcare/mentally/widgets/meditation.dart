@@ -53,29 +53,29 @@ class _MeditationState extends State<Meditation> {
   _card7DaysOfCalm() {
     return InkWell(
       onTap: () {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => MentallyDetail(9)));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => MentallyDetail(9)));
       },
       child: Hero(
         tag: "mentally_detail9",
         child: Container(
           height: 205.h,
           width: 163.w,
-          decoration: BoxDecoration(
-              color: Colors.transparent,
-              borderRadius: BorderRadius.circular(10.h)),
           child: Stack(
             alignment: AlignmentDirectional.bottomStart,
             children: [
               Container(
                 alignment: Alignment.center,
-                child: Image.asset("assets/images/pyc_image8.png"),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10.r),
+                  child: Image.asset("assets/images/pyc_image8.png"),
+                ),
               ),
               Padding(
-                padding: EdgeInsets.only(bottom: 20.h, left: 16.w),
+                padding: EdgeInsets.only(bottom: 25.h, left: 16.w),
                 child: Text(
                   "7 Days of Calm",
-                  style: kText18Bold_2,
+                  style: kText20Bold_2,
                 ),
               )
             ],
@@ -88,29 +88,30 @@ class _MeditationState extends State<Meditation> {
   _cardAnxietRelease() {
     return InkWell(
       onTap: () {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => MentallyDetail(10)));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => MentallyDetail(10)));
       },
       child: Hero(
         tag: "mentally_detail10",
         child: Container(
           height: 163.h,
           width: 163.w,
-          decoration: BoxDecoration(
-              color: Colors.transparent,
-              borderRadius: BorderRadius.circular(10.h)),
           child: Stack(
             alignment: AlignmentDirectional.bottomStart,
             children: [
               Container(
                 alignment: Alignment.center,
-                child: Image.asset("assets/images/pyc_image9.png"),
+                padding: EdgeInsets.all(0),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10.r),
+                  child: Image.asset("assets/images/pyc_image9.png"),
+                ),
               ),
               Padding(
                 padding: EdgeInsets.only(bottom: 20.h, left: 16.w),
                 child: Text(
                   "Anxiet Release",
-                  style: kText18Bold_2,
+                  style: kText20Bold_2,
                 ),
               )
             ],
@@ -123,29 +124,29 @@ class _MeditationState extends State<Meditation> {
   _cardHowToMeditate() {
     return InkWell(
       onTap: () {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => MentallyDetail(11)));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => MentallyDetail(11)));
       },
       child: Hero(
         tag: "mentally_detail11",
         child: Container(
           height: 205.h,
           width: 163.w,
-          decoration: BoxDecoration(
-              color: Colors.transparent,
-              borderRadius: BorderRadius.circular(10.h)),
           child: Stack(
             alignment: AlignmentDirectional.bottomStart,
             children: [
               Container(
                 alignment: Alignment.center,
-                child: Image.asset("assets/images/pyc_image10.png"),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10.r),
+                  child: Image.asset("assets/images/pyc_image10.png"),
+                ),
               ),
               Padding(
                 padding: EdgeInsets.only(bottom: 20.h, left: 16.w),
                 child: Text(
                   "How to Meditate",
-                  style: kText18Bold_2,
+                  style: kText20Bold_2,
                 ),
               )
             ],
@@ -158,29 +159,29 @@ class _MeditationState extends State<Meditation> {
   _cardHowToBuildResilience() {
     return InkWell(
       onTap: () {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => MentallyDetail(12)));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => MentallyDetail(12)));
       },
       child: Hero(
         tag: "mentally_detail12",
         child: Container(
           height: 163.h,
           width: 163.w,
-          decoration: BoxDecoration(
-              color: Colors.transparent,
-              borderRadius: BorderRadius.circular(10.h)),
           child: Stack(
             alignment: AlignmentDirectional.bottomStart,
             children: [
               Container(
                 alignment: AlignmentDirectional.center,
-                child: Image.asset("assets/images/pyc_image11.png"),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10.r),
+                  child: Image.asset("assets/images/pyc_image11.png"),
+                ),
               ),
               Padding(
                 padding: EdgeInsets.only(bottom: 20.h, left: 16.w),
                 child: Text(
                   "How to build Resilience ",
-                  style: kText18Bold_2,
+                  style: kText20Bold_2,
                 ),
               )
             ],
@@ -209,6 +210,9 @@ class _MeditationState extends State<Meditation> {
                   "Meditation for F0, F1",
                   style: kText35Bold_7,
                 ),
+                SizedBox(
+                  height: 3.h,
+                ),
                 Text(
                   "We can learn how to improve psychology.",
                   style: kText17Normal_4,
@@ -218,7 +222,7 @@ class _MeditationState extends State<Meditation> {
           ),
 
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 10.w),
+            padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
             child: SpannableGrid(
               columns: 2,
               rows: 7,

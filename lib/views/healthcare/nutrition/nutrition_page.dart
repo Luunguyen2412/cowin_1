@@ -24,28 +24,28 @@ class _NutritionPageState extends State<NutritionPage> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 12.h),
               _headerBuilder(),
               SizedBox(height: 20.h),
               Padding(
-                padding: EdgeInsets.only(left: 20.w),
+                padding: EdgeInsets.symmetric(horizontal: 20.w),
                 child: Text(
                   "Take care of patient",
                   style: kText35Bold_7,
                 ),
               ),
-              SizedBox(height: 12.h),
+              SizedBox(height: 15.h),
               Container(
-                height: 300.h,
+                height: 280.h,
+                margin: EdgeInsets.symmetric(horizontal: 20.w),
                 child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: listTakeCareOfPatient.length,
                     itemBuilder: (_, index) {
                       var item = listTakeCareOfPatient[index];
                       return Container(
-                        height: 293.h,
-                        width: 255.w,
-                        margin: EdgeInsets.symmetric(horizontal: 10.w),
+                        height: 275.h,
+                        width: 240.w,
+                        margin: EdgeInsets.only(right: 20.w),
                         decoration: BoxDecoration(
                           color: Color(item["backgroundColor"]),
                           borderRadius: BorderRadius.circular(15.h),
@@ -80,14 +80,15 @@ class _NutritionPageState extends State<NutritionPage> {
               Padding(
                 padding: EdgeInsets.only(left: 20.w),
                 child: Text(
-                  "Recipes during the epidemic season",
+                  "Recipes during epidemic season",
                   style: kText35Bold_7,
                 ),
               ),
-              SizedBox(height: 12.h),
+              SizedBox(height: 5.h),
               Container(
-                height: 120.h*listRecipes.length,
+                height: 120.h * listRecipes.length,
                 child: ListView.builder(
+                    padding: EdgeInsets.symmetric(horizontal: 15.w),
                     scrollDirection: Axis.vertical,
                     itemCount: listRecipes.length,
                     physics: NeverScrollableScrollPhysics(),
@@ -95,7 +96,8 @@ class _NutritionPageState extends State<NutritionPage> {
                       var item = listRecipes[index];
                       return Container(
                         height: 100.h,
-                        margin: EdgeInsets.symmetric(horizontal: 10.w,vertical: 10.h),
+                        margin: EdgeInsets.symmetric(
+                            horizontal: 10.w, vertical: 10.h),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15.h),
                         ),
@@ -115,7 +117,9 @@ class _NutritionPageState extends State<NutritionPage> {
                             SizedBox(
                               width: 20.w,
                             ),
-                            Flexible(child: Text(item["title"], style: kText16Normal_3)),
+                            Flexible(
+                                child:
+                                    Text(item["title"], style: kText18Bold_3)),
                           ],
                         ),
                       );
@@ -130,121 +134,146 @@ class _NutritionPageState extends State<NutritionPage> {
 
   Widget _headerBuilder() {
     return Container(
-      height: 285.h,
-      margin: EdgeInsets.only(left: 15.w),
-      child: ListView(
-        scrollDirection: Axis.horizontal,
-        children: [
-          Container(
-            height: 283.h,
-            width: 480.w,
-            decoration: BoxDecoration(
-                color: Color(0xFFFFE490),
-                borderRadius: BorderRadius.circular(15.h)),
-            child: Column(
-              children: [
-                Expanded(
-                    child: Row(
-                  children: [
-                    Container(
-                      width: 200.w,
-                     padding:EdgeInsets.only(left:15.w),
-                      child: Text(
-                        "Covid prevention",
-                        style: kText35Bold_7,
-                      ),
-                    ),
-                    Image.asset(
-                        "assets/images/woman-surrounded-by-coronavirus.png")
-                  ],
-                )),
-                Container(
-                  height: 120.h,
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 15.w, vertical: 15.h),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                        width: 215.w,
-                        height: 90.h,
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 15.w, vertical: 10.h),
-                        decoration: BoxDecoration(
-                            color: Color(0xFFF2CD5D),
-                            borderRadius: BorderRadius.circular(15.h)),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Expanded(
-                                child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Nutritional formulas",
-                                  style: kText15Normal_7,
-                                ),
-                                Text(
-                                  "4-5-1",
-                                  style: kText35Bold_7,
-                                )
-                              ],
-                            )),
-                            Container(
-                                alignment: Alignment.center,
-                                child: SvgPicture.asset(
-                                    "assets/icons/see_more.svg"))
-                          ],
-                        ),
-                      ),
-                      Container(
-                        width: 215.w,
-                        height: 90.h,
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 15.w, vertical: 10.h),
-                        decoration: BoxDecoration(
-                            color: Color(0xFFF2CD5D),
-                            borderRadius: BorderRadius.circular(15.h)),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Expanded(
-                                child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Nutritional formulas",
-                                  style: kText15Normal_7,
-                                ),
-                                RichText(
-                                    text: TextSpan(
-                                        text: "for ",
-                                        style: kText15Normal_7,
-                                        children: [
-                                      TextSpan(
-                                          text: " Adult", style: kText35Bold_7)
-                                    ]))
-                              ],
-                            )),
-                            Container(
-                                alignment: Alignment.center,
-                                child: SvgPicture.asset(
-                                    "assets/icons/see_more.svg"))
-                          ],
-                        ),
-                      ),
-                    ],
+      height: 290.h,
+      margin: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
+      child: Container(
+        decoration: BoxDecoration(
+            color: Color(0xFFFFE490),
+            borderRadius: BorderRadius.circular(15.h)),
+        child: Column(
+          children: [
+            Container(
+              height: 180.h,
+              padding: EdgeInsets.symmetric(horizontal: 20.w),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Covid \nprevention",
+                    style: kText35Bold_7,
                   ),
-                )
-              ],
+                  Container(
+                      child: Image.asset(
+                          "assets/images/woman-surrounded-by-coronavirus.png"))
+                ],
+              ),
             ),
-          ),
-          SizedBox(
-            width: 15.w,
-          )
-        ],
+            SingleChildScrollView(
+              padding: EdgeInsets.only(left: 10.w),
+              physics: BouncingScrollPhysics(),
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  Container(
+                    width: 215.w,
+                    height: 90.h,
+                    margin: EdgeInsets.symmetric(horizontal: 10.w),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 15.w, vertical: 10.h),
+                    decoration: BoxDecoration(
+                        color: Color(0xFFF2CD5D),
+                        borderRadius: BorderRadius.circular(15.h)),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Nutritional formulas",
+                              style: kText15Normal_7,
+                            ),
+                            Text(
+                              "4-5-1",
+                              style: kText35Bold_7,
+                            )
+                          ],
+                        ),
+                        Container(
+                            alignment: Alignment.center,
+                            child:
+                                SvgPicture.asset("assets/icons/see_more.svg"))
+                      ],
+                    ),
+                  ),
+                  Container(
+                    width: 215.w,
+                    height: 90.h,
+                    margin: EdgeInsets.symmetric(horizontal: 10.w),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 15.w, vertical: 10.h),
+                    decoration: BoxDecoration(
+                        color: Color(0xFFF2CD5D),
+                        borderRadius: BorderRadius.circular(15.h)),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Nutritional formulas",
+                              style: kText15Normal_7,
+                            ),
+                            RichText(
+                                text: TextSpan(
+                                    text: "for ",
+                                    style: kText15Normal_7,
+                                    children: [
+                                  TextSpan(text: " Adult", style: kText35Bold_7)
+                                ]))
+                          ],
+                        ),
+                        Container(
+                            alignment: Alignment.center,
+                            child:
+                                SvgPicture.asset("assets/icons/see_more.svg")),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    width: 215.w,
+                    height: 90.h,
+                    margin: EdgeInsets.symmetric(horizontal: 10.w),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 15.w, vertical: 10.h),
+                    decoration: BoxDecoration(
+                        color: Color(0xFFF2CD5D),
+                        borderRadius: BorderRadius.circular(15.h)),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Nutritional formulas",
+                              style: kText15Normal_7,
+                            ),
+                            RichText(
+                                text: TextSpan(
+                                    text: "for ",
+                                    style: kText15Normal_7,
+                                    children: [
+                                  TextSpan(text: " Child", style: kText35Bold_7)
+                                ]))
+                          ],
+                        ),
+                        Container(
+                            alignment: Alignment.center,
+                            child:
+                                SvgPicture.asset("assets/icons/see_more.svg")),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

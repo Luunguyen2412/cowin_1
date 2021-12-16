@@ -8,12 +8,14 @@ class ExerciseItem extends StatelessWidget {
   final image;
   final title;
   final subTitle;
+  final backgroundColor;
 
   const ExerciseItem(
       {Key? key,
       required this.image,
       required this.title,
-      required this.subTitle})
+      required this.subTitle,
+      required this.backgroundColor})
       : super(key: key);
 
   @override
@@ -23,7 +25,7 @@ class ExerciseItem extends StatelessWidget {
       width: 340.w,
       margin: EdgeInsets.only(left: 20.w),
       decoration: BoxDecoration(
-        color: Colors.primaries[Random().nextInt(Colors.primaries.length)],
+        color: Color(backgroundColor),
         borderRadius: BorderRadius.circular(20.h),
       ),
       child: Stack(
@@ -34,7 +36,7 @@ class ExerciseItem extends StatelessWidget {
               child: Image.asset("$image"),
             ),
           Container(
-            width: 190.w,
+            width: 185.w,
             padding: EdgeInsets.only(left: 16.w),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -44,13 +46,16 @@ class ExerciseItem extends StatelessWidget {
                   padding: EdgeInsets.symmetric(vertical: 16.h),
                   child: Text(
                     title,
-                    style: kText18Bold_2,
+                    style: kText28Bold_2,
                   ),
                 ),
-                Expanded(
-                  child: Text(
-                    subTitle,
-                    style: kText14Normal_2,
+                Padding(
+                  padding: EdgeInsets.only(right: 10.w),
+                  child: Expanded(
+                    child: Text(
+                      subTitle,
+                      style: kText16Normal_2,
+                    ),
                   ),
                 ),
               ],

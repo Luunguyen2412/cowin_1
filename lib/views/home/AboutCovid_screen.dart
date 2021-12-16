@@ -4,7 +4,6 @@ import 'package:cowin_1/common/config/texts_config.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-
 class AboutCovidScreen1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -19,17 +18,19 @@ class AboutCovidScreen1 extends StatelessWidget {
                     clipper: MyCustomClipper(),
                     child: Container(
                       height: 280.h,
-                      width: MediaQuery.of(context).size.width,
-                      color: Colors.black12,
-                      child: Image.asset("assets/images/Vector 44.png"),
+                      width: double.infinity,
+                      child: FittedBox(
+                        fit: BoxFit.cover,
+                        child: Image.asset("assets/images/Vector44.jpg"),
+                      ),
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10.w),
+                    padding: EdgeInsets.symmetric(horizontal: 20.w),
                     child: Column(
                       children: [
                         SizedBox(
-                          height: 10.h,
+                          height: 15.h,
                         ),
                         Text(
                           "Covid-19 là gì? Chúng ta phải chuẩn bị và phòng tránh Covid như thế nào?",

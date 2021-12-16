@@ -29,7 +29,7 @@ class _CustomSwitchState extends State<CustomSwitchTabbar>
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 370.h,
+      height: 420.h,
       child: Column(
         children: [
           Container(
@@ -75,7 +75,7 @@ class _CustomSwitchState extends State<CustomSwitchTabbar>
                             "Vietnam",
                             style: kTextConfig.copyWith(
                               fontWeight: FontWeight.bold,
-                              fontSize: ScreenUtil().setSp(23),
+                              fontSize: ScreenUtil().setSp(24),
                               color: cwColor3,
                             ),
                           ),
@@ -96,7 +96,7 @@ class _CustomSwitchState extends State<CustomSwitchTabbar>
                               "Global",
                               style: kTextConfig.copyWith(
                                 fontWeight: FontWeight.bold,
-                                fontSize: ScreenUtil().setSp(23),
+                                fontSize: ScreenUtil().setSp(24),
                                 color: cwColor3,
                               ),
                             ),
@@ -148,14 +148,14 @@ class VietnamPageState extends State<VietnamPage>
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 260.h,
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              TabBar(
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 5.h),
+              child: TabBar(
                 isScrollable: true,
                 controller: tabController_1,
                 indicator: BoxDecoration(borderRadius: BorderRadius.zero),
@@ -165,37 +165,37 @@ class VietnamPageState extends State<VietnamPage>
                   Text(
                     "Total",
                     style: tabController_1.index == 0
-                        ? kText20Bold_5
-                        : kText20Bold_4,
+                        ? kText22Bold_5
+                        : kText22Bold_4,
                   ),
                   Text(
                     "Today",
                     style: tabController_1.index == 1
-                        ? kText20Bold_5
-                        : kText20Bold_4,
+                        ? kText22Bold_5
+                        : kText22Bold_4,
                   ),
                   Text(
                     "Yesterday",
                     style: tabController_1.index == 2
-                        ? kText20Bold_5
-                        : kText20Bold_4,
+                        ? kText22Bold_5
+                        : kText22Bold_4,
                   )
                 ],
               ),
+            ),
+          ],
+        ),
+        Expanded(
+          child: TabBarView(
+            controller: tabController_1,
+            children: [
+              TotalPage(),
+              TodayPage(),
+              YesterdayPage(),
             ],
           ),
-          Expanded(
-            child: TabBarView(
-              controller: tabController_1,
-              children: [
-                TotalPage(),
-                TodayPage(),
-                YesterdayPage(),
-              ],
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
@@ -241,20 +241,20 @@ class GlobalPageState extends State<GlobalPage> with TickerProviderStateMixin {
                   Text(
                     "Total",
                     style: tabController_1.index == 0
-                        ? kText20Bold_5
-                        : kText20Bold_4,
+                        ? kText22Bold_5
+                        : kText22Bold_4,
                   ),
                   Text(
                     "Today",
                     style: tabController_1.index == 1
-                        ? kText20Bold_5
-                        : kText20Bold_4,
+                        ? kText22Bold_5
+                        : kText22Bold_4,
                   ),
                   Text(
                     "Yesterday",
                     style: tabController_1.index == 2
-                        ? kText20Bold_5
-                        : kText20Bold_4,
+                        ? kText22Bold_5
+                        : kText22Bold_4,
                   )
                 ],
               ),

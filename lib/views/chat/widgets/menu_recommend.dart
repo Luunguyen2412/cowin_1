@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MenuRecommend extends StatefulWidget {
   final Function(int, String) onSelected;
-  const MenuRecommend({Key? key,required this.onSelected}) : super(key: key);
+  const MenuRecommend({Key? key, required this.onSelected}) : super(key: key);
 
   @override
   _MenuRecommendState createState() => _MenuRecommendState();
@@ -24,8 +24,8 @@ class _MenuRecommendState extends State<MenuRecommend> {
       ),
       backgroundColor: Colors.transparent,
       child: Container(
-        height: 250.h,
-        padding: EdgeInsets.symmetric(horizontal: 20.h),
+        height: 270.h,
+        padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
         decoration: BoxDecoration(
             color: cwColor2, borderRadius: BorderRadius.circular(10.h)),
         child: Column(

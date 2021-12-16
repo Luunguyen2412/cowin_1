@@ -1,4 +1,3 @@
-
 import 'package:cowin_1/common/config/colors_config.dart';
 import 'package:cowin_1/common/config/texts_config.dart';
 import 'package:cowin_1/view_models/maps/map_provider.dart';
@@ -9,6 +8,7 @@ import 'package:cowin_1/views/map/widgets/typeSearch.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 
@@ -90,54 +90,149 @@ class _MapScreenState extends State<MapScreen> {
             Container(
                 height: MediaQuery.of(context).size.height,
                 alignment: Alignment.topCenter,
-                child: LocationPicker()),
+                child: Container(
+                  height: 170.h,
+                  decoration: BoxDecoration(
+                      color: cwColor2,
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(20.r),
+                        bottomRight: Radius.circular(20.r),
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                            color: Color(0xFFDAD3D3),
+                            blurRadius: 10,
+                            offset: Offset(0, 1))
+                      ]),
+                  padding:
+                      EdgeInsets.only(top: 15.h, right: 20.w, bottom: 15.h),
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(top: 10.h),
+                            child: Container(
+                              height: 110.h,
+                              child: SvgPicture.asset(
+                                  "assets/icons/ic_picker.svg"),
+                            ),
+                          ),
+                          Expanded(
+                            child: Container(
+                              height: 140.h,
+                              width: MediaQuery.of(context).size.width - 110.w,
+                              padding: EdgeInsets.only(top: 15.h),
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Expanded(
+                                        child: Container(
+                                          height: 50.h,
+                                          decoration: BoxDecoration(
+                                              border:
+                                                  Border.all(color: cwColor1),
+                                              borderRadius:
+                                                  BorderRadius.circular(10.h)),
+                                          padding: EdgeInsets.only(
+                                              left: 10.h, bottom: 7.h),
+                                          child: TextFormField(
+                                            textAlignVertical:
+                                                TextAlignVertical.center,
+                                            decoration: InputDecoration(
+                                                hintText: "Your location",
+                                                hintStyle: kText16Normal_3,
+                                                border: InputBorder.none),
+                                          ),
+                                        ),
+                                      ),
+                                      Container(
+                                          margin: EdgeInsets.only(left: 10.w),
+                                          child: SvgPicture.asset(
+                                              "assets/icons/more-horizontal.svg"))
+                                    ],
+                                  ),
+                                  Expanded(
+                                    child: Row(
+                                      children: [
+                                        Expanded(
+                                          child: Container(
+                                            height: 50.h,
+                                            decoration: BoxDecoration(
+                                                border:
+                                                    Border.all(color: cwColor1),
+                                                borderRadius:
+                                                    BorderRadius.circular(
+                                                        10.h)),
+                                            padding: EdgeInsets.only(
+                                                left: 10.h, bottom: 7.h),
+                                            child: GestureDetector(
+                                              onTap: () async {
+                                                var result = await Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            SearchScreen()));
+                                                if (result != null)
+                                                  moveLocation(
+                                                      lat: result["lat"],
+                                                      lng: result["lng"]);
+                                              },
+                                              child: Container(
+                                                  color: Colors.transparent,
+                                                  alignment:
+                                                      Alignment.centerLeft,
+                                                  padding:
+                                                      EdgeInsets.only(top: 4.h),
+                                                  child: Text(
+                                                    "Bệnh viện Thống Nhất",
+                                                    style: kText16Normal_3,
+                                                  )),
+                                            ),
+                                          ),
+                                        ),
+                                        Container(
+                                            child: SvgPicture.asset(
+                                                "assets/icons/import_export.svg"))
+                                      ],
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                )),
             Container(
               height: MediaQuery.of(context).size.height,
               alignment: Alignment.bottomCenter,
               child: Container(
-                height: 200.h,
-                color: cwColor17,
-                alignment: Alignment.center,
+                height: 140.h,
                 padding: EdgeInsets.only(left: 30.w),
+                decoration: BoxDecoration(
+                    color: cwColor2,
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(20.r),
+                      bottomRight: Radius.circular(20.r),
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                          color: Color(0xFFDAD3D3),
+                          blurRadius: 10,
+                          offset: Offset(0, 1))
+                    ]),
                 child: Column(
                   children: [
-                    GestureDetector(
-                      onTap: () async {
-                        var result = await Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => SearchScreen()));
-                        if (result != null)
-                          moveLocation(lat: result["lat"], lng: result["lng"]);
-                      },
-                      child: Container(
-                        height: 52.h,
-                        width: MediaQuery.of(context).size.width,
-                        margin:
-                            EdgeInsets.only(right: 40.h, top: 20.h, bottom: 20.h),
-                        padding: EdgeInsets.symmetric(horizontal: 20.w),
-                        decoration: BoxDecoration(
-                            color: cwColor5,
-                            borderRadius: BorderRadius.circular(10.r)),
-                        child: Row(
-                          children: [
-                            Icon(
-                              Icons.search,
-                              color: cwColor2,
-                              size: 25.h,
-                            ),
-                            SizedBox(
-                              width: 10.w,
-                            ),
-                            Text(
-                              "Search for place",
-                              style: kText16Normal_2,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
                     Container(
+                      margin: EdgeInsets.only(top: 15.h),
                       height: 100.h,
                       child: ListView(
                         scrollDirection: Axis.horizontal,
@@ -244,9 +339,10 @@ class _ShowListDataState extends State<ShowListData> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFFCFBFB),
+      backgroundColor: Color(0xFFFEFEFE),
       body: Container(
-        height: MediaQuery.of(context).size.height,
+        height: 210.h,
+        padding: EdgeInsets.only(left: 30.w, right: 20.w),
         child: Column(
           children: [
             Container(
@@ -255,35 +351,34 @@ class _ShowListDataState extends State<ShowListData> {
                 children: [
                   Expanded(
                     child: Container(
-                      margin: EdgeInsets.only(top: 60.h, left: 30.w),
+                      margin: EdgeInsets.only(top: 60.h),
                       child: Row(
                         children: [
                           Container(
-                            height: 60.h,
-                            width: 60.w,
-                            padding: EdgeInsets.all(5.h),
+                            height: 70.h,
+                            width: 70.h,
                             decoration: BoxDecoration(
                                 color: cwColor2,
                                 borderRadius: BorderRadius.circular(8.r),
                                 boxShadow: [
                                   BoxShadow(
-                                      color: cwColor4,
+                                      color: Color(0xFFDAD3D3),
                                       blurRadius: 10,
                                       offset: Offset(0, 5))
                                 ]),
                             child: Image.asset("${widget.icon}"),
                           ),
                           SizedBox(
-                            width: 10.w,
+                            width: 15.w,
                           ),
                           RichText(
                               text: TextSpan(
                                   text: "${widget.name}",
-                                  style: kText28Bold_3,
+                                  style: kText30Bold_3,
                                   children: [
                                 TextSpan(
                                     text: "\nDistrict 5",
-                                    style: kText14Normal_4)
+                                    style: kText18Normal_4)
                               ]))
                         ],
                       ),
@@ -296,7 +391,8 @@ class _ShowListDataState extends State<ShowListData> {
                     child: Container(
                       height: 45.h,
                       width: 45.h,
-                      margin: EdgeInsets.only(top: 10.h),
+                      margin: EdgeInsets.only(top: 20.h),
+                      alignment: Alignment.topRight,
                       child: Icon(
                         Icons.cancel_outlined,
                         color: cwColor4,
