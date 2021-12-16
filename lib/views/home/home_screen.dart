@@ -175,7 +175,7 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                         'Call now',
                                         style: kTextConfig.copyWith(
                                           fontWeight: FontWeight.normal,
-                                          fontSize: ScreenUtil().setSp(20),
+                                          fontSize: ScreenUtil().setSp(20.sp),
                                           color: cwColor2,
                                         ),
                                       ),
