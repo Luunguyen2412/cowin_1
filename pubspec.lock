@@ -242,10 +242,10 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: d91ca4b8e971edd104981854c8c74197d62fb497
-      url: "https://github.com/Honghm/flutter_template.git"
+      resolved-ref: "4df4dac786b98456dbf36f643c6fd2ea9cd2b71a"
+      url: "https://github.com/Covisoft/flutter_modules.git"
     source: git
-    version: "0.0.16"
+    version: "0.0.17"
   flutter_native_splash:
     dependency: "direct main"
     description:
