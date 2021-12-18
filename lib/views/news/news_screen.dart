@@ -107,24 +107,21 @@ class _NewsScreenState extends State<NewsScreen> with TickerProviderStateMixin {
         setState(() {
           tabController1.index = 0;
         });
-      }
-      else if (scrollController.offset >= 500 &&scrollController.offset < 650) {
+      } else if (scrollController.offset >= 500 &&
+          scrollController.offset < 650) {
         setState(() {
           tabController1.index = 1;
         });
-      }
-      else if (scrollController.offset >= 1420 &&scrollController.offset < 1500 ) {
+      } else if (scrollController.offset >= 1420 &&
+          scrollController.offset < 1500) {
         setState(() {
           tabController1.index = 2;
         });
-      }
-      else if (scrollController.offset >= 1670 ) {
+      } else if (scrollController.offset >= 1670) {
         setState(() {
           tabController1.index = 3;
         });
-      }else{
-
-      }
+      } else {}
     }
   }
 
@@ -138,18 +135,19 @@ class _NewsScreenState extends State<NewsScreen> with TickerProviderStateMixin {
             return [
               SliverAppBar(
                 backgroundColor: cwColor2,
-                expandedHeight: 80.h,
+                expandedHeight: 70.h,
                 pinned: false,
                 title: Container(
+                  margin: EdgeInsets.only(left: 15.w, top: 20.h),
                   child: Text(
-                    tabController.index == 1 ? "Data" : "News",
+                    "News",
                     style: kText40Bold_3,
                   ),
                 ),
                 actions: [
                   Container(
-                    height: 68.h,
-                    margin: EdgeInsets.only(right: 7.w),
+                    height: 88.h,
+                    margin: EdgeInsets.only(top: 20.h, right: 7.w),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -194,60 +192,37 @@ class _NewsScreenState extends State<NewsScreen> with TickerProviderStateMixin {
                         SizedBox(
                           width: 20.w,
                         ),
-                        Container(
-                          height: 68.h,
-                          width: 68.h,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10.h),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Color(0xFF4F9FF1).withOpacity(0.2),
-                                  offset: Offset(0, 2),
-                                  blurRadius: 20.0,
-                                )
-                              ]),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(10.h),
-                            child: Container(
-                                width: 46.h,
-                                height: 46.h,
-                                child:
-                                    Image.asset(Tools().getIcon("info.png"))),
-                          ),
-                        ),
                       ],
                     ),
                   ),
                 ],
               ),
-
-                SliverAppBar(
-                  backgroundColor: cwColor2,
-                  expandedHeight: 50.h,
-                  pinned: true,
-                  toolbarHeight: 10.h,
-                  bottom: TabBar(
-                    controller: tabController,
-                    labelStyle: kText20Bold_1,
-                    physics: NeverScrollableScrollPhysics(),
-                    unselectedLabelStyle: kText20Bold_4,
-                    tabs: [
-                      Text(
-                        "News",
-                        style: tabController.index == 0
-                            ? kText20Bold_1
-                            : kText20Bold_4,
-                      ),
-                     
-                      Text(
-                        "Data",
-                        style: tabController.index == 1
-                            ? kText20Bold_1
-                            : kText20Bold_4,
-                      )
-                    ],
-                  ),
+              SliverAppBar(
+                backgroundColor: cwColor2,
+                expandedHeight: 50.h,
+                pinned: true,
+                toolbarHeight: 10.h,
+                bottom: TabBar(
+                  controller: tabController,
+                  labelStyle: kText20Bold_1,
+                  physics: NeverScrollableScrollPhysics(),
+                  unselectedLabelStyle: kText20Bold_4,
+                  tabs: [
+                    Text(
+                      "News",
+                      style: tabController.index == 0
+                          ? kText20Bold_1
+                          : kText20Bold_4,
+                    ),
+                    Text(
+                      "Data",
+                      style: tabController.index == 1
+                          ? kText20Bold_1
+                          : kText20Bold_4,
+                    )
+                  ],
                 ),
+              ),
               // SliverAppBar(
               //   expandedHeight: 200.h,
               //   pinned: false,
@@ -264,83 +239,83 @@ class _NewsScreenState extends State<NewsScreen> with TickerProviderStateMixin {
               // ),
 
               if (tabController.index == 0)
-              SliverAppBar(
-                pinned: true,
-                floating: false,
-                snap: false,
-                expandedHeight: 110.h,
-                toolbarHeight: 10.h,
-                backgroundColor: cwColor2,
-                bottom: PreferredSize(
-                  preferredSize: Size.fromHeight(110.h),
-                  child: Container(
-                    height: 110.h,
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        InkWell(
-                          onTap: () {
-                            setState(() {
-                              isTapTabBar = true;
-                              tabController1.index = 0;
-                            });
-                            _setPositionByTabIndex();
-                          },
-                          child: CustomTabBar(
-                            title: "Official Update",
-                            isActive: tabController1.index == 0,
-                            icon: "assets/icons/ic_official_update.svg",
+                SliverAppBar(
+                  pinned: true,
+                  floating: false,
+                  snap: false,
+                  expandedHeight: 110.h,
+                  toolbarHeight: 10.h,
+                  backgroundColor: cwColor2,
+                  bottom: PreferredSize(
+                    preferredSize: Size.fromHeight(110.h),
+                    child: Container(
+                      height: 110.h,
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 20.w, vertical: 10.h),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              setState(() {
+                                isTapTabBar = true;
+                                tabController1.index = 0;
+                              });
+                              _setPositionByTabIndex();
+                            },
+                            child: CustomTabBar(
+                              title: "Official Update",
+                              isActive: tabController1.index == 0,
+                              icon: "assets/icons/ic_official_update.svg",
+                            ),
                           ),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            setState(() {
-                              isTapTabBar = true;
-                              tabController1.index = 1;
-                            });
-                            _setPositionByTabIndex();
-                          },
-                          child: CustomTabBar(
-                            title: "Recommend",
-                            isActive: tabController1.index == 1,
-                            icon: "assets/icons/ic_recommend.svg",
+                          InkWell(
+                            onTap: () {
+                              setState(() {
+                                isTapTabBar = true;
+                                tabController1.index = 1;
+                              });
+                              _setPositionByTabIndex();
+                            },
+                            child: CustomTabBar(
+                              title: "Recommend",
+                              isActive: tabController1.index == 1,
+                              icon: "assets/icons/ic_recommend.svg",
+                            ),
                           ),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            setState(() {
-                              isTapTabBar = true;
-                              tabController1.index = 2;
-                            });
-                            _setPositionByTabIndex();
-                          },
-                          child: CustomTabBar(
-                            title: "World",
-                            isActive: tabController1.index == 2,
-                            icon: "assets/icons/ic_world.svg",
+                          InkWell(
+                            onTap: () {
+                              setState(() {
+                                isTapTabBar = true;
+                                tabController1.index = 2;
+                              });
+                              _setPositionByTabIndex();
+                            },
+                            child: CustomTabBar(
+                              title: "World",
+                              isActive: tabController1.index == 2,
+                              icon: "assets/icons/ic_world.svg",
+                            ),
                           ),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            setState(() {
-                              isTapTabBar = true;
-                              tabController1.index = 3;
-                            });
-                            _setPositionByTabIndex();
-                          },
-                          child: CustomTabBar(
-                            title: "Vaccine",
-                            isActive: tabController1.index == 3,
-                            icon: "assets/icons/ic_vaccine.svg",
+                          InkWell(
+                            onTap: () {
+                              setState(() {
+                                isTapTabBar = true;
+                                tabController1.index = 3;
+                              });
+                              _setPositionByTabIndex();
+                            },
+                            child: CustomTabBar(
+                              title: "Vaccine",
+                              isActive: tabController1.index == 3,
+                              icon: "assets/icons/ic_vaccine.svg",
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              ),
             ];
           },
           body: TabBarView(
@@ -356,7 +331,6 @@ class _NewsScreenState extends State<NewsScreen> with TickerProviderStateMixin {
                   });
                 },
               ),
-            
               DataPage()
             ],
           ),

@@ -10,7 +10,7 @@ class CardInfomation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 19.h, vertical: 38.h),
+      padding: EdgeInsets.only(left: 20.w, top: 30.h, bottom: 20.h),
       height: 421.h,
       width: 400.w,
       decoration: BoxDecoration(
@@ -28,9 +28,9 @@ class CardInfomation extends StatelessWidget {
           Text(
             'Understant about\nCOVID-19 to protect\nyourself better',
             style: kTextConfig.copyWith(
-              fontWeight: FontWeight.bold,
-              fontSize: ScreenUtil().setSp(18),
-              color: cwColor2,
+              fontWeight: FontWeight.normal,
+              fontSize: ScreenUtil().setSp(20),
+              color: Colors.white,
             ),
           ),
           SizedBox(
@@ -41,11 +41,11 @@ class CardInfomation extends StatelessWidget {
             style: kTextConfig.copyWith(
               fontWeight: FontWeight.bold,
               fontSize: ScreenUtil().setSp(35),
-              color: cwColor3,
+              color: Colors.white,
             ),
           ),
           SizedBox(
-            height: 28.h,
+            height: 25.h,
           ),
           SingleChildScrollView(
             physics: BouncingScrollPhysics(),
@@ -54,13 +54,16 @@ class CardInfomation extends StatelessWidget {
               children: [
                 Card1('assets/images/Frame1.png'),
                 SizedBox(
-                  width: 25.w,
+                  width: 20.w,
                 ),
                 Card1('assets/images/card2.png'),
                 SizedBox(
-                  width: 25.w,
+                  width: 20.w,
                 ),
                 Card1('assets/images/card3.png'),
+                SizedBox(
+                  width: 20.w,
+                ),
               ],
             ),
           ),
@@ -83,15 +86,15 @@ class Card1 extends StatelessWidget {
             MaterialPageRoute(builder: (context) => AboutCovidScreen1()));
       },
       child: Container(
-        height: 142.h,
-        width: 282.w,
+        height: 170.h,
+        width: 270.w,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
           image: DecorationImage(
             image: AssetImage(
               image,
             ),
-            fit: BoxFit.cover,
+            fit: BoxFit.contain,
           ),
         ),
       ),

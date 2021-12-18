@@ -38,27 +38,18 @@ class _RecommendItemState extends State<RecommendItem>
         widget.onTap(widget.name);
       },
       child: Container(
-        height: animation!.value * 40.h,
-        margin: EdgeInsets.only(bottom: 20.h,right: 8.h),
+        height: animation!.value * 60.h,
         alignment: Alignment.center,
         decoration: BoxDecoration(
             color: cwColor2,
-            borderRadius: BorderRadius.circular(20.h),
-            boxShadow: [
-              BoxShadow(
-                color: cwColor4,
-                offset: const Offset(
-                  3.0,
-                  3.0,
-                ),
-                blurRadius: 5.0,
-              ),
-            ]),
+            border: Border.all(color: cwColor17, width: 2),
+            borderRadius: BorderRadius.all(Radius.circular(5))),
         child: Container(
             alignment: Alignment.center,
             child: Text(
               widget.name,
-              style: kText12Normal_18,
+              style:
+                  kText14Medium_1.copyWith(fontSize: ScreenUtil().setSp(20.sp)),
             )),
       ),
     );

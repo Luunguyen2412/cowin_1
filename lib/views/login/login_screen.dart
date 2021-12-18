@@ -26,9 +26,16 @@ class _LoginScreenState extends State<LoginScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              Image.asset('assets/images/login.png'),
+              Container(
+                height: 340.h,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage("assets/images/login.png"),
+                      fit: BoxFit.fill),
+                ),
+              ),
               SizedBox(
-                height: 26.h,
+                height: 20.h,
               ),
               Text(
                 'Welcome back',
@@ -38,6 +45,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   fontSize: ScreenUtil().setSp(40),
                   color: cwColor1,
                 ),
+              ),
+              SizedBox(
+                height: 3.h,
               ),
               Text(
                 'Login to your account',
@@ -49,14 +59,19 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               SizedBox(
-                height: 40.h,
+                height: 35.h,
               ),
               TextFieldContainer(
                 child: TextField(
+                  textAlignVertical: TextAlignVertical.center,
                   decoration: InputDecoration(
-                    prefixIcon: Icon(
-                      Icons.person,
-                      color: cwColor5,
+                    contentPadding: EdgeInsets.only(top: 7.h),
+                    prefixIcon: Padding(
+                      padding: EdgeInsets.only(top: 7.h),
+                      child: Icon(
+                        Icons.person,
+                        color: cwColor5,
+                      ),
                     ),
                     hintText: "Email/your number",
                     hintStyle: kTextConfig.copyWith(
@@ -73,11 +88,16 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               TextFieldContainer(
                 child: TextFormField(
+                  textAlignVertical: TextAlignVertical.center,
                   obscureText: _isObscure,
                   decoration: InputDecoration(
-                    prefixIcon: Icon(
-                      Icons.lock,
-                      color: cwColor5,
+                    contentPadding: EdgeInsets.only(top: 7.h),
+                    prefixIcon: Padding(
+                      padding: EdgeInsets.only(top: 7.h),
+                      child: Icon(
+                        Icons.lock,
+                        color: cwColor5,
+                      ),
                     ),
                     hintText: "Password",
                     hintStyle: kTextConfig.copyWith(
@@ -85,15 +105,19 @@ class _LoginScreenState extends State<LoginScreen> {
                       fontSize: ScreenUtil().setSp(17),
                       color: cwColor5,
                     ),
-                    suffixIcon: IconButton(
-                      color: cwColor5,
-                      icon: Icon(
-                          _isObscure ? Icons.visibility : Icons.visibility_off),
-                      onPressed: () {
-                        setState(() {
-                          _isObscure = !_isObscure;
-                        });
-                      },
+                    suffixIcon: Padding(
+                      padding: EdgeInsets.only(top: 7.h),
+                      child: IconButton(
+                        color: cwColor5,
+                        icon: Icon(_isObscure
+                            ? Icons.visibility
+                            : Icons.visibility_off),
+                        onPressed: () {
+                          setState(() {
+                            _isObscure = !_isObscure;
+                          });
+                        },
+                      ),
                     ),
                     border: InputBorder.none,
                   ),
@@ -126,18 +150,19 @@ class _LoginScreenState extends State<LoginScreen> {
                     },
                     child: Text(
                       'Forgot password?',
-                      style: kText14Medium_1,
+                      style: kText14Medium_1.copyWith(
+                          fontSize: ScreenUtil().setSp(16.sp)),
                     ),
                   ),
                 ],
               ),
               SizedBox(
-                height: 45.h,
+                height: 35.h,
               ),
               GestureDetector(
                 child: Container(
-                  height: 60,
-                  width: 350,
+                  height: 60.h,
+                  width: 310.w,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(38),
                     color: cwColor1,

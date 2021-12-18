@@ -217,9 +217,9 @@ class _ChatScreenState extends State<ChatScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: cwColor2,
-        toolbarHeight: 98.h,
-        elevation: 2,
+        backgroundColor: Color(0xFFF9F9F9),
+        toolbarHeight: 90.h,
+        elevation: 1,
         leading: Padding(
           padding: EdgeInsets.only(left: 20.w),
           child: Column(
@@ -256,7 +256,7 @@ class _ChatScreenState extends State<ChatScreen>
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(20.h),
                 child: Image.asset(
-                  "assets/icons/chatbot.png",
+                  "assets/images/doctor.png",
                   fit: BoxFit.fill,
                 ),
               ),
@@ -265,194 +265,199 @@ class _ChatScreenState extends State<ChatScreen>
               padding: EdgeInsets.only(left: 10.w),
               child: Text(
                 "Dr.Cowin",
-                style: kText16Normal_3,
+                style:
+                    kText18Bold_3.copyWith(fontSize: ScreenUtil().setSp(22.sp)),
               ),
             )
           ],
         ),
       ),
-      body: Column(children: <Widget>[
-        Flexible(
+      body: Container(
+        color: cwColor2,
+        child: Column(children: <Widget>[
+          Flexible(
             child: ListView.builder(
-          padding: EdgeInsets.all(8.0.h),
-          reverse: true,
-          itemBuilder: (_, int index) => _messages[index],
-          itemCount: _messages.length,
-        )),
-        if (_isWaitingBot)
-          Padding(
-            padding: EdgeInsets.only(bottom: 10.h),
-            child: Text(
-              "Dr.Cowin đang trả lời...",
-              style: kText12Normal_18,
+              padding: EdgeInsets.all(8.0.h),
+              reverse: true,
+              itemBuilder: (_, int index) => _messages[index],
+              itemCount: _messages.length,
             ),
           ),
-        if (isRecommend)
+          if (_isWaitingBot)
+            Padding(
+              padding: EdgeInsets.only(bottom: 10.h),
+              child: Text(
+                "Dr.Cowin đang trả lời...",
+                style: kText12Normal_18,
+              ),
+            ),
+          if (isRecommend)
+            Container(
+              height: suggestion.length * 60.h,
+              margin: EdgeInsets.symmetric(horizontal: 50.w),
+              child: AnimatedList(
+                  key: _listKey,
+                  initialItemCount: suggestion.length,
+                  itemBuilder: (context, index, animation) {
+                    return SlideTransition(
+                      position: Tween<Offset>(
+                        begin: const Offset(-1, 0),
+                        end: Offset(0, 0),
+                      ).animate(animation),
+                      child: RecommendItem(
+                          name: suggestion[index],
+                          onTap: (result) {
+                            if (result == "Sức khỏe") {
+                              suggestion = suggestions2;
+                            }
+                            handleSubmitted(result);
+                          }),
+                    );
+                  }),
+            ),
+          Divider(height: 1.0),
           Container(
-            height: suggestion.length * 60.h,
-            margin: EdgeInsets.symmetric(horizontal: 20.w),
-            child: AnimatedList(
-                key: _listKey,
-                initialItemCount: suggestion.length,
-                itemBuilder: (context, index, animation) {
-                  return SlideTransition(
-                    position: Tween<Offset>(
-                      begin: const Offset(-1, 0),
-                      end: Offset(0, 0),
-                    ).animate(animation),
-                    child: RecommendItem(
-                        name: suggestion[index],
-                        onTap: (result) {
-                          if (result == "Sức khỏe") {
-                            suggestion = suggestions2;
-                          }
-                          handleSubmitted(result);
-                        }),
-                  );
-                }),
-          ),
-        Divider(height: 1.0),
-        Container(
-            decoration: BoxDecoration(color: Theme.of(context).cardColor),
-            child: IconTheme(
-              data: IconThemeData(color: Theme.of(context).backgroundColor),
-              child: Container(
-                height: 50.h,
-                margin: EdgeInsets.symmetric(horizontal: 5.0.w),
-                child: Row(
-                  children: <Widget>[
-                    SizedBox(
-                      width: 10.w,
-                    ),
-                    Flexible(
-                      child: TextField(
-                        controller: _textController,
-                        onChanged: (value) {
-                          if (value.isNotEmpty)
-                            setState(() {
-                              funcSelected = 5;
-                            });
-                          else
-                            setState(() {
-                              funcSelected = 0;
-                            });
-                        },
-                        onSubmitted: (value) {
-                          if (value.isNotEmpty) handleSubmitted(value);
-                        },
-                        style: kText16Normal_3,
-                        decoration: InputDecoration.collapsed(
-                            hintText: _isRecording
-                                ? "Bạn muốn nói gì?"
-                                : "Viết ra câu hỏi của bạn...",
-                            hintStyle: kText16Normal_18),
+              decoration: BoxDecoration(color: Theme.of(context).cardColor),
+              child: IconTheme(
+                data: IconThemeData(color: Theme.of(context).backgroundColor),
+                child: Container(
+                  height: 70.h,
+                  margin: EdgeInsets.symmetric(horizontal: 5.0.w),
+                  child: Row(
+                    children: <Widget>[
+                      SizedBox(
+                        width: 10.w,
                       ),
-                    ),
-                    if (funcSelected != 2 && funcSelected != 5)
-                      GestureDetector(
-                        onTap: () async {
-                          isShowingIconMenu = !isShowingIconMenu;
-                          _animationIconMenuController.forward();
-                          await showGeneralDialog(
-                              context: context,
-                              barrierDismissible: true,
-                              barrierLabel: "",
-                              barrierColor: Colors.transparent,
-                              pageBuilder: (context, _, child) {
-                                return MenuRecommend(
-                                  onSelected: (id, name) {
-                                    setState(() {
-                                      funcSelected = id;
-                                    });
-                                    if (funcSelected == 2) {
-                                      setState(() {
-                                        _isRecording = true;
-                                      });
-                                      handleStream();
-                                    }
-                                    if (funcSelected == 3) {
-                                      setState(() {
-                                        isRecommend = true;
-                                        suggestion = suggestions2;
-                                      });
-                                    }
-                                    if (funcSelected == 4) {
-                                      setState(() {
-                                        isRecommend = true;
-                                        suggestion = suggestions1;
-                                      });
-                                    }
-                                  },
-                                );
+                      Flexible(
+                        child: TextField(
+                          controller: _textController,
+                          onChanged: (value) {
+                            if (value.isNotEmpty)
+                              setState(() {
+                                funcSelected = 5;
                               });
-                          isShowingIconMenu = !isShowingIconMenu;
-                          _animationIconMenuController.reverse();
-                        },
-                        child: Container(
-                          height: 35.h,
-                          width: 35.h,
-                          margin: EdgeInsets.only(right: 10.w),
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                              color: cwColor1, shape: BoxShape.circle),
-                          child: AnimatedIcon(
-                            size: 25.h,
-                            color: cwColor2,
-                            icon: AnimatedIcons.menu_close,
-                            progress: _animationIconMenuController,
-                          ),
+                            else
+                              setState(() {
+                                funcSelected = 0;
+                              });
+                          },
+                          onSubmitted: (value) {
+                            if (value.isNotEmpty) handleSubmitted(value);
+                          },
+                          style: kText16Normal_3,
+                          decoration: InputDecoration.collapsed(
+                              hintText: _isRecording
+                                  ? "Bạn muốn nói gì?"
+                                  : "Viết ra câu hỏi của bạn...",
+                              hintStyle: kText16Normal_18),
                         ),
                       ),
-                    if (funcSelected == 2 || funcSelected == 5)
-                      Row(
-                        children: [
-                          GestureDetector(
-                            child: Icon(
-                              Icons.send,
-                              size: 30.h,
-                            ),
-                            onTap: () {
-                              if (_textController.text.isNotEmpty)
-                                handleSubmitted(_textController.text);
-                            },
-                          ),
-                          SizedBox(
-                            width: 20.w,
-                          ),
-                          GestureDetector(
-                            child: Icon(
-                              _isRecording ? Icons.mic_off : Icons.mic,
-                              size: 30.h,
-                              color: _isRecording ? cwColor6 : cwColor1,
-                            ),
-                            onTap: () {
-                              setState(() {
-                                _isRecording = !_isRecording;
-                              });
-                              if (_isRecording)
-                                handleStream();
-                              else {
-                                stopStream();
-                                setState(() {
-                                  funcSelected = 0;
+                      if (funcSelected != 2 && funcSelected != 5)
+                        GestureDetector(
+                          onTap: () async {
+                            isShowingIconMenu = !isShowingIconMenu;
+                            _animationIconMenuController.forward();
+                            await showGeneralDialog(
+                                context: context,
+                                barrierDismissible: true,
+                                barrierLabel: "",
+                                barrierColor: Colors.transparent,
+                                pageBuilder: (context, _, child) {
+                                  return MenuRecommend(
+                                    onSelected: (id, name) {
+                                      setState(() {
+                                        funcSelected = id;
+                                      });
+                                      if (funcSelected == 2) {
+                                        setState(() {
+                                          _isRecording = true;
+                                        });
+                                        handleStream();
+                                      }
+                                      if (funcSelected == 3) {
+                                        setState(() {
+                                          isRecommend = true;
+                                          suggestion = suggestions2;
+                                        });
+                                      }
+                                      if (funcSelected == 4) {
+                                        setState(() {
+                                          isRecommend = true;
+                                          suggestion = suggestions1;
+                                        });
+                                      }
+                                    },
+                                  );
                                 });
-                              }
-                            },
-                            onLongPress: () {
-                              handleStream();
-                            },
-                            onLongPressUp: () {
-                              stopStream();
-                            },
-                            //onTap: _isRecording ? stopStream : handleStream,
+                            isShowingIconMenu = !isShowingIconMenu;
+                            _animationIconMenuController.reverse();
+                          },
+                          child: Container(
+                            height: 35.h,
+                            width: 35.h,
+                            margin: EdgeInsets.only(right: 10.w),
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                                color: cwColor1, shape: BoxShape.circle),
+                            child: AnimatedIcon(
+                              size: 25.h,
+                              color: cwColor2,
+                              icon: AnimatedIcons.menu_close,
+                              progress: _animationIconMenuController,
+                            ),
                           ),
-                        ],
-                      ),
-                  ],
+                        ),
+                      if (funcSelected == 2 || funcSelected == 5)
+                        Row(
+                          children: [
+                            GestureDetector(
+                              child: Icon(
+                                Icons.send,
+                                size: 30.h,
+                              ),
+                              onTap: () {
+                                if (_textController.text.isNotEmpty)
+                                  handleSubmitted(_textController.text);
+                              },
+                            ),
+                            SizedBox(
+                              width: 20.w,
+                            ),
+                            GestureDetector(
+                              child: Icon(
+                                _isRecording ? Icons.mic_off : Icons.mic,
+                                size: 30.h,
+                                color: _isRecording ? cwColor6 : cwColor1,
+                              ),
+                              onTap: () {
+                                setState(() {
+                                  _isRecording = !_isRecording;
+                                });
+                                if (_isRecording)
+                                  handleStream();
+                                else {
+                                  stopStream();
+                                  setState(() {
+                                    funcSelected = 0;
+                                  });
+                                }
+                              },
+                              onLongPress: () {
+                                handleStream();
+                              },
+                              onLongPressUp: () {
+                                stopStream();
+                              },
+                              //onTap: _isRecording ? stopStream : handleStream,
+                            ),
+                          ],
+                        ),
+                    ],
+                  ),
                 ),
-              ),
-            )),
-      ]),
+              )),
+        ]),
+      ),
     );
   }
 }
@@ -473,7 +478,7 @@ class ChatMessage extends StatelessWidget {
           children: <Widget>[
             Container(
               margin: EdgeInsets.only(top: 10.h),
-              padding: EdgeInsets.all(10.h),
+              padding: EdgeInsets.all(10.w),
               decoration: BoxDecoration(
                   color: cwColor17,
                   borderRadius: BorderRadius.only(
@@ -483,7 +488,8 @@ class ChatMessage extends StatelessWidget {
                   )),
               child: Text(
                 text,
-                style: kText16Normal_18,
+                style: kText16Normal_3.copyWith(
+                    fontSize: ScreenUtil().setSp(17.sp)),
               ),
             ),
             Padding(
@@ -509,7 +515,7 @@ class ChatMessage extends StatelessWidget {
           children: <Widget>[
             Container(
               margin: EdgeInsets.only(top: 10.h),
-              padding: EdgeInsets.all(10.h),
+              padding: EdgeInsets.all(10.w),
               decoration: BoxDecoration(
                   color: cwColor1,
                   borderRadius: BorderRadius.only(
@@ -519,7 +525,8 @@ class ChatMessage extends StatelessWidget {
                   )),
               child: Text(
                 text,
-                style: kText16Normal_2,
+                style: kText16Normal_2.copyWith(
+                    fontSize: ScreenUtil().setSp(17.sp)),
               ),
             ),
             Padding(
@@ -528,7 +535,7 @@ class ChatMessage extends StatelessWidget {
                 text: TextSpan(
                     text: "${date.hour}:${date.minute}",
                     style: kText12Normal_18,
-                    children: [TextSpan(text: "✓", style: kText12Normal_13)]),
+                    children: [TextSpan(text: " ✓", style: kText12Normal_13)]),
               ),
             )
           ],
@@ -540,7 +547,7 @@ class ChatMessage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 20.h, horizontal: 27.w),
+      margin: EdgeInsets.symmetric(vertical: 5.h, horizontal: 27.w),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: this.type ? myMessage(context) : otherMessage(context),

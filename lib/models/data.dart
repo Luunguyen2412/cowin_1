@@ -1,17 +1,19 @@
 List<Map<String, dynamic>> listExercisesAtHome = [
   {
     "id": 1,
-    "title": "Without tool",
+    "title": "Yoga",
     "subTitle":
-        "The exercises are suitable for all subjects, just a moderate amount of space, you can easily perform them.",
-    "image": "assets/images/img_exercise1.png"
+        "Start with simple poses to strengthen health and increase immunity.",
+    "image": "assets/images/yoga.png",
+    "backgroundColor": 0xFFF6ADA7,
   },
   {
     "id": 2,
-    "title": "Without tool",
+    "title": "Simple tool",
     "subTitle":
-        "The exercises are suitable for all subjects, just a moderate amount of space, you can easily perform them.",
-    "image": "assets/images/img_exercise2.png"
+        "The exercises are suitable for all subjects, you can easily perform them.",
+    "image": "assets/images/tool.png",
+    "backgroundColor": 0xFFCFB9E4,
   }
 ];
 
@@ -20,7 +22,7 @@ List<Map<String, dynamic>> listExercisesForF1F2 = [
     "id": 1,
     "title": "Pulmonary rehabilitation exercises",
     "subTitle":
-        "This exercise can also be used in case of fatigue due to prolonged continuous work, chronic respiratory function decline, helping to relieve symptoms of shortness of breath, anxiety and depression, improve physical fitness and life quality.",
+        "This exercise can also be used in case of fatigue due to prolonged continuous work, anxiety and depression, improve physical fitness and life quality.",
     "image": "assets/images/img_exercise2.png"
   },
   {
@@ -87,8 +89,7 @@ List<Map<String, dynamic>> listNews = [
   },
   {
     "id": 2,
-    "title":
-        "Which people with COVID-19 are managed at home?",
+    "title": "Which people with COVID-19 are managed at home?",
     "type": "Official Update",
     "createdTime": "20/08/2021",
     "image": "assets/images/img_news1.png"
@@ -103,8 +104,7 @@ List<Map<String, dynamic>> listNews = [
   },
   {
     "id": 4,
-    "title":
-        "Risk of brain damage in children with severe COVID-19",
+    "title": "Risk of brain damage in children with severe COVID-19",
     "type": "Official Update",
     "createdTime": "20/08/2021",
     "image": null
@@ -135,72 +135,63 @@ List<Map<String, dynamic>> listNews = [
   },
   {
     "id": 9,
-    "title":
-        "Should two vaccines be combined against COVID-19?",
+    "title": "Should two vaccines be combined against COVID-19?",
     "type": "Recommend",
     "createdTime": "20/08/2021",
     "image": null
   },
   {
     "id": 10,
-    "title":
-    "Apply online COVID-19 prescriptions - Pros and cons",
+    "title": "Apply online COVID-19 prescriptions - Pros and cons",
     "type": "Recommend",
     "createdTime": "20/08/2021",
     "image": null
   },
   {
     "id": 10,
-    "title":
-    "Apply online COVID-19 prescriptions - Pros and cons",
+    "title": "Apply online COVID-19 prescriptions - Pros and cons",
     "type": "Recommend",
     "createdTime": "20/08/2021",
     "image": null
   },
   {
     "id": 10,
-    "title":
-    "Apply online COVID-19 prescriptions - Pros and cons",
+    "title": "Apply online COVID-19 prescriptions - Pros and cons",
     "type": "Recommend",
     "createdTime": "20/08/2021",
     "image": null
   },
   {
     "id": 10,
-    "title":
-    "Apply online COVID-19 prescriptions - Pros and cons",
+    "title": "Apply online COVID-19 prescriptions - Pros and cons",
     "type": "Recommend",
     "createdTime": "20/08/2021",
     "image": null
   },
   {
     "id": 10,
-    "title":
-    "Apply online COVID-19 prescriptions - Pros and cons",
+    "title": "Apply online COVID-19 prescriptions - Pros and cons",
     "type": "Recommend",
     "createdTime": "20/08/2021",
     "image": null
   },
   {
     "id": 10,
-    "title":
-    "Apply online COVID-19 prescriptions - Pros and cons",
+    "title": "Apply online COVID-19 prescriptions - Pros and cons",
     "type": "Recommend",
     "createdTime": "20/08/2021",
     "image": null
   },
   {
     "id": 10,
-    "title":
-    "Apply online COVID-19 prescriptions - Pros and cons",
+    "title": "Apply online COVID-19 prescriptions - Pros and cons",
     "type": "Recommend",
     "createdTime": "20/08/2021",
     "image": null
   },
   {
     "id": 10,
-    "title":
-    "Apply online COVID-19 prescriptions - Pros and cons",
+    "title": "Apply online COVID-19 prescriptions - Pros and cons",
     "type": "Recommend",
     "createdTime": "20/08/2021",
     "image": null
@@ -221,6 +212,13 @@ List<Map<String, dynamic>> listTakeCareOfPatient = [
     "image": "assets/images/pyc_image3.png",
     "backgroundColor": 0xFFFFEDDA,
     "titleColor": 0xFF865439
+  },
+  {
+    "id": 3,
+    "name": "Hygiene notes food safety",
+    "image": "assets/images/food.png",
+    "backgroundColor": 0xFF6CB28E,
+    "titleColor": 0xFFFFFFFF
   }
 ];
 

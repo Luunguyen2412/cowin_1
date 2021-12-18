@@ -15,8 +15,6 @@ class MentallyPage extends StatefulWidget {
 }
 
 class _MentallyPageState extends State<MentallyPage> {
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,17 +23,17 @@ class _MentallyPageState extends State<MentallyPage> {
         child: Column(
           children: [
             Container(
-              height: 160.h,
+              height: 180.h,
               width: MediaQuery.of(context).size.width,
-              margin: EdgeInsets.only(top: 40.h, left: 35.w, right: 35.w),
+              margin: EdgeInsets.only(top: 30.h, left: 20.w, right: 20.w),
               decoration: BoxDecoration(
                   color: cwColor8, borderRadius: BorderRadius.circular(20.h)),
               child: Stack(
                 children: [
                   Positioned(
-                    left: 163.w,
+                    right: 15.w,
                     child: Container(
-                      height: 168.h,
+                      height: 180.h,
                       width: 180.w,
                       child: Image.asset(
                         "assets/images/pyc_image.png",
@@ -45,21 +43,23 @@ class _MentallyPageState extends State<MentallyPage> {
                   ),
                   Container(
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: EdgeInsets.only(top: 20.h, left: 20.w),
+                          padding: EdgeInsets.only(top: 30.h, left: 20.w),
                           child: Text(
                             "COVID-19\n& Mental Health",
                             style: kText21Bold_2,
+                            textAlign: TextAlign.left,
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.only(top: 12.h, left: 20.w),
+                          padding: EdgeInsets.only(top: 10.h, left: 20.w),
                           child: Container(
-                              width: 149.w,
+                              width: 150.w,
                               child: Text(
                                 "The importance of mental health during the COVID19 pandemic.",
-                                style: kText14Normal_2,
+                                style: kText16Normal_2,
                               )),
                         )
                       ],
@@ -72,7 +72,9 @@ class _MentallyPageState extends State<MentallyPage> {
               height: 30.h,
             ),
             Pychology(),
-
+            SizedBox(
+              height: 20.h,
+            ),
             Meditation(),
             SizedBox(
               height: 30.h,

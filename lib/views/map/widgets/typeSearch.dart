@@ -33,7 +33,12 @@ class TypeSearch extends StatelessWidget {
               decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(10.h),
-                  boxShadow: [BoxShadow(blurRadius: 8, color: cwColor4)]),
+                  boxShadow: [
+                    BoxShadow(
+                        blurRadius: 8,
+                        color: Color(0xFFDAD3D3),
+                        offset: Offset(0, 5))
+                  ]),
               child: Image.asset(
                 icon,
                 width: 45.h,
@@ -42,7 +47,7 @@ class TypeSearch extends StatelessWidget {
             ),
             Text(
               title,
-              style: kText14Normal_4,
+              style: kText16Normal_4,
             )
           ],
         ),

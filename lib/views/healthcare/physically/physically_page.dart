@@ -1,4 +1,3 @@
-
 import 'package:cowin_1/common/config/texts_config.dart';
 import 'package:cowin_1/models/data.dart';
 import 'package:cowin_1/views/healthcare/physically/widgets/exercise_item.dart';
@@ -27,7 +26,7 @@ class _PhysicallyPageState extends State<PhysicallyPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsets.only(left: 20.w),
+              padding: EdgeInsets.only(left: 20.w, top: 20.h),
               child: Text(
                 "Exercises at home",
                 style: kText35Bold_7,
@@ -35,6 +34,7 @@ class _PhysicallyPageState extends State<PhysicallyPage> {
             ),
             Container(
               height: 170.h,
+              margin: EdgeInsets.only(top: 10.h),
               child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: listExercisesAtHome.length,
@@ -43,10 +43,11 @@ class _PhysicallyPageState extends State<PhysicallyPage> {
                     return ExerciseItem(
                         image: item["image"],
                         title: item["title"],
-                        subTitle: item["subTitle"]);
+                        subTitle: item["subTitle"],
+                        backgroundColor: item["backgroundColor"]);
                   }),
             ),
-            SizedBox(height: 40.h),
+            SizedBox(height: 30.h),
             Container(
               padding: EdgeInsets.symmetric(horizontal: 20.w),
               child: Column(
@@ -57,6 +58,7 @@ class _PhysicallyPageState extends State<PhysicallyPage> {
                     "Exercises for F1, F0",
                     style: kText35Bold_7,
                   ),
+                  SizedBox(height: 3.h),
                   Text(
                     "The simple exercises help F1, F0 improve health",
                     style: kText17Normal_4,
@@ -64,7 +66,7 @@ class _PhysicallyPageState extends State<PhysicallyPage> {
                 ],
               ),
             ),
-            SizedBox(height: 12.h),
+            SizedBox(height: 15.h),
             Container(
               height: 400.h,
               child: ListView.builder(
@@ -108,9 +110,12 @@ class _PhysicallyPageState extends State<PhysicallyPage> {
                           itemBuilder: (context, index) {
                             var item = listRehabilitation[index];
                             return GestureDetector(
-                              onTap: (){
+                              onTap: () {
                                 Navigator.push(
-                                    context, MaterialPageRoute(builder: (context) => PhysicallyDetail(index)));
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            PhysicallyDetail(index)));
                               },
                               child: Rehabilitation(
                                   name: item["name"],

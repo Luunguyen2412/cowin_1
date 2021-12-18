@@ -32,15 +32,12 @@ class NewTile extends StatelessWidget {
                 child: Container(
                   height: 150,
                   width: 80,
-                  color: Colors.grey.shade900,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: AssetImage(
-                        image,
-                      ),
+                  alignment: AlignmentDirectional.center,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(15.r),
+                    child: Image.asset(
+                      image,
                     ),
-                    borderRadius: BorderRadius.circular(15),
                   ),
                 ),
               ),
@@ -95,13 +92,14 @@ class NewsCard extends StatelessWidget {
             MaterialPageRoute(builder: (context) => AboutCovidScreen1()));
       },
       child: Padding(
-        padding: const EdgeInsets.all(7),
+        padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
         child: Row(
           children: [
             Flexible(
               flex: 1,
               child: Container(
                 decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15.r),
                   image: DecorationImage(
                     image: AssetImage(
                       image,
@@ -110,7 +108,7 @@ class NewsCard extends StatelessWidget {
                   ),
                 ),
                 height: 100.h,
-                width: 100.w,
+                width: 100.h,
               ),
             ),
             SizedBox(
@@ -126,9 +124,10 @@ class NewsCard extends StatelessWidget {
                   children: [
                     Text(
                       title,
+                      softWrap: true,
                       style: kTextConfig.copyWith(
-                        fontWeight: FontWeight.w600,
-                        fontSize: ScreenUtil().setSp(14),
+                        fontWeight: FontWeight.bold,
+                        fontSize: ScreenUtil().setSp(16),
                         color: cwColor3,
                       ),
                     ),
