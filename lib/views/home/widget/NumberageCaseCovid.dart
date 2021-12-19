@@ -43,7 +43,7 @@ class _CustomSwitchState extends State<CustomSwitchTabbar>
             child: Stack(
               children: [
                 AnimatedPositioned(
-                    left: tabController.index == 0 ? 1.w : 167.w,
+                    left: tabController.index == 0 ? 1.w : 169.w,
                     child: Container(
                       width: 190.w,
                       height: 49.h,

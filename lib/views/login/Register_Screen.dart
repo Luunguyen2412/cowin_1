@@ -53,10 +53,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
                     TextFieldContainer(
                       child: TextField(
+                        textAlignVertical: TextAlignVertical.center,
                         decoration: InputDecoration(
-                          prefixIcon: Icon(
-                            Icons.person,
-                            color: cwColor5,
+                          contentPadding: EdgeInsets.only(top: 7.h),
+                          prefixIcon: Padding(
+                            padding: EdgeInsets.only(top: 7.h),
+                            child: Icon(
+                              Icons.person,
+                              color: cwColor5,
+                            ),
                           ),
                           hintText: "Email/your number",
                           hintStyle: kTextConfig.copyWith(
@@ -73,11 +78,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
                     TextFieldContainer(
                       child: TextFormField(
+                        textAlignVertical: TextAlignVertical.center,
                         obscureText: _isObscure,
                         decoration: InputDecoration(
-                          prefixIcon: Icon(
-                            Icons.lock,
-                            color: cwColor5,
+                          contentPadding: EdgeInsets.only(top: 7.h),
+                          prefixIcon: Padding(
+                            padding: EdgeInsets.only(top: 7.h),
+                            child: Icon(
+                              Icons.lock,
+                              color: cwColor5,
+                            ),
                           ),
                           hintText: "Password",
                           hintStyle: kTextConfig.copyWith(
@@ -105,10 +115,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
                     TextFieldContainer(
                       child: TextField(
+                        textAlignVertical: TextAlignVertical.center,
                         decoration: InputDecoration(
-                          prefixIcon: Icon(
-                            Icons.lock,
-                            color: cwColor5,
+                          contentPadding: EdgeInsets.only(top: 7.h),
+                          prefixIcon: Padding(
+                            padding: EdgeInsets.only(top: 7.h),
+                            child: Icon(
+                              Icons.lock,
+                              color: cwColor5,
+                            ),
                           ),
                           hintText: "Confirm Password",
                           hintStyle: kTextConfig.copyWith(
@@ -120,7 +135,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             color: cwColor5,
                             icon: Icon(_isObscure
                                 ? Icons.visibility
-                                : Icons.visibility_off),  
+                                : Icons.visibility_off),
                             onPressed: () {
                               setState(() {
                                 _isObscure = !_isObscure;
@@ -168,8 +183,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
                     GestureDetector(
                       child: Container(
-                        height: 60,
-                        width: 350,
+                        height: 60.h,
+                        width: 310.w,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(38),
                           color: cwColor1,
