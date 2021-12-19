@@ -183,8 +183,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
                     GestureDetector(
                       child: Container(
-                        height: 60,
-                        width: 350,
+                        height: 60.h,
+                        width: 310.w,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(38),
                           color: cwColor1,
