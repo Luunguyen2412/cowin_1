@@ -3,6 +3,7 @@ import 'package:cowin_1/common/config/texts_config.dart';
 import 'package:cowin_1/view_models/app/app_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animated_dialog/flutter_animated_dialog.dart';
 import 'package:flutter_modules/flutter_modules.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:spannable_grid/spannable_grid.dart';
@@ -17,6 +18,21 @@ class Pychology extends StatefulWidget {
 }
 
 class _PychologyState extends State<Pychology> {
+  pushScreen(id) async {
+    await showAnimatedDialog(
+      barrierDismissible: true,
+      context: context,
+      builder: (context) => Dialog(
+        insetPadding: EdgeInsets.zero,
+        backgroundColor: Colors.black.withOpacity(0),
+        child: MentallyDetail(id),
+      ),
+      animationType: DialogTransitionType.slideFromBottom,
+      duration: Duration(milliseconds: 300),
+      curve: Curves.easeOut,
+    );
+  }
+
   List<SpannableGridCellData> _getCells() {
     var result = <SpannableGridCellData>[];
     result.add(SpannableGridCellData(
@@ -89,8 +105,7 @@ class _PychologyState extends State<Pychology> {
   _cardReduceStress() {
     return InkWell(
       onTap: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => MentallyDetail(1)));
+        pushScreen(1);
       },
       child: Hero(
         tag: "mentally_detail1",
@@ -126,8 +141,7 @@ class _PychologyState extends State<Pychology> {
   _cardImprovePerformanee() {
     return InkWell(
       onTap: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => MentallyDetail(2)));
+        pushScreen(2);
       },
       child: Hero(
         tag: "mentally_detail2",
@@ -163,8 +177,7 @@ class _PychologyState extends State<Pychology> {
   _cardReduceAnxiety() {
     return InkWell(
       onTap: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => MentallyDetail(3)));
+        pushScreen(3);
       },
       child: Hero(
         tag: "mentally_detail3",
@@ -200,8 +213,7 @@ class _PychologyState extends State<Pychology> {
   _cardIncreaseHappiness() {
     return InkWell(
       onTap: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => MentallyDetail(4)));
+        pushScreen(4);
       },
       child: Hero(
         tag: "mentally_detail4",
@@ -274,8 +286,7 @@ class _PychologyState extends State<Pychology> {
   _cardBetterSleep() {
     return InkWell(
       onTap: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => MentallyDetail(6)));
+        pushScreen(5);
       },
       child: Hero(
         tag: "mentally_detail6",
@@ -311,9 +322,7 @@ class _PychologyState extends State<Pychology> {
   _cardPersonalGrowth2() {
     return InkWell(
       onTap: () {
-          Provider.of<AppProvider>(context,listen: false).hideNavBar = false;
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => MentallyDetail(7)));
+        pushScreen(7);
       },
       child: Hero(
         tag: "mentally_detail7",
@@ -349,8 +358,7 @@ class _PychologyState extends State<Pychology> {
   _cardReduceAnrexia() {
     return InkWell(
       onTap: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => MentallyDetail(8)));
+        pushScreen(8);
       },
       child: Hero(
         tag: "mentally_detail8",

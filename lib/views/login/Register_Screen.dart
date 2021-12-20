@@ -63,7 +63,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               color: cwColor5,
                             ),
                           ),
-                          hintText: "Email/your number",
+                          hintText: "Email/Phone number",
                           hintStyle: kTextConfig.copyWith(
                             fontWeight: FontWeight.w600,
                             fontSize: ScreenUtil().setSp(17),
@@ -160,7 +160,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         ),
                         children: <TextSpan>[
                           TextSpan(
-                            text: 'Team of use ',
+                            text: 'terms of use ',
                             style: kText14Medium_1,
                           ),
                           TextSpan(

@@ -5,6 +5,7 @@ import 'package:cowin_1/views/healthcare/physically/widgets/exercise_item2.dart'
 import 'package:cowin_1/views/healthcare/physically/widgets/rehabilitation_item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animated_dialog/flutter_animated_dialog.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'physically_detail.dart';
@@ -110,12 +111,26 @@ class _PhysicallyPageState extends State<PhysicallyPage> {
                           itemBuilder: (context, index) {
                             var item = listRehabilitation[index];
                             return GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            PhysicallyDetail(index)));
+                              onTap: () async {
+                                await showAnimatedDialog(
+                                  barrierDismissible: true,
+                                  context: context,
+                                  builder: (context) => Dialog(
+                                    insetPadding: EdgeInsets.zero,
+                                    backgroundColor:
+                                        Colors.black.withOpacity(0),
+                                    child: PhysicallyDetail(index),
+                                  ),
+                                  animationType:
+                                      DialogTransitionType.slideFromBottom,
+                                  duration: Duration(milliseconds: 300),
+                                  curve: Curves.easeOut,
+                                );
+                                // Navigator.push(
+                                //     context,
+                                //     MaterialPageRoute(
+                                //         builder: (context) =>
+                                //             PhysicallyDetail(index)));
                               },
                               child: Rehabilitation(
                                   name: item["name"],

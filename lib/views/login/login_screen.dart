@@ -127,20 +127,26 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 10.h,
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Padding(
-                    padding: EdgeInsets.all(4),
+                  
+                  Row(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(left: 8.w),
+                        child: Checkbox(
+                          value: false,
+                          onChanged: (value) {},
+                        ),
+                      ),
+                      Text(
+                        'Remember me',
+                         style: kText14Normal_3.copyWith(
+                          fontSize: ScreenUtil().setSp(16.sp)),
+                      ),
+                    ],
                   ),
-                  Checkbox(
-                    value: false,
-                    onChanged: (value) {},
-                  ),
-                  Text(
-                    'Remember me',
-                  ),
-                  SizedBox(
-                    width: 110.w,
-                  ),
+                 
                   TextButton(
                     onPressed: () {
                       Navigator.push(

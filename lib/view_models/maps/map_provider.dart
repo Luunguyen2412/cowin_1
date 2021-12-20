@@ -126,12 +126,14 @@ class MapProvider {
                               title,
                               style: kText14Normal_4,
                             )),
-                        Container(
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                              name,
-                              style: kText14Normal_3,
-                            ))
+                        Expanded(
+                          child: Container(
+                              alignment: Alignment.centerLeft,
+                              child: Text(
+                                name,
+                                style: kText14Normal_3,
+                              )),
+                        )
                       ],
                     ),
                     SizedBox(
