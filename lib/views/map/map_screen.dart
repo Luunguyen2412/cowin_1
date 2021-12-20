@@ -215,13 +215,13 @@ class _MapScreenState extends State<MapScreen> {
               height: MediaQuery.of(context).size.height,
               alignment: Alignment.bottomCenter,
               child: Container(
-                height: 140.h,
+                height: 160.h,
                 padding: EdgeInsets.only(left: 30.w),
                 decoration: BoxDecoration(
                     color: cwColor2,
                     borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(20.r),
-                      bottomRight: Radius.circular(20.r),
+                      topLeft: Radius.circular(20.r),
+                      topRight: Radius.circular(20.r),
                     ),
                     boxShadow: [
                       BoxShadow(
@@ -230,9 +230,17 @@ class _MapScreenState extends State<MapScreen> {
                           offset: Offset(0, 1))
                     ]),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    Padding(
+                      padding: EdgeInsets.only(top: 15.h),
+                      child: Text(
+                        "In District 5",
+                        style: kText28Bold_3,
+                      ),
+                    ),
                     Container(
-                      margin: EdgeInsets.only(top: 15.h),
+                      margin: EdgeInsets.only(top: 10.h),
                       height: 100.h,
                       child: ListView(
                         scrollDirection: Axis.horizontal,
