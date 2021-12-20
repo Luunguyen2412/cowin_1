@@ -3,9 +3,8 @@ import 'package:cowin_1/common/config/texts_config.dart';
 import 'package:cowin_1/view_models/maps/map_provider.dart';
 import 'package:cowin_1/views/map/list_hospital.dart';
 import 'package:cowin_1/views/map/search_screen.dart';
-import 'package:cowin_1/views/map/widgets/location_picker.dart';
 import 'package:cowin_1/views/map/widgets/typeSearch.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -89,128 +88,54 @@ class _MapScreenState extends State<MapScreen> {
             ),
             Container(
                 height: MediaQuery.of(context).size.height,
-                alignment: Alignment.topCenter,
+                alignment: Alignment.bottomCenter,
+                padding: EdgeInsets.only(
+                  bottom: 150.h
+                ),
                 child: Container(
-                  height: 170.h,
+                  height: 50.h,
+                  margin: EdgeInsets.symmetric(horizontal: 20.w),
                   decoration: BoxDecoration(
-                      color: cwColor2,
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(20.r),
-                        bottomRight: Radius.circular(20.r),
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                            color: Color(0xFFDAD3D3),
-                            blurRadius: 10,
-                            offset: Offset(0, 1))
-                      ]),
-                  padding:
-                      EdgeInsets.only(top: 15.h, right: 20.w, bottom: 15.h),
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(top: 10.h),
-                            child: Container(
-                              height: 110.h,
-                              child: SvgPicture.asset(
-                                  "assets/icons/ic_picker.svg"),
-                            ),
-                          ),
-                          Expanded(
-                            child: Container(
-                              height: 140.h,
-                              width: MediaQuery.of(context).size.width - 110.w,
-                              padding: EdgeInsets.only(top: 15.h),
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Row(
-                                    children: [
-                                      Expanded(
-                                        child: Container(
-                                          height: 50.h,
-                                          decoration: BoxDecoration(
-                                              border:
-                                                  Border.all(color: cwColor1),
-                                              borderRadius:
-                                                  BorderRadius.circular(10.h)),
-                                          padding: EdgeInsets.only(
-                                              left: 10.h, bottom: 7.h),
-                                          child: TextFormField(
-                                            textAlignVertical:
-                                                TextAlignVertical.center,
-                                            decoration: InputDecoration(
-                                                hintText: "Your location",
-                                                hintStyle: kText16Normal_3,
-                                                border: InputBorder.none),
-                                          ),
-                                        ),
-                                      ),
-                                      Container(
-                                          margin: EdgeInsets.only(left: 10.w),
-                                          child: SvgPicture.asset(
-                                              "assets/icons/more-horizontal.svg"))
-                                    ],
-                                  ),
-                                  Expanded(
-                                    child: Row(
-                                      children: [
-                                        Expanded(
-                                          child: Container(
-                                            height: 50.h,
-                                            decoration: BoxDecoration(
-                                                border:
-                                                    Border.all(color: cwColor1),
-                                                borderRadius:
-                                                    BorderRadius.circular(
-                                                        10.h)),
-                                            padding: EdgeInsets.only(
-                                                left: 10.h, bottom: 7.h),
-                                            child: GestureDetector(
-                                              onTap: () async {
-                                                var result = await Navigator.push(
-                                                    context,
-                                                    MaterialPageRoute(
-                                                        builder: (context) =>
-                                                            SearchScreen()));
-                                                if (result != null)
-                                                  moveLocation(
-                                                      lat: result["lat"],
-                                                      lng: result["lng"]);
-                                              },
-                                              child: Container(
-                                                  color: Colors.transparent,
-                                                  alignment:
-                                                      Alignment.centerLeft,
-                                                  padding:
-                                                      EdgeInsets.only(top: 4.h),
-                                                  child: Text(
-                                                    "Bệnh viện Thống Nhất",
-                                                    style: kText16Normal_3,
-                                                  )),
-                                            ),
-                                          ),
-                                        ),
-                                        Container(
-                                            child: SvgPicture.asset(
-                                                "assets/icons/import_export.svg"))
-                                      ],
-                                    ),
-                                  )
-                                ],
+                    color: Color(0xFF2198E7),
+                      borderRadius:
+                          BorderRadius.circular(
+                              10.h)),
+                  padding: EdgeInsets.only(
+                      left: 10.h, bottom: 7.h),
+                  child: GestureDetector(
+                    onTap: () async {
+                      var result = await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  SearchScreen()));
+                      if (result != null)
+                        moveLocation(
+                            lat: result["lat"],
+                            lng: result["lng"]);
+                    },
+                    child: Container(
+                        color: Colors.transparent,
+                        alignment:
+                            Alignment.centerLeft,
+                        padding:
+                            EdgeInsets.only(top: 4.h),
+                        child: Row(
+                          children: [
+                            Icon(Icons.search,color: Colors.white),
+                            Padding(
+                              padding:  EdgeInsets.only(right: 5.w),
+                              child: Text(
+                                "Search for place",
+                                style: kText16Normal_2,
                               ),
                             ),
-                          ),
-                        ],
-                      )
-                    ],
+                          ],
+                        )),
                   ),
                 )),
+           
+           
             Container(
               height: MediaQuery.of(context).size.height,
               alignment: Alignment.bottomCenter,

@@ -93,6 +93,7 @@ class _SearchScreenState extends State<SearchScreen> {
                             ),
                             Expanded(
                               child: Container(
+                                padding: EdgeInsets.only(bottom: 12.h),
                                 child: TextFormField(
                                   controller: _search,
                                   textAlignVertical: TextAlignVertical.center,
@@ -100,8 +101,6 @@ class _SearchScreenState extends State<SearchScreen> {
                                   decoration: InputDecoration(
                                     hintText: "Search for place",
                                     hintStyle: kText16Normal_2,
-                                    contentPadding:
-                                        EdgeInsets.only(bottom: 17.h),
                                     border: InputBorder.none,
                                   ),
                                   onChanged: (value) {

@@ -3,6 +3,7 @@
 import 'package:cowin_1/common/config/colors_config.dart';
 import 'package:cowin_1/common/config/texts_config.dart';
 import 'package:cowin_1/common/constants/tools.dart';
+import 'package:cowin_1/view_models/app/app_provider.dart';
 import 'package:cowin_1/views/chat/chat_screen.dart';
 import 'package:cowin_1/views/healthcare/healthcare_screen.dart';
 import 'package:cowin_1/views/login/profile_screen.dart';
@@ -121,12 +122,14 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var appProvider = Provider.of<AppProvider>(context);
     return Scaffold(
       body: PersistentTabView(
         this.context,
         controller: _controller,
         screens: _options,
         navBarHeight: 95.h,
+        hideNavigationBar: appProvider.hideNavBar,
         items: _navBarsItems(),
         confineInSafeArea: true,
         backgroundColor: Colors.white,

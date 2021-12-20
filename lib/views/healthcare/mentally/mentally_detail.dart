@@ -34,7 +34,7 @@ class MentallyDetail extends StatelessWidget {
                             height: 15.h,
                           ),
                           Text(
-                            "Bí kíp giảm lo âu, căng thẳng cho F0, F1",
+                            "Tips to reduce anxiety and stress for F0, F1",
                             style: kText30Bold_3,
                           ),
                           SizedBox(
@@ -42,30 +42,29 @@ class MentallyDetail extends StatelessWidget {
                           ),
                           Container(
                             child: Text(
-                              """Nên tập thể dục, nghe nhạc, đọc sách, xem phim, hoặc học một nhạc cụ mới để giảm căng thẳng khi cách ly tại nhà, chuyên gia gợi ý.
+                              """Exercise, listen to music, read a book, watch a movie, or learn a new musical instrument to reduce stress while isolating at home, experts suggest.
 
-Bác sĩ Nguyễn Viết Chung, Khoa Sức khỏe Tâm thần, Bệnh viện E, cho biết dịch Covid-19 kéo dài và phức tạp, ảnh hưởng rất lớn đến cuộc sống, làm thay đổi nhiều thói quen của mọi người. Trong đó, nhóm F0, F1 cách ly tại nhà dễ gặp phải biểu hiện căng thẳng hơn như cảm giác sợ hãi, lo mình mắc bệnh hoặc buồn bã, thất vọng khi mình là nguồn lây cho gia đình. Nhóm này có thể thay đổi về cảm giác thèm ăn, mong muốn và sở thích; khó ngủ, stress.
+Doctor Nguyen Viet Chung, Department of Mental Health, Hospital E, said that the Covid-19 epidemic was long and complicated, greatly affecting people's lives and changing many people's habits. In which, the F0 and F1 groups isolated at home are more likely to experience stressful expressions such as feeling scared, worried about getting sick or sad or disappointed when they are the source of infection for their family. This group can vary in appetite, desires and preferences; Difficulty sleeping, stress.
 
-Đại dịch còn tác động mạnh mẽ đến một số doanh nghiệp khiến họ phải lao đao xoay xở kinh tế, nếu bị cách ly cũng dễ căng thẳng và lo lắng hơn rất nhiều.
+The pandemic has also had a strong impact on some businesses, causing them to struggle to manage their economy.
 
-Bác sĩ Chung khuyên để kiểm soát căng thẳng, mọi người cần học cách thích nghi, chấp nhận "sống chung an toàn" với dịch bệnh và thực hiện cách ly đúng thời hạn với tâm lý thoải mái, không tự tạo áp lực cho bản thân, không suy nghĩ quá nhiều.
+Chung advised that in order to control stress, people need to learn how to adapt, accept "living together safely" with the epidemic, and implement isolation on time with a comfortable mentality, without putting pressure on themselves. body, don't think too much.
 
-Thường xuyên liên hệ với các thành viên gia đình, bạn bè và đồng nghiệp qua điện thoại, tin nhắn, gọi video mỗi ngày. Trong thời gian giãn cách xã hội, nếu cách ly cùng gia đình thì hãy dành thời gian chăm sóc họ nhiều hơn để giảm suy nghĩ tiêu cực.
+Regularly communicate with family members, friends and colleagues by phone, text message, video call every day. During the time of social distancing, if you are isolated with your family, spend more time taking care of them to reduce negative thoughts.
 
-Khi cách ly tại nhà, bạn nên duy trì chế độ ăn uống lành mạnh, trong đó chú ý các thực phẩm có hàm lượng đạm dễ hấp thụ như: tôm, cua, cá... đặc biệt là đạm có nguồn gốc thực vật như đậu nành. Các loại thực phẩm này giàu chất kẽm, vitamin B, selen, acid béo, acid amino, trytophan. Bổ sung các loại hoa quả, rau xanh, củ như: quả mâm xôi, khoai tây, chuối, quả bơ, cam, quýt, kiwi. Những loại quả này giàu vitamin C, vitamin B, kali, axit amino... giúp làm dịu hệ thần kinh.
+When isolated at home, you should maintain a healthy diet, in which you should pay attention to foods with easily absorbed protein such as shrimp, crab, fish... especially protein of plant origin. like soybeans. These foods are rich in zinc, B vitamins, selenium, fatty acids, amino acids, and tryptophan. Add fruits, vegetables, tubers such as: raspberries, potatoes, bananas, avocados, oranges, tangerines, kiwis. These fruits are rich in vitamin C, vitamin B, potassium, amino acids... to help calm the nervous system.
 
-Dành thời gian tập thể dục tại nhà, giúp giảm hormone căng thẳng của cơ thể, sống khỏe mạnh và tích cực hơn. Nghe nhạc, đọc sách, ngồi thiền hoặc xem phim giải trí.
+Take time to exercise at home, help reduce the body's stress hormones, live a healthier and more active life. Listen to music, read a book, meditate or watch an entertaining movie.
 
-Trường hợp vẫn phải làm việc khi cách ly, bạn nên sắp xếp thời gian và lên thời gian biểu phù hợp. Không ngồi quá lâu trước máy tính, thỉnh thoảng đứng dậy đi lại để đầu óc thoải mái hơn.
+If you still have to work during quarantine, you should arrange your time and schedule accordingly. Do not sit for too long in front of the computer, sometimes get up and walk to relax your mind.
 
-Lựa chọn thông tin tích cực để đọc, giảm tin về tình hình Covid-19. Tránh các chất kích thích như rượu, caffeine và nicotine trước khi đi ngủ. Ngủ đủ 7 - 8 tiếng mỗi ngày.
+Select positive information to read, reduce news about the Covid-19 situation. Avoid stimulants like alcohol, caffeine, and nicotine before bed. Get enough sleep 7-8 hours a day.
 
-Dự trữ đầy đủ một số loại thuốc cần thiết như hạ sốt, vitamin C, tiêu chảy, dạ dày, xịt khoáng, khẩu trang,... để chủ động trong mọi trường hợp.
+Fully stocked with some necessary medicines such as antipyretic, vitamin C, diarrhea, stomach, mineral spray, mask, ... to be proactive in all cases.
 
-Ở trẻ em, việc nghỉ học kéo dài, hạn chế vui chơi bên ngoài, phụ huynh nên hạn chế cho trẻ chơi điện thoại, máy tính dẫn đến cận thị, nghiện game, xao nhãng việc học. Gia đình cần sắp xếp thời gian để chơi với con, dạy con chơi nhạc cụ hoặc các trò chơi khác để cách ly đỡ nhàm chán.
+In children, prolonged absence from school, limited outdoor play, parents should limit children playing phones and computers, leading to myopia, game addiction, and distraction from studying. Families need to arrange time to play with their children, teach them to play musical instruments or other games to prevent boredom.
 
-Người già, người có bệnh nền cần uống thuốc đều đặn, rèn luyện dưỡng sinh và thông báo tình hình sức khỏe của mình mỗi ngày đến nhân viên y tế, tránh lo lắng khi cách ly một mình.
-                                """,
+The elderly and people with underlying medical conditions need to take medicine regularly, practice nutrition and report their health status every day to medical staff, to avoid anxiety when isolated alone.  """,
                               style: kText16Normal_3,
                             ),
                           ),

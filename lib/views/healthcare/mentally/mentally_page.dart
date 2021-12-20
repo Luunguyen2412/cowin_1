@@ -1,11 +1,13 @@
 import 'package:cowin_1/common/config/colors_config.dart';
 import 'package:cowin_1/common/config/texts_config.dart';
 
+
 import 'package:cowin_1/views/healthcare/mentally/widgets/meditation.dart';
 import 'package:cowin_1/views/healthcare/mentally/widgets/pychology.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class MentallyPage extends StatefulWidget {
   const MentallyPage({Key? key}) : super(key: key);
@@ -17,6 +19,7 @@ class MentallyPage extends StatefulWidget {
 class _MentallyPageState extends State<MentallyPage> {
   @override
   Widget build(BuildContext context) {
+ 
     return Scaffold(
       backgroundColor: Color(0xFFFCFBFB),
       body: SingleChildScrollView(

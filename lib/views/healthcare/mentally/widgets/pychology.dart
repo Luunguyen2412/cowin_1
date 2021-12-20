@@ -1,7 +1,9 @@
 import 'package:cowin_1/common/config/colors_config.dart';
 import 'package:cowin_1/common/config/texts_config.dart';
+import 'package:cowin_1/view_models/app/app_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modules/flutter_modules.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:spannable_grid/spannable_grid.dart';
 
@@ -309,6 +311,7 @@ class _PychologyState extends State<Pychology> {
   _cardPersonalGrowth2() {
     return InkWell(
       onTap: () {
+          Provider.of<AppProvider>(context,listen: false).hideNavBar = false;
         Navigator.push(context,
             MaterialPageRoute(builder: (context) => MentallyDetail(7)));
       },
