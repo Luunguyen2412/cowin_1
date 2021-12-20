@@ -134,8 +134,8 @@ class ListHospital extends StatelessWidget {
                             borderRadius: BorderRadius.circular(12.r),
                             boxShadow: [
                               BoxShadow(
-                                  color: Color(0xFFA6A5A5),
-                                  blurRadius: 5,
+                                  color: Color(0xFFDAD3D3),
+                                  blurRadius: 2,
                                   offset: Offset(0, 0))
                             ]),
                         margin: EdgeInsets.only(

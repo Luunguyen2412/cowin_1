@@ -256,146 +256,145 @@ List<Map<String, dynamic>> listRecipes = [
 List<Map<String, dynamic>> listLocationHospital = [
   {
     "id": 1,
-    "name": "Bệnh viện Bệnh Nhiệt Đới",
-    "address": "764 Võ Văn Kiệt, Phường 1, Quận 5, Thành phố Hồ Chí Minh",
+    "name": "Hospital for Tropical Diseases",
+    "address": "764 Vo Van Kiet, Ward 1, District 5, Ho Chi Minh City",
     "titleSearch":
-        "Bệnh viện Bệnh Nhiệt Đới, 764 Võ Văn Kiệt, Phường 1, Quận 5, Thành phố Hồ Chí Minh",
+        "Hospital for Tropical Diseases, 764 Vo Van Kiet, Ward 1, District 5, Ho Chi Minh City",
     "lat": 10.75243555122658,
     "lng": 106.67878566246691
   },
   {
     "id": 2,
-    "name": "Bệnh viện Tâm Thần TPHCM",
-    "address": "766 Võ Văn Kiệt, Phường 1, Quận 5, Thành phố Hồ Chí Minh",
+    "name": "Ho Chi Minh City Psychiatric Hospital",
+    "address": "766 Vo Van Kiet, Ward 1, District 5, Ho Chi Minh City",
     "titleSearch":
-        "Bệnh viện Tâm Thần TPHCM, 766 Võ Văn Kiệt, Phường 1, Quận 5, Thành phố Hồ Chí Minh",
+        "Ho Chi Minh City Psychiatric Hospital, 766 Vo Van Kiet, Ward 1, District 5, Ho Chi Minh City",
     "lat": 10.752598928379573,
     "lng": 106.67830822927876
   },
   {
     "id": 3,
-    "name": "Khoa Nhiễm D - Bệnh viện Bệnh Nhiệt đới",
-    "address": "929-941 Trần Hưng Đạo, Phường 1, Quận 5, Thành phố Hồ Chí Minh",
+    "name": "Department of Infections - Hospital for Tropical Diseases",
+    "address": "929-941 Tran Hung Dao, Ward 1, District 5, Ho Chi Minh City",
     "titleSearch":
-        "Khoa Nhiễm D - Bệnh viện Bệnh Nhiệt đới, 929-941 Trần Hưng Đạo, Phường 1, Quận 5, Thành phố Hồ Chí Minh",
+        "Department of Infections - Hospital for Tropical Diseases, 929-941 Tran Hung Dao, Ward 1, District 5, Ho Chi Minh City",
     "lat": 10.753649019728426,
     "lng": 106.67804805499395
   },
   {
     "id": 4,
-    "name": "Bệnh viện Thân Dân",
-    "address": "686 Trần Hưng Đạo, Phường 2, Quận 5, Thành phố Hồ Chí Minh",
+    "name": "Than Dan Hospital",
+    "address": "686 Tran Hung Dao, Ward 2, District 5, Ho Chi Minh City",
     "titleSearch":
-        "Bệnh viện Thân Dân, 686 Trần Hưng Đạo, Phường 2, Quận 5, Thành phố Hồ Chí Minh",
+        "Than Dan Hospital, 686 Tran Hung Dao, Ward 2, District 5, Ho Chi Minh City",
     "lat": 10.754813734064276,
     "lng": 106.67829481819616
   },
   {
     "id": 5,
-    "name": "Bệnh Viện Quốc Tế DNA",
-    "address": "1015 Trần Hưng Đạo, Phường 5, Quận 5, Thành phố Hồ Chí Minh",
+    "name": "DNA International Hospital",
+    "address": "1015 Tran Hung Dao, Ward 5, District 5, Ho Chi Minh City",
     "titleSearch":
-        "Bệnh Viện Quốc Tế DNA, 1015 Trần Hưng Đạo, Phường 5, Quận 5, Thành phố Hồ Chí Minh",
+        "DNA International Hospital, 1015 Tran Hung Dao, Ward 5, District 5, Ho Chi Minh City",
     "lat": 10.753649019729052,
     "lng": 106.6755160498344
   },
   {
     "id": 6,
-    "name": "Bệnh viện Nguyễn Trãi",
-    "address": "314 Nguyễn Trãi, Phường 8, Quận 5, Thành phố Hồ Chí Minh",
+    "name": "Nguyen Trai Hospital",
+    "address": "314 Nguyen Trai, Ward 8, District 5, Ho Chi Minh City",
     "titleSearch":
-        "Bệnh viện Nguyễn Trãi, 314 Nguyễn Trãi, Phường 8, Quận 5, Thành phố Hồ Chí Minh",
+        "Nguyen Trai Hospital, 314 Nguyen Trai, Ward 8, District 5, Ho Chi Minh City",
     "lat": 10.756199791000272,
     "lng": 106.67488304837052
   },
   {
     "id": 7,
-    "name": "Trung tâm Kiểm soát Bệnh tật TPHCM - cơ sở 2",
-    "address": "699 Trần Hưng Đạo, Phường 1, Quận 5, Thành phố Hồ Chí Minh",
+    "name": "Center for Disease Control Ho Chi Minh City - facility 2",
+    "address": "699 Tran Hung Dao, Ward 1, District 5, Ho Chi Minh City",
     "titleSearch":
-        "Trung tâm Kiểm soát Bệnh tật TPHCM - cơ sở 2, 699 Trần Hưng Đạo, Phường 1, Quận 5, Thành phố Hồ Chí Minh",
+        "Center for Disease Control Ho Chi Minh City - facility 2, 699 Tran Hung Dao, Ward 1, District 5, Ho Chi Minh City",
     "lat": 10.755867770342606,
     "lng": 106.68335882855663
   },
   {
     "id": 8,
-    "name": "Bệnh Viện Mắt Cao Thắng",
-    "address": "135B Trần Bình Trọng, Phường 2, Quận 5, Thành phố Hồ Chí Minh",
+    "name": "Cao Thang Eye Hospital",
+    "address": "135B Tran Binh Trong, Ward 2, District 5, Ho Chi Minh City",
     "titleSearch":
-        "Bệnh Viện Mắt Cao Thắng, 135B Trần Bình Trọng, Phường 2, Quận 5, Thành phố Hồ Chí Minh",
+        "Cao Thang Eye Hospital, 135B Tran Binh Trong, Ward 2, District 5, Ho Chi Minh City",
     "lat": 10.757338144781508,
     "lng": 106.68077854345245
   },
   {
     "id": 9,
-    "name": "Bệnh Viện An Bình",
-    "address": "146 An Bình, Phường 4, Quận 5, Thành phố Hồ Chí Minh",
+    "name": "An Binh Hospital",
+    "address": "146 An Binh, Ward 4, District 5, Ho Chi Minh City",
     "titleSearch":
-        "Bệnh Viện An Bình, 146 An Bình, Phường 4, Quận 5, Thành phố Hồ Chí Minh",
+        "An Binh Hospital, 146 An Binh, Ward 4, District 5, Ho Chi Minh City",
     "lat": 10.760305222603934,
     "lng": 106.67665867074157
   },
   {
     "id": 10,
-    "name": "Bệnh viện Nguyễn Tri Phương",
-    "address": "468 Nguyễn Trãi, Phường 8, Quận 5, Thành phố Hồ Chí Minh",
+    "name": "Nguyen Tri Phuong Hospital",
+    "address": "468 Nguyen Trai, Ward 8, District 5, Ho Chi Minh City",
     "titleSearch":
-        "Bệnh viện Nguyễn Tri Phương, 468 Nguyễn Trãi, Phường 8, Quận 5, Thành phố Hồ Chí Minh",
+        "Nguyen Tri Phuong Hospital, 468 Nguyen Trai, Ward 8, District 5, Ho Chi Minh City",
     "lat": 10.755778177406444,
     "lng": 106.6701945471094
   },
   {
     "id": 11,
-    "name": "Bệnh viện Quân Y 7A",
-    "address": "466 Nguyễn Trãi, Phường 8, Quận 5, Thành phố Hồ Chí Minh",
+    "name": "Military Hospital 7A",
+    "address": "466 Nguyen Trai, Ward 8, District 5, Ho Chi Minh City",
     "titleSearch":
-        "Bệnh viện Quân Y 7A, 466 Nguyễn Trãi, Phường 8, Quận 5, Thành phố Hồ Chí Minh",
+        "Military Hospital 7A, 466 Nguyen Trai, Ward 8, District 5, Ho Chi Minh City",
     "lat": 10.755346022867196,
     "lng": 106.6709670231304
   },
   {
     "id": 12,
-    "name": "Phòng Khám Ký Sinh Trùng Ánh Nga",
-    "address": "74 Trần Tuấn Khải, Phường 5, Quận 5, Thành phố Hồ Chí Minh",
+    "name": "Anh Nga Parasitology Clinic",
+    "address": "74 Tran Tuan Khai, Ward 5, District 5, Ho Chi Minh City",
     "titleSearch":
-        "Phòng Khám Ký Sinh Trùng Ánh Nga, 74 Trần Tuấn Khải, Phường 5, Quận 5, Thành phố Hồ Chí Minh",
+        "Anh Nga Parasitology Clinic, 74 Tran Tuan Khai, Ward 5, District 5, Ho Chi Minh City",
     "lat": 10.751217103437384,
     "lng": 106.67472700392007
   },
   {
     "id": 13,
-    "name": "Bệnh viện Chợ Rẫy",
-    "address":
-        "201B Nguyễn Chí Thanh, Phường 12, Quận 5, Thành phố Hồ Chí Minh",
+    "name": "Cho Ray Hospital",
+    "address": "201B Nguyen Chi Thanh, Ward 12, District 5, Ho Chi Minh City",
     "titleSearch":
-        "Bệnh viện Chợ Rẫy, 201B Nguyễn Chí Thanh, Phường 12, Quận 5, Thành phố Hồ Chí Minh",
+        "Cho Ray Hospital, 201B Nguyen Chi Thanh, Ward 12, District 5, Ho Chi Minh City",
     "lat": 10.757923649368378,
     "lng": 106.65951629468363
   },
   {
     "id": 14,
-    "name": "Bệnh viện Phạm Ngọc Thạch",
-    "address": "120 Hồng Bàng, Phường 12, Quận 5, Thành phố Hồ Chí Minh",
+    "name": "Pham Ngoc Thach Hospital",
+    "address": "120 Hong Bang, Ward 12, District 5, Ho Chi Minh City",
     "titleSearch":
-        "Bệnh viện Phạm Ngọc Thạch, 120 Hồng Bàng, Phường 12, Quận 5, Thành phố Hồ Chí Minh",
+        "Pham Ngoc Thach Hospital, 120 Hong Bang, Ward 12, District 5, Ho Chi Minh City",
     "lat": 10.756509977860574,
     "lng": 106.66548244007329
   },
   {
     "id": 15,
-    "name": "Bệnh viện Đại học Y dược TP.HCM",
-    "address": "215 Hồng Bàng, Phường 11, Quận 5, Thành phố Hồ Chí Minh",
+    "name": "HCM University of Medicine and Pharmacy Hospital",
+    "address": "215 Hong Bang, Ward 11, District 5, Ho Chi Minh City",
     "titleSearch":
-        "Bệnh viện Đại học Y dược TP.HCM, 215 Hồng Bàng, Phường 11, Quận 5, Thành phố Hồ Chí Minh",
+        "HCM University of Medicine and Pharmacy Hospital, 215 Hong Bang, Ward 11, District 5, Ho Chi Minh City",
     "lat": 10.755471780303392,
     "lng": 106.66445996890819
   },
   {
     "id": 16,
-    "name": "Bệnh viện Hùng Vương",
-    "address": "128 Hồng Bàng, Phường 12, Quận 5, Thành phố Hồ Chí Minh",
+    "name": "Hung Vuong Hospital",
+    "address": "128 Hong Bang, Ward 12, District 5, Ho Chi Minh City",
     "titleSearch":
-        "Bệnh viện Hùng Vương, 128 Hồng Bàng, Phường 12, Quận 5, Thành phố Hồ Chí Minh",
+        "Hung Vuong Hospital, 128 Hong Bang, Ward 12, District 5, Ho Chi Minh City",
     "lat": 10.756001657127731,
     "lng": 106.66179222657804
   }
