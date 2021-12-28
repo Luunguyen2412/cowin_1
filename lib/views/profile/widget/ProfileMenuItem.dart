@@ -22,7 +22,9 @@ class ProfileMenuItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        press();
+      },
       child: Padding(
         padding: EdgeInsets.symmetric(vertical: 10.h),
         child: SafeArea(

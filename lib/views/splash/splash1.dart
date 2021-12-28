@@ -278,7 +278,9 @@ class SplashScreen4 extends StatelessWidget {
                         onTap: () {
                           Navigator.push(
                               context,
+                              
                               MaterialPageRoute(
+                                settings: RouteSettings(name: '/login'),
                                   builder: (context) => LoginScreen()));
                         }),
                   ],

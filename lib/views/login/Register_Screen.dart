@@ -224,6 +224,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
+                                    settings: RouteSettings(name: '/login'),
                                     builder: (context) => LoginScreen()));
                           },
                           child: Text(

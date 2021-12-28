@@ -90,7 +90,7 @@ class _MapScreenState extends State<MapScreen> {
                 height: MediaQuery.of(context).size.height,
                 alignment: Alignment.bottomCenter,
                 padding: EdgeInsets.only(
-                  bottom: 150.h
+                  bottom: 180.h
                 ),
                 child: Container(
                   height: 50.h,

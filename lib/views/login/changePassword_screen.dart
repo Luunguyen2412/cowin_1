@@ -162,6 +162,7 @@ class _ChangePasswordState extends State<changePasswordScreen> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
+                                settings: RouteSettings(name: '/login'),
                                 builder: (context) => LoginScreen()));
                       },
                     ),

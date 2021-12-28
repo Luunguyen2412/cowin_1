@@ -2,19 +2,22 @@ import 'dart:ui';
 
 import 'package:cowin_1/common/config/colors_config.dart';
 import 'package:cowin_1/common/config/texts_config.dart';
-import 'package:cowin_1/common/constants/tools.dart';
-import 'package:cowin_1/views/home/home_screen.dart';
-import 'package:cowin_1/views/home/widget/card.dart';
+
+import 'package:cowin_1/view_models/login/google_login_controller.dart';
+import 'package:cowin_1/views/login/login_screen.dart';
+
 import 'package:cowin_1/views/profile/widget/ProfileMenuItem.dart';
-import 'package:cowin_1/views/profile/widget/RecentlyCard.dart';
-import 'package:cowin_1/widget/news_tile.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
+
+import 'package:provider/provider.dart';
 
 class PersonalScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    GoogleSignInController _googleSignIn =
+        Provider.of<GoogleSignInController>(context);
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -174,7 +177,14 @@ class PersonalScreen extends StatelessWidget {
                     ProfileMenuItem(
                       iconSrc: 'assets/icons/signout.svg',
                       title: 'Sign out',
-                      press: () {},
+                      press: () {
+                        _googleSignIn.logOut();
+                      
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => LoginScreen()));
+                      },
                       check: false,
                       color: cwcolor23,
                     ),

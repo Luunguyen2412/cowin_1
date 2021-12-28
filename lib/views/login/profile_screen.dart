@@ -201,6 +201,7 @@ class ProfileScreen extends StatelessWidget {
                          Navigator.push(
                           context,
                           MaterialPageRoute(
+                              settings: RouteSettings(name: '/login'),
                               builder: (context) => LoginScreen()));
                       },
                     ),
