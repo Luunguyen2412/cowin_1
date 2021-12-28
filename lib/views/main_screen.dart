@@ -107,7 +107,7 @@ class _MainScreenState extends State<MainScreen> {
       PersistentTabController(initialIndex: 2);
   @override
   void initState() {
-    // TODO: implement initState
+   
     super.initState();
     _controller.addListener(() {
       setState(() {});
@@ -123,6 +123,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     var appProvider = Provider.of<AppProvider>(context);
+  
     return Scaffold(
       body: PersistentTabView(
         this.context,
@@ -141,7 +142,7 @@ class _MainScreenState extends State<MainScreen> {
       ),
       floatingActionButton: Container(
         margin: EdgeInsets.only(bottom: 60),
-        child: _controller.index!=3?FloatingActionButton(
+        child: _controller.index!=3||appProvider.hideNavBar?FloatingActionButton(
           child: Center(
             child: Icon(Icons.chat,color: cwColor2,),
           ),

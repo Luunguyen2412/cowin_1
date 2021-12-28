@@ -2,6 +2,7 @@
 
 import 'package:cowin_1/common/config/colors_config.dart';
 import 'package:cowin_1/common/config/texts_config.dart';
+import 'package:cowin_1/view_models/app/app_provider.dart';
 
 import 'package:cowin_1/view_models/login/google_login_controller.dart';
 import 'package:cowin_1/views/login/widgets/textfield.dart';
@@ -41,6 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     GoogleSignInController _googleSignIn =
         Provider.of<GoogleSignInController>(context);
+            var appProvider = Provider.of<AppProvider>(context);
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -187,6 +189,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     TextButton(
                       onPressed: () {
+                        appProvider.hideNavBar = false;
                         Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -295,9 +298,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     onTap: () {
                       _googleSignIn.login(
                           success: () {
+                            appProvider.hideNavBar = false;
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
+                                  settings: RouteSettings(name: '/login'),
                                     builder: (context) => MainScreen()));
                           },
                           error: () {

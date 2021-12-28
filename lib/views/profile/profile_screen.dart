@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:cowin_1/common/config/colors_config.dart';
 import 'package:cowin_1/common/config/texts_config.dart';
+import 'package:cowin_1/view_models/app/app_provider.dart';
 
 import 'package:cowin_1/view_models/login/google_login_controller.dart';
 import 'package:cowin_1/views/login/login_screen.dart';
@@ -9,6 +10,7 @@ import 'package:cowin_1/views/login/login_screen.dart';
 import 'package:cowin_1/views/profile/widget/ProfileMenuItem.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_modules/flutter_modules.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:provider/provider.dart';
@@ -18,6 +20,7 @@ class PersonalScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     GoogleSignInController _googleSignIn =
         Provider.of<GoogleSignInController>(context);
+    var _appModel = Provider.of<AppProvider>(context);
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -177,13 +180,14 @@ class PersonalScreen extends StatelessWidget {
                     ProfileMenuItem(
                       iconSrc: 'assets/icons/signout.svg',
                       title: 'Sign out',
-                      press: () {
+                      press: () async {
                         _googleSignIn.logOut();
-                      
-                        Navigator.pushReplacement(
+                        _appModel.hideNavBar = true;
+                        await Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => LoginScreen()));
+                     
                       },
                       check: false,
                       color: cwcolor23,

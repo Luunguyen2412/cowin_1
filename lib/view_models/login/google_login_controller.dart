@@ -9,11 +9,7 @@ class GoogleSignInController with ChangeNotifier {
     try {
       googleAccount = await _googleSignIn.signIn();
       notifyListeners();
-      if (googleAccount != null) {
-        success();
-      } else {
-        error();
-      }
+      success();
     } catch (e) {
        error();
     }
