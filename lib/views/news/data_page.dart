@@ -3,7 +3,6 @@ import 'package:cowin_1/common/config/texts_config.dart';
 import 'package:cowin_1/models/countries.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modules/flutter_modules.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 

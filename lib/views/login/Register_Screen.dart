@@ -3,7 +3,6 @@ import 'package:cowin_1/common/config/texts_config.dart';
 import 'package:cowin_1/views/login/OTP_screen.dart';
 import 'package:cowin_1/views/login/widgets/textfield.dart';
 import 'package:cowin_1/widget/return_button.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'login_screen.dart';

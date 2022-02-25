@@ -3,7 +3,6 @@ import 'package:cowin_1/models/data.dart';
 import 'package:cowin_1/views/healthcare/physically/widgets/exercise_item.dart';
 import 'package:cowin_1/views/healthcare/physically/widgets/exercise_item2.dart';
 import 'package:cowin_1/views/healthcare/physically/widgets/rehabilitation_item.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animated_dialog/flutter_animated_dialog.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

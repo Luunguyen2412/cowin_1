@@ -1,4 +1,3 @@
-import 'dart:io';
 
 import 'package:cowin_1/common/config/texts_config.dart';
 import 'package:flutter/material.dart';

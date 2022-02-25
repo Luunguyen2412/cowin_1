@@ -4,7 +4,6 @@ import 'package:cowin_1/common/constants/tools.dart';
 import 'package:cowin_1/views/healthcare/mentally/mentally_page.dart';
 import 'package:cowin_1/views/healthcare/nutrition/nutrition_page.dart';
 import 'package:cowin_1/views/healthcare/physically/physically_page.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';

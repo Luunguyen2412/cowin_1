@@ -1,7 +1,5 @@
-import 'package:cowin_1/common/config/colors_config.dart';
 import 'package:cowin_1/common/config/texts_config.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class TypeSearch extends StatelessWidget {

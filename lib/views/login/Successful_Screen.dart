@@ -1,9 +1,7 @@
 import 'package:cowin_1/common/config/colors_config.dart';
 import 'package:cowin_1/common/config/texts_config.dart';
-import 'package:cowin_1/main.dart';
 import 'package:cowin_1/views/login/profile_screen.dart';
 import 'package:cowin_1/widget/return_button.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../size_config.dart';

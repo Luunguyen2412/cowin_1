@@ -1,9 +1,7 @@
 import 'package:cowin_1/common/config/colors_config.dart';
 import 'package:cowin_1/common/config/texts_config.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../themes.dart';
 import '../home_screen.dart';
 
 class CustomSwitchTabbar extends StatefulWidget {

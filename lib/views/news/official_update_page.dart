@@ -1,7 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cowin_1/common/config/colors_config.dart';
 import 'package:cowin_1/common/config/texts_config.dart';
-import 'package:cowin_1/common/constants/tools.dart';
 import 'package:cowin_1/models/data.dart';
 import 'package:cowin_1/models/news.dart';
 import 'package:flutter/material.dart';

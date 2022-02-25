@@ -1,4 +1,3 @@
-import 'package:cowin_1/views/healthcare/physically/physically_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:cowin_1/common/config/texts_config.dart';

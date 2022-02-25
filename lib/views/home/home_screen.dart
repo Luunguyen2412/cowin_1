@@ -6,7 +6,6 @@ import 'package:cowin_1/views/home/widget/NumberageCaseCovid.dart';
 import 'package:cowin_1/views/home/widget/card.dart';
 import 'package:cowin_1/widget/covid_cases_tile.dart';
 import 'package:cowin_1/widget/news_tile.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';

@@ -6,14 +6,10 @@ import 'package:cowin_1/common/constants/tools.dart';
 import 'package:cowin_1/view_models/app/app_provider.dart';
 import 'package:cowin_1/views/chat/chat_screen.dart';
 import 'package:cowin_1/views/healthcare/healthcare_screen.dart';
-import 'package:cowin_1/views/login/profile_screen.dart';
 import 'package:cowin_1/views/map/map_screen.dart';
 import 'package:cowin_1/views/news/news_screen.dart';
 import 'package:cowin_1/views/profile/profile_screen.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_modules/flutter_modules.dart';
 
 import 'home/home_screen.dart';

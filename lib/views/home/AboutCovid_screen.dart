@@ -1,7 +1,6 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:cowin_1/common/config/texts_config.dart';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AboutCovidScreen1 extends StatelessWidget {
