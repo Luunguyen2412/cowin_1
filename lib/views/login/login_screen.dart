@@ -225,27 +225,31 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   onTap: () {
-                    if (validateInput() == null) {
-                      Navigator.push(
+                    // if (validateInput() == null) {
+                    //   Navigator.push(
+                    //       context,
+                    //       MaterialPageRoute(
+                    //           builder: (context) => MainScreen()));
+                    // } else {
+                    //   final snackBar = SnackBar(
+                    //     content: Container(
+                    //       padding: EdgeInsets.only(bottom: 10.h),
+                    //       child: Text(
+                    //         validateInput().toString(),
+                    //         textAlign: TextAlign.center,
+                    //         style: kText14Normal_2,
+                    //       ),
+                    //     ),
+                    //     backgroundColor: Colors.red,
+                    //     duration: Duration(seconds: 3),
+                    //     behavior: SnackBarBehavior.floating,
+                    //   );
+                    //   ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                    // }
+                    Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => MainScreen()));
-                    } else {
-                      final snackBar = SnackBar(
-                        content: Container(
-                          padding: EdgeInsets.only(bottom: 10.h),
-                          child: Text(
-                            validateInput().toString(),
-                            textAlign: TextAlign.center,
-                            style: kText14Normal_2,
-                          ),
-                        ),
-                        backgroundColor: Colors.red,
-                        duration: Duration(seconds: 3),
-                        behavior: SnackBarBehavior.floating,
-                      );
-                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                    }
                   },
                 ),
                 Row(
