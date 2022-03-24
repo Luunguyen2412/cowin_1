@@ -192,8 +192,6 @@ class VietnamPageState extends State<VietnamPage>
             controller: tabController_1,
             children: [
               TotalPage(),
-              TodayPage(),
-              YesterdayPage(),
             ],
           ),
         ),
@@ -266,9 +264,9 @@ class GlobalPageState extends State<GlobalPage> with TickerProviderStateMixin {
             child: TabBarView(
               controller: tabController_1,
               children: [
-                TotalPageGlobal(),
-                TodayPageGlobal(),
-                YesterdayPageGlobal(),
+                // TotalPageGlobal(),
+                // TodayPageGlobal(),
+                // YesterdayPageGlobal(),
               ],
             ),
           ),

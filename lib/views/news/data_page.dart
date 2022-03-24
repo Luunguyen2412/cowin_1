@@ -742,6 +742,7 @@ class ChartArea extends StatelessWidget {
   }
 }
 
+// ignore: must_be_immutable
 class ChartStackedColumn extends StatelessWidget {
   ChartStackedColumn({Key? key}) : super(key: key);
 

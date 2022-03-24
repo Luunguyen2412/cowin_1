@@ -2,11 +2,12 @@ import 'package:cowin_1/common/config/colors_config.dart';
 import 'package:cowin_1/common/config/texts_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
 import '../themes.dart';
 
 class CasesItem extends StatelessWidget {
   late final String title;
-  late final String cases;
+  late final int cases;
   late final Color colorBox;
   CasesItem(
     this.title,
@@ -37,7 +38,7 @@ class CasesItem extends StatelessWidget {
                 ),
               ),
               Text(
-                cases,
+                NumberFormat.decimalPattern().format(cases),
                 style: kTextConfig.copyWith(
                   fontWeight: FontWeight.bold,
                   fontSize: ScreenUtil().setSp(30),

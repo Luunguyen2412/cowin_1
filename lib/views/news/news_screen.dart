@@ -133,7 +133,7 @@ class _NewsScreenState extends State<NewsScreen> with TickerProviderStateMixin {
           headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
             return [
               SliverAppBar(
-                backgroundColor: cwColor2,
+                backgroundColor: primaryColor,
                 expandedHeight: 70.h,
                 pinned: false,
                 title: Container(
@@ -143,58 +143,6 @@ class _NewsScreenState extends State<NewsScreen> with TickerProviderStateMixin {
                     style: kText40Bold_3,
                   ),
                 ),
-                actions: [
-                  Container(
-                    height: 88.h,
-                    margin: EdgeInsets.only(top: 20.h, right: 7.w),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Stack(
-                          alignment: AlignmentDirectional.center,
-                          children: [
-                            Container(
-                              width: 46.h,
-                              height: 46.h,
-                              decoration: BoxDecoration(
-                                  color: cwColor2,
-                                  borderRadius: BorderRadius.circular(10.h),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Color(0xFF4F9FF1).withOpacity(0.2),
-                                      offset: Offset(0, 2),
-                                      blurRadius: 20.0,
-                                    )
-                                  ]),
-                              child: Center(
-                                child: Container(
-                                    height: 27.h,
-                                    width: 25.w,
-                                    child: SvgPicture.asset(
-                                        Tools().getIcon("notification.svg"))),
-                              ),
-                            ),
-                            Container(
-                              height: 53.h,
-                              width: 53.h,
-                              alignment: AlignmentDirectional.topEnd,
-                              child: Container(
-                                width: 13.h,
-                                height: 13.h,
-                                decoration: BoxDecoration(
-                                    color: cwColor6, shape: BoxShape.circle),
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          width: 20.w,
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
               ),
               SliverAppBar(
                 backgroundColor: cwColor2,

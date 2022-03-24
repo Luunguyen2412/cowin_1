@@ -165,7 +165,7 @@ packages:
     source: hosted
     version: "4.0.4"
   equatable:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: equatable
       url: "https://pub.dartlang.org"
@@ -348,7 +348,7 @@ packages:
     source: hosted
     version: "3.0.2"
   http:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: http
       url: "https://pub.dartlang.org"

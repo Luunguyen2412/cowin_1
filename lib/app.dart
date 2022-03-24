@@ -2,7 +2,7 @@ import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:cowin_1/common/config/colors_config.dart';
 import 'package:cowin_1/view_models/app/app_provider.dart';
 import 'package:cowin_1/view_models/login/google_login_controller.dart';
-import 'package:cowin_1/views/splash/splash1.dart';
+import 'package:cowin_1/views/main_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -48,7 +48,7 @@ class _AppState extends State<App> {
                       ),
                       splashIconSize: double.maxFinite,
                       backgroundColor: cwColor1,
-                      nextScreen: SplashScreen(),
+                      nextScreen: MainScreen(),
                       splashTransition: SplashTransition.fadeTransition,
                     ),
                   );

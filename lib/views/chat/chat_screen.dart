@@ -462,6 +462,7 @@ class _ChatScreenState extends State<ChatScreen>
   }
 }
 
+// ignore: must_be_immutable
 class ChatMessage extends StatelessWidget {
   ChatMessage({required this.text, required this.type});
 

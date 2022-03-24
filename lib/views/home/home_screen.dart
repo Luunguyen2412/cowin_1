@@ -2,13 +2,19 @@ import 'package:cowin_1/common/config/colors_config.dart';
 import 'package:cowin_1/common/config/texts_config.dart';
 import 'package:cowin_1/common/constants/tools.dart';
 import 'package:cowin_1/themes.dart';
-import 'package:cowin_1/views/home/widget/NumberageCaseCovid.dart';
-import 'package:cowin_1/views/home/widget/card.dart';
+import 'package:cowin_1/views/home/bloc/home_bloc.dart';
 import 'package:cowin_1/widget/covid_cases_tile.dart';
 import 'package:cowin_1/widget/news_tile.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:cowin_1/views/home/bloc/home_state.dart';
+import 'package:intl/intl.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+import 'bloc/home_bloc.dart';
+import 'bloc/home_event.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -22,26 +28,6 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
   late TabController tabController1;
 
   @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    tabController = TabController(
-      length: 3,
-      vsync: this,
-    );
-    tabController.addListener(() {
-      setState(() {});
-    });
-    tabController1 = TabController(
-      length: 2,
-      vsync: this,
-    );
-    tabController1.addListener(() {
-      setState(() {});
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
@@ -51,13 +37,13 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
               Stack(
                 children: [
                   Container(
-                    height: 310.h,
+                    height: 260.h,
                     width: double.infinity,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(
                           bottomLeft: Radius.circular(15),
                           bottomRight: Radius.circular(15)),
-                      color: cwColor1,
+                      color: primaryColor,
                     ),
                   ),
                   Padding(
@@ -74,53 +60,9 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               "Cowin",
                               style: kTextConfig.copyWith(
                                 fontWeight: FontWeight.bold,
-                                fontSize: ScreenUtil().setSp(40),
+                                fontSize: ScreenUtil().setSp(30),
                                 color: cwColor2,
                               ),
-                            ),
-                            Row(
-                              children: [
-                                Stack(
-                                  alignment: AlignmentDirectional.topEnd,
-                                  children: [
-                                    Container(
-                                      width: 46.h,
-                                      height: 46.h,
-                                      decoration: BoxDecoration(
-                                          color: cwColor2,
-                                          borderRadius:
-                                              BorderRadius.circular(10.h),
-                                          boxShadow: [
-                                            BoxShadow(
-                                              color: Color(0xFF4F9FF1)
-                                                  .withOpacity(0.2),
-                                              offset: Offset(0, 2),
-                                              blurRadius: 20.0,
-                                            )
-                                          ]),
-                                      child: Center(
-                                        child: Container(
-                                            height: 27.h,
-                                            width: 25.w,
-                                            child: SvgPicture.asset(Tools()
-                                                .getIcon("notification.svg"))),
-                                      ),
-                                    ),
-                                    Container(
-                                      height: 53.h,
-                                      width: 53.h,
-                                      alignment: AlignmentDirectional.topEnd,
-                                      child: Container(
-                                        width: 13.h,
-                                        height: 13.h,
-                                        decoration: BoxDecoration(
-                                            color: cwColor6,
-                                            shape: BoxShape.circle),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
                             ),
                           ],
                         ),
@@ -131,7 +73,7 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           "Are you feeling sick?",
                           style: kTextConfig.copyWith(
                             fontWeight: FontWeight.bold,
-                            fontSize: ScreenUtil().setSp(30),
+                            fontSize: ScreenUtil().setSp(25),
                             color: cwColor2,
                           ),
                         ),
@@ -142,7 +84,7 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           "If you felling sick with any COVID-19 symptoms, please call or sms for us imediately for help.",
                           style: kTextConfig.copyWith(
                             fontWeight: FontWeight.w300,
-                            fontSize: ScreenUtil().setSp(20),
+                            fontSize: ScreenUtil().setSp(16),
                             color: cwColor2,
                           ),
                         ),
@@ -155,34 +97,50 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[
                               GestureDetector(
-                                child: Container(
-                                  height: 56.h,
-                                  width: 160.h,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(30),
-                                    color: CustomColors.green,
-                                  ),
-                                  alignment: Alignment.center,
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Icon(
-                                        Icons.phone,
-                                        color: kWhiteColor,
-                                      ),
-                                      Text(
-                                        'Call now',
-                                        style: kTextConfig.copyWith(
-                                          fontWeight: FontWeight.normal,
-                                          fontSize: ScreenUtil().setSp(20.sp),
-                                          color: cwColor2,
+                                  child: Container(
+                                    height: 56.h,
+                                    width: 160.h,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(30),
+                                      color: CustomColors.green,
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Colors.black.withOpacity(0.5),
+                                          spreadRadius: 5,
+                                          blurRadius: 7,
+                                          offset: Offset(0,
+                                              3), // changes position of shadow
                                         ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
+                                    alignment: Alignment.center,
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Icon(
+                                          Icons.phone,
+                                          color: kWhiteColor,
+                                        ),
+                                        Text(
+                                          'Call now',
+                                          style: kTextConfig.copyWith(
+                                            fontWeight: FontWeight.normal,
+                                            fontSize: ScreenUtil().setSp(20.sp),
+                                            color: cwColor2,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
-                                ),
-                                onTap: () {},
-                              ),
+                                  onTap: () async {
+                                    const _url = "tel:19003228";
+                                    if (await canLaunch(_url)) {
+                                      await launch(_url);
+                                    } else {
+                                      throw 'Could not launch $_url';
+                                    }
+                                  }),
                               GestureDetector(
                                 child: Container(
                                   height: 56.h,
@@ -190,6 +148,15 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(30),
                                     color: cwcolor26,
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black.withOpacity(0.5),
+                                        spreadRadius: 5,
+                                        blurRadius: 7,
+                                        offset: Offset(
+                                            0, 3), // changes position of shadow
+                                      ),
+                                    ],
                                   ),
                                   alignment: Alignment.center,
                                   child: Row(
@@ -232,19 +199,15 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           "Covid Cases",
                           style: kText35Bold_7,
                         ),
-                        Text(
-                          "Update lasted 3 minute ago",
-                          style: normalText.copyWith(
-                              color: kTextColor, fontSize: 14),
-                        ),
                         SizedBox(
-                          height: 20.h,
+                          height: 10.h,
                         ),
-                        CustomSwitchTabbar(),
+                        //CustomSwitchTabbar(),
+                        TotalPage(),
                         SizedBox(
                           height: 5.h,
                         ),
-                        CardInfomation(),
+                        //CardInfomation(),
                         SizedBox(
                           height: 32.h,
                         ),
@@ -314,257 +277,68 @@ List<String> names = ['Infected', 'Recovered', 'Death', 'Treated'];
 class TotalPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Padding(
-        padding: EdgeInsets.all(10.0),
-        child: GridView(
-          shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 15.h,
-            mainAxisSpacing: 15.w,
-            childAspectRatio: 25 / 17,
-          ),
+    return BlocProvider(
+      create: (context) => HomeBloc()..add(const LoadEvent()),
+      child: BlocBuilder<HomeBloc, HomeState>(builder: (context, state) {
+        final bloc = BlocProvider.of<HomeBloc>(context);
+        int _treatedValue = 0;
+        if (bloc.summPatient != null) {
+          _treatedValue = (bloc.summPatient?.data.confirmed ?? 0) -
+              (bloc.summPatient?.data.recovered ?? 0) -
+              (bloc.summPatient?.data.death ?? 0);
+        }
+        String _lastTimeUpdate = bloc.summPatient != null
+            ? DateFormat("dd/MM/yyyy")
+                .format(bloc.summPatient!.data.createdDate)
+            : "";
+        return Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CasesItem(
-              'Infected',
-              '312,563',
-              CustomColors.yellow,
+            Container(
+              child: Text(
+                "* Update lasted $_lastTimeUpdate",
+                style: normalText.copyWith(color: kTextColor, fontSize: 14),
+              ),
             ),
-            CasesItem(
-              'Death',
-              '1,564',
-              CustomColors.red,
-            ),
-            CasesItem(
-              'Recovered',
-              '534,756',
-              CustomColors.green,
-            ),
-            CasesItem(
-              'Treated',
-              '56,675',
-              CustomColors.blue,
+            SizedBox(height: 10.h),
+            Container(
+              child: GridView(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 15.h,
+                  mainAxisSpacing: 15.w,
+                  childAspectRatio: 25 / 17,
+                ),
+                children: [
+                  CasesItem(
+                    'Số ca nhiễm',
+                    bloc.summPatient?.data.confirmed ?? 0,
+                    CustomColors.blue,
+                  ),
+                  CasesItem(
+                    'Đang điều trị',
+                    _treatedValue,
+                    CustomColors.yellow,
+                  ),
+                  CasesItem(
+                    'Đã khỏi bệnh',
+                    bloc.summPatient?.data.recovered ?? 0,
+                    CustomColors.green,
+                  ),
+                  CasesItem(
+                    'Tử vong',
+                    bloc.summPatient?.data.death ?? 0,
+                    CustomColors.red,
+                  ),
+                ],
+              ),
             ),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-class TodayPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Padding(
-        padding: EdgeInsets.all(8.0),
-        child: GridView(
-          shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 15.h,
-            mainAxisSpacing: 15.w,
-            childAspectRatio: 25 / 17,
-          ),
-          children: [
-            CasesItem(
-              'Infected',
-              '2,563',
-              CustomColors.yellow,
-            ),
-            CasesItem(
-              'Death',
-              '64',
-              CustomColors.red,
-            ),
-            CasesItem(
-              'Recovered',
-              '4,756',
-              CustomColors.green,
-            ),
-            CasesItem(
-              'Treated',
-              '675',
-              CustomColors.blue,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class YesterdayPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Padding(
-        padding: EdgeInsets.all(8.0),
-        child: GridView(
-          shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 15.h,
-            mainAxisSpacing: 15.w,
-            childAspectRatio: 25 / 17,
-          ),
-          children: [
-            CasesItem(
-              'Infected',
-              '6,563',
-              CustomColors.yellow,
-            ),
-            CasesItem(
-              'Death',
-              '564',
-              CustomColors.red,
-            ),
-            CasesItem(
-              'Recovered',
-              '5456',
-              CustomColors.green,
-            ),
-            CasesItem(
-              'Treated',
-              '5,675',
-              CustomColors.blue,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class TotalPageGlobal extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Padding(
-        padding: EdgeInsets.all(8.0),
-        child: GridView(
-          shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 15.h,
-            mainAxisSpacing: 15.w,
-            childAspectRatio: 25 / 17,
-          ),
-          children: [
-            CasesItem(
-              'Infected',
-              '234M',
-              CustomColors.yellow,
-            ),
-            CasesItem(
-              'Death',
-              '5M',
-              CustomColors.red,
-            ),
-            CasesItem(
-              'Recovered',
-              '645M',
-              CustomColors.green,
-            ),
-            CasesItem(
-              'Treated',
-              '6M',
-              CustomColors.blue,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class TodayPageGlobal extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Padding(
-        padding: EdgeInsets.all(10),
-        child: GridView(
-          shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 15.h,
-            mainAxisSpacing: 15.w,
-            childAspectRatio: 25 / 17,
-          ),
-          children: [
-            CasesItem(
-              'Infected',
-              '452,563',
-              CustomColors.yellow,
-            ),
-            CasesItem(
-              'Death',
-              '6,644',
-              CustomColors.red,
-            ),
-            CasesItem(
-              'Recovered',
-              '654,756',
-              CustomColors.green,
-            ),
-            CasesItem(
-              'Treated',
-              '8,675',
-              CustomColors.blue,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class YesterdayPageGlobal extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Padding(
-        padding: EdgeInsets.all(8.0),
-        child: GridView(
-          shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 15.h,
-            mainAxisSpacing: 15.w,
-            childAspectRatio: 25 / 17,
-          ),
-          children: [
-            CasesItem(
-              'Infected',
-              '466,563',
-              CustomColors.yellow,
-            ),
-            CasesItem(
-              'Death',
-              '1,564',
-              CustomColors.red,
-            ),
-            CasesItem(
-              'Recovered',
-              '55,456',
-              CustomColors.green,
-            ),
-            CasesItem(
-              'Treated',
-              '15,675',
-              CustomColors.blue,
-            ),
-          ],
-        ),
-      ),
+        );
+      }),
     );
   }
 }

@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 /// cách đặt tên cwColor[id]
-
+final Color primaryColor = const Color(0xFF279E97);
 final cwColor1 = Color(0xFF2198E7);
 
 final cwColor2 = Color(0xFFFFFFFF);
