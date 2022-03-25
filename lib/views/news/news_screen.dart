@@ -1,11 +1,10 @@
 import 'package:cowin_1/common/config/colors_config.dart';
 import 'package:cowin_1/common/config/texts_config.dart';
-import 'package:cowin_1/common/constants/tools.dart';
 import 'package:cowin_1/views/news/data_page.dart';
 import 'package:cowin_1/views/news/news_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class NewsScreen extends StatefulWidget {
   const NewsScreen({Key? key}) : super(key: key);
@@ -126,160 +125,166 @@ class _NewsScreenState extends State<NewsScreen> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: SafeArea(
-        child: NestedScrollView(
-          headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
-            return [
-              SliverAppBar(
-                backgroundColor: primaryColor,
-                expandedHeight: 70.h,
-                pinned: false,
-                title: Container(
-                  margin: EdgeInsets.only(left: 15.w, top: 20.h),
-                  child: Text(
-                    "News",
-                    style: kText40Bold_3,
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle(
+        statusBarColor: primaryColor,
+      ),
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        body: SafeArea(
+          child: NestedScrollView(
+            headerSliverBuilder:
+                (BuildContext context, bool innerBoxIsScrolled) {
+              return [
+                SliverAppBar(
+                  backgroundColor: primaryColor,
+                  expandedHeight: 70.h,
+                  pinned: false,
+                  title: Container(
+                    margin: EdgeInsets.only(left: 15.w, top: 20.h),
+                    child: Text(
+                      "News",
+                      style: kText40Bold_3,
+                    ),
                   ),
                 ),
-              ),
-              SliverAppBar(
-                backgroundColor: cwColor2,
-                expandedHeight: 50.h,
-                pinned: true,
-                toolbarHeight: 10.h,
-                bottom: TabBar(
-                  controller: tabController,
-                  labelStyle: kText20Bold_1,
-                  physics: NeverScrollableScrollPhysics(),
-                  unselectedLabelStyle: kText20Bold_4,
-                  tabs: [
-                    Text(
-                      "News",
-                      style: tabController.index == 0
-                          ? kText20Bold_1
-                          : kText20Bold_4,
-                    ),
-                    Text(
-                      "Data",
-                      style: tabController.index == 1
-                          ? kText20Bold_1
-                          : kText20Bold_4,
-                    )
-                  ],
-                ),
-              ),
-              // SliverAppBar(
-              //   expandedHeight: 200.h,
-              //   pinned: false,
-              //   floating: false,
-              //   snap: false,
-              //   flexibleSpace: FlexibleSpaceBar(
-              //     centerTitle: true,
-              //     title: Text("Collapsing Toolbar",
-              //         style: TextStyle(
-              //           color: Colors.white,
-              //           fontSize: 16.0,
-              //         )),
-              //   ),
-              // ),
-
-              if (tabController.index == 0)
                 SliverAppBar(
-                  pinned: true,
-                  floating: false,
-                  snap: false,
-                  expandedHeight: 110.h,
-                  toolbarHeight: 10.h,
                   backgroundColor: cwColor2,
-                  bottom: PreferredSize(
-                    preferredSize: Size.fromHeight(110.h),
-                    child: Container(
-                      height: 110.h,
-                      padding: EdgeInsets.symmetric(
-                          horizontal: 20.w, vertical: 10.h),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                isTapTabBar = true;
-                                tabController1.index = 0;
-                              });
-                              _setPositionByTabIndex();
-                            },
-                            child: CustomTabBar(
-                              title: "Official Update",
-                              isActive: tabController1.index == 0,
-                              icon: "assets/icons/ic_official_update.svg",
+                  expandedHeight: 50.h,
+                  pinned: true,
+                  toolbarHeight: 10.h,
+                  bottom: TabBar(
+                    controller: tabController,
+                    labelStyle: kText20Bold_1,
+                    physics: NeverScrollableScrollPhysics(),
+                    unselectedLabelStyle: kText20Bold_4,
+                    tabs: [
+                      Text(
+                        "News",
+                        style: tabController.index == 0
+                            ? kText20Bold_1
+                            : kText20Bold_4,
+                      ),
+                      Text(
+                        "Data",
+                        style: tabController.index == 1
+                            ? kText20Bold_1
+                            : kText20Bold_4,
+                      )
+                    ],
+                  ),
+                ),
+                // SliverAppBar(
+                //   expandedHeight: 200.h,
+                //   pinned: false,
+                //   floating: false,
+                //   snap: false,
+                //   flexibleSpace: FlexibleSpaceBar(
+                //     centerTitle: true,
+                //     title: Text("Collapsing Toolbar",
+                //         style: TextStyle(
+                //           color: Colors.white,
+                //           fontSize: 16.0,
+                //         )),
+                //   ),
+                // ),
+
+                if (tabController.index == 0)
+                  SliverAppBar(
+                    pinned: true,
+                    floating: false,
+                    snap: false,
+                    expandedHeight: 110.h,
+                    toolbarHeight: 10.h,
+                    backgroundColor: cwColor2,
+                    bottom: PreferredSize(
+                      preferredSize: Size.fromHeight(110.h),
+                      child: Container(
+                        height: 110.h,
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 20.w, vertical: 10.h),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            InkWell(
+                              onTap: () {
+                                setState(() {
+                                  isTapTabBar = true;
+                                  tabController1.index = 0;
+                                });
+                                _setPositionByTabIndex();
+                              },
+                              child: CustomTabBar(
+                                title: "Official Update",
+                                isActive: tabController1.index == 0,
+                                icon: "assets/icons/ic_official_update.svg",
+                              ),
                             ),
-                          ),
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                isTapTabBar = true;
-                                tabController1.index = 1;
-                              });
-                              _setPositionByTabIndex();
-                            },
-                            child: CustomTabBar(
-                              title: "Recommend",
-                              isActive: tabController1.index == 1,
-                              icon: "assets/icons/ic_recommend.svg",
+                            InkWell(
+                              onTap: () {
+                                setState(() {
+                                  isTapTabBar = true;
+                                  tabController1.index = 1;
+                                });
+                                _setPositionByTabIndex();
+                              },
+                              child: CustomTabBar(
+                                title: "Recommend",
+                                isActive: tabController1.index == 1,
+                                icon: "assets/icons/ic_recommend.svg",
+                              ),
                             ),
-                          ),
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                isTapTabBar = true;
-                                tabController1.index = 2;
-                              });
-                              _setPositionByTabIndex();
-                            },
-                            child: CustomTabBar(
-                              title: "World",
-                              isActive: tabController1.index == 2,
-                              icon: "assets/icons/ic_world.svg",
+                            InkWell(
+                              onTap: () {
+                                setState(() {
+                                  isTapTabBar = true;
+                                  tabController1.index = 2;
+                                });
+                                _setPositionByTabIndex();
+                              },
+                              child: CustomTabBar(
+                                title: "World",
+                                isActive: tabController1.index == 2,
+                                icon: "assets/icons/ic_world.svg",
+                              ),
                             ),
-                          ),
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                isTapTabBar = true;
-                                tabController1.index = 3;
-                              });
-                              _setPositionByTabIndex();
-                            },
-                            child: CustomTabBar(
-                              title: "Vaccine",
-                              isActive: tabController1.index == 3,
-                              icon: "assets/icons/ic_vaccine.svg",
+                            InkWell(
+                              onTap: () {
+                                setState(() {
+                                  isTapTabBar = true;
+                                  tabController1.index = 3;
+                                });
+                                _setPositionByTabIndex();
+                              },
+                              child: CustomTabBar(
+                                title: "Vaccine",
+                                isActive: tabController1.index == 3,
+                                icon: "assets/icons/ic_vaccine.svg",
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),
+              ];
+            },
+            body: TabBarView(
+              controller: tabController,
+              physics: NeverScrollableScrollPhysics(),
+              children: [
+                NewsPage(
+                  tabIndex: tabController1.index,
+                  scrollController: scrollController,
+                  changeTab: (value) {
+                    setState(() {
+                      tabController1.index = value;
+                    });
+                  },
                 ),
-            ];
-          },
-          body: TabBarView(
-            controller: tabController,
-            physics: NeverScrollableScrollPhysics(),
-            children: [
-              NewsPage(
-                tabIndex: tabController1.index,
-                scrollController: scrollController,
-                changeTab: (value) {
-                  setState(() {
-                    tabController1.index = value;
-                  });
-                },
-              ),
-              DataPage()
-            ],
+                DataPage()
+              ],
+            ),
           ),
         ),
       ),

@@ -1,14 +1,13 @@
 import 'package:cowin_1/common/config/colors_config.dart';
 import 'package:cowin_1/common/config/texts_config.dart';
-import 'package:cowin_1/common/constants/tools.dart';
 import 'package:cowin_1/themes.dart';
 import 'package:cowin_1/views/home/bloc/home_bloc.dart';
 import 'package:cowin_1/widget/covid_cases_tile.dart';
 import 'package:cowin_1/widget/news_tile.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:cowin_1/views/home/bloc/home_state.dart';
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -29,80 +28,131 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Stack(
-                children: [
-                  Container(
-                    height: 260.h,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(15),
-                          bottomRight: Radius.circular(15)),
-                      color: primaryColor,
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle(
+        statusBarColor: primaryColor,
+      ),
+      child: Scaffold(
+        body: SafeArea(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Stack(
+                  children: [
+                    Container(
+                      height: 260.h,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(15),
+                            bottomRight: Radius.circular(15)),
+                        color: primaryColor,
+                      ),
                     ),
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 25.h, vertical: 10.h),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text(
-                              "Cowin",
-                              style: kTextConfig.copyWith(
-                                fontWeight: FontWeight.bold,
-                                fontSize: ScreenUtil().setSp(30),
-                                color: cwColor2,
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 15.h,
-                        ),
-                        Text(
-                          "Are you feeling sick?",
-                          style: kTextConfig.copyWith(
-                            fontWeight: FontWeight.bold,
-                            fontSize: ScreenUtil().setSp(25),
-                            color: cwColor2,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 10.h,
-                        ),
-                        Text(
-                          "If you felling sick with any COVID-19 symptoms, please call or sms for us imediately for help.",
-                          style: kTextConfig.copyWith(
-                            fontWeight: FontWeight.w300,
-                            fontSize: ScreenUtil().setSp(16),
-                            color: cwColor2,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 30.h,
-                        ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 10),
-                          child: Row(
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 25.h, vertical: 10.h),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: <Widget>[
-                              GestureDetector(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                "Cowin",
+                                style: kTextConfig.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: ScreenUtil().setSp(30),
+                                  color: cwColor2,
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 15.h,
+                          ),
+                          Text(
+                            "Are you feeling sick?",
+                            style: kTextConfig.copyWith(
+                              fontWeight: FontWeight.bold,
+                              fontSize: ScreenUtil().setSp(25),
+                              color: cwColor2,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 10.h,
+                          ),
+                          Text(
+                            "If you felling sick with any COVID-19 symptoms, please call or sms for us imediately for help.",
+                            style: kTextConfig.copyWith(
+                              fontWeight: FontWeight.w300,
+                              fontSize: ScreenUtil().setSp(16),
+                              color: cwColor2,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 30.h,
+                          ),
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 10),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                GestureDetector(
+                                    child: Container(
+                                      height: 56.h,
+                                      width: 160.h,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(30),
+                                        color: CustomColors.green,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color:
+                                                Colors.black.withOpacity(0.5),
+                                            spreadRadius: 5,
+                                            blurRadius: 7,
+                                            offset: Offset(0,
+                                                3), // changes position of shadow
+                                          ),
+                                        ],
+                                      ),
+                                      alignment: Alignment.center,
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Icon(
+                                            Icons.phone,
+                                            color: kWhiteColor,
+                                          ),
+                                          Text(
+                                            'Call now',
+                                            style: kTextConfig.copyWith(
+                                              fontWeight: FontWeight.normal,
+                                              fontSize:
+                                                  ScreenUtil().setSp(20.sp),
+                                              color: cwColor2,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    onTap: () async {
+                                      const _url = "tel:19003228";
+                                      if (await canLaunch(_url)) {
+                                        await launch(_url);
+                                      } else {
+                                        throw 'Could not launch $_url';
+                                      }
+                                    }),
+                                GestureDetector(
                                   child: Container(
                                     height: 56.h,
                                     width: 160.h,
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(30),
-                                      color: CustomColors.green,
+                                      color: cwcolor26,
                                       boxShadow: [
                                         BoxShadow(
                                           color: Colors.black.withOpacity(0.5),
@@ -119,146 +169,104 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                           MainAxisAlignment.center,
                                       children: [
                                         Icon(
-                                          Icons.phone,
+                                          Icons.message_outlined,
                                           color: kWhiteColor,
                                         ),
                                         Text(
-                                          'Call now',
+                                          'Send SMS',
                                           style: kTextConfig.copyWith(
                                             fontWeight: FontWeight.normal,
-                                            fontSize: ScreenUtil().setSp(20.sp),
+                                            fontSize: ScreenUtil().setSp(20),
                                             color: cwColor2,
                                           ),
                                         ),
                                       ],
                                     ),
                                   ),
-                                  onTap: () async {
-                                    const _url = "tel:19003228";
-                                    if (await canLaunch(_url)) {
-                                      await launch(_url);
-                                    } else {
-                                      throw 'Could not launch $_url';
-                                    }
-                                  }),
-                              GestureDetector(
-                                child: Container(
-                                  height: 56.h,
-                                  width: 160.h,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(30),
-                                    color: cwcolor26,
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.black.withOpacity(0.5),
-                                        spreadRadius: 5,
-                                        blurRadius: 7,
-                                        offset: Offset(
-                                            0, 3), // changes position of shadow
-                                      ),
-                                    ],
-                                  ),
-                                  alignment: Alignment.center,
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Icon(
-                                        Icons.message_outlined,
-                                        color: kWhiteColor,
-                                      ),
-                                      Text(
-                                        'Send SMS',
-                                        style: kTextConfig.copyWith(
-                                          fontWeight: FontWeight.normal,
-                                          fontSize: ScreenUtil().setSp(20),
-                                          color: cwColor2,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                                  onTap: () {},
                                 ),
-                                onTap: () {},
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                ],
-              ),
-              Stack(
-                children: [
-                  Padding(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 15.w, vertical: 20.h),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Covid Cases",
-                          style: kText35Bold_7,
-                        ),
-                        SizedBox(
-                          height: 10.h,
-                        ),
-                        //CustomSwitchTabbar(),
-                        TotalPage(),
-                        SizedBox(
-                          height: 5.h,
-                        ),
-                        //CardInfomation(),
-                        SizedBox(
-                          height: 32.h,
-                        ),
-                        Text(
-                          "Hot news",
-                          style: kText35Bold_7,
-                        ),
-                        Text(
-                          "Update news about covid in the country",
-                          style: normalText.copyWith(
-                              color: kTextColor, fontSize: 14),
-                        ),
-                        SizedBox(
-                          height: 15.h,
-                        ),
-                        NewsCard(
-                          'assets/images/Rectangle 225.png',
-                          'Hanoi added 51 new COVID-19 cases, only HH 4C Linh Dam apartment building has 13 cases',
-                          '5 mins',
-                          'Lifes upadate',
-                        ),
-                        NewsCard(
-                          'assets/images/covid.jpg',
-                          'The army presides over food for Ho Chi Minh City',
-                          '5 mins',
-                          'Lifes upadate',
-                        ),
-                        NewsCard(
-                          'assets/images/Rectangle 225.png',
-                          'Hanoi added 51 new COVID-19 cases, only HH 4C Linh Dam apartment building has 13 cases',
-                          '5 mins',
-                          'Lifes upadate',
-                        ),
-                        NewsCard(
-                          'assets/images/Rectangle 225.png',
-                          'The army presides over food for Ho Chi Minh City',
-                          '5 mins',
-                          'Lifes upadate',
-                        ),
-                        NewsCard(
-                          'assets/images/Rectangle 225.png',
-                          'Hanoi added 51 new COVID-19 cases, only HH 4C Linh Dam apartment building has 13 cases',
-                          '5 mins',
-                          'Lifes upadate',
-                        ),
-                      ],
+                  ],
+                ),
+                Stack(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 15.w, vertical: 20.h),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Covid Cases",
+                            style: kText35Bold_7,
+                          ),
+                          SizedBox(
+                            height: 10.h,
+                          ),
+                          //CustomSwitchTabbar(),
+                          //sô ca covid 
+                          TotalPage(),
+                          SizedBox(
+                            height: 5.h,
+                          ),
+                          //CardInfomation(),
+                          SizedBox(
+                            height: 32.h,
+                          ),
+                          Text(
+                            "Hot news",
+                            style: kText35Bold_7,
+                          ),
+                          Text(
+                            "Update news about covid in the country",
+                            style: normalText.copyWith(
+                                color: kTextColor, fontSize: 14),
+                          ),
+                          SizedBox(
+                            height: 15.h,
+                          ),
+                          NewsCard(
+                            'assets/images/Rectangle 225.png',
+                            'Hanoi added 51 new COVID-19 cases, only HH 4C Linh Dam apartment building has 13 cases',
+                            '5 mins',
+                            'Lifes upadate',
+                          ),
+                          NewsCard(
+                            'assets/images/covid.jpg',
+                            'The army presides over food for Ho Chi Minh City',
+                            '5 mins',
+                            'Lifes upadate',
+                          ),
+                          NewsCard(
+                            'assets/images/Rectangle 225.png',
+                            'Hanoi added 51 new COVID-19 cases, only HH 4C Linh Dam apartment building has 13 cases',
+                            '5 mins',
+                            'Lifes upadate',
+                          ),
+                          NewsCard(
+                            'assets/images/Rectangle 225.png',
+                            'The army presides over food for Ho Chi Minh City',
+                            '5 mins',
+                            'Lifes upadate',
+                          ),
+                          NewsCard(
+                            'assets/images/Rectangle 225.png',
+                            'Hanoi added 51 new COVID-19 cases, only HH 4C Linh Dam apartment building has 13 cases',
+                            '5 mins',
+                            'Lifes upadate',
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
-              ),
-            ],
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -314,25 +322,19 @@ class TotalPage extends StatelessWidget {
                 ),
                 children: [
                   CasesItem(
-                    'Số ca nhiễm',
-                    bloc.summPatient?.data.confirmed ?? 0,
-                    CustomColors.blue,
-                  ),
+                      'Số ca nhiễm',
+                      bloc.summPatient?.data.confirmed ?? 0,
+                      CustomColors.blue,
+                      bloc.summPatient?.data.plusConfirmed ?? 0),
+                  CasesItem('Đang điều trị', _treatedValue, CustomColors.yellow,
+                       bloc.summPatient?.data.plusRecovered ?? 0),
                   CasesItem(
-                    'Đang điều trị',
-                    _treatedValue,
-                    CustomColors.yellow,
-                  ),
-                  CasesItem(
-                    'Đã khỏi bệnh',
-                    bloc.summPatient?.data.recovered ?? 0,
-                    CustomColors.green,
-                  ),
-                  CasesItem(
-                    'Tử vong',
-                    bloc.summPatient?.data.death ?? 0,
-                    CustomColors.red,
-                  ),
+                      'Đã khỏi bệnh',
+                      bloc.summPatient?.data.recovered ?? 0,
+                      CustomColors.green,
+                      bloc.summPatient?.data.plusRecovered ?? 0),
+                  CasesItem('Tử vong', bloc.summPatient?.data.death ?? 0,
+                      CustomColors.red, bloc.summPatient?.data.plusDeath ?? 0),
                 ],
               ),
             ),

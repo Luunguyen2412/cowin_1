@@ -70,9 +70,9 @@ var kText21Bold_2 = kTextConfig.copyWith(
 var kText20Bold_1 = kTextConfig.copyWith(
   fontWeight: FontWeight.bold,
   fontSize: ScreenUtil().setSp(20.sp),
-  color: cwColor1,
+  color: cwColor2,
 );
-var kText20Bold_4 = kText20Bold_1.copyWith(color: cwColor4);
+var kText20Bold_4 = kText20Bold_1.copyWith(color: cwColor3);
 var kText20Bold_2 = kText20Bold_1.copyWith(color: cwColor2);
 var kText20Bold_14 = kText20Bold_1.copyWith(color: cwColor14);
 var kText20Bold_5 = kText20Bold_1.copyWith(color: cwColor3);

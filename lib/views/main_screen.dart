@@ -7,12 +7,12 @@ import 'package:cowin_1/view_models/app/app_provider.dart';
 import 'package:cowin_1/views/chat/chat_screen.dart';
 import 'package:cowin_1/views/healthcare/healthcare_screen.dart';
 import 'package:cowin_1/views/map/map_screen.dart';
-import 'package:cowin_1/views/news/news_screen.dart';
 import 'package:cowin_1/views/profile/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modules/flutter_modules.dart';
 
 import 'home/home_screen.dart';
+import 'news/news_remake/screen_news.dart';
 
 class MainScreen extends StatefulWidget {
   @override
@@ -23,7 +23,8 @@ class _MainScreenState extends State<MainScreen> {
   int currentTab = 0;
   List<Widget> _options = <Widget>[
     HomePage(),
-    NewsScreen(),
+    //NewsScreen(),
+    NewRemakeScreen(),
     HealthCareScreen(),
     MapScreen(),
     PersonalScreen(),

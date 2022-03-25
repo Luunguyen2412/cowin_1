@@ -1,6 +1,11 @@
+import 'dart:convert';
+
+import 'package:cowin_1/models/news_model.dart';
 import 'package:cowin_1/models/sum_patient_models.dart';
 import 'package:dio/dio.dart';
 import 'package:http/http.dart' as http;
+import 'package:intl/intl.dart';
+import 'package:webfeed/domain/rss_feed.dart';
 
 const serverConfig = {
   "type": "app",
@@ -52,5 +57,62 @@ class Api {
       print(e);
     }
     return _result;
+  }
+
+  // Lấy danh sách tin tức mới nhất về covid
+  static Future<RssFeed?> getNewsCovid() async {
+    try {
+      var url = Uri.parse(urlNews);
+      http.Response response = await http.get(url);
+      String body = utf8.decode(response.bodyBytes);
+      print(body.toString());
+      var data = RssFeed.parse(body);
+      return data;
+    } catch (e) {
+      //print(e);
+    }
+    return null;
+  }
+
+  static Future<List<NewsModel>> getListCovidNews() async {
+    var rssFeed = await getNewsCovid();
+    List<NewsModel> lstNews = [];
+    try {
+      if (rssFeed != null) {
+        for (var item in rssFeed.items!) {
+          if (item.link!.toLowerCase().contains("ncov") ||
+              item.link!.toLowerCase().contains("covid")) {
+            lstNews.add(NewsModel(
+                image: RssHelper.getImageFromFeed(item.description!),
+                link: item.link!.replaceAll('\'', ""),
+                pubDate: DateFormat('dd/MM/yyyy').format(item.pubDate!),
+                title: item.title!));
+          }
+        }
+      }
+      for (int index = 0; index < 6; index++) {
+        lstNews[index].image = RssHelper.changeSizeImage(
+            imageUrl: lstNews[index].image, width: 200, height: 80);
+      }
+    } catch (e) {}
+    print(lstNews);
+    return lstNews;
+  }
+}
+
+class RssHelper {
+  static String getImageFromFeed(String description) {
+    int indexStart = description.indexOf('src=\"') + 5;
+    int indexEnd = description.indexOf(' align=') - 1;
+    return description.substring(indexStart, indexEnd);
+  }
+
+  // Thay đổi kích thước hình height x width
+  static String changeSizeImage(
+      {required String imageUrl, required int width, required height}) {
+    int indexEnd = imageUrl.indexOf('Uploaded') - 1;
+    String newSize = "${height}x$width";
+    String reuslt = imageUrl.replaceRange(27, indexEnd, newSize);
+    return reuslt;
   }
 }

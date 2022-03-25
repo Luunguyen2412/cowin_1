@@ -1,12 +1,10 @@
 import 'package:cowin_1/common/config/colors_config.dart';
 import 'package:cowin_1/common/config/texts_config.dart';
-import 'package:cowin_1/common/constants/tools.dart';
 import 'package:cowin_1/views/healthcare/mentally/mentally_page.dart';
 import 'package:cowin_1/views/healthcare/nutrition/nutrition_page.dart';
 import 'package:cowin_1/views/healthcare/physically/physically_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class HealthCareScreen extends StatefulWidget {
   const HealthCareScreen({Key? key}) : super(key: key);
@@ -39,65 +37,18 @@ class _HealthCareScreenState extends State<HealthCareScreen>
           headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
             return [
               SliverAppBar(
-                backgroundColor: cwColor2,
+                backgroundColor: primaryColor,
                 expandedHeight: 145.h,
                 title: Container(
                   padding: EdgeInsets.only(top: 20.h, left: 10.w),
-                  child: Text(
-                    "Healthcare",
-                    style: kText40Bold_3,
-                  ),
+                  child: Text("Healthcare",
+                      style: kTextConfig.copyWith(
+                        fontWeight: FontWeight.w500,
+                        fontSize: ScreenUtil().setSp(28.sp),
+                        color: cwColor2,
+                      )),
                 ),
-                actions: [
-                  Container(
-                    height: 68.h,
-                    margin: EdgeInsets.only(right: 27.w, top: 20.h),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Stack(
-                          alignment: AlignmentDirectional.center,
-                          children: [
-                            Container(
-                              width: 46.h,
-                              height: 46.h,
-                              decoration: BoxDecoration(
-                                  color: cwColor2,
-                                  borderRadius: BorderRadius.circular(10.h),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Color(0xFF4F9FF1).withOpacity(0.2),
-                                      offset: Offset(0, 2),
-                                      blurRadius: 20.0,
-                                    )
-                                  ]),
-                              child: Center(
-                                child: Container(
-                                    height: 27.h,
-                                    width: 25.w,
-                                    child: SvgPicture.asset(
-                                        Tools().getIcon("notification.svg"))),
-                              ),
-                            ),
-                            Container(
-                              height: 53.h,
-                              width: 53.h,
-                              alignment: AlignmentDirectional.topEnd,
-                              child: Container(
-                                width: 13.h,
-                                height: 13.h,
-                                decoration: BoxDecoration(
-                                    color: cwColor6, shape: BoxShape.circle),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-                bottom: TabBar(
+                bottom: TabBar(               
                   controller: _tabController,
                   labelStyle: kText20Bold_1,
                   unselectedLabelStyle: kText20Bold_4,
