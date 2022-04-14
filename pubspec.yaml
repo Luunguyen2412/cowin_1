@@ -61,7 +61,6 @@ dependencies:
   http: ^0.13.0
   url_launcher: ^6.0.17
   webfeed: ^0.7.0
-  flutter_webview_plugin: ^0.4.0
   flutter_spinkit: ^5.1.0
   cached_network_image: 3.1.0+1
 

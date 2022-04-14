@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:cowin_1/models/news_model.dart';
+import 'package:cowin_1/models/provinces.dart';
 import 'package:cowin_1/models/sum_patient_models.dart';
 import 'package:dio/dio.dart';
 import 'package:http/http.dart' as http;
@@ -31,7 +32,7 @@ class APIServices {
     try {
       Dio dio = new Dio();
       Response response = await dio.get(
-          "https://api.apify.com/v2/key-value-stores/EaCBL1JNntjR3EakU/records/LATEST?disableRedirect=true.");
+          "https://api.apify.com/v2/key-value-stores/EaCBL1JNntjR3EakU/records/LATEST?disableRedirect=true");
       if (response.statusCode == 200) {
         return response.data["overview"].last;
       }
@@ -74,6 +75,23 @@ class Api {
     return null;
   }
 
+  //lấy danh sách các tỉnh thành
+  static Future<List<Province>> getPatientProvinces() async {
+    List<Province> _result = [];
+    try {
+      var url = Uri.parse('$_domain/getAllPatientProvinces');
+      http.Response response = await http.post(url);
+      if (response.statusCode == 200) {
+        _result = getListProvinceFromJson(response.body).list;
+        return _result;
+      }
+    } catch (e) {
+      print(e);
+    }
+    return _result;
+  }
+
+  // lấy danh sách tin tức
   static Future<List<NewsModel>> getListCovidNews() async {
     var rssFeed = await getNewsCovid();
     List<NewsModel> lstNews = [];

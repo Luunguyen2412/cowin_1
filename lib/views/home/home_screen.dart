@@ -209,7 +209,7 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             height: 10.h,
                           ),
                           //CustomSwitchTabbar(),
-                          //sô ca covid 
+                          //sô ca covid
                           TotalPage(),
                           SizedBox(
                             height: 5.h,
@@ -322,18 +322,18 @@ class TotalPage extends StatelessWidget {
                 ),
                 children: [
                   CasesItem(
-                      'Số ca nhiễm',
+                      'Infections',
                       bloc.summPatient?.data.confirmed ?? 0,
                       CustomColors.blue,
                       bloc.summPatient?.data.plusConfirmed ?? 0),
-                  CasesItem('Đang điều trị', _treatedValue, CustomColors.yellow,
-                       bloc.summPatient?.data.plusRecovered ?? 0),
                   CasesItem(
-                      'Đã khỏi bệnh',
+                      'Treatments', _treatedValue, CustomColors.yellow, 0),
+                  CasesItem(
+                      'Recovereds ',
                       bloc.summPatient?.data.recovered ?? 0,
                       CustomColors.green,
                       bloc.summPatient?.data.plusRecovered ?? 0),
-                  CasesItem('Tử vong', bloc.summPatient?.data.death ?? 0,
+                  CasesItem('Deaths', bloc.summPatient?.data.death ?? 0,
                       CustomColors.red, bloc.summPatient?.data.plusDeath ?? 0),
                 ],
               ),

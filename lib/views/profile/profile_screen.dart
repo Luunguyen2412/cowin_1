@@ -1,4 +1,3 @@
-
 import 'package:cowin_1/common/config/colors_config.dart';
 import 'package:cowin_1/common/config/texts_config.dart';
 import 'package:cowin_1/view_models/app/app_provider.dart';
@@ -184,7 +183,6 @@ class PersonalScreen extends StatelessWidget {
                             context,
                             MaterialPageRoute(
                                 builder: (context) => LoginScreen()));
-                     
                       },
                       check: false,
                       color: cwcolor23,

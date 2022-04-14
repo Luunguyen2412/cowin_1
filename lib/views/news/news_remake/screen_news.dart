@@ -1,3 +1,4 @@
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cowin_1/common/config/colors_config.dart';
@@ -106,6 +107,7 @@ class _NewRemakeScreenState extends State<NewRemakeScreen> {
                       bloc.add(OnTapItemEvent(
                           newsModel: bloc.lstNews[itemIndex],
                           context: context));
+                      print('đọc tin tức thành công');
                     },
                     child: SizedBox(
                         height: MediaQuery.of(context).size.height * 0.4,
@@ -173,8 +175,15 @@ class _NewRemakeScreenState extends State<NewRemakeScreen> {
                                         bottom: 8, right: 8, left: 8),
                                     child: InkWell(
                                       onTap: () {
-                                        bloc.add(OnTapItemEvent(
-                                            newsModel: e, context: context));
+                                        // bloc.add(OnTapItemEvent(
+                                        //     newsModel: e, context: context));
+                                        // Navigator.pushNamed(
+                                        //   context,
+                                        //   MaterialPageRoute(
+                                        //       builder: (context) =>
+                                        //           const NewsDetailPage(newsModel: OnTapItemEvent(newsModel: , context: context),)),
+                                        // );
+                                        print('Đọc tin tức thành công');
                                       },
                                       borderRadius: BorderRadius.circular(8.0),
                                       child: Ink(

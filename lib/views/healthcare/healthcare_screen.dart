@@ -19,6 +19,7 @@ class _HealthCareScreenState extends State<HealthCareScreen>
 
   @override
   void initState() {
+    // ignore: todo
     // TODO: implement initState
     super.initState();
     _tabController = TabController(length: 3, vsync: this);
@@ -30,6 +31,7 @@ class _HealthCareScreenState extends State<HealthCareScreen>
   }
 
   @override
+  // ignore: must_call_super
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(

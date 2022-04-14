@@ -95,7 +95,7 @@ class _MapScreenState extends State<MapScreen> {
                   height: 50.h,
                   margin: EdgeInsets.symmetric(horizontal: 20.w),
                   decoration: BoxDecoration(
-                    color: Color(0xFF2198E7),
+                    color: primaryColor,
                       borderRadius:
                           BorderRadius.circular(
                               10.h)),

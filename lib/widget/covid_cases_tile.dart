@@ -6,10 +6,10 @@ import 'package:intl/intl.dart';
 import '../themes.dart';
 
 class CasesItem extends StatelessWidget {
-  late final String title;
-  late final int cases;
-  late final Color colorBox;
-  late final int plusvalue;
+  final String title;
+  final int cases;
+  final Color colorBox;
+  final int plusvalue;
   CasesItem(
     this.title,
     this.cases,

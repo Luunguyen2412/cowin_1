@@ -77,7 +77,7 @@ class _SearchScreenState extends State<SearchScreen> {
                             left: 20.w, right: 25.w, top: 10.h, bottom: 10.h),
                         padding: EdgeInsets.only(left: 20.w, right: 20.w),
                         decoration: BoxDecoration(
-                            color: cwColor5,
+                            color: primaryColor,
                             borderRadius: BorderRadius.circular(10.r)),
                         child: Row(
                           children: [
