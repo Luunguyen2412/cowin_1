@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'login_screen.dart';
 
+// ignore: camel_case_types
 class changePasswordScreen extends StatefulWidget {
   @override
   _ChangePasswordState createState() => _ChangePasswordState();

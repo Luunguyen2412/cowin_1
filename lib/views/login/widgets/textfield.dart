@@ -10,7 +10,6 @@ class TextFieldContainer extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Container(
       height: 63.h,
       width: 370.w,

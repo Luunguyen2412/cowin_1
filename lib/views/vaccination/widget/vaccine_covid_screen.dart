@@ -6,6 +6,7 @@ import 'package:cowin_1/views/vaccination/bloc/vaccination_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:intl/intl.dart';
 
 class CasesVaccineScreen extends StatefulWidget {
@@ -27,6 +28,14 @@ class _CasesVaccineScreenState extends State<CasesVaccineScreen>
         final bloc = BlocProvider.of<VaccinationBloc>(context);
 
         Widget _body() {
+          Widget _loadingWidget() {
+            return Center(
+                child: SizedBox(
+                    height: 25,
+                    width: 25,
+                    child: SpinKitFadingFour(color: primaryColor, size: 24.0)));
+          }
+
           Widget _titleListWidget() {
             Text ___textTitle(String txt) => Text(txt,
                 style: kTextConfig.copyWith(
@@ -83,17 +92,19 @@ class _CasesVaccineScreenState extends State<CasesVaccineScreen>
           }
 
           return Expanded(
-              child: Container(
-            padding:
-                const EdgeInsets.only(left: 12, right: 12, bottom: 12, top: 16),
-            child: Column(
-              children: [
-                _titleListWidget(),
-                SizedBox(height: 8),
-                _listDataWidget(),
-              ],
-            ),
-          ));
+              child: state is LoadingState
+                  ? _loadingWidget()
+                  : Container(
+                      padding: const EdgeInsets.only(
+                          left: 12, right: 12, bottom: 12, top: 16),
+                      child: Column(
+                        children: [
+                          _titleListWidget(),
+                          SizedBox(height: 8),
+                          _listDataWidget(),
+                        ],
+                      ),
+                    ));
         }
 
         return Scaffold(

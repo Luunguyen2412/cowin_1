@@ -20,7 +20,7 @@ var kText40Bold_3 = kTextConfig.copyWith(
 );
 var kText35Bold_7 = kTextConfig.copyWith(
   fontWeight: FontWeight.bold,
-  fontSize: ScreenUtil().setSp(35.sp),
+  fontSize: ScreenUtil().setSp(30.sp),
   color: cwColor7,
 );
 var kText35Normal_7 = kText35Bold_7.copyWith(fontWeight: FontWeight.normal);

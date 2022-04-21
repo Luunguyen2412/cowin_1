@@ -1,4 +1,3 @@
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cowin_1/common/config/colors_config.dart';
@@ -9,6 +8,7 @@ import 'package:cowin_1/views/news/bloc/news_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class NewRemakeScreen extends StatefulWidget {
   const NewRemakeScreen({Key? key}) : super(key: key);
@@ -139,14 +139,14 @@ class _NewRemakeScreenState extends State<NewRemakeScreen> {
                       __carouseSliderItem(itemIndex)),
             );
           }
-          //   Widget _loadingWidget() {
-          //   return Center(
-          //       child: SizedBox(
-          //           height: 25,
-          //           width: 25,
-          //           child: SpinKitFadingFour(
-          //               color: primaryColor, size: 24.0)));
-          // }
+
+          Widget _loadingWidget() {
+            return Center(
+                child: SizedBox(
+                    height: 25,
+                    width: 25,
+                    child: SpinKitFadingFour(color: primaryColor, size: 24.0)));
+          }
 
           return Scaffold(
             backgroundColor: Colors.white,
@@ -157,131 +157,136 @@ class _NewRemakeScreenState extends State<NewRemakeScreen> {
               children: [
                 _title(),
                 Expanded(
-                  child: RefreshIndicator(
-                    onRefresh: () async {
-                      bloc.add(const RefeshEvent());
-                    },
-                    child: SingleChildScrollView(
-                      physics: const AlwaysScrollableScrollPhysics(),
-                      child: Column(
-                        children: [
-                          _carouseSlider(),
-                          ...bloc.lstNews.map((e) {
-                            int _index = bloc.lstNews.indexOf(e);
-                            return _index < 5
-                                ? const SizedBox()
-                                : Container(
-                                    margin: const EdgeInsets.only(
-                                        bottom: 8, right: 8, left: 8),
-                                    child: InkWell(
-                                      onTap: () {
-                                        // bloc.add(OnTapItemEvent(
-                                        //     newsModel: e, context: context));
-                                        // Navigator.pushNamed(
-                                        //   context,
-                                        //   MaterialPageRoute(
-                                        //       builder: (context) =>
-                                        //           const NewsDetailPage(newsModel: OnTapItemEvent(newsModel: , context: context),)),
-                                        // );
-                                        print('Đọc tin tức thành công');
-                                      },
-                                      borderRadius: BorderRadius.circular(8.0),
-                                      child: Ink(
-                                        padding: const EdgeInsets.only(
-                                            top: 8,
-                                            bottom: 8,
-                                            left: 8,
-                                            right: 8),
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                          color: Colors.white,
-                                          boxShadow: const [
-                                            BoxShadow(
-                                                color: Colors.black12,
-                                                blurRadius: 4.0,
-                                                offset: Offset(0.0, 4.0))
-                                          ],
-                                        ),
-                                        child: Row(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Expanded(
-                                              flex: 1,
-                                              // padding: const EdgeInsets.all(8.0),
-                                              child: ClipRRect(
+                  child: state is LoadingState
+                      ? _loadingWidget()
+                      : RefreshIndicator(
+                          onRefresh: () async {
+                            bloc.add(const RefeshEvent());
+                          },
+                          child: SingleChildScrollView(
+                            physics: const AlwaysScrollableScrollPhysics(),
+                            child: Column(
+                              children: [
+                                _carouseSlider(),
+                                ...bloc.lstNews.map((e) {
+                                  int _index = bloc.lstNews.indexOf(e);
+                                  return _index < 5
+                                      ? const SizedBox()
+                                      : Container(
+                                          margin: const EdgeInsets.only(
+                                              bottom: 8, right: 8, left: 8),
+                                          child: InkWell(
+                                            onTap: () {
+                                              bloc.add(OnTapItemEvent(
+                                                  newsModel: e,
+                                                  context: context));
+                                              // Navigator.pushNamed(
+                                              //     context, "/newsDetailPage");
+                                              print('Đọc tin tức');
+                                            },
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            child: Ink(
+                                              padding: const EdgeInsets.only(
+                                                  top: 8,
+                                                  bottom: 8,
+                                                  left: 8,
+                                                  right: 8),
+                                              decoration: BoxDecoration(
                                                 borderRadius:
-                                                    BorderRadius.circular(8),
-                                                child: CachedNetworkImage(
-                                                  imageUrl: e.image,
-                                                  fit: BoxFit.fill,
-                                                  progressIndicatorBuilder:
-                                                      (context, url,
-                                                              downloadProgress) =>
-                                                          Center(
-                                                    child: Container(
-                                                      height: 40,
-                                                      width: 40,
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              4.0),
-                                                      child: CircularProgressIndicator(
-                                                          strokeWidth: 2,
-                                                          backgroundColor:
-                                                              primaryColor
-                                                                  .withOpacity(
-                                                                      0.1),
-                                                          color: primaryColor,
-                                                          value:
-                                                              downloadProgress
-                                                                  .progress),
+                                                    BorderRadius.circular(8.0),
+                                                color: Colors.white,
+                                                boxShadow: const [
+                                                  BoxShadow(
+                                                      color: Colors.black12,
+                                                      blurRadius: 4.0,
+                                                      offset: Offset(0.0, 4.0))
+                                                ],
+                                              ),
+                                              child: Row(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Expanded(
+                                                    flex: 1,
+                                                    // padding: const EdgeInsets.all(8.0),
+                                                    child: ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              8),
+                                                      child: CachedNetworkImage(
+                                                        imageUrl: e.image,
+                                                        fit: BoxFit.fill,
+                                                        progressIndicatorBuilder:
+                                                            (context, url,
+                                                                    downloadProgress) =>
+                                                                Center(
+                                                          child: Container(
+                                                            height: 40,
+                                                            width: 40,
+                                                            padding:
+                                                                const EdgeInsets
+                                                                    .all(4.0),
+                                                            child: CircularProgressIndicator(
+                                                                strokeWidth: 2,
+                                                                backgroundColor:
+                                                                    primaryColor
+                                                                        .withOpacity(
+                                                                            0.1),
+                                                                color:
+                                                                    primaryColor,
+                                                                value: downloadProgress
+                                                                    .progress),
+                                                          ),
+                                                        ),
+                                                        errorWidget: (context,
+                                                                url, error) =>
+                                                            const Icon(
+                                                                Icons.error),
+                                                      ),
+
+                                                      //  Image.network(e.image,
+                                                      //     fit: BoxFit.fill),
                                                     ),
                                                   ),
-                                                  errorWidget: (context, url,
-                                                          error) =>
-                                                      const Icon(Icons.error),
-                                                ),
-
-                                                //  Image.network(e.image,
-                                                //     fit: BoxFit.fill),
+                                                  const SizedBox(width: 8.0),
+                                                  Expanded(
+                                                      flex: 3,
+                                                      child: Column(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Text(
+                                                            e.title,
+                                                            maxLines: null,
+                                                          ),
+                                                          Padding(
+                                                            padding:
+                                                                const EdgeInsets
+                                                                        .only(
+                                                                    top: 8.0),
+                                                            child:
+                                                                Text(e.pubDate),
+                                                          ),
+                                                        ],
+                                                      )),
+                                                ],
                                               ),
                                             ),
-                                            const SizedBox(width: 8.0),
-                                            Expanded(
-                                                flex: 3,
-                                                child: Column(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    Text(
-                                                      e.title,
-                                                      maxLines: null,
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          const EdgeInsets.only(
-                                                              top: 8.0),
-                                                      child: Text(e.pubDate),
-                                                    ),
-                                                  ],
-                                                )),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  );
-                          }).toList()
-                        ],
-                      ),
-                    ),
-                  ),
+                                          ),
+                                        );
+                                }).toList()
+                              ],
+                            ),
+                          ),
+                        ),
                 )
               ],
             ),

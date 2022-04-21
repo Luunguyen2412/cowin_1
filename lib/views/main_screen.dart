@@ -4,13 +4,13 @@ import 'package:cowin_1/common/config/colors_config.dart';
 import 'package:cowin_1/common/config/texts_config.dart';
 import 'package:cowin_1/common/constants/tools.dart';
 import 'package:cowin_1/view_models/app/app_provider.dart';
-import 'package:cowin_1/views/chat/chat_screen.dart';
 import 'package:cowin_1/views/map/map_screen.dart';
 import 'package:cowin_1/views/profile/profile_screen.dart';
 import 'package:cowin_1/views/vaccination/vaccination.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modules/flutter_modules.dart';
 
+import 'chat/chatbot_screen.dart';
 import 'home/home_screen.dart';
 import 'news/news_remake/screen_news.dart';
 
@@ -150,7 +150,7 @@ class _MainScreenState extends State<MainScreen> {
                 ),
                 onPressed: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => ChatScreen()));
+                      MaterialPageRoute(builder: (context) => ChatBotScreen()));
                 },
               )
             : Container(),

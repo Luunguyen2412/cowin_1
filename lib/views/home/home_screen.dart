@@ -9,6 +9,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:cowin_1/views/home/bloc/home_state.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -202,7 +203,7 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Covid Cases",
+                            "Covid Cases of Vietnam",
                             style: kText35Bold_7,
                           ),
                           SizedBox(
@@ -310,37 +311,49 @@ class TotalPage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 10.h),
-            Container(
-              child: GridView(
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 15.h,
-                  mainAxisSpacing: 15.w,
-                  childAspectRatio: 25 / 17,
-                ),
-                children: [
-                  CasesItem(
-                      'Infections',
-                      bloc.summPatient?.data.confirmed ?? 0,
-                      CustomColors.blue,
-                      bloc.summPatient?.data.plusConfirmed ?? 0),
-                  CasesItem(
-                      'Treatments', _treatedValue, CustomColors.yellow, 0),
-                  CasesItem(
-                      'Recovereds ',
-                      bloc.summPatient?.data.recovered ?? 0,
-                      CustomColors.green,
-                      bloc.summPatient?.data.plusRecovered ?? 0),
-                  CasesItem('Deaths', bloc.summPatient?.data.death ?? 0,
-                      CustomColors.red, bloc.summPatient?.data.plusDeath ?? 0),
-                ],
-              ),
-            ),
+            state is LoadingState
+                ? _loadingWidget()
+                : Container(
+                    child: GridView(
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        crossAxisSpacing: 15.h,
+                        mainAxisSpacing: 15.w,
+                        childAspectRatio: 25 / 17,
+                      ),
+                      children: [
+                        CasesItem(
+                            'Infections',
+                            bloc.summPatient?.data.confirmed ?? 0,
+                            CustomColors.blue,
+                            bloc.summPatient?.data.plusConfirmed ?? 0),
+                        CasesItem('Treatments', _treatedValue, cwcolor26, 0),
+                        CasesItem(
+                            'Recovereds ',
+                            bloc.summPatient?.data.recovered ?? 0,
+                            CustomColors.green,
+                            bloc.summPatient?.data.plusRecovered ?? 0),
+                        CasesItem(
+                            'Deaths',
+                            bloc.summPatient?.data.death ?? 0,
+                            CustomColors.red,
+                            bloc.summPatient?.data.plusDeath ?? 0),
+                      ],
+                    ),
+                  ),
           ],
         );
       }),
     );
+  }
+
+  Widget _loadingWidget() {
+    return Center(
+        child: SizedBox(
+            height: 25,
+            width: 25,
+            child: SpinKitFadingFour(color: primaryColor, size: 24.0)));
   }
 }
