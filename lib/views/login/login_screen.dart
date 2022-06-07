@@ -1,19 +1,24 @@
 //import '#dart:ffi';
 
+import 'dart:convert';
+
 import 'package:cowin_1/common/config/colors_config.dart';
 import 'package:cowin_1/common/config/texts_config.dart';
 import 'package:cowin_1/view_models/app/app_provider.dart';
 
 import 'package:cowin_1/view_models/login/google_login_controller.dart';
+import 'package:cowin_1/views/home/home_screen.dart';
 import 'package:cowin_1/views/login/widgets/textfield.dart';
 import 'package:cowin_1/views/main_screen.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'Register_Screen.dart';
 import 'forgot_password_screen.dart';
+import 'package:http/http.dart' as http;
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -24,7 +29,10 @@ class _LoginScreenState extends State<LoginScreen> {
   bool _isObscure = true;
   GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
   TextEditingController userName = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
+  TextEditingController passController = TextEditingController();
   TextEditingController password = TextEditingController();
+  String username = "";
 
   String? validateInput() {
     if (userName.text.isEmpty)
@@ -38,11 +46,34 @@ class _LoginScreenState extends State<LoginScreen> {
     return null;
   }
 
+  //Login Request
+  postDataLogin(String? tel, String? pass) async {
+    try {
+      var response = await http.post(
+          Uri.parse("http://lamda.fun/api/auth/login"),
+          body: {"tel": tel, "password": pass});
+
+      var json = jsonDecode(response.body);
+      print(json['error']);
+      if (json["error"] == true || json["error"] != null) {
+        print('login Faileddd');
+      } else {
+        username = json["data"]["original"]["user"]["name"].toString();
+        var token = json["data"]["original"]["access_token"].toString();
+        SharedPreferences prefs = await SharedPreferences.getInstance();
+        prefs.setString('displayName', username);
+        prefs.setString('token', token);
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => const HomePage()));
+      }
+    } catch (e) {}
+  }
+
   @override
   Widget build(BuildContext context) {
     GoogleSignInController _googleSignIn =
         Provider.of<GoogleSignInController>(context);
-            var appProvider = Provider.of<AppProvider>(context);
+    var appProvider = Provider.of<AppProvider>(context);
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -246,10 +277,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     //   );
                     //   ScaffoldMessenger.of(context).showSnackBar(snackBar);
                     // }
-                    Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => MainScreen()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => MainScreen()));
                   },
                 ),
                 Row(
@@ -288,9 +317,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 Container(
                   alignment: Alignment.center,
-                  child: Text("Hoặc",style: kText18Bold_3,),
+                  child: Text(
+                    "Hoặc",
+                    style: kText18Bold_3,
+                  ),
                 ),
-                    SizedBox(
+                SizedBox(
                   height: 20.h,
                 ),
                 Container(
@@ -300,18 +332,16 @@ class _LoginScreenState extends State<LoginScreen> {
                   alignment: Alignment.center,
                   child: InkWell(
                     onTap: () {
-                      _googleSignIn.login(
-                          success: () {
-                            appProvider.hideNavBar = false;
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  settings: RouteSettings(name: '/login'),
-                                    builder: (context) => MainScreen()));
-                          },
-                          error: () {
-                            print("Login error");
-                          });
+                      _googleSignIn.login(success: () {
+                        appProvider.hideNavBar = false;
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                settings: RouteSettings(name: '/login'),
+                                builder: (context) => MainScreen()));
+                      }, error: () {
+                        print("Login error");
+                      });
                     },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,

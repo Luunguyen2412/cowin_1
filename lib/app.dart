@@ -68,11 +68,15 @@ class AppRoutes {
   static Route onGenerateRoute(RouteSettings settings) {
     debugPrint('onGenerateRoute: ${settings.name}');
     switch (settings.name) {
+      case '/':
+        return MaterialPageRoute(
+            builder: (_) => MainScreen(),
+            settings: RouteSettings(name: MainScreen.routeName));
       case NewsDetailPage.routeName:
         return MaterialPageRoute(
           builder: (_) => NewsDetailPage(
             newsModel: settings.arguments as NewsModel,
-          ),      
+          ),
           settings: RouteSettings(
               name: NewsDetailPage.routeName, arguments: settings.arguments),
         );

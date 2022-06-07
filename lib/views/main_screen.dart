@@ -4,8 +4,8 @@ import 'package:cowin_1/common/config/colors_config.dart';
 import 'package:cowin_1/common/config/texts_config.dart';
 import 'package:cowin_1/common/constants/tools.dart';
 import 'package:cowin_1/view_models/app/app_provider.dart';
+import 'package:cowin_1/views/BMI/bmi_calculate.dart';
 import 'package:cowin_1/views/map/map_screen.dart';
-import 'package:cowin_1/views/profile/profile_screen.dart';
 import 'package:cowin_1/views/vaccination/vaccination.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modules/flutter_modules.dart';
@@ -15,6 +15,7 @@ import 'home/home_screen.dart';
 import 'news/news_remake/screen_news.dart';
 
 class MainScreen extends StatefulWidget {
+  static const String routeName = "/main";
   @override
   _MainScreenState createState() => _MainScreenState();
 }
@@ -27,7 +28,8 @@ class _MainScreenState extends State<MainScreen> {
     //HealthCareScreen(),
     DataCovidScreen(),
     MapScreen(),
-    PersonalScreen(),
+    //PersonalScreen(),
+    BMICalculator(),
     //DataCovidScreen(),
   ];
 
@@ -96,7 +98,7 @@ class _MainScreenState extends State<MainScreen> {
                 color: cwColor4,
               ),
         activeColorPrimary: primaryColor,
-        title: ('Profile'),
+        title: ('BMI'), 
       ),
     ];
   }
@@ -141,7 +143,7 @@ class _MainScreenState extends State<MainScreen> {
         margin: EdgeInsets.only(bottom: 60),
         child: _controller.index != 3 || appProvider.hideNavBar
             ? FloatingActionButton(
-              backgroundColor: primaryColor,
+                backgroundColor: primaryColor,
                 child: Center(
                   child: Icon(
                     Icons.chat,

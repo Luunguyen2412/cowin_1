@@ -10,6 +10,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
+import 'news_detail_screen.dart';
+
 class NewRemakeScreen extends StatefulWidget {
   const NewRemakeScreen({Key? key}) : super(key: key);
 
@@ -177,11 +179,12 @@ class _NewRemakeScreenState extends State<NewRemakeScreen> {
                                               bottom: 8, right: 8, left: 8),
                                           child: InkWell(
                                             onTap: () {
-                                              bloc.add(OnTapItemEvent(
-                                                  newsModel: e,
-                                                  context: context));
-                                              // Navigator.pushNamed(
-                                              //     context, "/newsDetailPage");
+                                              // bloc.add(OnTapItemEvent(
+                                              //     newsModel: e,
+                                              //     context: context));
+                                              Navigator.pushNamed(context,
+                                                  NewsDetailPage.routeName,
+                                                  arguments: e);
                                               print('Đọc tin tức');
                                             },
                                             borderRadius:
