@@ -203,18 +203,75 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
             // var data = jsonEncode(response.body);
             // _insertSingleItem(
             //     jsonDecode(data) + "<bot>");
+
             Map<String, dynamic> data = jsonDecode(response.body);
             if (data['status'] == 'OK') {
-              _insertSingleItem((data['response']['data'] + "<bot>"));
-            }
-            //  else if (data['response']['tag'] == 'random_recipe' && data['status'] == 'OK') {
-            //   _insertSingleItem((data['response']['data']['title'] + "<bot>"));
-            // } 
-            else {
+              switch (data['response']['tag']) {
+                // chao hoi
+                case 'greeting':
+                  _insertSingleItem((data['response']['data'] + "<bot>"));
+                  break;
+                // tra cuu cong dung thuoc
+                case 'indications_and_usage':
+                  _insertSingleItem((data['response']['data'] + "<bot>"));
+                  break;
+                // tra cuu luu luong thuoc
+                case 'dosage_and_administration':
+                  _insertSingleItem((data['response']['data'] + "<bot>"));
+                  break;
+                // thong tin covid
+                case 'covid_info':
+                  _insertSingleItem((data['response']['data']
+                          ['lastUpdatedDate'] +
+                      '\n' +
+                      'Tong so ca mac: ' +
+                      (data['response']['data']['totalCases']).toString() +
+                      '\n' +
+                      'So ca mac moi: ' +
+                      (data['response']['data']['newCases']).toString() +
+                      '\n' +
+                      'Tong so ca tu vong: ' +
+                      (data['response']['data']['totalDeaths']).toString() +
+                      '\n' +
+                      'So ca moi tu vong: ' +
+                      (data['response']['data']['newDeaths']).toString() +
+                      "<bot>"));
+                  break;
+                // tin tuc y te
+                case 'health_news':
+                  _insertSingleItem(
+                      (data['response']['data']['news']['title'] + "<bot>"));
+                  break;
+                // cong thuc nau an ngau nhien
+                case 'random_recipe':
+                  _insertSingleItem((data['response']['data']['title'] +
+                      '\n' +
+                      '\n' +
+                      data['response']['data']['sourceUrl'] +
+                      "<bot>"));
+                  break;
+                // kiem tra trieu chung
+                case 'symptom_checker':
+                  _insertSingleItem(
+                      (data['response']['data']['name'] + "<bot>"));
+                  break;
+                default:
+                  _insertSingleItem((data['message'] + "<bot>"));
+                  break;
+              }
+            } else {
               _insertSingleItem((data['message'] + "<bot>"));
             }
-            // _insertSingleItem((data['response']['data'] + "<bot>"));
-            // _insertSingleItem((data['response']['data']['title'] + "<bot>"));
+
+            // if (data['status'] == 'OK') {
+            //   _insertSingleItem((data['response']['data'] + "<bot>"));
+            // }
+            // //  else if (data['response']['tag'] == 'random_recipe' && data['status'] == 'OK') {
+            // //   _insertSingleItem((data['response']['data']['title'] + "<bot>"));
+            // // }
+            // else {
+            //   _insertSingleItem((data['message'] + "<bot>"));
+            // }
 
             //// sửa lại format của data trả về
           });

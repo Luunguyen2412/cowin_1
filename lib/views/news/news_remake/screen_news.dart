@@ -127,7 +127,7 @@ class _NewRemakeScreenState extends State<NewRemakeScreen> {
             return SizedBox(
               width: MediaQuery.of(context).size.width,
               child: CarouselSlider.builder(
-                  itemCount: 5,
+                  itemCount: 2,
                   options: CarouselOptions(
                     autoPlay: true,
                     autoPlayAnimationDuration:
@@ -170,9 +170,10 @@ class _NewRemakeScreenState extends State<NewRemakeScreen> {
                             child: Column(
                               children: [
                                 _carouseSlider(),
+                                SizedBox(height: 10),
                                 ...bloc.lstNews.map((e) {
                                   int _index = bloc.lstNews.indexOf(e);
-                                  return _index < 5
+                                  return _index < 1
                                       ? const SizedBox()
                                       : Container(
                                           margin: const EdgeInsets.only(
